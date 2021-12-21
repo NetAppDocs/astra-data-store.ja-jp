@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: use/configure-endpoints.html 
+keywords: astra, astra data store, kubectl, endpoints, confluent 
+summary: Kubectl コマンドを Astra データストアとともに使用して、 Conluent などで使用するエンドポイントを設定できます。 
+---
+= イベントログを設定して監視する
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Event Management System （ EMS ；イベント管理システム）ログを監視するには、次の高度なタスクを実行します。
+
+* <<Configure monitoring in the Astra Data Store preview cluster custom resource (CR)>>
+* <<Set up Cloud Insights>>
+* <<Stream event logs to Elastic>>。
+
+
+
+
+== Astra データストアプレビュークラスタカスタムリソース（ CR ）で監視を設定する
+
+Astra Data Store プレビュークラスタ CR でモニタリングオプションが設定されていない場合は、「 astras 」拡張機能を使用して設定できます。
+
+入力するコマンド
+
+[listing]
+----
+~% kubectl astrads monitoring setup -n <NAMESPACE OF AGENT INSTALLED>  -r <DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES>
+----
+ここで、
+
+* インストールされているエージェントの名前空間 : 監視エージェントです。監視オペレータの CR です。
+* -r はオプションです
+
+
+
+
+== Cloud Insights をセットアップする
+
+を参照してください link:../use/monitor-with-cloud-insights.html["NetApp Cloud Insights のセットアップ方法"] Astra データストアプレビュー版で使用できます。
+
+
+
+== イベントログを Elastic にストリーミングする
+
+EMS イベントやその他のポッドログをストリーミングして、ログを Elastic などのサードパーティのエンドポイントにストリーミングするには、「 astrads 」拡張機能を使用します。
+
+入力するコマンド
+
+[listing]
+----
+~% kubectl astrads monitoring --host <ELASTIC HOST NAME> --port <ELASTIC HOST PORT> es
+----
+
+NOTE: Elastic ホスト名は IP アドレスでもかまいません。

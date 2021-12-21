@@ -1,0 +1,10 @@
+---
+section: troubleshooting
+title: トラブルシューティング
+entries:
+- title: ノードをメンテナンスモードにします
+  url: "/troubleshooting/ads-maintenance-mode.html"
+- title: ドライブを交換します
+  url: "/troubleshooting/ads-replace-drive.html"
+- title: ノードを交換
+  url: "/troubleshooting/ads-replace-node.html"

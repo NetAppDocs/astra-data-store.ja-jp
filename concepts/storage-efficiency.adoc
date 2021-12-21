@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: concepts/storage-efficiency.html 
+keywords: how astra works, how Astra works, what Astra is, astra data store, 
+summary: Astra Data Store では、シンプロビジョニング、ゼロブロックの排除、圧縮、重複排除などのストレージ効率化テクノロジを使用しています。 
+---
+= Astra データストアのストレージ効率
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+Astra データストアでは、 ONTAP テクノロジと SolidFire テクノロジを基盤とする Storage Efficiency テクノロジを次のように利用しています。
+
+* * シンプロビジョニング * ：シンプロビジョニングされたボリュームは、ストレージが事前に予約されていないボリュームです。代わりに、ストレージは必要に応じて動的に割り当てられます。ボリュームまたは LUN 内のデータが削除されると、空きスペースはストレージシステムに戻されます
+* * ゼロブロックの検出と排除 * ：シンプロビジョニングを使用した ONTAP ストレージシステムでは、ボリュームが初期化されている領域を検出して、そのスペースを解放して他の場所で使用することができます。
+* * 圧縮 * ：圧縮では、データブロックを圧縮グループに集約し、各データブロックを 1 つのブロックとして格納することで、ボリュームに必要な物理ストレージの量を削減します。ONTAP では、ファイル全体ではなく、要求されたデータを含む圧縮グループのみが解凍されるため、従来の圧縮手法よりも短時間で圧縮されたデータを読み取ることができます。
+* * 重複排除 * ：重複するブロックを破棄して単一の共有ブロックへの参照に置き換えることで、ボリューム（または AFF アグリゲート内のすべてのボリューム）に必要なストレージ容量を削減します。通常、重複排除されたデータの読み取りがパフォーマンスに影響することはありません。ノードに負荷が集中している場合を除き、書き込みによる影響もほとんどありません。
+
+
+これらの機能はすべてデフォルトで有効になっています。
+
+を参照してください https://docs.netapp.com/ontap-9/index.jsp["Storage Efficiency の詳細"]。
+
+
+
+== を参照してください。
+
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]
+* https://docs.netapp.com/us-en/astra/index.html["Astra Control Service のマニュアル"^]
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center のドキュメント"^]
+* https://docs.netapp.com/us-en/trident/index.html["Astra Trident のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+* https://docs.netapp.com/us-en/ontap/index.html["ONTAP のドキュメント"^]
+

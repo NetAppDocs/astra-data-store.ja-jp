@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: concepts/expansion.html 
+keywords: how astra works, how Astra expansion works, what Astra is, astra data store, kubernetes 
+summary: Astra データストアクラスタは拡張が可能です。 
+---
+= クラスタの拡張
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+Astra データストアプレビュー：クラスタ内でさまざまなタイプや機能のノードをサポートクラスタを拡張する場合は、パフォーマンス機能がクラスタ内のパフォーマンスが最も低いノードよりも低いノード以外のノードを追加することを Astra データストアプレビューでサポートしています。新しいノードのストレージ容量は既存のノードと同じである必要があります。拡張時の新しいノードを含むすべてのノードは、に示した最小要件を満たしている必要があります link:../get-started/requirements.html["Astra データストアの要件"]。
+
+
+
+== を参照してください。
+
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]
+* https://docs.netapp.com/us-en/astra/index.html["Astra Control Service のマニュアル"^]
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center のドキュメント"^]
+* https://docs.netapp.com/us-en/trident/index.html["Astra Trident のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra API を使用"^]
+* https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights のドキュメント"^]
+* https://docs.netapp.com/us-en/ontap/index.html["ONTAP のドキュメント"^]
+

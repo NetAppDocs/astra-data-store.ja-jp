@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: use/ads-acc-ui.html 
+keywords: astra, astra data store, astra control center 
+summary: Astra Control Center のユーザーインタフェース（ UI ）を使用して、 Astra データストアのタスクを実行できます。 
+---
+= Astra Control Center with Astra のデータストアプレビューを使用
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Astra Control Center のユーザーインタフェース（ UI ）を使用して、 Astra データストアのプレビュータスクを実行できます。
+
+
+
+== Astra Control Center for Astra のデータストアプレビューのセットアップ
+
+Astra Data Store プレビュー用の Astra Control Center UI を使用するには、次のタスクを実行する必要があります。
+
+* クラスタを追加Astra Data Store プレビューがインストールされた、基盤となる Kubernetes クラスタです。を参照してください https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-cluster["Astra データストアプレビュークラスタを Astra Control Center インストールにインポートします"^]。
+* Astra データストアプレビュー用のストレージバックエンドをクラスタに追加します。
++
+
+NOTE: ストレージバックエンドを追加し、 Astra データストアプレビューを含む Kubernetes クラスタがない場合は、最初にクラスタを追加する必要があります。
+
+
+
+
+
+== Astra Control Center でできること
+
+Astra Control Center for Astra Data Store プレビューをセットアップしたら、 Astra Control Center UI を使用して次のタスクを実行できます。
+
+* https://docs.netapp.com/us-en/astra-control-center/use/monitor-protect.html["Astra Control Center を使用して、 Astra データストアのプレビュー資産の健常性を監視"^]。
+* https://docs.netapp.com/us-en/astra-control-center/use/manage-backend.html["Astra データストアのプレビューバックエンドストレージを管理"^]。
+* https://docs.netapp.com/us-en/astra-control-center/use/view-dashboard.html["ノード、ディスク、および永続ボリューム要求（ PVC ）とその状態を表示します"^]。
+
+
+
+
+== を参照してください。
+
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+

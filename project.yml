@@ -1,0 +1,60 @@
+---
+settings:
+  name: Astra Data Store
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: true
+    langs: ja-jp,us-en,zh-cn
+sidebar:
+  entries:
+  - title: Astra データストアのドキュメント
+    url: "/index.html"
+  - section: release-notes
+  - section: concepts
+  - section: get-started
+  - section: use
+  - section: support
+  - title: 法的通知
+    url: "/legal-notices.html"
+homepage:
+  tiles:
+  - title: はじめに
+    links:
+    - title: Astra データストアの詳細
+      url: "/concepts/intro.html"
+    - title: Astra データストアプレビューの内容
+      url: "/release-notes/whats-new.html"
+    - title: ぜひお試しください
+      url: "/get-started/install-ads.html#edit-and-apply-the-astra-data-store-license"
+    - title: Astra データストアプレビューをインストールします
+      url: "/get-started/install-ads.html"
+    - title: Astra データストアのプレビュー版をセットアップする
+      url: "/get-started/setup-ads.html"
+  - title: Astra データストアプレビューを使用
+    links:
+    - title: kubectl コマンドを使用して管理します
+      url: "/use/kubectl-commands-ads.html"
+    - title: Cloud Insights で指標を監視
+      url: "/use/monitor-with-cloud-insights.html"
+    - title: イベントログを監視する
+      url: "/use/configure-endpoints.html"
+    - title: Astra Control Center の統合
+      url: "/use/ads-acc-ui.html"
+  - title: デモチュートリアル
+    links:
+    - title: Kubernetes の未来
+      url: https://cloud.netapp.com/astra-data-store
+    - title: Astra データストアプレビューのデモ
+      url: https://netapp.hubs.vidyard.com/watch/aDmgkBbJhUTZAGmH5XKimA?
+  - title: ブログコミュニティ
+    links:
+    - title: Astra ブログ
+      url: https://cloud.netapp.com/blog/topic/astra
+    - title: "「コンテナ」チャネルをスラックします"
+      url: https://netapp.io/slack
+    - title: Kubernetes ハブ
+      url: https://cloud.netapp.com/kubernetes-hub
+    - title: サポートへのアクセス
+      url: "/support/get-help.html"

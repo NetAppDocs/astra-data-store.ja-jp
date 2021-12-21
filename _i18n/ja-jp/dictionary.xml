@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blocks>
+  <block id="09d2d3af569490e66174ce93301cd0b0" category="summary">Astra Data Store が提供する永続的ストレージサービスとデータ管理サービスは、 Kubernetes ネイティブのコンテナ化アプリケーションに対応しています。Astra データストアは、 Astra ファミリ製品の一部です。</block>
+  <block id="0033a0be965b04e889c13f8699fa52ca" category="doc">Astra データストアプレビュー版のドキュメント</block>
+  <block id="43ec8122a289489e5938e6da7d7803ad" category="summary">ネットアップでは、 Astra データストアのサポートをさまざまな方法で提供しています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra データストアアカウントには、 Web でチケットを発行してリモートでテクニカルサポートを受けることができます。</block>
+  <block id="f5291aae1c11df631ccc337d79334351" category="doc">サポートの自動監視</block>
+  <block id="49640cf3000ef562beb7641cb71c199d" category="paragraph">AutoSupport は、 Astra データストアシステムの稼働時間と情報を監視し、ネットアップサポートにメッセージを送信構成に応じて、次のシステムコンポーネントを監視できます。</block>
+  <block id="650717c72d7a99e6505592f83821e4ed" category="list-text">コントロールプレーン</block>
+  <block id="8c4aa541ee911e8d80451ef8cc304806" category="list-text">ストレージ</block>
+  <block id="dc9f6facbb662cedbda63315bcb2bf67" category="inline-link-macro">Astra データストアクラスタのインストール</block>
+  <block id="89966e257924f9020c7df5273a9de7c5" category="paragraph">AutoSupport は、の実行時にデフォルトで有効になります <block ref="358123e8ea557abd0b8691f487f24c11" category="inline-link-macro-rx"></block> または、 AutoSupport CR がクラスタに適用された後に実行します。有効にすると、ネットアップサポートサイト（ NSS ）に AutoSupport （ ASUP ）バンドルが自動的にアップロードされるか、手動でダウンロードすることができます。</block>
+  <block id="dae8ace18bdcbcc6ae5aece263e14fe8" category="list-title">オプション（ Options ）</block>
+  <block id="d41d8cd98f00b204e9800998ecf8427e" category="inline-xref"></block>
+  <block id="023abf142a3991d559ced0ca57282d6a" category="list-text"><block ref="73e64b817c03e14fe2277fa69c7e863e" category="inline-xref-macro-rx"></block></block>
+  <block id="0e670f718cb5e0f313f7a5754b53af80" category="list-text"><block ref="fd89cb1e95c5a94c74489125cde6510b" category="inline-xref-macro-rx"></block></block>
+  <block id="12086876b40161f34ebcda9b4141c63d" category="list-text"><block ref="e2db2b0a425a63f84b57e5abb9f20b22" category="inline-xref-macro-rx"></block></block>
+  <block id="314287d647e9716574bbc7c100fb9867" category="list-text"><block ref="def4bcae3ecda655c7b733ea3980c265" category="inline-xref-macro-rx"></block></block>
+  <block id="1263660ba67e88caf8eb2431d28c44d1" category="list-text"><block ref="c812ac4d7fb1d494d99e57543c82a134" category="inline-xref-macro-rx"></block></block>
+  <block id="c8259bf35a2bdc9b87f057557d330e25" category="section-title">AutoSupport のトリガーとシナリオ</block>
+  <block id="b23b84a773fe2431825b44f4b9bc0ddb" category="paragraph">AutoSupport バンドルは、次の方法でトリガーされます。</block>
+  <block id="a5facf88e98d4f3b6218267651739d68" category="list-text">定期的： CR で定義された間隔で ASUP バンドルが作成されます。</block>
+  <block id="ec673413fc3a41ebc533e1c38f2e18a1" category="list-text">User Triggered ：独自の ASUP を手動で作成してログを参照できます。</block>
+  <block id="30bf10f9e77440cd5b50c15719c81944" category="list-text">coredumps ：ノードにコアダンプがある場合は、 ASUP が生成され、コアがネットアップに送信されて詳しい調査が行われます。</block>
+  <block id="c2d8f28a841240c2f4d90140f7810bf1" category="list-text">CallHome イベントベース：オペレーティングシステムから特定の callhome イベントから ASUP が生成されます。</block>
+  <block id="3c71d7ce3356413ca73e41268c0f7c83" category="list-text">Kubernetes Event Based ：コントロールプレーンの特定の Kubernetes イベントから ASUP が生成されます。</block>
+  <block id="372fb9362736f0e8d582ec96df84fb6a" category="paragraph">これらのトリガーシナリオでは、次のいずれかの AutoSupport タイプが生成されます。</block>
+  <block id="f0f6261dd53f9b5eff98e12509221bf7" category="list-text">ControlPlane AutoSupport ： Astra データストアのコントロールプレーンログと CRS のコレクション。</block>
+  <block id="25a6232591674a3c1dbb24564f4d87fb" category="list-text">Storage AutoSupport ：ストレージレポートとパフォーマンスデータの集まり。</block>
+  <block id="1ced1baf40d2db9de38616ea88ac1a4b" category="list-text">Core Dump AutoSupport ：システムコアダンプの集まり。</block>
+  <block id="4d58342c8fbe7548f0680da50eadd915" category="section-title">カスタムコントロールプレーンの AutoSupport 収集を設定します</block>
+  <block id="0249554f3cd3fae8f1cc2c62f50f7ada" category="paragraph">コントロールプレーンイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています <block ref="358123e8ea557abd0b8691f487f24c11" category="inline-link-macro-rx"></block>。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。</block>
+  <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">手順</block>
+  <block id="704170cc11bda8cddca282c117836b3a" category="list-text">コントロールプレーンコレクション CR を作成するには、次のコマンドをカスタマイズします。</block>
+  <block id="0e06b0da9f80219a18d8739f0120abbd" category="list-text">カスタムパラメータを定義します。</block>
+  <block id="b29d2ef49a96707c2d8b5968d23c62a8" category="list-text">`&lt;myASUPNAME&gt;` ：生成する AutoSupport CR の名前。</block>
+  <block id="b1779b1163734addf83359e7b817be1d" category="list-text">`-e &lt;event name&gt;` ：イベント名の収集をトリガーするイベント名は、 component.yaml ( コントローラをサポートするためにマウントされている ) で事前に定義されている必要があります。</block>
+  <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">例</block>
+  <block id="c9fcbda668b713374776401ef822c1e8" category="list-text">必要に応じて、システムに追加のパラメータを追加します。</block>
+  <block id="92a4815b61cd107e54a5baa926431efe" category="list-text">`--cluster` ：このフラグはマルチクラスタ環境で必要です。</block>
+  <block id="7e1232afa7e6c41607b3fb287f2b8b1e" category="list-text">`-- localCollection` : ローカルコレクションをイネーブルにします。デフォルトは 'false.' です</block>
+  <block id="14435a527eab4059647b1d681292642e" category="list-text">`--forceUpload`: 強制アップロードを有効にします。デフォルトは 'false.' です</block>
+  <block id="7559d5f261056c6409821093bd2ec415" category="list-text">`--retry`: 再試行を有効にしますデフォルトは 'false.' です</block>
+  <block id="c7e88254029f9cd1420ef53afd3e08fe" category="section-title">カスタムのストレージ AutoSupport による収集を設定する</block>
+  <block id="ffe879572b8c2c46707f262f58096e3c" category="paragraph">ストレージコンポーネントのイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています <block ref="358123e8ea557abd0b8691f487f24c11" category="inline-link-macro-rx"></block>。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。</block>
+  <block id="aa1f065e1e83bd408811c0d6b5def6ad" category="list-text">次のコマンドをカスタマイズして、ストレージ収集 CR を作成します。</block>
+  <block id="685637f8394db77947ca4501d806f8a0" category="paragraph">パフォーマンスイベントを使用した例：</block>
+  <block id="72bb3d88e5af1a36a5333ae707bc5a35" category="list-text">`-t &lt;iso_format&gt; -d &lt;hours&gt;` ：すべてのノードのストレージ ASUP を指定した期間収集します。標準の ISO 日付時刻形式 (`-t`) を時間単位で継続時間 (`d`) で使用します例：</block>
+  <block id="46fb87c66087faf2d690569c0074fb91" category="list-text">`--nodes &lt;nodename&gt; ：指定したノードのストレージ ASUP を収集します。例：</block>
+  <block id="79b4eb1f989dedc89bda6deb12b79b34" category="list-text">`-- ノードノード nodename1 、サブグループ 2 、サブグループ 3` ：指定したノードのストレージ ASUP を収集します。</block>
+  <block id="7023c4aeddebc994995578d8b53dd967" category="section-title">システム内の ASUP をリストします</block>
+  <block id="94369fb85acb6fa2be47fe3361d265c9" category="paragraph">次のコマンドを使用して、システム内の ASUP を名前別に表示します。</block>
+  <block id="6d55356ca8cb9b27cfa6e2bb46ebb089" category="paragraph">回答例：</block>
+  <block id="e5c24e1b7c0879d053fead5eeda95740" category="section-title">ASUP バンドルをダウンロード</block>
+  <block id="af20eab0ce8bde78126bef44b877ca8c" category="paragraph">このコマンドを使用すると、ローカルで収集した ASUP バンドルをダウンロードできます。現在の作業ディレクトリ以外の場所を指定するには '-o &lt;location&gt;` を使用します</block>
+  <block id="9c83e144e5481ac6766f4055e566594d" category="floating-title">詳細については、こちらをご覧ください</block>
+  <block id="4be9b50faf5ab46a9d28ac23f7713bec" category="inline-link">ネットアップにファイルをアップロードする方法（ログインが必要）</block>
+  <block id="3b6bf15bbdfc90c8dc6d6778808539e1" category="list-text"><block ref="3b6bf15bbdfc90c8dc6d6778808539e1" category="inline-link-rx"></block></block>
+  <block id="62270328bca14e3c5f465539f788f727" category="summary">ネットアップでは、 Astra データストアのサポートをさまざまな方法で提供しています。無償のセルフサポートオプションは、ナレッジベース（ KB ）記事や Slack チャンネルなど、 24 時間 365 日ご利用いただけます。</block>
+  <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">ヘルプを表示します</block>
+  <block id="d552a345b3d00c6f71959b92aa25ca1b" category="paragraph">ネットアップでは、 Astra データストアのプレビュー版をさまざまな方法で提供しています。無償のセルフサービスサポートオプションは、ナレッジベース（ KB ）記事や Slack チャンネルなど、 24 時間 365 日ご利用いただけます。</block>
+  <block id="def636186f6865da6164029742c5770c" category="admonition">Astra データストアプレビュー版のコミュニティテクニカルサポートを利用できます。ネットアップサポートサイト（ NSS ）でケースを作成することはできません。フィードバックオプションを通じてサポートに連絡するか、 Slack チャンネルを利用してセルフサービスで連絡できます。</block>
+  <block id="975b87a5b34ee0b24e625810de1f893e" category="section-title">セルフサービスサポートオプション</block>
+  <block id="6b9b3535d917a5890db4ef00a3718361" category="paragraph">次のオプションは、 24 時間 365 日無料で利用できます。</block>
+  <block id="51ad2162ed9916cdcbfc1328306dae36" category="inline-link">ナレッジベース（ログインが必要）</block>
+  <block id="ad73b9e5ef9788348d09f760c02c490b" category="list-text"><block ref="ad73b9e5ef9788348d09f760c02c490b" category="inline-link-rx"></block></block>
+  <block id="8eed336b7ebd92f099ff152efa62f5f1" category="paragraph">Astra Data Store プレビューに関する記事、 FAQ 、またはトラブルシューティング情報を検索します。</block>
+  <block id="5b6cf869265c13af8566f192b4ab3d2a" category="list-text">ドキュメント</block>
+  <block id="9a4d3fdb6af496c18bc70f14153f8c4f" category="paragraph">現在表示しているドキュメントサイトです。</block>
+  <block id="d848bab8e653fc20f34b1c1978752770" category="inline-link">ネットアップの「コンテナ」 Slack チャンネル</block>
+  <block id="9b8b012f5616c6319fb498a523fa4b0e" category="list-text"><block ref="9b8b012f5616c6319fb498a523fa4b0e" category="inline-link-rx"></block></block>
+  <block id="43af2a6a35a58993fd484dd742044607" category="paragraph">「コンテナ」チャネルに移動して、同業者やエキスパートと交流しましょう。</block>
+  <block id="9945b7c9f8a0452d5794aa8f1b4132db" category="list-text">フィードバック用 E メール</block>
+  <block id="ddcadc1ed2a47b8718aecd096c744e15" category="paragraph">astra.feedback@netapp.com に電子メールを送信して、あなたの考え、アイデア、懸念事項をお知らせください。</block>
+  <block id="c5384541d9e6cac27f9cab2bc075e08e" category="inline-link">ネットアップの技術情報アーティクル</block>
+  <block id="0d5d403d97559647821c34bcade73e7a" category="list-text"><block ref="d83d8c86f659bf9b2c03970d84b53394" category="inline-link-rx"></block></block>
+  <block id="b3103953d0eb8d92f14a4edc6e2fe28a" category="summary">kubectl コマンドを Astra データストアで使用して、ドライブを交換します。</block>
+  <block id="bbbd86c2ee5337914a858400c6fdb7a2" category="doc">ドライブを交換します</block>
+  <block id="fe7c99ee714339295ef1464eff2444c5" category="paragraph">以下に、クラスタ内の障害が発生したドライブを交換する手順の概要を示します。</block>
+  <block id="6abc782590a9e4461a3103ce82904d1a" category="list-text">ノードに SSH 接続します</block>
+  <block id="586c3d689add9e8ff9e8264c2552c925" category="list-text">アクティブドライブのリストを取得します。</block>
+  <block id="ed11c0c26d855c72f3b6547a036cb5a8" category="list-text">ノードにリンクされているすべてのドライブのリストを取得します。</block>
+  <block id="63e6369a6b7286c516a9cab733fe6c19" category="list-text">使用可能なドライブを特定します。</block>
+  <block id="311e84b375634f29273ecd1e56331924" category="list-text">ドライブのカスタムリソース（ CR ）に障害が発生したことを確認します。</block>
+  <block id="eb060d511b605e93f2a2a260b6dbc752" category="list-text">ドライブを交換します。</block>
+  <block id="17e4f1d2261b575388ad40a2b50c86bb" category="list-text">ドライブが正常に交換され、クラスタ CR でアクティブになっていることを確認します。</block>
+  <block id="688a9f01064d517d6da081a5ac8353d0" category="list-text">クラスタの詳細を取得します。</block>
+  <block id="f0f5fac9602d88bc27f0edf960dda8b8" category="paragraph">サンプル：</block>
+  <block id="7b06a5238c5e244fde425c0502ff9d3a" category="list-text">ノードに SSH 接続します。</block>
+  <block id="bc7abe9efdcfac99c4454b9d769a43c5" category="list-text">そのノードのアクティブドライブをすべて表示します。</block>
+  <block id="54472d1da4b0c6eadf8684e846b25dcc" category="paragraph">対応：</block>
+  <block id="78047a701b859d83c0a00c4143555a87" category="list-text">そのノードのすべてのドライブを表示します。</block>
+  <block id="1cc9c9a0c87e673adf2c5e47e941fc0e" category="list-text">障害が発生したドライブ CR を作成します。</block>
+  <block id="feccfba3029817911cc680409d111a15" category="list-text">障害ドライブの詳細を取得します。</block>
+  <block id="539962a87680a6acac5f72ff73171888" category="list-text">障害が発生したドライブ CR を編集して、使用可能なドライブに交換します。</block>
+  <block id="bfa727649cf39a210039fea03d2b045b" category="list-text">クラスタ CR とノードでドライブがアクティブであることを確認します。</block>
+  <block id="2c4bb7389deaecb2c2ce1a2a3017a90e" category="summary">kubectl コマンドを Astra データストアとともに使用して、ノードを交換します。</block>
+  <block id="eb5f70a21af0a4657d2e1ba9f24d1234" category="doc">ノードを交換</block>
+  <block id="d78735cfb1e1011678392c0293bd3a10" category="paragraph">クラスタ内の障害が発生したノードを交換するには、 kubectl コマンドを Astra データストアとともに使用します。</block>
+  <block id="ba6892cf573144bb73e7929641b57d17" category="list-text">'astrs-system' 名前空間内のポッドをリストします（この例では、クラスタ内のノードが 4 つの 1x5 構成を使用しています）。</block>
+  <block id="b1e1294486624403d0533e5b77f81b1f" category="list-text">すべてのノードを一覧表示します。</block>
+  <block id="4dc1585b3b71bcdfd423771772b26a73" category="list-text">クラスタについて説明します。</block>
+  <block id="61941ab5e153651276d8ff166c98fa79" category="list-text">障害が発生したノードでノード HA が「 False 」としてマークされていることを確認します。</block>
+  <block id="2e0a0e5f63a3e34661e5cebf3e1bfc05" category="list-text">クラスタ CR を変更して障害ノードを削除します。ノード数が 3 つ減ります。</block>
+  <block id="89f09133b136e91c07cf22c261722f17" category="list-text">ノードがクラスタから削除されたことを確認します。</block>
+  <block id="59dc031f69b69e9710c74b6b626b9484" category="list-text">クラスタ CR を変更して、交換用のノードをクラスタに追加します。ノード数は 4 に増えます。新しいノードが追加対象として選択されていることを確認します。</block>
+  <block id="d527387e5ececcd43839b7eb86a061bf" category="summary">ホストのメンテナンスやパッケージのアップグレードが必要な場合は、ノードをメンテナンスモードにする必要があります。</block>
+  <block id="0b8dd151b58b6bf3c7360c3a78b26e04" category="doc">ノードをメンテナンスモードにします</block>
+  <block id="c7e8e8a7f1a6fb5362aeff0689ff1a73" category="admonition">ノードが Astra データストアクラスタに含まれている必要があります。</block>
+  <block id="6a070a29c656f8942eb8d0ed53f9f79e" category="paragraph">ノードが保守モードのときは、ノードを追加できません。</block>
+  <block id="8574c080b5c15d6898aac8d0b601c5d8" category="list-text">ノードの詳細を表示します。</block>
+  <block id="d290550b0009c972401d893478976353" category="list-text">ボリュームの詳細を取得：</block>
+  <block id="41fc664a86b897717b81a010b7cf950e" category="list-text">メンテナンスモードを有効にします。</block>
+  <block id="a50914cbb8e47a537a25014f5b12edc5" category="paragraph">メンテナンスモードのが「 False 」になり、「 True 」に変わります。メンテナンス状態は「メンテナンスの準備中」から「メンテナンスの準備完了」に変わります。</block>
+  <block id="d13de4a83d7b44c2e65495def8ef1c7b" category="section-title">を参照してください。</block>
+  <block id="809ce4b8d42d2f4a54279fffa78b7e08" category="inline-link-macro">kubectl コマンドを使用して Astra データストア資産を管理</block>
+  <block id="55f3d07228facede0763d324535936dd" category="paragraph">この情報も参照してください。* <block ref="71dd6be9bbc5ad66a4c62fe63d832feb" category="inline-link-macro-rx"></block>。</block>
+  <block id="6e9e51fbbff14f80e8168a1cfe154faf" category="summary">Astra Control には REST API が搭載されており、 Curl などのプログラミング言語やユーティリティを使用して Astra Control 機能に直接アクセスできます。</block>
+  <block id="d755391e5d933eadfa1864b13155afeb" category="doc">Astra Control REST API による自動化</block>
+  <block id="ce8c3cae4f2c01197a36e6ffb040472a" category="paragraph">Astra Control には REST API が搭載されており、 Curl などのプログラミング言語やユーティリティを使用して Astra Control 機能に直接アクセスできます。また、 Ansible などの自動化テクノロジを使用して Astra Control 環境を管理することもできます。</block>
+  <block id="25a597384655d8562854aa2ef853e0d2" category="paragraph">Kubernetes アプリケーションをセットアップおよび管理するには、 Astra Control UI または Astra Control API を使用します。</block>
+  <block id="4cb6c41d46d2f006d629608f64213d6f" category="inline-link">Astra Control Automation のドキュメント</block>
+  <block id="bd0d75f3c5e39de86dcfaa2135656772" category="paragraph">詳細については、を参照してください<block ref="a3a0846fef2d3938044e5c73697831f2" category="inline-link-rx"></block>。</block>
+  <block id="34515f1d88b10d0db0a78eba6c533394" category="summary">既知の問題は、このリリースの製品を正常に使用できない可能性のある問題を特定します。</block>
+  <block id="95dc0391ce7b396d7dd5622284e8fc3e" category="doc">既知の問題</block>
+  <block id="cbf07725210d7794bc72ba637e814463" category="paragraph">ここでは、このプレビュー版の製品を正常に使用できなくなる原因にもなる、既知の問題について記載します。</block>
+  <block id="0e4fba3a066f36e9068d0c009d7e645b" category="section-title">Default Calico WireGuard インターフェイス名が Astra データストアプレビューで認識されません</block>
+  <block id="0a2658de7347bd058fe644ff8377e067" category="paragraph">このエラーが発生するとポッドがクラッシュします。回避策として、 Calico の Felix 設定で wireguardInterfaceName 設定を変更して、ドットなしでインターフェイス名を指定します。例：</block>
+  <block id="7b9da3c0b330f1b48579aeceb36d8fe9" category="paragraph">各ノードに新しい名前でインターフェイスを作成する以外に、この変更は元の wireguard.cali インターフェイスの背後に残る場合もあります。これらのインターフェイスを削除して、この問題を繰り返し作成しないようにします。</block>
+  <block id="611ef1043a7be23a79c733584b983303" category="section-title">VXLAN 設定と Calico CNI を使用したネットワークインターフェイス名は、 Astra データストアプレビューで認識されません</block>
+  <block id="dbeae861992513b6eb728dc3b93f660d" category="paragraph">このエラーが発生するとポッドがクラッシュします。回避策として、 VXLAN の設定を無効にします。</block>
+  <block id="7c88f5c8e51811bf930b3f587b58d58a" category="section-title">デフォルトの活性プローブ値を使用した MongoDB 環境で、ポッドがクラッシュループ状態で失敗する</block>
+  <block id="c4a3b0f34e2b8b73bccefd6f730679b0" category="paragraph">回避策として、 MongoDB 導入仕様で liveness プローブ initialDelaySeconds を 600 秒に設定します。</block>
+  <block id="482723983a4f2af954e36ff41e567451" category="inline-link-macro">既知の制限</block>
+  <block id="58ddb149ad752e78b7ddd185699b6c95" category="list-text"><block ref="58ddb149ad752e78b7ddd185699b6c95" category="inline-link-macro-rx"></block></block>
+  <block id="3c60bfdc14ab00c255a4234e22b93fce" category="summary">ネットアップは Astra データストアを定期的に更新して、新機能、拡張機能、バグ修正を提供</block>
+  <block id="fd8fab2b77961e520a179634de8b2fa4" category="doc">このリリースの Astra データストアに含まれるもの</block>
+  <block id="60b3c8fc57a7a1ef017f271fa49525b0" category="paragraph">アストラデータストアの 21.12 プレビューリリースが発表されました。</block>
+  <block id="543a7bce413677fa93bd0df794199bfc" category="section-title">2021 年 12 月 21 日（ 21.12 ）</block>
+  <block id="2cea7660cc7ef2af10814b0f736a7797" category="paragraph">Astra データストアの初回リリース。</block>
+  <block id="b90b098f5e10f362e0311f845f8db412" category="inline-link-macro">それは何であるか</block>
+  <block id="0366914bfcaaf0f822d79c3c7babc483" category="list-text"><block ref="0366914bfcaaf0f822d79c3c7babc483" category="inline-link-macro-rx"></block></block>
+  <block id="6251e202756531d0b1e4a8c3e94d6bc4" category="inline-link-macro">導入モデルとコンポーネント</block>
+  <block id="37732ccd7c5f71d8c53932d31af19327" category="list-text"><block ref="37732ccd7c5f71d8c53932d31af19327" category="inline-link-macro-rx"></block></block>
+  <block id="c9a21e3a3141bc9001bc0958ff7af4e0" category="inline-link-macro">開始には何が必要ですか</block>
+  <block id="0523965ded2c88ae66e7e4d44ca41a94" category="list-text"><block ref="0523965ded2c88ae66e7e4d44ca41a94" category="inline-link-macro-rx"></block></block>
+  <block id="349838fb1d851d3e2014b9fe39203275" category="inline-link-macro">をインストールします</block>
+  <block id="a0f848942ce863cf53c0fa6cc684007d" category="inline-link-macro">セットアップ（ Setup ）</block>
+  <block id="b6112d00a521fccefa4489b14d465a3b" category="list-text"><block ref="533d2f97327ab5644c4038f91999940c" category="inline-link-macro-rx"></block> および <block ref="becc72e9ee6a9f1ae4fca00b065a0abf" category="inline-link-macro-rx"></block></block>
+  <block id="fe366a9f18dfbeaa4e78c3a9f022d4ce" category="inline-link-macro">パフォーマンスの管理と監視</block>
+  <block id="1ddf7bdaa53df7ef6d128c918699a43f" category="list-text"><block ref="1ddf7bdaa53df7ef6d128c918699a43f" category="inline-link-macro-rx"></block></block>
+  <block id="28c965a9c3773d02a3f2f37460517913" category="inline-link-macro">Cloud Insights で監視</block>
+  <block id="c76917f270d30a203529be3a9e423159" category="list-text"><block ref="c76917f270d30a203529be3a9e423159" category="inline-link-macro-rx"></block></block>
+  <block id="3d947721e690a3b1a861a1ed8113ded8" category="inline-link-macro">自動サポート監視を使用</block>
+  <block id="a2349035bf4872c12c78cb2d856a9336" category="list-text"><block ref="be0f477de0f57aea94404872654dcee8" category="inline-link-macro-rx"></block> および <block ref="60f068e3a346c283b9ad7095bc3a22bf" category="inline-link-macro-rx"></block></block>
+  <block id="0956972ccb3f1ffed4c31a057c597e7d" category="list-text"><block ref="0956972ccb3f1ffed4c31a057c597e7d" category="inline-link-macro-rx"></block></block>
+  <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="doc">リリースノート</block>
+  <block id="9496fd053449dc632695aa62786ebaf1" category="inline-link-macro">今回のリリースの Astra データストアの内容</block>
+  <block id="1761491776db9658a9d9f4322aef4187" category="list-text"><block ref="1761491776db9658a9d9f4322aef4187" category="inline-link-macro-rx"></block></block>
+  <block id="3f4fc4220755866f399810fee47c7884" category="inline-link-macro">GitHub の貢献者</block>
+  <block id="65ed3c4720fad34d453db54755338725" category="paragraph">Twitter で @NetAppDoc をフォローしてください。を作成し、ドキュメントに関するフィードバックを送信します <block ref="78cabac26f0b6e0ce9a3e24d1b749910" category="inline-link-macro-rx"></block> または、 doccomments@netapp.com に電子メールを送信します。</block>
+  <block id="1eba71d64e6c5e410e558530711e835b" category="summary">既知の制限事項は、このリリースの製品でサポートされていないプラットフォーム、デバイス、機能、または製品と正しく相互運用できない機能を特定します。これらの制限事項を慎重に確認してください</block>
+  <block id="e42bc9d321b4abe3662a7990b5c7c37f" category="paragraph">ここでは、本製品のプレビューリリースでサポートされていないプラットフォーム、デバイス、または機能、またはこのリリースと正常に相互運用できない機能について記載します。これらの制限事項を慎重に確認してください</block>
+  <block id="93c6ecb767e400f580fe2b79b925ed35" category="section-title">1 つ以上のノードを削除する機能はサポートされていません</block>
+  <block id="02ae7b81eed73967ba19efba8b18a845" category="paragraph">Astra Data Store プレビューでは、障害が発生したノードの交換はサポートされていますが、ノード削除機能はサポートされていません。</block>
+  <block id="4a92e856a033d3527db5b721839de67c" category="section-title">ドライブを追加または削除する機能はサポートされていません</block>
+  <block id="b283330938a2efd574971709e0eb1a96" category="paragraph">Astra Data Store プレビューでは、障害が発生したドライブの交換はサポートされていますが、既存のクラスタに対するドライブの追加や削除はサポートされていません。</block>
+  <block id="1c27587bda352fa09c49c0026f2f1347" category="section-title">Astra データストアのプレビュー機能は、ファイアウォールが有効になっている場合は検証されません</block>
+  <block id="8dfd25c9737e74df2610fe1998679141" category="paragraph">Astra データストアのプレビューでは、ホストのファイアウォールを無効にする必要があります。Calico HostEndpoint などの CNI ツールを使用してファイアウォールを有効にすることは検証されていません。</block>
+  <block id="a2b9bc64ef0e19631f5f577e78217a8c" category="section-title">アップグレードまたはパッチを更新する必要があります</block>
+  <block id="6227dd6927c26840de69af22a82ed17f" category="paragraph">Astra データストアプレビュー版は、本番環境のワークロード向けには提供されていません。</block>
+  <block id="91103fd1bd4fa8531dc6f4bac0120409" category="section-title">Ubuntu ベースのベアメタルまたは VM パススルー環境には NVMe TLC SSD が必要です</block>
+  <block id="d9873749f0f8e850c1b913dbe83b4686" category="paragraph">この制限は、 RHEL 、 RHCOS 、 CentOS ベースの環境には適用されません。</block>
+  <block id="4d8d4f4d8e18c7039f1e4975914b919f" category="summary">Cloud Insights 指標を使用して、 Astra データストアアセットを監視できます。</block>
+  <block id="9006a134fd1870aca1877d5e1e68dae9" category="doc">Cloud Insights で指標を監視</block>
+  <block id="611bcab913954802c9283b2b3ed655ea" category="paragraph">Cloud Insights を使用して、 Astra データストアのプレビュー指標を監視できます。</block>
+  <block id="0767b737d4d06155bc7689973c1cf5a3" category="list-text"><block ref="906865744b562a0c4fafd3d196089f39" category="inline-xref-macro-rx"></block></block>
+  <block id="ecb31804db885e53cbb56c093d6c0d23" category="list-text"><block ref="3db1750a737cabf57020a57538c06b10" category="inline-xref-macro-rx"></block></block>
+  <block id="4efd15a2c3c529389df09953218abde1" category="list-text"><block ref="be7c6a43d5af7285cc473ab6ceb17a78" category="inline-xref-macro-rx"></block></block>
+  <block id="c5b465091c9b07cf9c61a8e84e738e0b" category="list-text"><block ref="d2580e21da8a2e295d08a3fb642259f0" category="inline-xref-macro-rx"></block></block>
+  <block id="76a54526b50db93a67991b9df579b40e" category="inline-image-macro">Cloud Insights が Astra データストアの指標を示している</block>
+  <block id="74cf95137df35241bf62c4cf6aaa0a33" category="paragraph">Cloud Insights に表示される Astra データストアプレビュー指標の例を次に示します。<block ref="b65cc9dd5d7dd9b89d038ad2252a3b1c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="712f099047cda3cd74ff8f01de43d978" category="paragraph">を使用して、 Astra データストアのプレビューで生成された指標のリストを表示することもできます <block ref="00ffaabd9466e38e21fd83d76092ff60" category="inline-xref-macro-rx"></block>。</block>
+  <block id="350a0608f79ae84c665bdb915a99b6f4" category="section-title">Cloud Insight の接続の前提条件を実行する</block>
+  <block id="7d14a02fd20aa817b9f312556759bc77" category="paragraph">Cloud Insights を使用して Astra データストアに接続する前に、次の作業が必要です。</block>
+  <block id="7b67f0c7b487cbbd9d0de335853f47bc" category="inline-link-macro">Astra Data Store Monitoring Operator をインストールします</block>
+  <block id="c0bad834430ab85bd4725a526a7d982c" category="list-text"><block ref="efb24d61a911f445480068deb62ef590" category="inline-link-macro-rx"></block>。</block>
+  <block id="5885997e518dde2f5740ce73f16e6ad5" category="inline-link-macro">kubectl-astras バイナリをインストールします</block>
+  <block id="75f04a74c77e9463b905044df556832c" category="list-text"><block ref="0eacfcf04ba7b53f6921ae59c21fee42" category="inline-link-macro-rx"></block> Astra Data Store プレビューインストールドキュメントに従うことで、</block>
+  <block id="e6ba49b0d11a72603e691022f17a15ab" category="inline-link-macro">Cloud Insights アカウントを作成します</block>
+  <block id="64d3b11fec8198c348c02089354e0e98" category="list-text"><block ref="3df917f86d29a2e2f04984ff132f6c20" category="inline-link-macro-rx"></block>。</block>
+  <block id="1dad80a4e0ed05870800cf83e046f731" category="list-text">'awk 、 curl 、 grep ' および 'jq' の各コマンドが使用可能であることを確認します</block>
+  <block id="284dc6d1de61ec5c2a96db8bc40dd3ab" category="paragraph">次の情報を収集します。</block>
+  <block id="bb9b8565e3823e4ec709b95221f40bd1" category="list-text">* Cloud Insights API キー * 。各カテゴリに対する読み取り / 書き込み権限： Acquisition Unit 、 Data Collection 、 Data Ingestion 、 Log Ingestionこれは、読み取り / 書き込み処理、 Acquisition Unit のセットアップ、およびデータの取り込みプロセスのセットアップに使用されます。</block>
+  <block id="c4907f71169d00508df63ef9afdc68a1" category="list-text">* Kubernetes API サーバの IP アドレスとポート * 。Astra データストアプレビュークラスタを監視するために使用します。</block>
+  <block id="621014ace1f1a70456f973648580f813" category="list-text">* Kubernetes API トークン * 。これは Kubernetes API を呼び出すために使用されます。</block>
+  <block id="e76594ced2224ed170caf674cdb7add8" category="list-text">* 永続ボリューム構成 * 。永続ボリュームのプロビジョニング方法に関する情報。詳細については、以下の「 Acquisition Unit 」を参照してください。</block>
+  <block id="3d3a08f39e79301ab5c0cdfa66b5b7ff" category="section-title">インストールスクリプトをダウンロードして実行します</block>
+  <block id="af33037136184f5cf3624e0858a76571" category="paragraph">Cloud Insights では、 Bash スクリプトを使用して Astra データストアのプレビュー監視を監視オペレータから有効にすることができます。インストールスクリプトは、 Astra Data Store コレクタ、 Telegraf Agent 、および Fluent Bit Agent を備えた Acquisition Unit をインストールします。</block>
+  <block id="bf6aeb656eff14833c40fdf5b3a48145" category="paragraph">Cloud Insights テナントのドメイン名と選択した API アクセスキーは、ダウンロード時にインストーラスクリプトに組み込まれます。</block>
+  <block id="9d4660ed840630e640b31ec3c061e7bc" category="paragraph">その後、次のように指標が送信されます。</block>
+  <block id="3adb3d8a32b42a2857ad4c4b8a9003a6" category="list-text">Telegraf は指標を Cloud Insights データレイクに送信します。</block>
+  <block id="40c73fe92317526aa4df3d36fd3ad73d" category="list-text">FLUENT ビットは、ログ取り込みサービスにログを送信します。</block>
+  <block id="62e3ff407f1c5be1f52dc2ff6bf6ea49" category="list-text">Cloud Insights アカウントがない場合は作成します。</block>
+  <block id="f5f5c23c1738f3c9d968460a7922f3de" category="list-text">Cloud Insights にログインします。</block>
+  <block id="94c971acbf0b49c19d73a3f5dbe825f8" category="list-text">Cloud Insights メニューから、 *Admin*&gt;*Data Collector* をクリックします。</block>
+  <block id="2270d720d24e785df27898c7da44a849" category="list-text">「 * + Data Collector * 」をクリックして、新しいコレクタを追加します。</block>
+  <block id="b3cf4c5680f339b50263248f2dc48379" category="inline-image-macro">Cloud Insights に Astra データストアのタイルが表示されている</block>
+  <block id="866756ca1b4623d0fb04ca4b14daa435" category="paragraph"><block ref="866756ca1b4623d0fb04ca4b14daa435" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0064fffa49fa46977bec11c251364b0a" category="list-text">「 * アストラデータストア * 」タイルをクリックします。</block>
+  <block id="a634a0958bbdef5350d68e97eacc5ba6" category="list-text">正しい API アクセストークンを選択するか、新しいトークンを作成します。</block>
+  <block id="70830da013f2c90eadbbf13f0eea52ad" category="list-text">指示に従って、インストーラスクリプトをダウンロードし、権限を更新し、スクリプトを実行します。</block>
+  <block id="0198ace6f08bad7ae327801e20fff81f" category="paragraph">このスクリプトには、 Cloud Insights テナントの URL と選択した API アクセストークンが含まれます。</block>
+  <block id="e9cb0fa56b60ddf0f40cb6d55732a359" category="inline-image-macro">Cloud Insights に Astra データストアのインストールページが表示される</block>
+  <block id="7b0669fbc22af2b3bf66ea2884c43b85" category="paragraph"><block ref="7b0669fbc22af2b3bf66ea2884c43b85" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e9b4c864cce989f3d20b0b6aeb60895a" category="list-text">スクリプトが完了したら、 [ セットアップの完了 ] をクリックします。</block>
+  <block id="5b2bcd3ee1bf241ef578bd747aaa2275" category="paragraph">インストールスクリプトが完了すると、「データソース」リストに「 Astra Data Store 」コレクタが表示されます。</block>
+  <block id="6050a6b00788c5a261f4b24b7978d60a" category="admonition">エラーが原因でスクリプトが終了した場合は、エラーが解決したら再実行できます。デフォルトの設定を使用しない環境では、 Monitoring Operator 名前空間や Kubernetes API サーバポートなどの追加のパラメータがサポートされます。「 -h 」オプションを使用して、使用法とヘルプテキストを表示します。</block>
+  <block id="2863b1500d8c376831f57b60f0cbed61" category="paragraph">インストールスクリプトを実行すると、次のような出力が生成されます。</block>
+  <block id="99e77960ebd5aad3286059bfbd0615c5" category="section-title">Acquisition Unit のストレージ</block>
+  <block id="7d53bd0f620e632b71c278ad068a19b9" category="paragraph">Acquisition Unit には、インストールファイル、設定データ、およびログを格納するために 3 つの Persistent Volume が必要です。監視オペレータは、デフォルトのストレージクラスを使用して、永続ボリュームに関する請求を作成します。インストーラ・スクリプトの実行時に '-s' オプションを使用して ' 別のストレージ・クラス名を指定できます</block>
+  <block id="2d71aa866fd6e440cf6290ebb9f988be" category="paragraph">Kubernetes クラスタにストレージプロビジョニングツール（ NetApp Trident など）がない場合は、インストーラスクリプトの実行時に -r オプションを使用してローカルファイルシステムパスを提供できます。-r オプションが設定されている場合 ' インストーラ・スクリプトは ' 指定されたディレクトリ内に 3 つの永続ボリュームを作成しますこのディレクトリには、 150GB 以上の空きスペースが必要です。</block>
+  <block id="20d6c8958970fb1a2ce1a95613e7665b" category="section-title">エージェント CR の例</block>
+  <block id="445c2dfab85f0763a057d90aef225a43" category="paragraph">以下に、インストーラスクリプトの実行後の「 Monitoring - NetApp 」エージェントの CR の例を示します。</block>
+  <block id="483cd8f1747e8a0029d3cad4d22f2e94" category="section-title">インストーラのスクリプトヘルプ</block>
+  <block id="062a54c44bdfd9858c8054292864b1a5" category="paragraph">インストーラスクリプトの完全なヘルプテキストを次に示します。</block>
+  <block id="23dd88d71d7767914d0ba74ce09182b0" category="section-title">Cloud Insights 接続を編集します</block>
+  <block id="d542a9812ed087b9931c2c36f1357b43" category="paragraph">Kubernetes API キーまたは Cloud Insights API キーは、あとから編集できます。</block>
+  <block id="03d3f4f6b02641ad0957f7ae992ab815" category="list-text">Kubernetes API キーを更新する場合は、 Cloud Insights UI から Astra データストアコレクタを編集する必要があります。</block>
+  <block id="c022dc42fc6794590ff337762e9aa004" category="list-text">テレメトリとログに使用される Cloud Insights API キーを更新する場合は、 kubectl コマンドを使用して Monitoring Operator CR を編集する必要があります。</block>
+  <block id="38c3b25ebad55273cd701d86d7c5674d" category="section-title">Kubernetes API トークンを更新します</block>
+  <block id="27322a77dff94e81f835410f4584b839" category="list-text">[*Admin*&gt;] &gt; [* Data Collectors] を選択して、 [Data Collectors] ページにアクセスします。</block>
+  <block id="9e23ceb78a6420f20917e3be85d18084" category="list-text">Astra データストアクラスタのエントリを探します。</block>
+  <block id="2a3e436e3df2f6c013a096178e37bd12" category="list-text">ページの右側にあるメニューをクリックし、「 * 編集 * 」を選択します。</block>
+  <block id="dad6a897e4f52efceaed582e77ec0445" category="section-title">Cloud Insights API アクセストークンを更新します</block>
+  <block id="b511b5f3ed5ea6ca0fd6cb60a0fd377a" category="list-text">[*Admin*&gt;*API Access*] を選択し、 [*+API アクセストークン *] をクリックして、新しい Cloud Insights API アクセストークンを作成します。</block>
+  <block id="83400e61f62d567ac8c59eb422c53296" category="list-text">エージェント CR を編集します。</block>
+  <block id="a9555691664079ea9bedb729314bc590" category="list-text">「 output-sink 」セクションを探し、「 ci 」という名前のエントリを見つけます。</block>
+  <block id="662b463e12d39626a0f9269cb252a7db" category="list-text">ラベル「 api-key 」の場合は、現在の値を新しい API キーに置き換えます。</block>
+  <block id="48d5af6637803a576ddb9b4b5335594f" category="paragraph">セクションは次のようになります。</block>
+  <block id="08b6b5aaedb7004643c0c9f98ad82005" category="list-text">エディタウィンドウを保存して終了します。</block>
+  <block id="26d9ef960bdd0f4e9874ad46ba43d683" category="paragraph">モニタリングオペレータは、 Telegraf ビットと Fluent ビットを更新して、新しい API キーを使用します。</block>
+  <block id="3186f8d18929c5ad50382958c1069796" category="section-title">Cloud Insights から切断します</block>
+  <block id="dd3afc6527618de50ab808c19960d8e5" category="paragraph">Cloud Insights から切断するには、最初に Cloud Insights UI から Astra データストアコレクタを削除する必要があります。これが完了したら、モニタリングオペレータから Acquisition Unit 、 Telegraf 、および Fluent の各ビット設定を削除できます。</block>
+  <block id="82c5052cb623901eefe95a965c322b31" category="section-title">Astra Data Store コレクタを削除</block>
+  <block id="3f82a83a5c61062d40184dc63f47bb9a" category="list-text">画面の右側にある kebab メニューを選択し、 * Delete * （削除）を選択します。</block>
+  <block id="4a4676a685d60e6b1f5813c3907f9ab6" category="list-text">確認ページで * Delete * をクリックします。</block>
+  <block id="c65fb1125fbf2f9e2e44e32e61b62a02" category="section-title">Acquisition Unit 、 Telegraf 、および Fluent ビットを削除します</block>
+  <block id="ec2389605ec052321571ac13ec063738" category="list-text">「 au 」セクションを探し、「 IsEnabled:false 」を設定します</block>
+  <block id="90db19427057dc11bc0e2f5c8cf30876" category="list-text">「 FLUENT ビット」セクションを探し、「 ADS テール CI 」という名前のプラグインを削除します。プラグインがない場合は、「 FLUENT - BIT 」セクションを削除できます。</block>
+  <block id="ba6f7b853b4d707dd3cf6b7f2c0f497e" category="list-text">「テレグラム」セクションを探し、「 ads-open-metric 」という名前のプラグインを削除します。プラグインがない場合は、「テレグラム」セクションを削除できます。</block>
+  <block id="1339f6affca26c5e554081de2348724c" category="list-text">「 output-sink 」セクションを探し、「 ci 」という名前のシンクを取り外します。</block>
+  <block id="0b8e607bb970ba8b1809c142f6ee9d2c" category="paragraph">モニタリングオペレータが Telegraf および Fluent ビット設定を更新し、 Acquisition Unit ポッドを削除します。</block>
+  <block id="79e2afd2ba4ca7ab8246defff43d1c68" category="list-text">ストレージプロビジョニング担当者ではなく Acquisition Unit PVS にローカルディレクトリを使用した場合は、 PVS を削除します。</block>
+  <block id="950c71908905ca13bfc6137988331cc3" category="paragraph">次に、 AU を実行していたノードの実際のディレクトリを削除します。</block>
+  <block id="c1943291194b3d4796fcf7f9eff18d27" category="list-text">Acquisition Unit ポッドが削除されたら、 Cloud Insights から Acquisition Unit を削除できます。</block>
+  <block id="e7b273b59c7a2201eeccd5ba9337bd87" category="list-text">Cloud Insights メニューで、 *Admin*&gt;*Data Collector* を選択します。</block>
+  <block id="6e4c4ac7964722923536e1f01d80dab2" category="list-text">[* Acquisition Units * （ Acquisition Unit * ） ] タブをクリックします。</block>
+  <block id="2fa6aa4ecba5f4acf3de663c21cc69ea" category="list-text">Acquisition Unit ポッドの横にあるメニューをクリックします。</block>
+  <block id="874db297b2254479eeb702a2d7fa8dab" category="list-text">[ 削除（ Delete ） ] をクリックします。</block>
+  <block id="0dd656c262cdf7d8dc379079337de685" category="paragraph">モニタリングオペレータが Telegraf および Fluent ビット設定を更新し、 Acquisition Unit を削除します。</block>
+  <block id="6b40eaae8ec9ab8ff4f2fcec876f582d" category="section-title">Open Metrics API のヘルプを参照してください</block>
+  <block id="6f04ea05bd96c0439a8a2cd32768b309" category="paragraph">Astra データストアプレビューから指標を収集するために使用できる API のリストを次に示します。</block>
+  <block id="d6e7985c9eb9d0b51b91b2cb937d7335" category="list-text">「 help 」行は指標を表します。</block>
+  <block id="626ded8565b78fc3552661d6afa5cae0" category="list-text">「 type 」行は、メトリックがゲージかカウンタかを示します。</block>
+  <block id="3af93db73b99aaf3e341694343e7f989" category="summary">Astra データストアで kubectl コマンドを使用すると、クラスタを管理できます。</block>
+  <block id="12ca355b0c012fc5e428b77818d39316" category="doc">クラスタを管理</block>
+  <block id="dccfc7385a8459db3905293ca31d8c1d" category="paragraph">クラスタを管理するには、 kubectl コマンドを Astra データストアプレビューで使用します。</block>
+  <block id="3ab6bb8b4346e7149828a717be5f5138" category="list-text"><block ref="1e29c863bc7525a154916f08787ad250" category="inline-xref-macro-rx"></block></block>
+  <block id="27ec3c702a92a11dcf758cfea1abd08f" category="list-text"><block ref="63b70cc1a1cc1ef2d48b82d0f99fbd99" category="inline-xref-macro-rx"></block></block>
+  <block id="26eacaaf63559bf861e3022ecb6de84a" category="list-text"><block ref="df0e18c8da4815d4cb1f63aa721a5430" category="inline-xref-macro-rx"></block></block>
+  <block id="df1c8140731b102d7eda9ae07adf0d06" category="list-text"><block ref="e337a3bd799ea0d3465602eaa898ac0b" category="inline-xref-macro-rx"></block></block>
+  <block id="eed5ddc8f738970611f01ee16f2a17e5" category="section-title">必要なもの</block>
+  <block id="f425bc9b9a4cd4b2207bc5a3ff7a2f1e" category="inline-link-macro">Astra データストアプレビューをインストールします</block>
+  <block id="320f561fe46d717efd6bede4ccf31772" category="list-text">kubectl および kubectl-astras プラグインがインストールされたシステム。を参照してください <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。</block>
+  <block id="3791a6ae58ebb531548b4b5a1906c3fa" category="admonition">ノードは、 Astra データストアプレビュークラスタにすでに含まれている必要があります。</block>
+  <block id="646c25c2e81dc15df50a3ca0d9a039da" category="paragraph">ノードが保守モードのときは、クラスタにノードを追加できません。この例では、 nhcitj1525 をメンテナンスモードにします。</block>
+  <block id="96ae38b31ba3daa2e5358239c685687b" category="list-text">ノードの詳細を表示します。</block>
+  <block id="892cf5da18b48d5c81fecbbacebc26d1" category="list-text">ノードがまだメンテナンスモードになっていないことを確認します。</block>
+  <block id="407875538f0a5a391fa066b78db80f35" category="list-text">メンテナンスモードを有効にします。</block>
+  <block id="20ffff966b6d15e3131eac8732b5d367" category="list-text">ノードをリストします。</block>
+  <block id="115e5b2861ab6ca4176365b8e50c0e9f" category="list-text">メンテナンスモードのステータスを確認します。</block>
+  <block id="1e6c99c260c3791bc14b2fa000dc2725" category="paragraph">メンテナンスモードのが「 False 」から始まり、「 True 」に変わります。 メンテナンスの状態が「 Preparing for Maintenance 」から「 Ready for Maintenance 」に変わります。</block>
+  <block id="b058dc0e7d56297138ea75a1af7eb2e8" category="list-text">ノードのメンテナンスが完了したら、メンテナンスモードを無効にします。</block>
+  <block id="7970cfd813155c614358a18b3df1afd0" category="list-text">ノードが保守モードでなくなったことを確認します。</block>
+  <block id="179c07bdb3db1669e2d4e1a337247468" category="section-title">ノードを追加します</block>
+  <block id="9a39cfe3410df3b493ee309248b9a863" category="paragraph">追加するノードは Kubernetes クラスタに含まれ、クラスタ内の他のノードと同様の設定である必要があります。</block>
+  <block id="d284e8ebe75ed39c496430b2e6213263" category="list-text">新しいノードの dataIP がまだ ADSCluster CR に含まれていない場合は、次の手順を実行します。</block>
+  <block id="dcc8b731e63482e766610e7c44274b50" category="list-text">astadscluster CR を編集し、 ADS Data Networks Addresses フィールドに追加の dataIP を追加します。</block>
+  <block id="2d258c624d61d2388efacfc246d2439e" category="list-text">CR ファイルを保存します。</block>
+  <block id="bf024c9e7bfc344f7b2e8beaba8eb53f" category="list-text">Astra データストアプレビュークラスタにノードを追加します。</block>
+  <block id="653c040f4e29a0c02bb862820aea4503" category="list-text">それ以外の場合は、ノードを追加するだけで済みます。</block>
+  <block id="16e457b8846355beaf7788602b579a97" category="list-text">ノードが追加されたことを確認します。</block>
+  <block id="dd7423a16788f2363740161a60d6ab15" category="paragraph">クラスタ内の障害が発生したノードを交換するには、 kubectl コマンドを Astra Data Store preview とともに使用します。</block>
+  <block id="f7f731ad8fc3e94f259d6032d191fe26" category="paragraph">クラスタ内のドライブで障害が発生した場合は、データの整合性を確保するために、できるだけ早くドライブを交換する必要があります。ドライブで障害が発生すると、クラスタの CR ノードステータス、クラスタの健全性状態情報、および指標エンドポイントに、障害が発生したドライブの情報が表示されます。</block>
+  <block id="1121c6f763d5f0bfb1ec39e88bdcd87c" category="listing-title">nodeStatus.driveStatsuses で障害が発生したドライブを表示する &lt;code&gt; cluster&lt;/code&gt; の例</block>
+  <block id="3b7be6cf23b8894b5b7543d0892eae78" category="paragraph">障害が発生したドライブ CR は、障害が発生したドライブの UUID に対応する名前でクラスタ内に自動的に作成されます。</block>
+  <block id="8a3067d20951ac8d217fa22953c683f9" category="list-text">交換可能なドライブを 'kubectl astras show-replacements' コマンドで一覧表示しますこのコマンドは ' 交換の制限に適合するドライブをフィルタリングします（クラスタ内では未使用 ' マウントなし ' パーティションなし ' または障害が発生したドライブ以上）</block>
+  <block id="ca6aaabf5c74238b64f1f77fc1078fb1" category="paragraph">可能な交換用ドライブをフィルタリングせずにすべてのドライブを一覧表示するには '--all' を 'show-replacements' コマンドに追加します</block>
+  <block id="6c3c161fd5fdd3643cb3089d85b3eb2e" category="list-text">パスしたシリアル番号でドライブを交換するには 'replace' コマンドを使用しますコマンドは置換を完了するか '--wait' 時間が経過すると失敗します</block>
+  <block id="125f85ae4d1ff2dd68b6b65a8b46611f" category="list-text">kubectl の astrads faileddrive replace' が不適切なシリアル番号を使用して実行された場合 ' 次のようなエラーが表示されます</block>
+  <block id="2353ebc5bf4ef03285a31f63f7edecb7" category="list-text">ドライブ交換を再実行するには ' 前のコマンドで --force' を使用します</block>
+  <block id="fa66deafe43eeb85efe57503fb3ae064" category="inline-link-macro">kubectl コマンドを使用して Astra データストアのプレビューを管理</block>
+  <block id="1547e6ff05871151dc93bb10fd889d5c" category="list-text"><block ref="1547e6ff05871151dc93bb10fd889d5c" category="inline-link-macro-rx"></block></block>
+  <block id="cf12ebbc6fe7b3e21046a7d8c5b3dd5f" category="summary">Astra データストアをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、クラスタ、 ライセンス、導入環境、ネームスペース：</block>
+  <block id="2c5e778cc6a11e1829770d5339f5c0fa" category="doc">Astra データストアプレビューをアンインストールします</block>
+  <block id="66c366a59302f9026a436cdc64aca9e6" category="paragraph">Astra データストアプレビューをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、クラスタ、 ライセンス、導入環境、 Astra データストアプレビューネームスペース。</block>
+  <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">必要なもの</block>
+  <block id="1af4d14d7adc73a0cf26c741f9acf9df" category="list-text">root 管理権限</block>
+  <block id="e88f686261fc285399abfcc5575efcee" category="paragraph">Astra Data Store プレビューアンインストールプロセスでは、次の手順が簡単に実行できます。</block>
+  <block id="05424633f0bd5eefeaa3629e5c4d1ae1" category="list-text"><block ref="cab67cc4c69f00a37ed4ae97c08b5a2c" category="inline-xref-macro-rx"></block></block>
+  <block id="46c883ff8d48945b15db394f9ac2050d" category="list-text"><block ref="c650fcae59c3ef6d3a0e731f55d376df" category="inline-xref-macro-rx"></block></block>
+  <block id="0bc81830f1dfb9de112bee2d6bd91b91" category="list-text"><block ref="26d229d5e2e3968e71c3402c5a09214b" category="inline-xref-macro-rx"></block></block>
+  <block id="cacd3064543c7be5a9b55ffd25a40141" category="list-text"><block ref="d494c9949a6c752fae5f375dcac6bb64" category="inline-xref-macro-rx"></block></block>
+  <block id="62cbbbe20a4f7204713f61b69b29e278" category="list-text"><block ref="223e6ae0705bfe1f48c64c892d4f772f" category="inline-xref-macro-rx"></block></block>
+  <block id="334982a7418a341303b6f2204ca1e0fe" category="list-text"><block ref="621e8ae438ccf9d5bd1e2f424bbe8b78" category="inline-xref-macro-rx"></block></block>
+  <block id="85e4b847a7452c3cb60874d0fbf806b3" category="list-text"><block ref="9ae241411ebdbe5b7431af3f015cef5e" category="inline-xref-macro-rx"></block></block>
+  <block id="701ee8f26f3e562b59500c03be25b586" category="section-title">既存のワークロードとバインドを削除します</block>
+  <block id="7b657a06e01fc8d3bacd2994dde0affd" category="paragraph">Astra データストアプレビューをアンインストールする前に、次の項目を削除する必要があります</block>
+  <block id="7a5d6c83503f246649c3952c68522edf" category="list-text">ストレージバックエンドとして Astra データストアプレビューを使用するすべてのアプリケーションワークロード</block>
+  <block id="6d1bd33ff6421dfef67de0310c86b001" category="list-text">バックエンドとして Astra データストアプレビューを使用する Trident バインディング</block>
+  <block id="713b0c98704e3691534fea10f986b89a" category="paragraph">これにより、 Kubernetes 環境をクリーンな状態のまま維持できます。これは、を再インストールする場合に重要です。</block>
+  <block id="563b0034df7b9c29d189cfa04d6244d4" category="section-title">Astra データストアプレビュークラスタとコントロールプレーンをアンインストールします</block>
+  <block id="9f5b1d3ae9147b57f79e1ece23b92700" category="paragraph">Astra Data Store プレビューを手動でアンインストールするには、次の手順に従います。</block>
+  <block id="18f297cd2cf5f61e0d2e236b72408d65" category="section-title">ボリュームとエクスポートポリシーを削除します</block>
+  <block id="be76d934b781f3ee17c195e53deaa2ed" category="paragraph">クラスタを削除する前に、 Astra データストアプレビューボリュームとエクスポートポリシーを削除する必要があります。</block>
+  <block id="aab34a85b3bc4cdb35a9e59425861289" category="admonition">ボリュームとエクスポートポリシーを最初に削除しないと、 Astra Data Store のプレビューボリュームオブジェクトが削除されるまで、クラスタの削除プロセスは一時停止します。クラスタの削除を開始する前に、それらの項目を削除する方が効率的です。</block>
+  <block id="54b956b8b0644f1e413223dc1aee2b0e" category="list-text">ボリュームを削除します。</block>
+  <block id="c93baa78349985fc4b5eeeffc09a33f8" category="list-text">エクスポートポリシーを削除します。</block>
+  <block id="7563aa62543c07a40f533dd0e0ae2014" category="section-title">Astra データストアプレビュークラスタを削除</block>
+  <block id="d7c0a4c83a2044822dabefb932c42b79" category="paragraph">クラスタを削除すると、 Astra Data Store preview cluster object custom resource （ CR ）とクラスタを対象としたリソースのみが削除される。</block>
+  <block id="8dbff560b4fb498559cc825c3ba8de41" category="admonition">オペレータ、 nodeinfo ポッド、およびクラスタコントローラ（ Kubernetes を対象としたリソース）は、クラスタを削除しても削除されません。</block>
+  <block id="b3178373b149d14e46085126525f79d6" category="paragraph">クラスタを削除すると ' 基盤となるオペレーティング・システムもノードからアンインストールされ 'FIRETAAP' および netwd' サービスが停止します</block>
+  <block id="ed4aa92f77103f4b2c27a6ee04599f0e" category="paragraph">アンインストーラが完了するまでに約 1 分かかります。次に、 Astra データストアのプレビュー用リソースの削除が、クラスタを対象として開始します。</block>
+  <block id="cca5f52fa80eb378d8e9e4499d5a49f7" category="list-text">クラスタを削除します。</block>
+  <block id="224bb9d3e58164d87f1e7b1480ff3195" category="section-title">ライセンスを削除します</block>
+  <block id="8c26fafc2eb158f8e1dbc5b78f67860a" category="list-text">クラスタ内の各ワーカー・ノードに SSH 接続し ' ワーカー・ノードで 'FIRETAAP' または 'netwd' が実行されていないことを確認します</block>
+  <block id="922f0882e69507614b86bbe67722122a" category="list-text">Astra データストアプレビューライセンスを削除します。</block>
+  <block id="9524d1588970b8601d9a6c11fbff86d2" category="section-title">Astra データストアプレビューインストールを削除します</block>
+  <block id="89471d1ad77aea625df3d06c6b912a6f" category="paragraph">クラスタ内のコントローラ、演算子、ネームスペース、およびサポートポッドを削除します。</block>
+  <block id="b1449c85674b9416a7aad84e20c0bc41" category="list-text">Astra Data Store プレビューインストールオブジェクトを削除します。</block>
+  <block id="172b5b6fca79ce433371dc5198dee6b3" category="list-text">DemonSets データストアと Astra データストアのすべてのプレビューコントローラリソースを削除します。</block>
+  <block id="a7285e1a3509c614618f679da04ecd63" category="list-text">残りのアーティファクトと演算子 YAML ファイルを削除します。</block>
+  <block id="a9bcd8b892d07fc3f59e83751bb61630" category="section-title">astrs-system 名前空間の削除を検証します</block>
+  <block id="df660d992b6a3c556d9a2c4e04a32d00" category="paragraph">次のコマンドで結果が返されないことを確認します。</block>
+  <block id="742a4dc582c34fb3bbb34a9f3cbeebe6" category="section-title">ワーカーノードでコンテナが実行されていないことを確認します</block>
+  <block id="1c04122c814ac034ca14e14adb8c12af" category="paragraph">'FIRETAAP' や 'netwd' などのコンテナがワーカー・ノードで実行されていないことを確認します各ノードで次のコマンドを実行します。</block>
+  <block id="9a92a0354fa775cc894dda9e1e38f27b" category="section-title">手動削除のサンプル</block>
+  <block id="b6e1c19fae1f4cf0d8f94a34c5986b69" category="paragraph">次に、手動アンインストールスクリプトの実行例を示します。</block>
+  <block id="81b61a86df10dc2cb308e96040fb3001" category="summary">Kubectl コマンドを Astra データストアとともに使用して、 Conluent などで使用するエンドポイントを設定できます。</block>
+  <block id="d273de2a7e6e6a63f6353f5a40dccab4" category="doc">イベントログを設定して監視する</block>
+  <block id="e1e4be2e0e9d34430d4dead51a9b0d00" category="paragraph">Event Management System （ EMS ；イベント管理システム）ログを監視するには、次の高度なタスクを実行します。</block>
+  <block id="0de641807620f6884634e5c2be424935" category="list-text"><block ref="81fcee92e269c16204175cb82e012cfb" category="inline-xref-macro-rx"></block></block>
+  <block id="58c63f3edc4f001668005eb15ebea250" category="list-text"><block ref="d225a94a27cd5322a26847f79953016b" category="inline-xref-macro-rx"></block></block>
+  <block id="d54ee8ea5a6436047b24aa6453cd273d" category="list-text"><block ref="0f415edabe024849c5f59aa6603d2415" category="inline-xref-macro-rx"></block>。</block>
+  <block id="adb1a7214aa7125992d5a44a62de94d5" category="section-title">Astra データストアプレビュークラスタカスタムリソース（ CR ）で監視を設定する</block>
+  <block id="9d72b006a6d605a65b501b1b03349829" category="paragraph">Astra Data Store プレビュークラスタ CR でモニタリングオプションが設定されていない場合は、「 astras 」拡張機能を使用して設定できます。</block>
+  <block id="90bd1d70191335d705a79fedb6c343b1" category="paragraph">入力するコマンド</block>
+  <block id="5976be1a3647c1d1d6df4ce77cd4c6de" category="paragraph">ここで、</block>
+  <block id="c5f610ac611fbf25aebdcb7de1887bca" category="list-text">インストールされているエージェントの名前空間 : 監視エージェントです。監視オペレータの CR です。</block>
+  <block id="3cf816c5eb575aae005fa877a4221022" category="list-text">-r はオプションです</block>
+  <block id="55d4dcfd496ed26612f1ed4e159ccc06" category="section-title">Cloud Insights をセットアップする</block>
+  <block id="0a4b147ab38de7df220f6ee52041f91b" category="inline-link-macro">NetApp Cloud Insights のセットアップ方法</block>
+  <block id="79d4adf2aeb2c6fc85b983dc5d4d6f9a" category="paragraph">を参照してください <block ref="d6cf67ce476502ac807e2e588f6f029e" category="inline-link-macro-rx"></block> Astra データストアプレビュー版で使用できます。</block>
+  <block id="a0c8187b710dd8d0521c6fc63ed20869" category="section-title">イベントログを Elastic にストリーミングする</block>
+  <block id="9121f315839d8a93e2079fd601d5e184" category="paragraph">EMS イベントやその他のポッドログをストリーミングして、ログを Elastic などのサードパーティのエンドポイントにストリーミングするには、「 astrads 」拡張機能を使用します。</block>
+  <block id="4af77be2edf71f87d3321c846afd5117" category="admonition">Elastic ホスト名は IP アドレスでもかまいません。</block>
+  <block id="9cce7a0f3945aa56f21e3dc73f7b5c53" category="summary">Astra Control Center のユーザーインタフェース（ UI ）を使用して、 Astra データストアのタスクを実行できます。</block>
+  <block id="9d008b99518fac45f7d187af6cdf7b49" category="doc">Astra Control Center with Astra のデータストアプレビューを使用</block>
+  <block id="5c44ae2c3fecaf90b28c9365e2a18f93" category="paragraph">Astra Control Center のユーザーインタフェース（ UI ）を使用して、 Astra データストアのプレビュータスクを実行できます。</block>
+  <block id="c74d76591828afc252e7610bdae71ca9" category="section-title">Astra Control Center for Astra のデータストアプレビューのセットアップ</block>
+  <block id="04141f6e6895167b5976a22e32f00290" category="paragraph">Astra Data Store プレビュー用の Astra Control Center UI を使用するには、次のタスクを実行する必要があります。</block>
+  <block id="1c0d9f7d761fc733b600942ce233b4ea" category="inline-link">Astra データストアプレビュークラスタを Astra Control Center インストールにインポートします</block>
+  <block id="d15c24960fb67cfd894bc720e9d2ff2d" category="list-text">クラスタを追加Astra Data Store プレビューがインストールされた、基盤となる Kubernetes クラスタです。を参照してください<block ref="6761f7730b26a17df3c3b59e4408b7b0" category="inline-link-rx"></block>。</block>
+  <block id="e1f95da35f557b3cdc93de4656df9aaa" category="list-text">Astra データストアプレビュー用のストレージバックエンドをクラスタに追加します。</block>
+  <block id="4e649e66878b3f3b5aec5f752e57b985" category="admonition">ストレージバックエンドを追加し、 Astra データストアプレビューを含む Kubernetes クラスタがない場合は、最初にクラスタを追加する必要があります。</block>
+  <block id="2e94174c851b8d4d2427c96e0af4821c" category="section-title">Astra Control Center でできること</block>
+  <block id="eb243fd6f95dd4bfb1d1ccb0cca34d9f" category="paragraph">Astra Control Center for Astra Data Store プレビューをセットアップしたら、 Astra Control Center UI を使用して次のタスクを実行できます。</block>
+  <block id="882a9f885522357b173d285f48508e0a" category="inline-link">Astra Control Center を使用して、 Astra データストアのプレビュー資産の健常性を監視</block>
+  <block id="20a4a00ee22fc4ed42dc6dde7ca930a2" category="list-text"><block ref="8cc2b5fb4f2b8a99de3d80d9680561a7" category="inline-link-rx"></block>。</block>
+  <block id="b3566e6d807a064421758708ff05ddc5" category="inline-link">Astra データストアのプレビューバックエンドストレージを管理</block>
+  <block id="c0d07d3b128a5a7d6f60b9e86bf4f804" category="list-text"><block ref="7c89f9f798010106cb6d616702f15231" category="inline-link-rx"></block>。</block>
+  <block id="4d4207ccf851f0f5668d15b17831080c" category="inline-link">ノード、ディスク、および永続ボリューム要求（ PVC ）とその状態を表示します</block>
+  <block id="5e4382914eda12bec56e077c0d932f92" category="list-text"><block ref="5df70763c7346a3df0879f904f4e4dc6" category="inline-link-rx"></block>。</block>
+  <block id="4b7a1134c870f779c0b8eecedfde4cbf" category="inline-link">Astra ファミリーの紹介</block>
+  <block id="c2cc3948cdbda6ce71e4b9eb57f2cb63" category="list-text"><block ref="c2cc3948cdbda6ce71e4b9eb57f2cb63" category="inline-link-rx"></block></block>
+  <block id="3a4b2c66d4bdac6ce0e3340c71a39eda" category="inline-link">Astra Control Center のドキュメント</block>
+  <block id="281db70ca8dfcac9ebe6166029058548" category="list-text"><block ref="281db70ca8dfcac9ebe6166029058548" category="inline-link-rx"></block></block>
+  <block id="d418042930eb178009f4c27360b349f6" category="inline-link">Astra Control API を使用</block>
+  <block id="35e127abdc4e59a01dd3fd4f63603bf1" category="list-text"><block ref="35e127abdc4e59a01dd3fd4f63603bf1" category="inline-link-rx"></block></block>
+  <block id="eef59217310b72030be060a13a0bc33a" category="summary">Astra データストアで使用できるテストアプリケーションを導入する手順は次のとおりです。</block>
+  <block id="6f8b987c31a2eded2819babafcfa74aa" category="doc">テストアプリケーションを展開します</block>
+  <block id="6287ae11a59823f19dbadd6558fc6297" category="paragraph">Astra データストアプレビューで使用できるテストアプリケーションを導入する手順は次のとおりです。</block>
+  <block id="c3a80e48f1fb8205acab156248cbc507" category="paragraph">この例では、 Helm リポジトリを使用して Bitnami から MongoDB チャートを導入します。</block>
+  <block id="d2b286733c622d3734be88246d4edcd2" category="list-text">Astra データストアプレビュークラスタの導入と構成</block>
+  <block id="d9e5235644553d4cc003fe80e853e3d9" category="list-text">Trident のインストールが完了しました</block>
+  <block id="bf3f82feed370a6a3c6201a53bb8bbbc" category="list-text">Bitnami から Helm repo を追加します。</block>
+  <block id="8df29821dfcdcec588d7bdf64a0c7f33" category="list-text">MongoDB の導入</block>
+  <block id="7ea5c1d0e18468e3cd2a62ff24d97d28" category="list-text">MongoDB ポッドのステータスを確認します。</block>
+  <block id="93e7f0a6f24d71ade0739043509173b9" category="list-text">MongoDB で使用した Persistent Volume Claim （ PVC ；永続ボリューム要求）を確認します。</block>
+  <block id="43be430aa45a396e22bd22a2b6621ff9" category="list-text">kubectl コマンド 'get astradsvolume' を使用して ' ボリュームを一覧表示します</block>
+  <block id="8967ae8bc51f2fd95d1b63331e33ac4b" category="list-text">kubectl コマンド 'describe astadsvolume' を使用して ' ボリュームを説明します</block>
+  <block id="3241ac56c7ab3234f3b6520c215096f2" category="summary">kubectl コマンドは Astra データストアで直接使用できます。</block>
+  <block id="a330f305f7c30e2f8e3640e572a7e00f" category="paragraph">kubectl コマンドを使用し、 Kubernetes API 拡張機能を使用して、 Astra データストアのプレビューアセットを管理できます。</block>
+  <block id="c6abcdfa1291eff527ba81e687a617a0" category="paragraph">サンプルアプリの展開方法については、を参照してください <block ref="643aaff8c958edf6a7fa070276276697" category="inline-link-macro-rx"></block>。</block>
+  <block id="b48b2370de15bd20dd54023e2a0a1442" category="paragraph">次のクラスタのメンテナンス情報については、を参照してください <block ref="dd990211a19c702186be77590654645f" category="inline-link-macro-rx"></block>：</block>
+  <block id="873001098255f2b65575c8d0ba20cc62" category="section-title">必要なもの</block>
+  <block id="771492826a30f4c85fdb80b244427fae" category="list-text">Astra データストアプレビュー kubectl プラグインがインストールされました <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block></block>
+  <block id="97e6c8a4001ce7339a364c390a9f1985" category="section-title">Kubernetes カスタム API リソースが Astra データストアのプレビュー版として用意されました</block>
+  <block id="ca0efae80c84ccf77b3a141422f85bbb" category="paragraph">Kubernetes の内部で kubectl コマンドを使用して、 Astra データストアプレビュークラスタとやり取りし、状態を確認できます。</block>
+  <block id="41dda97ca4546c6156bdecc752fdf8fa" category="paragraph">「 api-resources 」コマンドにリストされている各項目は、 Kubernetes カスタムリソース定義（ CRD ）を表しています。 CRD は、アストラデータストアプレビューがクラスタを内部的に管理するために使用します。</block>
+  <block id="ac50ab0e5a87902e1394b248458e29ae" category="paragraph">このリストは、後で示すように、各 Astra Data Store プレビューオブジェクトの短い名前を取得して入力を減らすのに特に役立ちます。</block>
+  <block id="7d69a11a8d1eb3382c2f950b62b8c77e" category="list-text">Kubernetes のカスタム API リソースである Astra データストアのプレビューの一覧を表示します。</block>
+  <block id="1c112875da75de7896516e2619bd9694" category="list-text">Kubernetes クラスタ内の現在の Astra データストアプレビューオブジェクトをすべて取得するには、「 kubectl get ads-a 」コマンドを使用します。</block>
+  <block id="0c01aeae2703bda0832b08ebdd30abc0" category="list-text">最後に、短縮名の 1 つを使用して、クラスタ内のボリュームの現在の状態を表示します。</block>
+  <block id="dabf3f8ccfb5ecc1cb7e7954f3575a68" category="section-title">kubectl 拡張子の help オプションを使用します</block>
+  <block id="4db582654bba3ae1263983cc7355e3dc" category="paragraph">'kubectl astras コマンドには '-h' スイッチが含まれており ' 便利な使用法とフラグ・ドキュメントが提供されています</block>
+  <block id="60044b26f73be94c6598603c14ab55d4" category="list-text">Astra Data Store preview kubectl 拡張機能のすべてのコマンドのヘルプを表示します。</block>
+  <block id="3962691e8a7c8b7a00673c9035950515" category="list-text">コマンドの詳細については 'astrads [command]--help' を使用してください</block>
+  <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="summary">著作権に関する声明、商標、特許などにアクセスできます。</block>
+  <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法的通知</block>
+  <block id="c59ae8d7beeb519a23478ab048af482c" category="paragraph"><block ref="c59ae8d7beeb519a23478ab048af482c" category="inline-link-macro-rx"></block></block>
+  <block id="6f2ac1cf1da8ec34232c651d4bba0149" category="paragraph"><block ref="6f2ac1cf1da8ec34232c651d4bba0149" category="inline-link-macro-rx"></block></block>
+  <block id="bd9a92025f272fdbcf82dbe7c6751b8e" category="inline-link-macro">Astra Data Store 21.12 リリースの注意事項</block>
+  <block id="1f6cc7061c99b2f46c25473fe9b7ea3a" category="paragraph"><block ref="1f6cc7061c99b2f46c25473fe9b7ea3a" category="inline-link-macro-rx"></block></block>
+  <block id="6929f0cedcea1d6e056ea216f0388b3a" category="summary">Astra データストアクラスタは拡張が可能です。</block>
+  <block id="85c9296df6a3c9630ed684b4af8847a8" category="doc">クラスタの拡張</block>
+  <block id="adb8e906da60ee75c25264b57f7ea87b" category="inline-link-macro">Astra データストアの要件</block>
+  <block id="53ba6f78a5959abd0fed5dd621c61f53" category="paragraph">Astra データストアプレビュー：クラスタ内でさまざまなタイプや機能のノードをサポートクラスタを拡張する場合は、パフォーマンス機能がクラスタ内のパフォーマンスが最も低いノードよりも低いノード以外のノードを追加することを Astra データストアプレビューでサポートしています。新しいノードのストレージ容量は既存のノードと同じである必要があります。拡張時の新しいノードを含むすべてのノードは、に示した最小要件を満たしている必要があります <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
+  <block id="ef22ff17624b3faeed227ce5c717eb5f" category="inline-link">Astra Control Service のマニュアル</block>
+  <block id="6762180adf48075df77efbf264e982ec" category="list-text"><block ref="6762180adf48075df77efbf264e982ec" category="inline-link-rx"></block></block>
+  <block id="14d9b10c6196045941347a9e85704b50" category="inline-link">Astra Trident のドキュメント</block>
+  <block id="4a2ab62188738135163aaaaeab1d6cfe" category="list-text"><block ref="4a2ab62188738135163aaaaeab1d6cfe" category="inline-link-rx"></block></block>
+  <block id="30f4d9ba43475ff8056fa1d73ffc972c" category="inline-link">Astra API を使用</block>
+  <block id="3d8f201e2aea311db7d1d35c86d726da" category="list-text"><block ref="3d8f201e2aea311db7d1d35c86d726da" category="inline-link-rx"></block></block>
+  <block id="5858ee4031acd7b896faa2d3d2c1a299" category="inline-link">Cloud Insights のドキュメント</block>
+  <block id="2b93b48daf034e4100d00b85950e109d" category="list-text"><block ref="2b93b48daf034e4100d00b85950e109d" category="inline-link-rx"></block></block>
+  <block id="eb75aeb3b4b2b9734ba3e52f5483f0b2" category="inline-link">ONTAP のドキュメント</block>
+  <block id="8217522f2b9eea86f1099a2aba54aebd" category="list-text"><block ref="8217522f2b9eea86f1099a2aba54aebd" category="inline-link-rx"></block></block>
+  <block id="65b6668e2c69e75ca45fd504ca3bf939" category="summary">アストラデータストアは、スタンドアロンの Kubernetes クラスタに導入できます。スタンドアロンの Kubernetes クラスタは、別のクラスタで実行されている Kubernetes アプリケーションに永続的ボリュームを提供します。 Kubernetes クラスタは、同じノードプールで他のアプリケーションをホストしたり、 Kubernetes クラスタで別のノードプールでアプリケーションをホストしたりすることもできます。</block>
+  <block id="36973e06a1ee8bc363ca0f0f1c586427" category="doc">Astra データストア導入モデル</block>
+  <block id="41719d45eedf548911f2b5c2a6084cc7" category="paragraph">Astra Data Store プレビュー： Kubernetes でオーケストレーションされたアプリケーションを使用して、ホスト上でストレージドライブを直接管理</block>
+  <block id="e5bd7820f5eee1a96293b6b5f92bee84" category="paragraph">Astra Data Store プレビューは、ベアメタルサーバまたは仮想サーバに次のいずれかのオプションを使用してインストールできます。</block>
+  <block id="d807a55a4eafc3079b6b45a80be55981" category="list-text">スタンドアロンの専用 Kubernetes クラスタに導入して、別のクラスタ（スタンドアロンクラスタ）で実行されている Kubernetes アプリケーションに永続ボリュームを提供します。</block>
+  <block id="a5389bea5b0ed77642e3dc5f2d2e70f0" category="list-text">Kubernetes クラスタに導入し、同じノードプール（コンバージドクラスタ）で他のワークロードアプリケーションをホストすることもできます。</block>
+  <block id="277369c2a44bdbde70d4978491333cf6" category="list-text">Kubernetes クラスタに導入すると、他のワークロードアプリケーションも別のノードプール（分離型クラスタ）にホストできます。</block>
+  <block id="c6f1a352df2f86c5762377fac42728cd" category="inline-link-macro">Astra Data Store のハードウェア要件の詳細をご確認ください</block>
+  <block id="fe0f8f78d78d43e48f544072457864fd" category="paragraph"><block ref="063de6d98610c6cc606db5d3a91db761" category="inline-link-macro-rx"></block>。</block>
+  <block id="b718411e8c696b20e6e0a5763131ff50" category="paragraph">Astra データストアプレビューは、 Astra 製品ファミリーの一部です。アストラファミリー全体の展望については、を参照してください<block ref="b55c504067205ad1413673d6a733ac94" category="inline-link-rx"></block>。</block>
+  <block id="57130318718009eaaede4b2335702fd8" category="section-title">Astra データストアエコシステム</block>
+  <block id="c77d4df020e2f228b335bf2fb55c7074" category="paragraph">Astra データストアプレビューは、次の機能で動作します。</block>
+  <block id="50db2d5d2d0d6701257927c365a04231" category="list-text">* Astra Control Center * ：オンプレミス環境で Kubernetes クラスタをアプリケーション対応で管理するために、 Astra Control Center ソフトウェアを使用。Kubernetes アプリケーションを簡単にバックアップし、データを別のクラスタに移行して、作業用アプリケーションのクローンを瞬時に作成できます。</block>
+  <block id="2a48cd9390eedba71d48155badc1de94" category="paragraph">Astra Control Center は、 ONTAP または Astra データストアプレビューストレージバックエンドを備えた Trident ストレージバックエンドで OpenShift Kubernetes クラスタをサポートします。</block>
+  <block id="c9ffa666041d225b05a55ccaba7e5458" category="list-text">* Trident * ：ネットアップが管理する、完全にサポートされているオープンソースのストレージプロビジョニングおよびオーケストレーションツールである Trident を使用すると、 Docker と Kubernetes で管理するコンテナ化されたアプリケーション用のストレージボリュームを作成できます。</block>
+  <block id="539ccb3278900d4337d03ac42a102ad9" category="paragraph">Trident を使用して、 Astra データストアプレビューでボリュームを作成</block>
+  <block id="eeab34a5f7ee15f056d5950012d06bf6" category="list-text">* Cloud Insights * ：ネットアップのクラウドインフラ監視ツールである Cloud Insights を使用すると、 Astra Control で管理された Kubernetes クラスタのパフォーマンスと利用率を監視できます。Cloud Insights ：ストレージ使用率とワークロードの相関関係を示します。Cloud Insights 接続を Astra Control で有効にすると、 Astra Control の UI ページにテレメトリ情報が表示されます。</block>
+  <block id="19f784aca41ca6786a1708bf1acf56c6" category="paragraph">Cloud Insights は、 Astra データストアプレビューにリソースに関する情報を表示します。</block>
+  <block id="68298d2de3b6b29d9e494492b680fc1a" category="section-title">Astra データストアインターフェイス</block>
+  <block id="d015aca78df45458ee1d6533c5246919" category="paragraph">さまざまなインターフェイスを使用してタスクを完了できます。</block>
+  <block id="3ce33c83106a597de03ab2e053ba936d" category="list-text">* Web ユーザーインターフェイス (UI) * ： Astra Control Service と Astra Control Center は、同じ Web ベースの UI を使用して、アプリケーションの管理、移行、保護を行うことができます。また、 Astra データストアのプレビューボリュームに関する情報も表示されます。</block>
+  <block id="5dd2a4cc9e98a3b9886bcc604cfd6996" category="list-text">* API* ： Astra Control Service と Astra Control Center は、同じ Astra Control API を使用します。API を使用するタスクは、 UI を使用するタスクと同じです。Astra Control API を使用して、 Astra データストアのプレビューに関する情報を取得することもできます。</block>
+  <block id="64709f1561293f714575cd6d60907b75" category="list-text">*kubectl コマンド *: Astra データストアプレビューを操作するには 'kubectl コマンドを直接使用することもできます</block>
+  <block id="f32d55277f0325049920c7019b1b925c" category="list-text">* Kubernetes 拡張機能 * ：さらに、 Kubernetes API 拡張機能 Astra データストアプレビューを使用できます。</block>
+  <block id="61a6bfa30a3c2204517c3ff952d4c118" category="paragraph">カスタムリソース定義（ CRD ）は Kubernetes REST API の拡張機能で、 Astra Data Store のプレビューオペレータが導入されたときに作成されます。外部エンティティは、 Kubernetes API サーバを呼び出して SSD とやり取りします。Astra Data Store プレビューでは、特定の SSD に対する更新を監視してから、内部の REST API を呼び出します。</block>
+  <block id="ca4530da8cd63a3852e628753021934a" category="summary">Astra Data Store では、シンプロビジョニング、ゼロブロックの排除、圧縮、重複排除などのストレージ効率化テクノロジを使用しています。</block>
+  <block id="5b0b8dca4f811863182aeb743df36506" category="doc">Astra データストアのストレージ効率</block>
+  <block id="e6e68287050475c3472e7210e67c782d" category="paragraph">Astra データストアでは、 ONTAP テクノロジと SolidFire テクノロジを基盤とする Storage Efficiency テクノロジを次のように利用しています。</block>
+  <block id="49fd2375999e454962f2a76dea2d99b5" category="list-text">* シンプロビジョニング * ：シンプロビジョニングされたボリュームは、ストレージが事前に予約されていないボリュームです。代わりに、ストレージは必要に応じて動的に割り当てられます。ボリュームまたは LUN 内のデータが削除されると、空きスペースはストレージシステムに戻されます</block>
+  <block id="ac0967915cfa21217ac0958fa4f2a6da" category="list-text">* ゼロブロックの検出と排除 * ：シンプロビジョニングを使用した ONTAP ストレージシステムでは、ボリュームが初期化されている領域を検出して、そのスペースを解放して他の場所で使用することができます。</block>
+  <block id="bd4fa668e07ff5169fc38a1df5dd7fe2" category="list-text">* 圧縮 * ：圧縮では、データブロックを圧縮グループに集約し、各データブロックを 1 つのブロックとして格納することで、ボリュームに必要な物理ストレージの量を削減します。ONTAP では、ファイル全体ではなく、要求されたデータを含む圧縮グループのみが解凍されるため、従来の圧縮手法よりも短時間で圧縮されたデータを読み取ることができます。</block>
+  <block id="a0f1d24dc3084ea8b257373ed48416c3" category="list-text">* 重複排除 * ：重複するブロックを破棄して単一の共有ブロックへの参照に置き換えることで、ボリューム（または AFF アグリゲート内のすべてのボリューム）に必要なストレージ容量を削減します。通常、重複排除されたデータの読み取りがパフォーマンスに影響することはありません。ノードに負荷が集中している場合を除き、書き込みによる影響もほとんどありません。</block>
+  <block id="23d07990648d5e599c2f21bd6408d3c7" category="paragraph">これらの機能はすべてデフォルトで有効になっています。</block>
+  <block id="8bb7278f8687d62c283b01b22bd11883" category="inline-link">Storage Efficiency の詳細</block>
+  <block id="aca457c35da234f961360ac0401e3ea5" category="paragraph">を参照してください<block ref="296e23408010636aef99223ff4789435" category="inline-link-rx"></block>。</block>
+  <block id="d4b92f4945c7eafc00261f4339999749" category="summary">Astra データストアでは、クライアントと管理者がストレージにアクセスするのを保護し、通信とデータを保護し、ウイルスから保護するために、いくつかの方法を使用します。</block>
+  <block id="a137afb0e5f46a6c47e411a5c9c42758" category="doc">Astra データストアのセキュリティ</block>
+  <block id="6c50ae0fd489e39bb803cec46c926c40" category="paragraph">Astra Data Store のプレビューでは、クライアントと管理者がストレージにアクセスするのを保護し、通信とデータを保護し、ウイルスから保護する方法がいくつかあります。</block>
+  <block id="09339b9f65d7451119bd973b67b2cf37" category="paragraph">Astra データストアプレビューでは、次のセキュリティ方法を使用します。</block>
+  <block id="aadd8dd46108d4c406fbdaf57d8cd0e4" category="list-text">MTLS （相互トランスポート層セキュリティ）を使用した通信暗号化</block>
+  <block id="f6c6d031927e2d5b98f75307c2b52492" category="list-text">ロールベースアクセス制御は機能へのアクセスを制御します</block>
+  <block id="493310ef851cbd6318af4494b52c12e6" category="list-text">展開のセキュリティ</block>
+  <block id="d7472107bd93164aab58e7bdee6b4ee2" category="list-text">証明書管理</block>
+  <block id="4c8339b442784e09f376234ea3dc70e1" category="list-text">内部キー管理を含む保存データのソフトウェア暗号化</block>
+  <block id="822b9a387b65a35c2ef192f62db1ed0f" category="summary">Astra データストアは、コンテナワークロードと VM ワークロードの両方に対応する Kubernetes ネイティブの共有ファイルサービスで、エンタープライズデータ管理を実現します。</block>
+  <block id="9f828d6c562cc0df256e51d5d235c7bb" category="doc">Astra データストアの概要</block>
+  <block id="3b5242cfb7f9537004a67d41c1abe248" category="paragraph">Astra データストアは、クラウドネイティブアプリケーションの管理を支援する、 Kubernetes ネイティブのオンプレミスデータセンター向け共有ファイル Software-Defined Storage （ SDS ）解決策です。Astra データストアは、コンテナと VM の両方のワークロードに対して、ネットアップのエンタープライズデータ管理とネイティブの共有ファイルサービスを提供します。</block>
+  <block id="29a88ba649cfc395ea85184d0913f230" category="paragraph">Astra データストアでは、次のことが可能です。</block>
+  <block id="806e9b283c8cb7cec59b6fcd4d725669" category="list-text">* Kubernetes のコンテナ化されたワークロードをサポート * ：コンテナ化されたワークロードを、使用するエンタープライズデータ管理サービスとツールでサポートします。</block>
+  <block id="d7266aefd53c2dca533afcd5c9229889" category="list-text">* Kubernetes の「アプリケーションサービス」プラットフォームを DevOps 向けに使用 * ：柔軟性に優れたソフトウェア定義のセルフサービス型プラットフォームを構築して、自動化された繰り返し可能なサービスを提供します。これにより、 developerselfasts から複雑さが解消されます。</block>
+  <block id="bb453665f57f6823950856f7a9bad0c3" category="section-title">Astra 製品ファミリー</block>
+  <block id="dd490b59f0194051f9d41deec8b0aefa" category="paragraph">Astra 製品ファミリーは、 Kubernetes アプリケーションデータのライフサイクル管理を提供し、ステートフルアプリケーションの運用を簡易化します。Kubernetes ワークロードの保護、バックアップ、移行を簡易化し、作業用アプリケーションのクローンを瞬時に作成できます。</block>
+  <block id="b71fa69e65a9178741af35068df8a392" category="paragraph">Astra には次のサービスがあります。</block>
+  <block id="9cdf0ccc35fe6d9fdc72efbcca1bacad" category="list-text">* Astra Control * ：パブリッククラウドとオンプレミスの両方で Kubernetes ワークロードを管理、保護、移動する、アプリケーション対応のデータ管理ツールを使用。 3 つの制約が発生</block>
+  <block id="227ef150dba3452cf99d8eb20c88f292" category="list-text">* Astra Control Service * ：ネットアップが管理するサービスを使用して、パブリッククラウドの Kubernetes ワークロードをデータ管理</block>
+  <block id="5fcaa4cc6e27b1f2dcee1db0dcee999a" category="list-text">* Astra Control Center * ：オンプレミスの Kubernetes ワークロードのデータ管理に、自己管理ソフトウェアを使用</block>
+  <block id="21ae0c223c1db87f465a4b9a3e634341" category="list-text">* Astra Data Store * ： Kubernetes ネイティブの共有ファイルサービスをコンテナや VM のワークロードに使用して、エンタープライズデータを管理</block>
+  <block id="383cdefecd7eda4a982198ecdbbce7da" category="list-text">* Astra Trident * ： Container Storage Interface （ CSI ）に準拠したストレージプロビジョニングと管理を、ネットアップのストレージプロバイダとともに使用します。</block>
+  <block id="9c4409443c2952d1634823228bc8d335" category="paragraph">を参照してください<block ref="b55c504067205ad1413673d6a733ac94" category="inline-link-rx"></block>。</block>
+  <block id="17d3506812ac5cd550afaae120fc3072" category="paragraph"><block ref="17d3506812ac5cd550afaae120fc3072" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b987663a30d898f74e9dd1aee179e6de" category="section-title">Astra データストアの機能</block>
+  <block id="56a2dbf732bd1ee44e12d29d7c6007cd" category="paragraph">Astra データストアは、 Kubernetes ネイティブのエンドツーエンドのストレージとデータ管理機能をクラウドネイティブアプリケーションに提供します。以下の機能が必要です。</block>
+  <block id="f9ab1651208c253699bc488c26a8427e" category="list-text">* Kubernetes ネイティブの共有ファイルサービス * ：標準の NFS クライアントをコンテナと VM の統合データストアとして使用し、 Kubernetes にネイティブな共有ファイルサービスを提供します。 .esk.esub.us</block>
+  <block id="f9ee9cb48be574a530a87bdbd8a3fb4b" category="list-text">* クラウド規模 * ： Kubernetes ネイティブの複数の並列ファイルシステムを同じリソースプール上に提供し、クラウドレベルの拡張性と利用率を実現します。これにより、ストレージをクラスタとは別に管理する必要がなくなります。</block>
+  <block id="7012ec096e5b7ac0c86f0d874bca22cd" category="list-text">* API ファーストアプローチ * ：クラスタとワークロードの管理が自動化された状態になるコードとしてインフラを提供</block>
+  <block id="9aabb09d3a7120141b0d753a80fe4217" category="list-text">* エンタープライズクラスのデータ管理 * ：アプリケーション対応の自動データ保護とディザスタリカバリを提供：</block>
+  <block id="782e83202e5dc2f388e8355633eda320" category="list-text">* ネットアップのテクノロジ * ： Snapshot 、バックアップ、レプリケーション、クローニングにネットアップのデータ管理テクノロジを活用することで、ユーザは Kubernetes でエンタープライズアプリケーションを構築、導入できます。とは</block>
+  <block id="8931fb12998c2c6ad5f4c5bc8829f8ef" category="list-text">* 耐障害性 * ： Kubernetes ネイティブのワークロードにレプリケーションテクノロジとイレイジャーコーディングテクノロジを使用して耐障害性を向上</block>
+  <block id="1504325f5e4b13a89b554f4d86ce7224" category="list-text">* データ効率 *: インラインの重複排除機能と圧縮機能により、拡張に合わせてコストを抑制します。</block>
+  <block id="02636655504a22c3e2973e5b212990c4" category="list-text">* 既存の環境に適合 * ：マイクロサービスベースの従来のワークロードをサポートし、主要な Kubernetes ディストリビューションに対応し、ファイルストレージを提供し、任意のハードウェア・ベース・ワークロードで動作します。</block>
+  <block id="15266d664d91aafb32a297b47d315e6e" category="list-text">* NetApp Cloud Insights との統合 * ：連続的な最適化処理を実行するためのオブザーバビリティ、分析、監視を提供します。とは</block>
+  <block id="024164469d071c626f7a31250bb322f0" category="section-title">Astra データストアの利用を開始しましょう</block>
+  <block id="fdc214a356831f18e50d44483816cd46" category="inline-link-macro">Astra データストアの要件をご確認ください</block>
+  <block id="ff5aa600c6539c7e081d620eb47efc0b" category="paragraph">最初に、 <block ref="ffd8cafe4a2e3797a817f620ac67ea91" category="inline-link-macro-rx"></block>。</block>
+  <block id="5b1afbcfd691161f9517b45cd0d4faee" category="inline-link-macro">始めましょう</block>
+  <block id="fb75bcadcf4356e44d514f54d356ab25" category="paragraph">次に、 <block ref="f7da4cdd4ceddcef675db38062e9c2f7" category="inline-link-macro-rx"></block>。</block>
+  <block id="e81551a1c637af1bdd2cf807058cc5e3" category="summary">まずは、環境のサポート状況を確認します。</block>
+  <block id="c066e77c0fe2c99e8fbbb9a70c883a5f" category="doc">Astra データストアのプレビュー制限</block>
+  <block id="dfc6ae638b43c600bcdbe8a67cf9709c" category="paragraph">Astra データストアは、クラウドネイティブアプリケーションの管理を支援する、 Kubernetes ネイティブのオンプレミスデータセンター向け共有ファイル Software-Defined Storage （ SDS ）解決策です。</block>
+  <block id="9c4529ace9ecebb0b8ed8b19226307f1" category="paragraph">Astra Data Store プレビューリリースには、次のリソース制限があります。</block>
+  <block id="be8545ae7ab0276e15898aae7acfbd7a" category="cell">リソース</block>
+  <block id="a1d0ec6d56f8833a078b5a7ac4caf2d4" category="cell">最小（ Minimum ）</block>
+  <block id="8321e79c278ec510f63675c040594892" category="cell">最大</block>
+  <block id="5e9a72bd35b8b657825b42e178cc667d" category="cell">Astra データストアプレビュークラスタに含まれるノード数</block>
+  <block id="a87ff679a2f3e71d9181a67b7542122c" category="cell">4.</block>
+  <block id="e4da3b7fbbce2345d7772b0674a318d5" category="cell">5.</block>
+  <block id="196f991af758339a4e307e49fdc25445" category="cell">ノードあたりの永続ボリュームの数</block>
+  <block id="382b0f5185773fa0f67a8ed8056c7759" category="cell">該当なし</block>
+  <block id="d3d9446802a44259755d38e6d163e820" category="cell">10.</block>
+  <block id="a01ecc0a6ff9ccb59344e8646621b1ab" category="cell">ノードあたりの永続ボリュームのプロビジョニング済み容量の合計</block>
+  <block id="8913df8372330703defae14976d6f14e" category="cell">1TiB</block>
+  <block id="6bb41960470a19d97556b9240ac0b3ff" category="cell">ボリュームサイズ</block>
+  <block id="726d383bc3256804ce4d5e4c45cf853b" category="cell">20MiB</block>
+  <block id="7f9d2c4d982547805f59957ea8962556" category="cell">ボリュームあたりの Snapshot 数</block>
+  <block id="cfcd208495d565ef66e7dff9f98764da" category="cell">0</block>
+  <block id="f718499c1c8cef6730f9fd03c8125cab" category="cell">256</block>
+  <block id="9053ddee628502aa59ecc06ca8054392" category="cell">ボリュームあたりのクローン数</block>
+  <block id="45c48cce2e2d7fbdea1afc51c7c6ad26" category="cell">9.</block>
+  <block id="71ace59df32db700cac820349c67dd2a" category="admonition">Astra データストアプレビュー版は、 VM ワークロードをサポートしていない。VMware VVOL ワークロードは今後のリリースでサポートする予定です。</block>
+  <block id="0a20c90d5270bed19fcaf851778c663b" category="section-title">次の手順</block>
+  <block id="b4851e92b19af0c5c82447fc0937709d" category="inline-link-macro">要件</block>
+  <block id="a695e2ec087393b67c5decc922a11745" category="paragraph">構成がに合っていることを確認します <block ref="3675fd04b78685cacd6e23511ab11d10" category="inline-link-macro-rx"></block>。</block>
+  <block id="b1151aae9531d2f5e85d085e8878cea6" category="summary">この FAQ は、質問に対する簡単な回答を探している場合に役立ちます。</block>
+  <block id="0fc384ade3fa0a49e6200f91385d65a9" category="doc">Astra データストアのプレビューに関する FAQ</block>
+  <block id="6014dc7d785a91f39eda065d13d62e52" category="paragraph">Astra Data Store のプレビュー版のインストール、設定、アップグレード、トラブルシューティングに関する FAQ を掲載しています。</block>
+  <block id="96ab491ef73d5db0cd15f55e1552cc22" category="section-title">一般的な質問</block>
+  <block id="63f037cc937fa1e56c508887d619f746" category="paragraph">* 本番環境で Astra データストアプレビューを使用できますか？ * いいえAstra データストアはエンタープライズクラスの耐障害性を実現するように設計、開発されていますが、 Astra データストアプレビュー版は本番環境のワークロードには適していません。</block>
+  <block id="8c9b36244097b3f2c3d1ad64603311e0" category="paragraph">* 仮想マシンのワークロードに対して Astra Data Store プレビューを使用できますか？ * Astra Data Store プレビューリリースは、ベアメタルマシンでも仮想マシンでも Kubernetes で実行されているアプリケーションに限定されます。今後のリリースでは、 Kubernetes と ESXi 仮想マシンの両方でアプリケーションがサポートされる予定です。詳細はこちら <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
+  <block id="b5badd65a58ba3012cb16b9340acb2e4" category="paragraph">* Astra データストアプレビューには、他のネットアップ製品との依存関係はありますか？ * はい。Astra Data Store のプレビューを利用するには、 NetApp CSI ドライバ Astra Trident バージョン 21.10 以降をワークロードの Kubernetes クラスタに導入する必要があります。詳細はこちら <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
+  <block id="9c634046a90a62883b122e76b9afcef2" category="inline-link">Astra Control Center の略</block>
+  <block id="289e6d386db78ca43bf58e8260069361" category="paragraph">Astra Data Store プレビュー版クラスタをストレージバックエンドとして使用するアプリケーションであれば<block ref="6653b3fa72bfc9c83d8e5fede6da40f0" category="inline-link-rx"></block> バージョン 21.12 データ保護、ディザスタリカバリ、 Kubernetes ワークロードの移行など、アプリケーション対応のデータ管理機能を活用するために必要です。</block>
+  <block id="456f2b6f01dea1c766407717c9f25ae0" category="paragraph">* Astra Data Store Preview Cluster の管理方法 * Astra Data Store のプレビュー資産の管理には、 kubectl コマンドと Kubernetes API 拡張機能を使用できます。</block>
+  <block id="8769fb0b311c9d4eb4ae12703797ec2d" category="paragraph">* アストラデータストアのプレビュークラスタ指標はどのように監視できますか？ * Cloud Insights を使用して、アストラデータストアのプレビュー指標を監視できます。を参照してください <block ref="5f4e23cb821c4c14144c1c2b8f6c948e" category="inline-link-macro-rx"></block>。</block>
+  <block id="a3732b03ca4422ce6b70efcd6e224c8f" category="paragraph">ログを監視することもできます。を参照してください <block ref="3d73dda56e07b3410aee41dd59d50b4f" category="inline-link-macro-rx"></block>。</block>
+  <block id="46bc7872a1eb6d52309892745fb5728f" category="paragraph">* Kubernetes クラスタで ONTAP や他のストレージプロバイダとともに Astra データストアプレビューを使用できますか？ * はい。Astra データストアプレビューは、アプリケーションクラスタ内の他のストレージプロバイダとともに使用できます。</block>
+  <block id="cff1b9b86e8ec14449228e18e322acb1" category="paragraph">* Astra Trident は、 Astra Data Store プレビューから Kubernetes クラスタを削除した場合にアンインストールされますか？ * Astra Trident は、 Astra Data Store プレビューをアンインストールしてもクラスタからアンインストールされません。Astra Trident のアンインストールが必要な場合は、別途アンインストールする必要があります。</block>
+  <block id="0b9c6eef4e3d3a222eb04e910d252339" category="section-title">ライセンス</block>
+  <block id="189fe01d6ea340c87bd7dfc08e5dc6fd" category="paragraph">* Astra Data Store プレビューにはライセンスが必要ですか？ * はい、 Astra Data Store プレビューにはネットアップライセンスファイル（ NLF ）が必要です。</block>
+  <block id="dcc9e4907c40d4ced6733b3d7acae196" category="paragraph">詳細はこちら <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
+  <block id="c9221ccf1a7bae74e765415f7fe4db6b" category="paragraph">* Astra データストアプレビューライセンスの有効期間はどのくらいですか？ * Astra データストアプレビューライセンスのデフォルト期間は、ダウンロード日から 90 日間です。</block>
+  <block id="8b6311633b65017461fb3e38c2c6de22" category="section-title">Kubernetes クラスタに Astra データストアプレビューをインストールして使用</block>
+  <block id="0525f08bcf3badaa43b64e062226d0f6" category="inline-link-macro">Astra データストアのプレビュー要件</block>
+  <block id="5cf5df8a91fc55a0f6311fceca215a7e" category="paragraph">* ベアメタルまたは仮想マシンで実行されている Kubernetes クラスタに Astra Data Store プレビューをインストールできますか？ * はい。Astra データストアプレビューは、ベアメタルまたは ESXi VM で実行されている Kubernetes クラスタにインストールできます。詳細はこちら <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
+  <block id="5328f5bfdcae13ae4157ca7026b9e70c" category="paragraph">* Astra Data Store プレビュー版でサポートされている Kubernetes のバージョンは何ですか？ * Astra Data Store プレビューは、 v1.20 以降と互換性のある Kubernetes ディストリビューションで機能します。ただし、現時点では、 Kubernetes のすべてのディストリビューションで検証されているわけではありません。詳細はこちら <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
+  <block id="4f6e7c240c01634d298aa9125681479c" category="paragraph">* My Kubernetes クラスタは 5 つ以上のワーカーノードで構成されています。Astra データストアプレビューを IT にインストールできますか。 * はい。Astra データストアプレビュークラスタは、 Kubernetes クラスタ内の 4 つまたは 5 つのワーカーノードに導入できます。Kubernetes クラスタには、 Astra Data Store プレビュークラスタを導入するワーカーノードを 4 つまたは 5 つ選択できます。</block>
+  <block id="cc41262b7d4f903b7e21bdf37c1621f9" category="inline-link-macro">Astra データストアをインストール</block>
+  <block id="d030077fb48de9e7b7222dda3b30a2c7" category="paragraph">* Astra データストアプレビューは、プライベートレジストリからのオフラインインストールをサポートしていますか。 * はい。Astra データストアプレビューは、ローカルレジストリからオフラインでインストールできます。を参照してください <block ref="14497a94943dc819ca2bc8999e1f8acf" category="inline-link-macro-rx"></block>。ただし、ネットアップサポートバックエンド（ support.netapp.com ）に接続して運用を継続するには、 Astra データストアのプレビュー版を利用する必要があります（直接またはプロキシ経由）。</block>
+  <block id="1099f9b7653cec15b92fe0f36cf629ac" category="paragraph">* Astra データストアプレビューを使用するにはインターネットに接続する必要がありますか？ * Astra データストアプレビューを利用するには、必須の AutoSupport バンドルを定期的に送信するために、ネットアップ AutoSupport バックエンドに接続する必要があります。この接続は、直接またはプロキシ経由で行うことができます。この接続がないか AutoSupport が無効な場合、クラスタがロックダウンされ、定期的なバンドルアップロードが再開されるまで新しいボリュームの作成が無効になります。</block>
+  <block id="bba57f874c98e85c47cc41e62b11c2f9" category="paragraph">* Astra Data Store プレビューで使用する役割と権限は何ですか？ * Astra Data Store プレビューオペレータを配備するには、 kubeadmin である必要があります。</block>
+  <block id="7e262eb0471b79362fb1d998ef7816ad" category="paragraph">Astra Data Store のプレビューには、ノードの選択に使用されるノードリソースを検出するための「 astra -ds-nodeinfo -astradsversion 」という特権的なデミスがあります。</block>
+  <block id="24e04714db6e86f8b770da300196abe4" category="paragraph">さらに、管理者は、権限付き Kubernetes ジョブを使用して、選択したワーカーノードにストレージクラスタのコンテナをインストールし、 Astra Data Store プレビューストレージクラスタを構築します。</block>
+  <block id="3ac365fe03aac888c56d143184752fb0" category="paragraph">* Astra Data Store プレビューインストールのために更新する必要があるマニフェストファイルは何ですか？ * ネットアップサポートサイトからダウンロードした Astra Data Store プレビューバンドルには、次のマニフェストが含まれています。</block>
+  <block id="d870af338cdfa7ad024a4babd5d5c020" category="list-text">Astradscluster.yaml</block>
+  <block id="de40745cae6783730dd65bb03555d562" category="list-text">Astradsoperator.yaml</block>
+  <block id="d2730d5e8f46678286a382b660c902d6" category="list-text">astadsversion.yaml</block>
+  <block id="3a9c59c477bac1075df22f66ac28ffc3" category="list-text">Monitoring_operator.yaml</block>
+  <block id="155295fb4d0e2d0e7c5967bbc8bd3ed3" category="paragraph">配備固有の設定で 'astraadscluster.yaml マニフェストを更新する必要がありますを参照してください <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。</block>
+  <block id="92d1656d06303733c5e1398fb273a17e" category="section-title">トラブルシューティングとサポート</block>
+  <block id="74ba5cdb40feb42b19d5c7769a72ac66" category="paragraph">ネットアップのコンテナ向け Slack チャネルを使用して、ネットアップの Astra データストアプレビューでコミュニティサポートにアクセスできます。このチャネルの監視は、ネットアップのサポートエンジニアとテクニカルマーケティングエンジニアが行います。</block>
+  <block id="61615f0fb929e3dc8c5ed73825a9a333" category="inline-link">ネットアップコンテナ向け Slack チャンネル</block>
+  <block id="eb8fcf37f17153346e926af0904aa1c4" category="paragraph"><block ref="eb8fcf37f17153346e926af0904aa1c4" category="inline-link-rx"></block></block>
+  <block id="98d4a15143a74da57ac042934633419c" category="paragraph">プレビューリリースでは、システムがクラウドに接続され、 NetApp Active IQ ツールと AutoSupport ツールに統合されている必要があります。</block>
+  <block id="0596e50aba44f7e1a22cfd6eba221eb1" category="inline-link-macro">Astra データストアサポート業務</block>
+  <block id="95d0cc0c791e77283e4f15685fecea58" category="paragraph">詳細はこちら <block ref="8d8c8ec655e8397711a9f4c0b3d58c93" category="inline-link-macro-rx"></block>。</block>
+  <block id="babfff07f519258008994d4fc8c24ca1" category="paragraph">* サポートケースを作成する方法、または簡単な質問を明確にする方法を教えてください。 * サポートケースを作成する方法、または簡単な質問について説明する方法については、問題またはの質問を参照してください<block ref="4b307ae9f8df03c1a35a9ddfa102ae01" category="inline-link-rx"></block>。ネットアップサポートがお客様にフォローアップし、ベストエフォートでの解決を支援します。</block>
+  <block id="e55eed1f8e319d189f948d8925157ae5" category="paragraph">* 新機能のリクエストをどのようにして提出しますか？ * サポートされている構成や機能について質問がある場合は、 astra.feedback@netapp.com までお問い合わせください。</block>
+  <block id="d8d50c12bd11a2109a7a384f43b0930a" category="inline-link-macro">サポートバンドルの生成</block>
+  <block id="e859e608d59cef8fc0f0cccdb868853f" category="paragraph">* サポートログバンドルの生成方法については、を参照してください <block ref="0e3e1e21aa20734c9ddadb346fd8f7d6" category="inline-link-macro-rx"></block> Astra Data Store プレビュー版のサポートログバンドルをセットアップおよびダウンロードする手順については、こちらを参照してください。</block>
+  <block id="36a38d337710d18d8d4579ea32c02c53" category="paragraph">* Astra データストアプレビューで Kubernetes ノードが見つかりません。どうすれば修正できますか？ * を参照してください <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。</block>
+  <block id="b65c882f5478cc6c135a753a8298028e" category="paragraph">* IPv6 アドレスは管理ネットワーク、データネットワーク、クラスタネットワークに使用できますか？ * いいえ、 Astra データストアプレビューでサポートされているのは IPv4 アドレスのみです。IPv6 のサポートは、 Astra データストアプレビューの今後のリリースで追加される予定です。</block>
+  <block id="91f1ab6c785beb94a57d22cb6b25c708" category="paragraph">* Astra Data Store プレビューでボリュームをプロビジョニングする際に使用される NFS のバージョンは何ですか？ * デフォルトでは、 Kubernetes アプリケーション用にプロビジョニングされたすべてのボリュームに対して、 Astra Data Store プレビューで NFS v4.1 がサポートされています。</block>
+  <block id="6c6c281439786bd3afca1ee0f6d336f2" category="paragraph">* 大容量ドライブで Astra データストアプレビューを構成しても、大容量の永続ボリュームを取得できないのはなぜですか？ * Astra データストアプレビューにより、 Astra データセンターのすべてのノードでプロビジョニングされる最大容量が 1TiB に、すべてのノードで最大 5TiB に制限されます クラスタのプレビューを保存します。</block>
+  <block id="c2d1bd9541919afbacc4acc6760de5d9" category="paragraph">詳細はこちら <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
+  <block id="14cd0e4b418e0b771908183fb5ecc24e" category="section-title">Astra データストアプレビューのアップグレード</block>
+  <block id="9b5fa79969e9a6e522104cdbe7e5b5d3" category="paragraph">* Astra Data Store プレビューリリースからアップグレードできますか。 * いいえAstra データストアプレビューは本番環境のワークロードには適用されず、 Astra データストアプレビューソフトウェアの新しいリリースには新規インストールが必要になります。</block>
+  <block id="f8e5d5352b626bd2d029c4bd8ea9d47a" category="summary">Astra データストアをインストールし、環境に関する前提条件をいくつか取り上げたら、 Astra Trident のインストールまたは更新、 Kubernetes のスナップショット機能の設定、ストレージバックエンドのセットアップ、およびデフォルトのストレージクラスの作成を行います。</block>
+  <block id="19631c9457203d96b87631ebe7414561" category="doc">Astra Data Store のプレビューコンポーネントをセットアップする</block>
+  <block id="c6b43cb83affec45395d5e8463e67e03" category="paragraph">Astra Data Store のプレビューをインストールし、環境に関するいくつかの前提条件に対処したら、 Astra Trident をインストールし、 Kubernetes のスナップショット機能を設定し、ストレージバックエンドをセットアップして、デフォルトのストレージクラスを作成します。</block>
+  <block id="b242850ad01d99f75ddfd4f74dfebad7" category="list-text"><block ref="e182f16fc549d59ca5882ebcc8d36a3d" category="inline-xref-macro-rx"></block></block>
+  <block id="38dbb49a55339dc2dbba9028c6176375" category="list-text"><block ref="a0e69e669f52a5cafaeb2bea82f6649c" category="inline-xref-macro-rx"></block></block>
+  <block id="01b9d33e8be610298a88d84e6d7abbfe" category="list-text"><block ref="dcd2e63384cc1964e08e6b39f6f60b05" category="inline-xref-macro-rx"></block></block>
+  <block id="f2ae91b089e1704747091d82092a79f5" category="list-text"><block ref="c8c521299e392e79ac34059fc36dd14d" category="inline-xref-macro-rx"></block></block>
+  <block id="f1fe71442cd08e74d342114df7ee1551" category="section-title">Astra Trident をインストール</block>
+  <block id="5dd74befe3d85da2f57fd86a34d8fac2" category="paragraph">Astra データストアプレビュー版を利用するには、 Astra Trident 21.10.1 をインストールする必要があります。Trident は次のいずれかの方法でインストールできます。</block>
+  <block id="e7447899210826e544345ba93e133255" category="inline-link">tridentctl を使用して Astra Trident をインストールします</block>
+  <block id="979a6aa592c9858f17cfdaa4e128d948" category="list-text"><block ref="dc8ebe7b95cc3b1176276c1b38485f4d" category="inline-link-rx"></block>。</block>
+  <block id="c9dee809ea22b77ba4c31523844ca736" category="inline-link">Trident オペレータを使用して Astra Trident をインストール</block>
+  <block id="9cbe472556d86bca1de7978af69e74d5" category="list-text"><block ref="802e7b84d831ea6d56a6d132aa8a7db4" category="inline-link-rx"></block>。</block>
+  <block id="c2c5c71258d8e55bd320745371789d00" category="admonition">Trident オペレータは、手動または Helm を使用して導入できます。</block>
+  <block id="d79ccdfe6809f469235ccec6dcc85362" category="section-title">Kubernetes スナップショットの CRD とコントローラをインストールします</block>
+  <block id="fb9ed05e85a3a832de77678ce6afc3a6" category="paragraph">PVC スナップショットを作成するには、 Kubernetes スナップショットの CRD とコントローラが必要です。環境に CRD とコントローラがインストールされていない場合は、次のコマンドを実行してインストールします。</block>
+  <block id="f6a6928c71289ccfc6e517aa2e23c8dd" category="admonition">次のコマンド例では ' ディレクトリとして /trident` を想定していますが ' 使用するディレクトリは 'YAML ファイルのダウンロードに使用した任意のディレクトリにすることができます</block>
+  <block id="b3f07915b49e4ea1df947a086346e6cc" category="inline-link-macro">インストールを開始する前に、 Astra データストアプレビュー環境を準備します</block>
+  <block id="38e54550c131045d7072709ab7bdb0c9" category="list-text"><block ref="e8ea8205c2ef5ca696bb2e550839cf2e" category="inline-link-macro-rx"></block>。</block>
+  <block id="d4d4a15663d8f6b4a3ab637d777ff538" category="inline-link-macro">Kubernetes snapshot controller yaml ファイル</block>
+  <block id="68b8495487a0e2961614f4537c86b8e1" category="list-text">をダウンロードします <block ref="d8c329b5b76c4cf95f26f4b2ef41b13f" category="inline-link-macro-rx"></block>：</block>
+  <block id="0ed163b08314ab6e6b11e5a003acb2e4" category="list-text">k8s-setup-snapshot-controller.yaml</block>
+  <block id="3f417c6ca705789edb204b186611a6c0" category="list-text">k8s-rbac -snapshot-controller.yaml</block>
+  <block id="e04160d92f8ef05d4ce3314e8cc91137" category="inline-link-macro">YAML CRD</block>
+  <block id="d2d45e911ea557447d96c6b2cb808cb7" category="list-text">をダウンロードします <block ref="1b2aa10bf02b798532fe7f94bbd6d467" category="inline-link-macro-rx"></block>：</block>
+  <block id="88e291668f9a86bd88b88b9b98a6aee8" category="list-text">snapshot.storage.k8es.io_volumesnapshotclasses.yaml</block>
+  <block id="5bcf00e7f0cf36a49beb0a818ec6cbef" category="list-text">snapshot.storage.k8es.io_volumesnapshotcontentes.yaml</block>
+  <block id="cc5824f53c7ffbd99cb349e87efde1f4" category="list-text">snapshot.storage.k8es.io_volumesnapshots.yaml</block>
+  <block id="5dd799b58f0a48e81b9090706c21ffc1" category="list-text">snapshot.storage.k8es.io_volumesnapshotclasses.yaml を適用します。</block>
+  <block id="1b2b0d3c628e11a19e1e37d392fc808b" category="list-text">snapshot.storage.k8es.io_volumesnapshotcontentes.yaml を適用します。</block>
+  <block id="b30fb0bbee1d9ca780b2e525df30f42d" category="list-text">snapshot.storage.k8es.io_volumesnapshotes.yaml を適用します。</block>
+  <block id="67028ffd6acae86fab652d05257a9656" category="list-text">k8s-setup-snapshot-controller.yaml を適用します。</block>
+  <block id="9352a98e83e5674124c81320233e2033" category="list-text">CRD YAML ファイルが適用されていることを確認します。</block>
+  <block id="c5827f9636201f8d30ce9cb0189c833d" category="list-text">Snapshot コントローラファイルが適用されたことを確認します。</block>
+  <block id="84ff6443c010c054303c3cacf8168ec8" category="section-title">Astra データストアをストレージバックエンドとしてセットアップする</block>
+  <block id="48b4e22b3043a4f7b84801549651a221" category="paragraph">ads_backend.json ファイルにストレージバックエンドパラメータを設定し、 Astra データストアストレージバックエンドを作成する。</block>
+  <block id="ba5afba2f814cc846b6fd4a34619c288" category="list-text">安全な端末で「 ads_backend.json 」を開きます。</block>
+  <block id="7be934ce8b58f4891a1f5bec99cfea5f" category="list-text">JSON ファイルを設定します。</block>
+  <block id="260e28a432c0ab70e8635e32a0869a37" category="list-text">「 cluster 」の値を Astra Data Store クラスタのクラスタ名に変更します。</block>
+  <block id="02122a736bce8e681ad437ec22ed0e39" category="list-text">「 namespace 」の値を、ボリュームの作成に使用するネームスペースに変更します。</block>
+  <block id="f47e741eac4d14c2bfe218ed3e360ab7" category="list-text">バックエンドではなく 'exportpolicy-CR を設定している場合を除き 'autoExportPolicy' の値を true に変更します</block>
+  <block id="5be18ccddef777624ac5fdc8a276d6e9" category="list-text">「 autoExportCIDRs 」リストに、アクセスを許可する IP アドレスを入力します。すべてを許可するには '0.0.0.0/0` を使用します</block>
+  <block id="966ad0e717b4a7b04e344eca212f3893" category="list-text">ストレージバックエンドを作成します。</block>
+  <block id="d6b32a57b28d1a90833a60d9d8a653fc" category="section-title">Default Astra Data Store ストレージクラスを作成</block>
+  <block id="aa80c9eb37faf3509ae07c01f5fcb711" category="paragraph">Astra Trident のデフォルトのストレージクラスを作成し、ストレージバックエンドに適用</block>
+  <block id="a6c0b25130e366f4926811fccc2d9175" category="list-text">trident-csi ストレージクラスを作成します。</block>
+  <block id="337d79852891a37d41285c9101c3fff4" category="list-text">次のコマンドを実行します。</block>
+  <block id="cd0b441465398fa0d75eba9947c66599" category="list-text">trident-csi の作成：</block>
+  <block id="8213c33dc9ac92d509af698f9a2e597f" category="list-text">ストレージクラスが追加されたことを確認します。</block>
+  <block id="22d9b315b29e2e8600a67e65475c18de" category="list-text">Astra Trident バックエンドがデフォルトのストレージクラスパラメータで更新されたことを確認します。</block>
+  <block id="f6b5c68237555d09d9a7f7e2de93b432" category="summary">環境に関するいくつかの前提条件に対処した後に Astra データストアをインストールするには、バンドルをダウンロードして、以下の手順に従ってインストールします。</block>
+  <block id="a99bbd4efcfb17a742c0ddb6c66d33b4" category="paragraph">Astra データストアプレビューをインストールするには、ネットアップサポートサイトからインストールバンドルをダウンロードし、この手順に記載されているインストール手順を実行します。</block>
+  <block id="0ba7583639a274c434bbe6ef797115a4" category="inline-link">登録</block>
+  <block id="208dc8838b660b6eee73ddccec7c2e45" category="list-text">ネットアップサポートサイトにアクセスします。<block ref="1fd2eaa3264309dbe654ce780a5bda21" category="inline-link-rx"></block> フルアクセスのネットアップサポートサイトアカウントをまだお持ちでない場合は、プレビュー版をお持ちください。</block>
+  <block id="dfcac5e258bdfa0f1d552f9e95472f56" category="inline-link-macro">ネットアップライセンスファイル（ NLF ）</block>
+  <block id="ad3b46ea44ef643f0aa6cf10b5cddef7" category="inline-link">サインアップ</block>
+  <block id="999cdcc895cc526aaf602ee12ee3266d" category="list-text">A <block ref="01e924afc9d6eb5b6b87b95944c8b962" category="inline-link-macro-rx"></block> Astra データストアプレビュー版ライセンスのダウンロード手順がお客様に送信されます<block ref="ddfab7b8f273b80482ec6ca64a01b0c4" category="inline-link-rx"></block>。</block>
+  <block id="7f7646bb0a5fb6cf0454a38c4d1f06d6" category="list-text">アクティブなコンテキストのクラスタ管理者権限があるアクティブな kubeconfig です。</block>
+  <block id="bef0c0a82c5520f237b380213d0b07d6" category="inline-link-macro">ロールと権限</block>
+  <block id="806b5637c063705c8d625e758efc64b6" category="list-text">の理解 <block ref="dee7c80cda852bd179a0b8a64dc2d187" category="inline-link-macro-rx"></block> Astra データストアプレビュー版で使用</block>
+  <block id="1e822a9286ce82521a4c839250498223" category="list-text">インターネット接続：Astra データストアプレビューは、エアギャップのある環境には対応していません。直接またはプロキシ経由で support.netapp.com にアクセスするには、インターネット接続が必要です。</block>
+  <block id="59d5f0097f4998113fed5d843c64f82e" category="paragraph">Astra Data Store プレビューインストールプロセスでは、次の手順を実行できます。</block>
+  <block id="a556f5398142ae7011d0de50dc8b6c5b" category="list-text"><block ref="8d9993295d6b271ce4d01f645185155b" category="inline-xref-macro-rx"></block></block>
+  <block id="6d0f824f6a186eea3583d29e3aed365a" category="list-text"><block ref="28f9f989c873aca847e12e3f56387e81" category="inline-xref-macro-rx"></block></block>
+  <block id="b70c468b8ef55be96953554233f196f8" category="list-text"><block ref="038e87b146a54831da5266e118724b0a" category="inline-xref-macro-rx"></block></block>
+  <block id="fafef40eb86a5fcb390728637ec82ad8" category="list-text"><block ref="08b9a934358b06f23bec23e40881a274" category="inline-xref-macro-rx"></block></block>
+  <block id="3f93c6b91779c776c73fe8ddbdde26b2" category="list-text"><block ref="c74831dec7277b920b9074aa393a140d" category="inline-xref-macro-rx"></block></block>
+  <block id="f52b1c1daf5c796d010750e360734182" category="list-text"><block ref="eef74539c11538f892571f8a012ef5ae" category="inline-xref-macro-rx"></block></block>
+  <block id="c8834ddc1c87f17c8d417b37fcbd87f0" category="list-text"><block ref="59d3a9e0f85930d559866ff811a1da02" category="inline-xref-macro-rx"></block></block>
+  <block id="d81ec671d645986632c1dff9a52a8d03" category="list-text"><block ref="9fcc40a9325fa4fdd116019afa5bfea2" category="inline-xref-macro-rx"></block></block>
+  <block id="38a46257d48221851cd4c911eb65d23a" category="section-title">Astra Data Store プレビューバンドルをダウンロードして、イメージを展開</block>
+  <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">ネットアップサポートサイト</block>
+  <block id="ef2dd39c433a604bf33391ebcd7f3854" category="list-text">にログインします<block ref="179992dc1b5e9762dea364da8b44a283" category="inline-link-rx"></block> Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします</block>
+  <block id="7ccab09493cf97c9665c6c2126741ee5" category="list-text">（任意）次のコマンドを使用して、バンドルのシグニチャを確認します。</block>
+  <block id="ae32a002cf3df8354380980ceb442a90" category="list-text">画像を抽出します。</block>
+  <block id="a179389f208c9573ee510e5e4bcceeba" category="section-title">バイナリをコピーし、ローカルレジストリにイメージをプッシュします</block>
+  <block id="1acaca46449fb5c00dc1a685d015c6e5" category="list-text">kubectl-astras バイナリを ' イメージを抽出するために使用したディレクトリから 'k8s kubectl バイナリがインストールされている標準パス (/usr/bin/ など ) にコピーしますkubectl-astras は、 Astra データストアプレビュークラスタをインストールおよび管理するカスタムの kubectl 拡張機能です。</block>
+  <block id="4f4091e1c75967c191a148ba3b601115" category="list-text">Astra Data Store プレビューイメージディレクトリ内のファイルをローカルレジストリに追加します。</block>
+  <block id="9f852ed13251aa5ddae669983b4139d7" category="admonition">以下の画像の自動ロードについては、サンプルスクリプトを参照してください。</block>
+  <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">レジストリにログインします。</block>
+  <block id="13188191a9ba4fa03655f2853f19ca94" category="list-text">環境変数を 'Astra Data Store プレビューイメージをプッシュするレジストリパスに設定しますたとえば 'repo.company.com` です</block>
+  <block id="1251312a6e29c077a92406c8347c9cbc" category="list-text">スクリプトを実行して Docker にイメージをロードし、イメージにタグを付けます。 [[[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;_image_local_registry_push]] ローカルレジストリにイメージをプッシュします。 &lt;/Z2&gt;</block>
+  <block id="f5051f42d63dce7a9189a8b8754221f4" category="section-title">Astra Data Store プレビューオペレータをインストール</block>
+  <block id="d650aa517255d50ce12c3c1dc0fa6cd1" category="list-text">Astra データストアのプレビューマニフェストを表示する：</block>
+  <block id="2bf2749ac3d1bb0b33e707bf3fab3f63" category="list-text">kubectl apply を使用してオペレータを配備します。</block>
+  <block id="da89009070a281ea41fbaf69a4a75bd5" category="list-text">Astra データストアオペレータポッドが起動し、実行中であることを確認します。</block>
+  <block id="a474d63bfa2ddaeb697e978c796209e1" category="section-title">Astra Data Store プレビュー版 YAML を導入します</block>
+  <block id="df42b724421bbda5256280183fe89e21" category="list-text">kubectl apply を使用した導入：</block>
+  <block id="aed417ffe5dc63aa67936840a0654828" category="list-text">ポッドが実行されていることを確認します。</block>
+  <block id="768473ff6c238ddbd570531f58f36857" category="section-title">Astra データストアプレビューライセンスを適用</block>
+  <block id="2168e2850f39640b087ab9ec40e09ea4" category="inline-xref">導入に進みます</block>
+  <block id="f3c66c687ab66bae9a385e5166892e7f" category="list-text">プレビュー版への登録時に入手したネットアップライセンスファイル（ NLF ）を適用します。コマンドを実行する前に、使用しているクラスタの名前（「 &lt;AstrA-Data-Store-cluster-name&gt;` ）を入力します <block ref="544b5866c36aeaaf1e92905a0eca962d" category="inline-xref-macro-rx"></block> または ' すでに配備されているか ' ライセンス・ファイルへのパス (`&lt;file_path/file.txt&gt;`) があります</block>
+  <block id="a43a46b3d0bdea57bd228232adb9bf0c" category="list-text">ライセンスが追加されたことを確認します。</block>
+  <block id="4d85b327d56be8f708cd85949f327a4b" category="section-title">Astra データストアプレビュークラスタをインストール</block>
+  <block id="0fd0a9ef6ce0637f3746e6066a53fe13" category="list-text">YAML ファイルを開きます。</block>
+  <block id="6bfe0a99899b6870d084eedf67275849" category="list-text">YAML ファイルで次の値を編集します。</block>
+  <block id="1e00053e55e180092ef69fbe8b9ab83c" category="admonition">YAML ファイルの簡単な例は、次の手順を実行します。</block>
+  <block id="46befd76c4ec19a9001f1b49517fe11e" category="inline-xref">ライセンスを適用します</block>
+  <block id="6a89528574fff5e08faba86e8e3d65e8" category="list-text">（必須） * Metadata* ：「 metadata 」で、「 name 」の文字列をクラスタの名前に変更します。このクラスタ名は、ときと同じである必要があります <block ref="a806c3cf0e02664ef4049bd63a8af194" category="inline-xref-macro-rx"></block>。</block>
+  <block id="51c12a83abe23c7ff9e9037e230ae6ff" category="list-text">( 必須 )*Spec*:'spec' の次の必須値を変更します</block>
+  <block id="868e18bdd7bc8799f8c1e1f00b94d58c" category="list-text">「 mvip 」文字列を、クラスタ内の任意のワーカーノードからルーティング可能なフローティング管理 IP の IP アドレスに変更します。</block>
+  <block id="cc80da2ca49204147d1a136f50492c90" category="list-text">「 adsDataNetworks 」に、 NetApp ボリュームをマウントするホストからルーティング可能なフローティング IP アドレス（「アドレス」）をカンマで区切って追加します。ノードごとに 1 つのフローティング IP アドレスを使用します。データネットワーク IP アドレスは、 Astra Data Store のプレビューノードと同じ数以上必要です。Astra データストアプレビューの場合、少なくとも 4 つのアドレスを意味します。あとで 5 つのノードにクラスタを拡張する予定の場合は、 5 つのアドレスを意味します。</block>
+  <block id="29b31f9baad8004ca9125758588d82c3" category="list-text">「 adsDataNetworks 」で、データネットワークが使用するネットマスクを指定します。</block>
+  <block id="dc9f3800ee8e188d0fb3e1fb1687d270" category="list-text">「 adsNetworkInterfaces 」で、「 mgmt 」と「 data 」の値を、管理、クラスタ、およびストレージに使用するネットワークインターフェイス名に置き換えます。名前を指定しない場合、ノードのプライマリインターフェイスが管理、クラスタ、ストレージのネットワークに使用されます。</block>
+  <block id="575504814fb95c79b3ed9e5f1035436b" category="admonition">クラスタとストレージのネットワークのインターフェイスが同じである必要があります。Astra Data Store プレビュー管理インターフェイスは、 Kubernetes ノードの管理インターフェイスと同じである必要があります。</block>
+  <block id="8da4a001932be2ff606e6df10493966a" category="inline-xref">監視オペレータ</block>
+  <block id="644ad178aa7628cc443a92bf64c7cfca" category="list-text">（任意） * monitoringConfig* ：を設定する場合 <block ref="0f1aa9f35704db6c7d3dfbe726efcbc1" category="inline-xref-macro-rx"></block> （監視に Astra Control Center を使用していない場合はオプション）、セクションからコメントを削除し、エージェント CR （監視用オペレータリソース）が適用されるネームスペース（デフォルトは「 NetApp-monitoring 」）を追加し、前の手順で使用したレジストリ（「 Your_registry_path 」）のリポジトリパスを追加します。</block>
+  <block id="6645e0ebb53d4b6e68be7936af3a8039" category="inline-link-macro">AutoSupport</block>
+  <block id="b20888d3010009c6ea174a1a0c0f5ef3" category="list-text">（任意） * autoSupportConfig * ：を保持します <block ref="7cdd2204a3bafe4583e65edf34a51ee8" category="inline-link-macro-rx"></block> プロキシを設定する必要がない場合のデフォルト値は次のとおりです。</block>
+  <block id="912dac57b66d9e216d74c0e9eb1d077a" category="list-text">「 ProxyURL 」の場合は、 AutoSupport バンドルの転送に使用するポートにプロキシの URL を設定します。</block>
+  <block id="f3fba3fb3102862b1aad8b63c0aaf749" category="admonition">ほとんどのコメントは YAML サンプルから削除されています。</block>
+  <block id="4a212b2ee1c3b204f74bc2dcc71b7cda" category="list-text">kubectl apply を使用してクラスタを導入します</block>
+  <block id="14e134a7ed0f49d1ca8cf22782ce2d36" category="list-text">クラスタ作成処理が完了するまで数分待ってから、ポッドが実行されていることを確認します。</block>
+  <block id="e820d2459278040b58fab1dcc9b93d13" category="list-text">クラスタの導入の進捗を確認します。</block>
+  <block id="37fc959dfa0d9cc2e3d0d38b2be66c5d" category="section-title">導入に関連するイベントを把握</block>
+  <block id="7822a7d6e729e9615380ec0aadb6990b" category="paragraph">クラスタの導入中に ' オペレーション・ステータスは ' ブランクから ' 進行中 ' から作成済みに変更する必要がありますクラスタの導入には約 8~10 分かかります。導入中にクラスタイベントを監視するには、次のいずれかのコマンドを実行します。</block>
+  <block id="bd7c3f1dac7f5cf319de422fa4a32691" category="paragraph">導入時の主なイベントを次に示します。</block>
+  <block id="77e9b0cdc3fdcabe72374f66c02d8e31" category="cell">イベントメッセージ</block>
+  <block id="7277de5f2ed6f17c61f1f25594591a82" category="cell">意味</block>
+  <block id="c3ee1dbc78e2d761efcaca2d0c21d2dc" category="cell">ADS クラスタに参加するコントロールプレーンノードを 4 つ選択しました</block>
+  <block id="e94fd6602ce1ed04ac1725ae3531fad4" category="cell">Astra Data Store プレビューオペレータは、 Astra データストアプレビュークラスタを構築するために、 CPU 、メモリ、ストレージ、ネットワークを備えた十分なノードを特定しました。</block>
+  <block id="3bf8d74892939c244e4f2ee0af58a0f0" category="cell">ADS クラスタが作成中です</block>
+  <block id="b0fa14a74437c78bbc1e99fd182aeb71" category="cell">Astra データストアプレビュークラスタコントローラが、クラスタ作成処理を開始しました。</block>
+  <block id="c33b4384dd5fcfe18b76baf9e293eeba" category="cell">ADS クラスタが作成されました</block>
+  <block id="84a006d56f84917bd14e7225a2a02c31" category="cell">クラスタが作成されました。</block>
+  <block id="52e440135a5420f088a23a09ab819506" category="paragraph">クラスタのステータスが「 in progress 」に変わらない場合は、オペレータログでノード選択の詳細を確認します。</block>
+  <block id="19281350da56d254a23943fe3af63ba6" category="paragraph">クラスタのステータスが「処理中」のままである場合は、クラスタコントローラのログを確認します。</block>
+  <block id="ae415e54f22dc20b15664df617236001" category="section-title">Astra データストアのプレビュー監視を設定</block>
+  <block id="25d3b233b0ff51f660dcb6bc0ba14159" category="paragraph">Astra データストアプレビューは、 Astra Control Center の監視用、または別のテレメトリサービスによる監視用に設定できます。</block>
+  <block id="479726e541dcc4c2f078e4d5569bdfaf" category="section-title">Astra Control Center プレビューの監視を設定します</block>
+  <block id="6203a701a3e7de109a3a27e477c119db" category="paragraph">次の手順は、 Astra データストアのプレビューが Astra Control Center のバックエンドとして管理された後にのみ実行します。</block>
+  <block id="268d42130d32b678b5315bca020d068f" category="list-text">Astra Control Center によるモニタリングのための Astra データストアプレビューの構成：</block>
+  <block id="9de66ad79d82936e94f0c6094e0171fb" category="section-title">監視オペレータをインストールします</block>
+  <block id="194fbd5a522bc86a2d3b35d737225178" category="paragraph">（オプション） Astra データストアのプレビューが Astra Control Center にインポートされない場合にのみ、監視オペレータをお勧めします。モニタリングオペレータは、アストラデータストアプレビューインスタンスがスタンドアロン環境である場合、 Cloud Insights を使用してテレメトリを監視する場合、または Elastic などのサードパーティのエンドポイントにログをストリーミングする場合にインストールできます。</block>
+  <block id="75d6f2032046c897df7535bbcf1f2a76" category="list-text">次のインストールコマンドを実行します。</block>
+  <block id="322b884d1c713ebd73ac803c20762937" category="list-text">Astra データストアプレビューで監視を設定：</block>
+  <block id="510a796972d54f6936dbae0081373fc0" category="inline-link-macro">セットアップのタスク</block>
+  <block id="ba75da3e22141799ae4615278996fda2" category="paragraph">を実行して導入を完了します <block ref="7324e433dd54231f6ab1c33e7f1852c1" category="inline-link-macro-rx"></block>。</block>
+  <block id="5a71d91e06ad8ead9ee7b71fb1d1cf81" category="paragraph">まずは、 Astra データストアのプレビュー要件を満たす環境であることを確認してください。</block>
+  <block id="2b12c92b4d68979d137f7d822fbec4e4" category="paragraph">Astra データストアプレビュー：ベアメタル環境と VM ベース環境の両方をサポートAstra データストアプレビュークラスタは、 4 つ以上のワーカーノードを含む Kubernetes クラスタで実行できます。Astra データストアプレビューソフトウェアは、同じ Kubernetes クラスタで実行されている他のアプリケーションと共存できます。</block>
+  <block id="a30195e4a11370091d267119513930ae" category="paragraph">Astra Data Store プレビューは、 Astra Trident CSI ドライバを使用した Kubernetes ワークロードの PVS のプロビジョニングのみをサポートします。VM ワークロードは、 Astra データストアの今後のリリースでサポートされる予定です。</block>
+  <block id="9bd63000c2af4d83a8dd902ab86c7a9d" category="section-title">Kubernetes ワーカーノードのリソース要件</block>
+  <block id="16dbbcaa8127b4161bb7231947ced857" category="paragraph">Kubernetes クラスタ内の各ワーカーノード上の Astra Data Store プレビューソフトウェアに割り当てるために必要なリソースの最小要件を次に示します。</block>
+  <block id="543ea7e6e8e3c3a36c4ab738b89a60dd" category="cell">データドライブの数</block>
+  <block id="cadcb5c15abfc9c0b86d5a704e2447b0" category="list-text">3 （独立したキャッシュデバイスを使用）</block>
+  <block id="8598b116a85f931030ddcb21423c1f99" category="list-text">4 （キャッシュデバイスがない場合）</block>
+  <block id="aab3238922bcc25a6f606eb525ffdc56" category="cell">14</block>
+  <block id="5dcae1a0f82e51f56f8a80fa3ba302b3" category="cell">データドライブのサイズ</block>
+  <block id="0ded0ce1dd3c7f144d40f6562739e768" category="cell">100GiB</block>
+  <block id="c0fb54db4c34b6ee67c36a485d24a499" category="cell">4TiB 未満</block>
+  <block id="35ae311217c943858bd083552df9cdf0" category="cell">オプションのキャッシュデバイスの数</block>
+  <block id="2f40c66dc5287c36ac7043a57079206d" category="cell">1 （ 8GiB 以上）</block>
+  <block id="81665fcb678cc0680902f66f3be020c4" category="cell">vCPU の数</block>
+  <block id="e53619c1fe611a51eeeb8d148ba6e532" category="cell">RAM</block>
+  <block id="3e4ee04dedab0a44100bf5980be3b0ca" category="cell">34GiB</block>
+  <block id="06bdc266ef961962430b8fc45fbe6b6c" category="admonition">書き込みパフォーマンスを最大限に高めるには、専用の耐久性、低レイテンシ、低容量キャッシュデバイスを構成する必要があります。</block>
+  <block id="e87c8f6d1c135adc9868a1a25397c000" category="paragraph">各ワーカーノードには、次の追加要件があります。</block>
+  <block id="402a4bd631dc016fa807e263fbf090e1" category="list-text">100GiB 以上の空き容量がホストディスク（ブート）にあり、 Astra データストアプレビューログファイルを保存します。</block>
+  <block id="a4ca32328536a651e07fc9b06697e84b" category="list-text">クラスタトラフィック、データトラフィック、および管理トラフィック用に、 10GbE 以上のネットワークインターフェイスが少なくとも 1 つ必要です。必要に応じて、 1GbE 以上のインターフェイスを追加で使用して管理トラフィックを分離できます。</block>
+  <block id="630e5660de352108f57840f67c4ce73b" category="section-title">ハードウェアとソフトウェアの要件</block>
+  <block id="e628b45fbfeec85c34256d39bd5249e7" category="paragraph">Astra Data Store プレビューソフトウェアは、次のハードウェアプラットフォーム、ソフトウェア、ストレージ構成で検証済みです。Kubernetes クラスタの構成が異なる場合は、ネットアップコミュニティサポートにアクセスしてください。</block>
+  <block id="ee6328bc3c21dc27320191d56135aa72" category="list-title">ハードウェアプラットフォーム</block>
+  <block id="d9254f66df3568a13577635eecc90e21" category="list-text">HPE DL360</block>
+  <block id="46cc405d71094428b9035eada2442cd4" category="list-text">HPE DL380</block>
+  <block id="f19b045d12ab371aab144f89dcc13406" category="list-text">Dell R640</block>
+  <block id="5036b658f8a53c4fae6b137bbbda7cdb" category="list-text">Dell R740</block>
+  <block id="e17640313f77daf8929e4ba5e5d691a6" category="paragraph">Astra データストアプレビューは、次のドライブタイプで検証済みです。</block>
+  <block id="dea342ba4eabb4b927f34473091fe6ae" category="list-text">* ベアメタル環境 * ：ハイパーバイザーを使用せずに Linux クラスタ上の Kubernetes クラスタに Astra データストアプレビューを直接インストール。</block>
+  <block id="55721dba481df02cbe819287631df710" category="list-text">SATA または NVMe TLC SSD 。</block>
+  <block id="985800e585c5b9df03d4a5349f4dfed9" category="list-text">* VM ベースの導入 * ： ESXi クラスタでホストされた Linux VM 上の Kubernetes クラスタに Astra データストアプレビューをインストール。</block>
+  <block id="d84d026361d773e49e1bda99e54e83d6" category="list-text">SATA 、 SAS 、または NVMe TLC SSD ベースのデータストア。</block>
+  <block id="90f320e433af1491586744499df8fa50" category="list-text">仮想ディスクまたはパススルードライブとして提供されるドライブ。</block>
+  <block id="003c6ca2750566a4e0ac19207c3b49c1" category="admonition">ホストがハードウェア RAID コントローラの背後で SSD を使用している場合は、「パススルー」モードを使用するようにハードウェア RAID コントローラを設定します。</block>
+  <block id="0b3dea0c3d33c00792e5cd4182c9c9ad" category="admonition">各ドライブのシリアル番号は一意である必要があります。VM 作成中に仮想マシンの詳細設定に 'disk.enableuuid=true' 属性を追加します</block>
+  <block id="719d067b229178f03bcfa1da4ac4dede" category="list-title">ソフトウェア</block>
+  <block id="fa9b3e0c25801e6c5b183b7fb6d76601" category="list-text">ハイパーバイザー： Astra データストアプレビュー版は、 ESXi 7.0 を使用する VMware ベースの VM 環境で検証済みです。KVM ベースの導入は、 Astra データストアプレビューではサポートされていません。</block>
+  <block id="c0a90441fa1d53cd1d4d17a37f82e16e" category="list-text">Astra データストアプレビューは、次のホストオペレーティングシステムで検証済みです。</block>
+  <block id="e394890e871b97833bb8a8e0b5404dc4" category="list-text">Red Hat Enterprise Linux 8.4</block>
+  <block id="bdc427e5a3608a3f6e387f1e0ff10e8d" category="list-text">Red Hat Enterprise Linux 8.2 の場合</block>
+  <block id="efdefb5589146725b584d2c0c715c9b3" category="list-text">Red Hat Enterprise Linux 7.9</block>
+  <block id="30acbaba7ce639c1b276cbc35a0fe207" category="list-text">Red Hat Enterprise Linux CoreOS (RHCS)</block>
+  <block id="0460305b9f6d43c9d7668d990a229d26" category="list-text">CentOS 8</block>
+  <block id="73611f9a837b7a25dad3a9c5d1a98658" category="list-text">Ubuntu 20.04</block>
+  <block id="3067d2347cdf6ba6d767baaa01d8ce06" category="list-text">Astra Data Store プレビュー版は、以下の Kubernetes ディストリビューションで検証済みです。</block>
+  <block id="08b0b3c250d07dbba69b8d2ccb1f6dcc" category="list-text">Red Hat OpenShift 4.7</block>
+  <block id="cbf3ba8909d0a2dbc7f272ae7df1dbe5" category="list-text">Google Anthos 1.7</block>
+  <block id="02325bcf14c74708f4a955f606b3d820" category="list-text">Kubernetes 1.21</block>
+  <block id="98ed355c6ed8cd291489f349a175fbff" category="list-text">Kubernetes 1.20</block>
+  <block id="b85d9f68ffe4a47f7986776cdde8c3f1" category="inline-link-macro">Astra Trident のインストール手順</block>
+  <block id="34d22151cd691db2bcf1548b6583bf00" category="admonition">Astra Data Store のプレビュー版では、ストレージのプロビジョニングとオーケストレーションに Trident バージョン 21.10.1 が必要です。を参照してください <block ref="2c4b7676e17cc4ce9ceda58b02f08122" category="inline-link-macro-rx"></block>。</block>
+  <block id="9251700e586dc1a410f2e755a8643751" category="section-title">ネットワーク要件</block>
+  <block id="d449a5b81d6193de4c776276bb07b83a" category="paragraph">Astra データストアプレビューを実行するには、 MVIP 用にクラスタごとに 1 つの IP アドレスが必要です。MIP と同じサブネット内の未使用の IP アドレスまたは未設定の IP アドレスを指定する必要があります。Astra Data Store プレビュー管理インターフェイスは、 Kubernetes ノードの管理インターフェイスと同じである必要があります。</block>
+  <block id="843b957e2c243e60410a67851fb2a3bc" category="paragraph">また、次の表に示すように各ノードを設定することもできます。</block>
+  <block id="f63342c9d79c680b33aaf87240993cbf" category="admonition">この表では、 MIP ：管理 IP アドレス CIP ：クラスタ IP アドレス MVIP ：管理仮想 IP アドレスの略語を使用しています</block>
+  <block id="254f642527b45bc260048e30704edb39" category="cell">設定</block>
+  <block id="340e3eeeee2cb6f029e877359cf7fabb" category="cell">IP アドレスが必要です</block>
+  <block id="c3c52e9f2e11ae59e56c2e2cefbb37b8" category="cell">ノードごとに 1 つのネットワークインターフェイス</block>
+  <block id="a7d621303329faa794a2debe597c9a34" category="list-text">ノードごとに 2 つ：</block>
+  <block id="768f68274823d5a7efa1bf105abe5495" category="list-text">MIP/CIP ：ノードごとに管理インターフェイスに設定済みの IP アドレスが 1 つあります</block>
+  <block id="d4238ff24fc1cf5a2b88b0a7b8287577" category="list-text">データ IP ： MIP と同じサブネットに含まれる、ノードごとに未使用の IP アドレスまたは未設定の IP アドレスの 1 つ</block>
+  <block id="e5a31bf236fa351c0c8d4d6deee7a459" category="cell">ノードごとに 2 つのネットワークインターフェイス</block>
+  <block id="dc70d5b93667dbbfed15c42ad46a3aa5" category="list-text">ノードあたり 3 本：</block>
+  <block id="2a7a869fc706abd781fd566e1ada8f71" category="list-text">mip ：ノードごとに管理インターフェイスで事前に設定された IP アドレスを 1 つ</block>
+  <block id="f42ce73bfdc2096b23cfed33403cdc62" category="list-text">cip ： MIP とは異なるサブネット内のノードごとに、データインターフェイスに事前に設定された IP アドレスを 1 つだけ指定します</block>
+  <block id="a33be05f8cf7234feb5f33257c901f01" category="list-text">データ IP ： CIP と同じサブネット内の各ノードに未使用または未設定の IP アドレスが 1 つあります</block>
+  <block id="6960e0648bb96ae26e178a20a5b245eb" category="admonition">これらの構成では ' クラスタカスタムリソース (CR) ファイルのデータネットワークゲートウェイフィールド 'astraadscluster.yaml ' は省略してください各ノードの既存のルーティング設定には、すべてのアドレスを指定できます。</block>
+  <block id="c6614b840aed1f56769d06419ac7f1fa" category="admonition">これらの構成では VLAN タグは使用されません。</block>
+  <block id="ceedae14ac976bff9044b24f80f01669" category="section-title">CSI ドライバ</block>
+  <block id="5b39c767e05e7aa4e621836f3b785b9f" category="inline-link-macro">ストレージバックエンド</block>
+  <block id="e606f5db902f554cc95c70ea6a7bc203" category="paragraph">Astra データストアプレビューを実行するには、 Kubernetes クラスタが Astra Trident 21.10.1 を実行している必要があります。Astra データストアプレビューは、として構成できます <block ref="318182cdb74d3be9931dae83174d547a" category="inline-link-macro-rx"></block> ネットアップの Trident で永続的ボリュームをプロビジョニング</block>
+  <block id="a5d3b123919ae2c9260d2939457fc07b" category="section-title">CNI 構成</block>
+  <block id="5d9347d6b4cc0daccd2fd63126733db6" category="paragraph">Astra Data Store のプレビューは、 Calico および Weave Net CNII で検証されています。</block>
+  <block id="8830b15b981296d5edf3d00560d26ed2" category="paragraph">これらの NNI では、ホストファイアウォール（ firewalld ）を無効にする必要があります。</block>
+  <block id="950dab43d2896e395e031a5adfdb2982" category="section-title">永続的ボリュームの共有に関する要件</block>
+  <block id="68c57e9c9ed620f9a7a94775279db0f6" category="paragraph">各アストラデータストアプレビュークラスタでは、永続ボリュームを使用して、そのクラスタにインストールされているアプリケーションのストレージニーズに対応できます。Astra Data Store プレビュー版の永続的ボリュームについては、次の要件を考慮してください。</block>
+  <block id="5a2ebfb8baa378cfcfcba58bbb1380c2" category="list-title">要件</block>
+  <block id="9f24f02fc8600bb479ba376e4e8d115d" category="list-text">NFSv4.1 クライアント / サーバを Kubernetes クラスタにインストールする必要があります。</block>
+  <block id="b9e835c1024473d6793b9eb0f6dbf66c" category="list-text">nfs-utils パッケージはワーカーノードにインストールする必要があります。</block>
+  <block id="abb957fb7548aff796259f85d536571f" category="list-text">Kubernetes アプリケーションは、 NFSv4.1 で共有されている永続的ボリュームを使用してファイルにアクセスします。 NFSv4.1 では、 AUTH_SYS の認証方法が必要です。</block>
+  <block id="e48fa26d86f93c0095683fa3998fe381" category="inline-link">こちらから登録してください</block>
+  <block id="e88524429305e37bd73a6b99a2182f42" category="paragraph">Astra データストアのプレビュー機能をフル活用するには、 Astra データストアのプレビューライセンスが必要です。<block ref="46a5ef130a429145ae865d2b93a630d6" category="inline-link-rx"></block> から Astra データストアプレビューライセンスを取得できます。ライセンスのダウンロード手順は、サインアップ後に送信されます。</block>
+  <block id="0dab9f614d7de2d86a6e3ab5423bb50e" category="section-title">AutoSupport の設定</block>
+  <block id="8e15885329078651f14e154e8002de30" category="paragraph">Astra データストアプレビューを利用するには、 AutoSupport を有効にし、 AutoSupport バックエンドに接続する必要があります。これは、直接インターネットアクセスまたはプロキシ設定を経由する可能性があります。</block>
+  <block id="89dbe396da9bd6ab3205e241874bebca" category="inline-link-macro">必須のテレメトリ AutoSupport バンドルの送信に使用される定期設定</block>
+  <block id="6fe9b5b6d729ff69562cf18c46d7a020" category="paragraph">。 <block ref="3ff252deb2705468c8bcd50f62610a2a" category="inline-link-macro-rx"></block> 変更しないでください。定期的な AutoSupport バンドルの送信を無効にすると、クラスタがロックダウンされ、定期的な設定が再度有効になるまで新しいボリュームを作成できなくなります。</block>
+  <block id="159b2efa467f3d1f53e7c16668353bf5" category="inline-link-macro">クイックスタート</block>
+  <block id="77a7c94739d3e3b6a3c106162739bbcd" category="paragraph">を表示します <block ref="4a78f9b7a1530228ea4c970be46c5b94" category="inline-link-macro-rx"></block> 概要（ Overview ）：</block>
+  <block id="a9066c7b36f74393f45392470bdf22d8" category="summary">Astra データストアを導入するには、いくつかの手順を踏む必要があります。</block>
+  <block id="3551ec406ac2e45ff0f50e87c946ab31" category="doc">Astra データストアプレビューのクイックスタート</block>
+  <block id="aa9dba12e956af910d79b88fd258601d" category="paragraph">このページでは、 Astra データストアのプレビューを開始するために必要な手順の概要を説明します。各ステップ内のリンクから、詳細が記載されたページに移動できます。</block>
+  <block id="2778cb9b46b47b6f77215d7a65f475b1" category="paragraph">ぜひお試しください。Astra Data Store のプレビューを試す場合は、 90 日間のプレビューライセンスを使用できます。</block>
+  <block id="9df3c7b804c4fb849cc1089fc12ec734" category="paragraph"><block ref="0b42ce17ba1a149ab9e15f2cfdeb306a" category="inline-link-rx"></block> から Astra データストアプレビューライセンスを取得できます。</block>
+  <block id="4854d4c0301c6f34c76f1cb78057e09e" category="list-title">&lt;span class="image"&gt;&lt;img src=<block ref="0c3becc25d95e48b9ca863002a042824" category="inline-link-rx"></block> Alt="One"&gt;&lt;/span&gt; Kubernetes クラスタの要件を確認します</block>
+  <block id="600570cd3d6ec071fcd2e2a4b40dcab5" category="list-text">クラスタが正常な状態で稼働し、少なくとも 4 つのオンラインワーカーノードと 1 つのマスターノードが必要です。</block>
+  <block id="769e7d2e2b3a8a07afb7dfcd707bb4dd" category="list-text">Astra データストアプレビュー環境を構成する各 Kubernetes ワーカーノードには、同じインターフェイスタイプ（ SATA 、 SAS 、 NVMe ）の SSD と、 Astra データストアプレビュークラスタに割り当てられているドライブの数が同じである必要があります。</block>
+  <block id="0cffa0eb91d9096c1bc69da95e5e4e35" category="list-text">SSD のシリアル番号はそれぞれ一意である必要があります。</block>
+  <block id="97b110e14cbf7a5f05af63a6d2f1ec76" category="paragraph">の詳細を確認してください <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
+  <block id="c75fe5e2b8c64cfb74d30735f622c966" category="list-title">&lt;span class="image"&gt;&lt;img src=<block ref="c9bdd0fd7d7224adcf67691b15f15281" category="inline-link-rx"></block> alt="2"&gt;&lt;/span&gt; Astra データストアプレビューをダウンロードしてインストールします</block>
+  <block id="50fd5d93fc155f6d8daa37d2a86a363d" category="list-text">から Astra データストアプレビューをダウンロードします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block>。</block>
+  <block id="a50bc7927766c9f208535b680609be39" category="list-text">Astra データストアプレビューをローカル環境にインストールします。</block>
+  <block id="a03840035675e063f957fca61af14486" category="list-text">必要に応じて、監視オペレータをインストールします。これにより、 NetApp Cloud Insights に接続して、システムの健全性、容量、およびスループットに関する指標を表示できます。</block>
+  <block id="299e2872cc229c70439dcff6baedd974" category="list-text">Astra データストアプレビューライセンスを適用</block>
+  <block id="f13260ded33a92f7c0c7a01b10c9be66" category="list-text">Astra データストアプレビュークラスタをインストール</block>
+  <block id="75eb2d08fc375034ffa9f42146096a73" category="inline-link-macro">Astra データストアプレビューをインストールしています</block>
+  <block id="cdc734518e1995b54180cc5fe07f8eb5" category="paragraph">の詳細を確認してください <block ref="500d9e2c6a6986fe091f6d5e600c02a9" category="inline-link-macro-rx"></block>。</block>
+  <block id="80de081c75779cda8e2db1de0f292684" category="list-title">&lt;span class="image"&gt;&lt;img src=<block ref="ddd753dc2858fe3a5582f20b300a0541" category="inline-link-rx"></block> Alt="3"&gt;&lt;/span&gt; 初期設定タスクをいくつか実行します</block>
+  <block id="9e2a7f44aa27cc7ead915762de91e605" category="list-text">Astra Trident をインストール</block>
+  <block id="630ab56d1e8b5787a5c4e0b9bf8c58f9" category="list-text">Kubernetes スナップショットカスタムリソース定義（ CRD ）とコントローラをインストールする。</block>
+  <block id="a157bce7fd181617f4e5fb414c8a59a7" category="list-text">Astra データストアプレビューをストレージバックエンドとしてセットアップする。</block>
+  <block id="49b5048005f8a05e518b57e06f640d29" category="list-text">Astra データストアのプレビュー用ストレージクラスを作成</block>
+  <block id="696638e6fb97f6a54feea5bca820df2e" category="inline-link-macro">初期セットアッププロセス</block>
+  <block id="dbffc0609c7e1e112b54784b54f5396d" category="paragraph">の詳細については、を参照してください <block ref="914fa5bd06e3aa494df742959ef37adf" category="inline-link-macro-rx"></block>。</block>
+  <block id="fb7ba360472b1fbabfd9c8edf6be6bf9" category="paragraph">Astra データストアプレビューのセットアップが完了したら、次の手順を実行します。</block>
+  <block id="089dffadf86859c7db5c2d11bd7d5ce9" category="inline-link-macro">kubectl コマンドを Astra データストアプレビューで使用する方法</block>
+  <block id="f4df40e87733e72d4e70e4074a33d1b8" category="list-text">kubectl コマンドと kubectl ファイルシステム拡張機能を使用して、ノードの保守モードへの切り替え、ドライブの交換、ノードの交換などのタスクを含む、クラスタを管理します。の詳細を確認してください <block ref="a57a67e965644a2724266f2a8472546a" category="inline-link-macro-rx"></block>。</block>
+  <block id="9600e68b6bd25a2f0f71b411cd63bd34" category="inline-link-macro">監視エンドポイントの設定</block>
+  <block id="e4bfa660b2212414c8cf9ec372400ea6" category="list-text">監視エンドポイントを設定する。の詳細を確認してください <block ref="1659657294c28fe6854339fca8e6e794" category="inline-link-macro-rx"></block>。</block>
+  <block id="a21c1805fc71477a920c14ffd054ae28" category="paragraph"><block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。</block>
+  <block id="f16f3c945705b1ec1c2fa1f5d55b34f4" category="sidebar">Astra データストアのドキュメント</block>
+  <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">はじめに</block>
+  <block id="950ef96ff58f56393ed7430627e7ea24" category="sidebar">Astra データストアの詳細</block>
+  <block id="c57f988e5835170a0aaff4d1dfeaf944" category="sidebar">Astra データストアプレビューの内容</block>
+  <block id="62bdbe048d174b559cb770f9ebaf0895" category="sidebar">ぜひお試しください</block>
+  <block id="899cadfe18270498e36749fd8c70b6ea" category="sidebar">Astra データストアのプレビュー版をセットアップする</block>
+  <block id="7ea0911f99c3d96666fd9f883b4db9ca" category="sidebar">Astra データストアプレビューを使用</block>
+  <block id="e961f7303467d87af5c48cca8c4d09a5" category="sidebar">kubectl コマンドを使用して管理します</block>
+  <block id="b4c6e3a3c2028ba3c6664bbbda8d1964" category="sidebar">イベントログを監視する</block>
+  <block id="720dfdf92d4c340e9f5b8b2b368df3c9" category="sidebar">Astra Control Center の統合</block>
+  <block id="81a123ccab93cd947289b672b0e50348" category="sidebar">デモチュートリアル</block>
+  <block id="51d4cdad7d0fdc980b53468d54533be7" category="sidebar">Kubernetes の未来</block>
+  <block id="e00a8c065b7da39a499cd9685782e767" category="sidebar">Astra データストアプレビューのデモ</block>
+  <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">ブログコミュニティ</block>
+  <block id="6394eceb2639574114b02e6e817eb19a" category="sidebar">Astra ブログ</block>
+  <block id="0ea49e56b14b87fa0b49648176f9fc81" category="sidebar">「コンテナ」チャネルをスラックします</block>
+  <block id="874d8a5301794a9ca2aba132ac2460f3" category="sidebar">Kubernetes ハブ</block>
+  <block id="213686afc3803be7caa09348765467fe" category="sidebar">サポートへのアクセス</block>
+  <block id="0adc03eac86772ad2c75c8f140be417e" category="sidebar">知識とサポート</block>
+  <block id="231cf4c70d866b616c21baddaeed0696" category="sidebar">トラブルシューティング</block>
+  <block id="1d79052461351a56ef4f9bf9f5837f4a" category="sidebar">REST API で自動化</block>
+  <block id="0b79795d3efc95b9976c7c5b933afce2" category="sidebar">はじめに</block>
+  <block id="042ad0dc0362e73320e5850115e17224" category="sidebar">Astra データストアを使用</block>
+  <block id="a8ecbfa098cb2532d1bd8fdb1e9c8a10" category="sidebar">Astra データストア資産の管理</block>
+  <block id="9b52865b9dbe62c36d0b36e7ad30777f" category="sidebar">アプリケーションをセットアップする</block>
+  <block id="0460583622f03a52d7693094d6fa2452" category="sidebar">概念</block>
+  <block id="6762973af9b127d271f0d2b2aea0bc96" category="sidebar">導入モデル</block>
+  <block id="fd18465573ec21a6218982055981f6b1" category="sidebar">ストレージ効率</block>
+  <block id="2fae32629d4ef4fc6341f1751b405e45" category="sidebar">セキュリティ</block>
+  <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">よく寄せられる質問</block>
+</blocks>

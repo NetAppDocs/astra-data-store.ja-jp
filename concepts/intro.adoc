@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: concepts/intro.html 
+keywords: introduction, how astra works, how Astra works, what Astra is, astra data store, datastore, kubernetes 
+summary: Astra データストアは、コンテナワークロードと VM ワークロードの両方に対応する Kubernetes ネイティブの共有ファイルサービスで、エンタープライズデータ管理を実現します。 
+---
+= Astra データストアの概要
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+Astra データストアは、クラウドネイティブアプリケーションの管理を支援する、 Kubernetes ネイティブのオンプレミスデータセンター向け共有ファイル Software-Defined Storage （ SDS ）解決策です。Astra データストアは、コンテナと VM の両方のワークロードに対して、ネットアップのエンタープライズデータ管理とネイティブの共有ファイルサービスを提供します。
+
+Astra データストアでは、次のことが可能です。
+
+* * Kubernetes のコンテナ化されたワークロードをサポート * ：コンテナ化されたワークロードを、使用するエンタープライズデータ管理サービスとツールでサポートします。
+* * Kubernetes の「アプリケーションサービス」プラットフォームを DevOps 向けに使用 * ：柔軟性に優れたソフトウェア定義のセルフサービス型プラットフォームを構築して、自動化された繰り返し可能なサービスを提供します。これにより、 developerselfasts から複雑さが解消されます。
+
+
+
+
+== Astra 製品ファミリー
+
+Astra 製品ファミリーは、 Kubernetes アプリケーションデータのライフサイクル管理を提供し、ステートフルアプリケーションの運用を簡易化します。Kubernetes ワークロードの保護、バックアップ、移行を簡易化し、作業用アプリケーションのクローンを瞬時に作成できます。
+
+Astra には次のサービスがあります。
+
+* * Astra Control * ：パブリッククラウドとオンプレミスの両方で Kubernetes ワークロードを管理、保護、移動する、アプリケーション対応のデータ管理ツールを使用。 3 つの制約が発生
++
+** * Astra Control Service * ：ネットアップが管理するサービスを使用して、パブリッククラウドの Kubernetes ワークロードをデータ管理
+** * Astra Control Center * ：オンプレミスの Kubernetes ワークロードのデータ管理に、自己管理ソフトウェアを使用
+
+
+* * Astra Data Store * ： Kubernetes ネイティブの共有ファイルサービスをコンテナや VM のワークロードに使用して、エンタープライズデータを管理
+* * Astra Trident * ： Container Storage Interface （ CSI ）に準拠したストレージプロビジョニングと管理を、ネットアップのストレージプロバイダとともに使用します。
+
+
+を参照してください https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]。
+
+image:astra-product-family.png["Astra 製品ファミリー"]
+
+
+
+== Astra データストアの機能
+
+Astra データストアは、 Kubernetes ネイティブのエンドツーエンドのストレージとデータ管理機能をクラウドネイティブアプリケーションに提供します。以下の機能が必要です。
+
+* * Kubernetes ネイティブの共有ファイルサービス * ：標準の NFS クライアントをコンテナと VM の統合データストアとして使用し、 Kubernetes にネイティブな共有ファイルサービスを提供します。 .esk.esub.us
+* * クラウド規模 * ： Kubernetes ネイティブの複数の並列ファイルシステムを同じリソースプール上に提供し、クラウドレベルの拡張性と利用率を実現します。これにより、ストレージをクラスタとは別に管理する必要がなくなります。
+* * API ファーストアプローチ * ：クラスタとワークロードの管理が自動化された状態になるコードとしてインフラを提供
+* * エンタープライズクラスのデータ管理 * ：アプリケーション対応の自動データ保護とディザスタリカバリを提供：
++
+** * ネットアップのテクノロジ * ： Snapshot 、バックアップ、レプリケーション、クローニングにネットアップのデータ管理テクノロジを活用することで、ユーザは Kubernetes でエンタープライズアプリケーションを構築、導入できます。とは
+** * 耐障害性 * ： Kubernetes ネイティブのワークロードにレプリケーションテクノロジとイレイジャーコーディングテクノロジを使用して耐障害性を向上
+** * データ効率 *: インラインの重複排除機能と圧縮機能により、拡張に合わせてコストを抑制します。
+
+
+* * 既存の環境に適合 * ：マイクロサービスベースの従来のワークロードをサポートし、主要な Kubernetes ディストリビューションに対応し、ファイルストレージを提供し、任意のハードウェア・ベース・ワークロードで動作します。
+* * NetApp Cloud Insights との統合 * ：連続的な最適化処理を実行するためのオブザーバビリティ、分析、監視を提供します。とは
+
+
+
+
+== Astra データストアの利用を開始しましょう
+
+最初に、 link:../get-started/requirements.html["Astra データストアの要件をご確認ください"]。
+
+次に、 link:../get-started/quick-start.html["始めましょう"]。
+
+
+
+== を参照してください。
+
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]
+* https://docs.netapp.com/us-en/astra/index.html["Astra Control Service のマニュアル"^]
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center のドキュメント"^]
+* https://docs.netapp.com/us-en/trident/index.html["Astra Trident のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+* https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights のドキュメント"^]
+* https://docs.netapp.com/us-en/ontap/index.html["ONTAP のドキュメント"^]
+

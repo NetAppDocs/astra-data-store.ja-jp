@@ -1,0 +1,11 @@
+---
+section: release-notes
+title: リリースノート
+url: "/release-notes/rn_overview.html"
+entries:
+- title: 今回のリリースの Astra データストアの内容
+  url: "/release-notes/whats-new.html"
+- title: 既知の問題
+  url: "/release-notes/known-issues.html"
+- title: 既知の制限
+  url: "/release-notes/known-limitations.html"

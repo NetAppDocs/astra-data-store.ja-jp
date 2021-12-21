@@ -1,0 +1,202 @@
+---
+sidebar: sidebar 
+permalink: get-started/requirements.html 
+keywords: kubernetes cluster, cluster requirements, version requirements, supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking 
+summary: まずは、環境のサポート状況を確認します。 
+---
+= Astra データストアのプレビュー要件
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+まずは、 Astra データストアのプレビュー要件を満たす環境であることを確認してください。
+
+Astra データストアプレビュー：ベアメタル環境と VM ベース環境の両方をサポートAstra データストアプレビュークラスタは、 4 つ以上のワーカーノードを含む Kubernetes クラスタで実行できます。Astra データストアプレビューソフトウェアは、同じ Kubernetes クラスタで実行されている他のアプリケーションと共存できます。
+
+Astra Data Store プレビューは、 Astra Trident CSI ドライバを使用した Kubernetes ワークロードの PVS のプロビジョニングのみをサポートします。VM ワークロードは、 Astra データストアの今後のリリースでサポートされる予定です。
+
+
+
+== Kubernetes ワーカーノードのリソース要件
+
+Kubernetes クラスタ内の各ワーカーノード上の Astra Data Store プレビューソフトウェアに割り当てるために必要なリソースの最小要件を次に示します。
+
+|===
+| リソース | 最小（ Minimum ） | 最大 
+
+
+| データドライブの数  a| 
+* 3 （独立したキャッシュデバイスを使用）
+* 4 （キャッシュデバイスがない場合）
+
+| 14 
+
+
+| データドライブのサイズ | 100GiB | 4TiB 未満 
+
+
+| オプションのキャッシュデバイスの数 | 1 （ 8GiB 以上） | 該当なし 
+
+
+| vCPU の数 | 9. | 9. 
+
+
+| RAM | 34GiB | 34GiB 
+|===
+
+NOTE: 書き込みパフォーマンスを最大限に高めるには、専用の耐久性、低レイテンシ、低容量キャッシュデバイスを構成する必要があります。
+
+各ワーカーノードには、次の追加要件があります。
+
+* 100GiB 以上の空き容量がホストディスク（ブート）にあり、 Astra データストアプレビューログファイルを保存します。
+* クラスタトラフィック、データトラフィック、および管理トラフィック用に、 10GbE 以上のネットワークインターフェイスが少なくとも 1 つ必要です。必要に応じて、 1GbE 以上のインターフェイスを追加で使用して管理トラフィックを分離できます。
+
+
+
+
+== ハードウェアとソフトウェアの要件
+
+Astra Data Store プレビューソフトウェアは、次のハードウェアプラットフォーム、ソフトウェア、ストレージ構成で検証済みです。Kubernetes クラスタの構成が異なる場合は、ネットアップコミュニティサポートにアクセスしてください。
+
+.ハードウェアプラットフォーム
+* HPE DL360
+* HPE DL380
+* Dell R640
+* Dell R740
+
+
+Astra データストアプレビューは、次のドライブタイプで検証済みです。
+
+* * ベアメタル環境 * ：ハイパーバイザーを使用せずに Linux クラスタ上の Kubernetes クラスタに Astra データストアプレビューを直接インストール。
++
+** SATA または NVMe TLC SSD 。
+
+
+* * VM ベースの導入 * ： ESXi クラスタでホストされた Linux VM 上の Kubernetes クラスタに Astra データストアプレビューをインストール。
++
+** SATA 、 SAS 、または NVMe TLC SSD ベースのデータストア。
+** 仮想ディスクまたはパススルードライブとして提供されるドライブ。
+
+
+
+
+
+NOTE: ホストがハードウェア RAID コントローラの背後で SSD を使用している場合は、「パススルー」モードを使用するようにハードウェア RAID コントローラを設定します。
+
+
+NOTE: 各ドライブのシリアル番号は一意である必要があります。VM 作成中に仮想マシンの詳細設定に 'disk.enableuuid=true' 属性を追加します
+
+.ソフトウェア
+* ハイパーバイザー： Astra データストアプレビュー版は、 ESXi 7.0 を使用する VMware ベースの VM 環境で検証済みです。KVM ベースの導入は、 Astra データストアプレビューではサポートされていません。
+* Astra データストアプレビューは、次のホストオペレーティングシステムで検証済みです。
++
+** Red Hat Enterprise Linux 8.4
+** Red Hat Enterprise Linux 8.2 の場合
+** Red Hat Enterprise Linux 7.9
+** Red Hat Enterprise Linux CoreOS (RHCS)
+** CentOS 8
+** Ubuntu 20.04
+
+
+* Astra Data Store プレビュー版は、以下の Kubernetes ディストリビューションで検証済みです。
++
+** Red Hat OpenShift 4.7
+** Google Anthos 1.7
+** Kubernetes 1.21
+** Kubernetes 1.20
+
+
+
+
+
+NOTE: Astra Data Store のプレビュー版では、ストレージのプロビジョニングとオーケストレーションに Trident バージョン 21.10.1 が必要です。を参照してください link:setup-ads.html#install-astra-trident["Astra Trident のインストール手順"]。
+
+
+
+== ネットワーク要件
+
+Astra データストアプレビューを実行するには、 MVIP 用にクラスタごとに 1 つの IP アドレスが必要です。MIP と同じサブネット内の未使用の IP アドレスまたは未設定の IP アドレスを指定する必要があります。Astra Data Store プレビュー管理インターフェイスは、 Kubernetes ノードの管理インターフェイスと同じである必要があります。
+
+また、次の表に示すように各ノードを設定することもできます。
+
+
+NOTE: この表では、 MIP ：管理 IP アドレス CIP ：クラスタ IP アドレス MVIP ：管理仮想 IP アドレスの略語を使用しています
+
+|===
+| 設定 | IP アドレスが必要です 
+
+
+| ノードごとに 1 つのネットワークインターフェイス  a| 
+* ノードごとに 2 つ：
++
+** MIP/CIP ：ノードごとに管理インターフェイスに設定済みの IP アドレスが 1 つあります
+** データ IP ： MIP と同じサブネットに含まれる、ノードごとに未使用の IP アドレスまたは未設定の IP アドレスの 1 つ
+
+
+
+
+
+
+| ノードごとに 2 つのネットワークインターフェイス  a| 
+* ノードあたり 3 本：
++
+** mip ：ノードごとに管理インターフェイスで事前に設定された IP アドレスを 1 つ
+** cip ： MIP とは異なるサブネット内のノードごとに、データインターフェイスに事前に設定された IP アドレスを 1 つだけ指定します
+** データ IP ： CIP と同じサブネット内の各ノードに未使用または未設定の IP アドレスが 1 つあります
+
+
+
+
+|===
+
+NOTE: これらの構成では ' クラスタカスタムリソース (CR) ファイルのデータネットワークゲートウェイフィールド 'astraadscluster.yaml ' は省略してください各ノードの既存のルーティング設定には、すべてのアドレスを指定できます。
+
+
+NOTE: これらの構成では VLAN タグは使用されません。
+
+
+
+== CSI ドライバ
+
+Astra データストアプレビューを実行するには、 Kubernetes クラスタが Astra Trident 21.10.1 を実行している必要があります。Astra データストアプレビューは、として構成できます link:../get-started/setup-ads.html#set-up-astra-data-store-as-storage-backend["ストレージバックエンド"] ネットアップの Trident で永続的ボリュームをプロビジョニング
+
+
+
+== CNI 構成
+
+Astra Data Store のプレビューは、 Calico および Weave Net CNII で検証されています。
+
+これらの NNI では、ホストファイアウォール（ firewalld ）を無効にする必要があります。
+
+
+
+== 永続的ボリュームの共有に関する要件
+
+各アストラデータストアプレビュークラスタでは、永続ボリュームを使用して、そのクラスタにインストールされているアプリケーションのストレージニーズに対応できます。Astra Data Store プレビュー版の永続的ボリュームについては、次の要件を考慮してください。
+
+.要件
+* NFSv4.1 クライアント / サーバを Kubernetes クラスタにインストールする必要があります。
+* nfs-utils パッケージはワーカーノードにインストールする必要があります。
+* Kubernetes アプリケーションは、 NFSv4.1 で共有されている永続的ボリュームを使用してファイルにアクセスします。 NFSv4.1 では、 AUTH_SYS の認証方法が必要です。
+
+
+
+
+== ライセンス
+
+Astra データストアのプレビュー機能をフル活用するには、 Astra データストアのプレビューライセンスが必要です。 https://www.netapp.com/cloud-services/astra/data-store-form/["こちらから登録してください"] から Astra データストアプレビューライセンスを取得できます。ライセンスのダウンロード手順は、サインアップ後に送信されます。
+
+
+
+== AutoSupport の設定
+
+Astra データストアプレビューを利用するには、 AutoSupport を有効にし、 AutoSupport バックエンドに接続する必要があります。これは、直接インターネットアクセスまたはプロキシ設定を経由する可能性があります。
+
+。 link:../get-started/install-ads.html#install-the-astra-data-store-cluster["必須のテレメトリ AutoSupport バンドルの送信に使用される定期設定"] 変更しないでください。定期的な AutoSupport バンドルの送信を無効にすると、クラスタがロックダウンされ、定期的な設定が再度有効になるまで新しいボリュームを作成できなくなります。
+
+
+
+== 次の手順
+
+を表示します link:quick-start.html["クイックスタート"] 概要（ Overview ）：

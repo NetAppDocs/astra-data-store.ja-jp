@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: support/get-help-ads.html 
+keywords: get help, get support, knowledgebase, slack, phone, web, ticket, contact support, support ticket, support bundle 
+summary: ネットアップでは、 Astra データストアのサポートをさまざまな方法で提供しています。無償のセルフサポートオプションは、ナレッジベース（ KB ）記事や Slack チャンネルなど、 24 時間 365 日ご利用いただけます。 
+---
+= ヘルプを表示します
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/support/
+
+
+ネットアップでは、 Astra データストアのプレビュー版をさまざまな方法で提供しています。無償のセルフサービスサポートオプションは、ナレッジベース（ KB ）記事や Slack チャンネルなど、 24 時間 365 日ご利用いただけます。
+
+
+IMPORTANT: Astra データストアプレビュー版のコミュニティテクニカルサポートを利用できます。ネットアップサポートサイト（ NSS ）でケースを作成することはできません。フィードバックオプションを通じてサポートに連絡するか、 Slack チャンネルを利用してセルフサービスで連絡できます。
+
+
+
+== セルフサービスサポートオプション
+
+次のオプションは、 24 時間 365 日無料で利用できます。
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra["ナレッジベース（ログインが必要）"^]
++
+Astra Data Store プレビューに関する記事、 FAQ 、またはトラブルシューティング情報を検索します。
+
+* ドキュメント
++
+現在表示しているドキュメントサイトです。
+
+* https://netapp.io/slack["ネットアップの「コンテナ」 Slack チャンネル"]
++
+「コンテナ」チャネルに移動して、同業者やエキスパートと交流しましょう。
+
+* フィードバック用 E メール
++
+astra.feedback@netapp.com に電子メールを送信して、あなたの考え、アイデア、懸念事項をお知らせください。
+
+
+
+[discrete]
+== 詳細については、こちらをご覧ください
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["ネットアップにファイルをアップロードする方法（ログインが必要）"^]
+* https://kb.netapp.com/Special:Search?qid=&fpid=230&fpth=&query=netapp+data+store&type=wiki["ネットアップの技術情報アーティクル"]
+

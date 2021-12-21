@@ -1,0 +1,18 @@
+---
+section: use
+title: Astra データストアを使用
+entries:
+- title: Astra データストア資産の管理
+  url: "/use/kubectl-commands-ads.html"
+- title: アプリケーションをセットアップする
+  url: "/use/deploy-apps.html"
+- title: クラスタを管理
+  url: "/use/maintain-cluster.html"
+- title: Cloud Insights で指標を監視
+  url: "/use/monitor-with-cloud-insights.html"
+- title: イベントログを設定して監視する
+  url: "/use/configure-endpoints.html"
+- title: Astra Control Center の統合
+  url: "/use/ads-acc-ui.html"
+- title: Astra データストアプレビューをアンインストールします
+  url: "/use/uninstall-ads.html"

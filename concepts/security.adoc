@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: concepts/security.html 
+keywords: how astra works, how Astra security works, what Astra is, astra data store, kubernetes 
+summary: Astra データストアでは、クライアントと管理者がストレージにアクセスするのを保護し、通信とデータを保護し、ウイルスから保護するために、いくつかの方法を使用します。 
+---
+= Astra データストアのセキュリティ
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+Astra Data Store のプレビューでは、クライアントと管理者がストレージにアクセスするのを保護し、通信とデータを保護し、ウイルスから保護する方法がいくつかあります。
+
+Astra データストアプレビューでは、次のセキュリティ方法を使用します。
+
+* MTLS （相互トランスポート層セキュリティ）を使用した通信暗号化
+* ロールベースアクセス制御は機能へのアクセスを制御します
+* 展開のセキュリティ
+* 証明書管理
+* 内部キー管理を含む保存データのソフトウェア暗号化
+
+
+
+
+== を参照してください。
+
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]
+* https://docs.netapp.com/us-en/astra/index.html["Astra Control Service のマニュアル"^]
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center のドキュメント"^]
+* https://docs.netapp.com/us-en/trident/index.html["Astra Trident のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+* https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights のドキュメント"^]
+* https://docs.netapp.com/us-en/ontap/index.html["ONTAP のドキュメント"^]
+

@@ -1,0 +1,180 @@
+---
+sidebar: sidebar 
+permalink: support/autosupport.html 
+keywords: how to use autosupport, autosupport, asup, logs, asup bundle, support ticket, support bundle 
+summary: ネットアップでは、 Astra データストアのサポートをさまざまな方法で提供しています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra データストアアカウントには、 Web でチケットを発行してリモートでテクニカルサポートを受けることができます。 
+---
+= サポートの自動監視
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/support/
+
+
+AutoSupport は、 Astra データストアシステムの稼働時間と情報を監視し、ネットアップサポートにメッセージを送信構成に応じて、次のシステムコンポーネントを監視できます。
+
+* コントロールプレーン
+* ストレージ
+
+
+AutoSupport は、の実行時にデフォルトで有効になります link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアクラスタのインストール"] または、 AutoSupport CR がクラスタに適用された後に実行します。有効にすると、ネットアップサポートサイト（ NSS ）に AutoSupport （ ASUP ）バンドルが自動的にアップロードされるか、手動でダウンロードすることができます。
+
+.オプション（ Options ）
+* <<AutoSupport triggers and scenarios>>
+* <<Configure custom control plane AutoSupport collection>>
+* <<Configure custom storage AutoSupport collection>>
+* <<List ASUPs in the system>>
+* <<Download an ASUP Bundle>>
+
+
+
+
+== AutoSupport のトリガーとシナリオ
+
+AutoSupport バンドルは、次の方法でトリガーされます。
+
+* 定期的： CR で定義された間隔で ASUP バンドルが作成されます。
+* User Triggered ：独自の ASUP を手動で作成してログを参照できます。
+* coredumps ：ノードにコアダンプがある場合は、 ASUP が生成され、コアがネットアップに送信されて詳しい調査が行われます。
+* CallHome イベントベース：オペレーティングシステムから特定の callhome イベントから ASUP が生成されます。
+* Kubernetes Event Based ：コントロールプレーンの特定の Kubernetes イベントから ASUP が生成されます。
+
+
+これらのトリガーシナリオでは、次のいずれかの AutoSupport タイプが生成されます。
+
+* ControlPlane AutoSupport ： Astra データストアのコントロールプレーンログと CRS のコレクション。
+* Storage AutoSupport ：ストレージレポートとパフォーマンスデータの集まり。
+* Core Dump AutoSupport ：システムコアダンプの集まり。
+
+
+
+
+== カスタムコントロールプレーンの AutoSupport 収集を設定します
+
+コントロールプレーンイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアクラスタのインストール"]。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。
+
+.手順
+. コントロールプレーンコレクション CR を作成するには、次のコマンドをカスタマイズします。
++
+[listing]
+----
+kubectl astasds asup collect -c controlplane --namespace=astrads-system
+----
++
+.. カスタムパラメータを定義します。
++
+*** `<myASUPNAME>` ：生成する AutoSupport CR の名前。
+*** `-e <event name>` ：イベント名の収集をトリガーするイベント名は、 component.yaml ( コントローラをサポートするためにマウントされている ) で事前に定義されている必要があります。
++
+例
+
++
+[listing]
+----
+kubectl astrasds asup collect -c controlplane custom-asup-name -e debug --namespace=astrads-system
+----
+
+
+.. 必要に応じて、システムに追加のパラメータを追加します。
++
+*** `--cluster` ：このフラグはマルチクラスタ環境で必要です。
+*** `-- localCollection` : ローカルコレクションをイネーブルにします。デフォルトは 'false.' です
+*** `--forceUpload`: 強制アップロードを有効にします。デフォルトは 'false.' です
+*** `--retry`: 再試行を有効にしますデフォルトは 'false.' です
+
+
+
+
+
+
+
+
+== カスタムのストレージ AutoSupport による収集を設定する
+
+ストレージコンポーネントのイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアクラスタのインストール"]。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。
+
+.手順
+. 次のコマンドをカスタマイズして、ストレージ収集 CR を作成します。
++
+[listing]
+----
+kubectl astrasds asup collect -c storage --namespace=astrads-system
+----
++
+.. カスタムパラメータを定義します。
++
+*** `<myASUPNAME>` ：生成する AutoSupport CR の名前。
+*** `-e <event name>` ：イベント名の収集をトリガーするイベント名は、 component.yaml ( コントローラをサポートするためにマウントされている ) で事前に定義されている必要があります。
++
+パフォーマンスイベントを使用した例：
+
++
+[listing]
+----
+kubectl-astrads asup collect -c storage -e performance example-perf-storage-asup
+----
+*** `-t <iso_format> -d <hours>` ：すべてのノードのストレージ ASUP を指定した期間収集します。標準の ISO 日付時刻形式 (`-t`) を時間単位で継続時間 (`d`) で使用します例：
++
+[listing]
+----
+kubectl astrads asup collect -c storage -t 2021-01-01T15:00:00Z -d 24
+----
+*** `--nodes <nodename> ：指定したノードのストレージ ASUP を収集します。例：
++
+[listing]
+----
+kubectl astrads asup collect -c storage --nodes example1
+----
+*** `-- ノードノード nodename1 、サブグループ 2 、サブグループ 3` ：指定したノードのストレージ ASUP を収集します。
++
+[listing]
+----
+kubectl astrads asup collect -c storage --nodes example1,example2,example3
+----
+
+
+.. 必要に応じて、システムに追加のパラメータを追加します。
++
+*** `--cluster` ：このフラグはマルチクラスタ環境で必要です。
+*** `-- localCollection` : ローカルコレクションをイネーブルにします。デフォルトは 'false.' です
+*** `--forceUpload`: 強制アップロードを有効にします。デフォルトは 'false.' です
+*** `--retry`: 再試行を有効にしますデフォルトは 'false.' です
+
+
+
+
+
+
+
+
+== システム内の ASUP をリストします
+
+次のコマンドを使用して、システム内の ASUP を名前別に表示します。
+
+[listing]
+----
+kubectl astrasds asup list --namespace=astrads-system
+----
+回答例：
+
+[listing]
+----
+NAMESPACE      NAME                                                SEQUENCE NUMBER EVENT                           SIZE    STATE       LOCAL COLLECTION
+astrads-system  storage-callhome.reboot.unknown-20211115t182151...  1               callhome.reboot.unknown         0       uploaded    astrads-ds-support-tdl2h:
+astrads-system  storage-callhome.reboot.unknown-20211115t182201...  2               callhome.reboot.unknown         0       uploaded    astrads-ds-support-xx6n8:
+astrads-system  storage-callhome.reboot.unknown-20211115t182204...  3               callhome.reboot.unknown         0       uploaded    astrads-ds-support-qghnx:
+----
+
+
+== ASUP バンドルをダウンロード
+
+このコマンドを使用すると、ローカルで収集した ASUP バンドルをダウンロードできます。現在の作業ディレクトリ以外の場所を指定するには '-o <location>` を使用します
+
+[listing]
+----
+./kubectl-astrasds asup download <ASUP_bundle_name> -o <location>
+----
+[discrete]
+== 詳細については、こちらをご覧ください
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["ネットアップにファイルをアップロードする方法（ログインが必要）"^]
+

@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: get-started/capabilities.html 
+keywords: kubernetes cluster, cluster requirements, version requirements, supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking 
+summary: まずは、環境のサポート状況を確認します。 
+---
+= Astra データストアのプレビュー制限
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Astra データストアは、クラウドネイティブアプリケーションの管理を支援する、 Kubernetes ネイティブのオンプレミスデータセンター向け共有ファイル Software-Defined Storage （ SDS ）解決策です。
+
+Astra Data Store プレビューリリースには、次のリソース制限があります。
+
+|===
+| リソース | 最小（ Minimum ） | 最大 
+
+
+| Astra データストアプレビュークラスタに含まれるノード数 | 4. | 5. 
+
+
+| ノードあたりの永続ボリュームの数 | 該当なし | 10. 
+
+
+| ノードあたりの永続ボリュームのプロビジョニング済み容量の合計 | 該当なし | 1TiB 
+
+
+| ボリュームサイズ | 20MiB | 1TiB 
+
+
+| ボリュームあたりの Snapshot 数 | 0 | 256 
+
+
+| ボリュームあたりのクローン数 | 0 | 9. 
+|===
+
+NOTE: Astra データストアプレビュー版は、 VM ワークロードをサポートしていない。VMware VVOL ワークロードは今後のリリースでサポートする予定です。
+
+
+
+== 次の手順
+
+構成がに合っていることを確認します link:requirements.html["要件"]。

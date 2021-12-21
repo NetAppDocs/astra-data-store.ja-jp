@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: concepts/architecture.html 
+keywords: astra, astra datastore, architecture, deployment, astra data store, kubernetes, netapp, clusters, trident 
+summary: アストラデータストアは、スタンドアロンの Kubernetes クラスタに導入できます。スタンドアロンの Kubernetes クラスタは、別のクラスタで実行されている Kubernetes アプリケーションに永続的ボリュームを提供します。 Kubernetes クラスタは、同じノードプールで他のアプリケーションをホストしたり、 Kubernetes クラスタで別のノードプールでアプリケーションをホストしたりすることもできます。 
+---
+= Astra データストア導入モデル
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+Astra Data Store プレビュー： Kubernetes でオーケストレーションされたアプリケーションを使用して、ホスト上でストレージドライブを直接管理
+
+Astra Data Store プレビューは、ベアメタルサーバまたは仮想サーバに次のいずれかのオプションを使用してインストールできます。
+
+* スタンドアロンの専用 Kubernetes クラスタに導入して、別のクラスタ（スタンドアロンクラスタ）で実行されている Kubernetes アプリケーションに永続ボリュームを提供します。
+* Kubernetes クラスタに導入し、同じノードプール（コンバージドクラスタ）で他のワークロードアプリケーションをホストすることもできます。
+* Kubernetes クラスタに導入すると、他のワークロードアプリケーションも別のノードプール（分離型クラスタ）にホストできます。
+
+
+link:../get-started/requirements.html["Astra Data Store のハードウェア要件の詳細をご確認ください"]。
+
+Astra データストアプレビューは、 Astra 製品ファミリーの一部です。アストラファミリー全体の展望については、を参照してください https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]。
+
+
+
+== Astra データストアエコシステム
+
+Astra データストアプレビューは、次の機能で動作します。
+
+* * Astra Control Center * ：オンプレミス環境で Kubernetes クラスタをアプリケーション対応で管理するために、 Astra Control Center ソフトウェアを使用。Kubernetes アプリケーションを簡単にバックアップし、データを別のクラスタに移行して、作業用アプリケーションのクローンを瞬時に作成できます。
++
+Astra Control Center は、 ONTAP または Astra データストアプレビューストレージバックエンドを備えた Trident ストレージバックエンドで OpenShift Kubernetes クラスタをサポートします。
+
+* * Trident * ：ネットアップが管理する、完全にサポートされているオープンソースのストレージプロビジョニングおよびオーケストレーションツールである Trident を使用すると、 Docker と Kubernetes で管理するコンテナ化されたアプリケーション用のストレージボリュームを作成できます。
++
+Trident を使用して、 Astra データストアプレビューでボリュームを作成
+
+* * Cloud Insights * ：ネットアップのクラウドインフラ監視ツールである Cloud Insights を使用すると、 Astra Control で管理された Kubernetes クラスタのパフォーマンスと利用率を監視できます。Cloud Insights ：ストレージ使用率とワークロードの相関関係を示します。Cloud Insights 接続を Astra Control で有効にすると、 Astra Control の UI ページにテレメトリ情報が表示されます。
++
+Cloud Insights は、 Astra データストアプレビューにリソースに関する情報を表示します。
+
+
+
+
+
+== Astra データストアインターフェイス
+
+さまざまなインターフェイスを使用してタスクを完了できます。
+
+* * Web ユーザーインターフェイス (UI) * ： Astra Control Service と Astra Control Center は、同じ Web ベースの UI を使用して、アプリケーションの管理、移行、保護を行うことができます。また、 Astra データストアのプレビューボリュームに関する情報も表示されます。
+* * API* ： Astra Control Service と Astra Control Center は、同じ Astra Control API を使用します。API を使用するタスクは、 UI を使用するタスクと同じです。Astra Control API を使用して、 Astra データストアのプレビューに関する情報を取得することもできます。
+* *kubectl コマンド *: Astra データストアプレビューを操作するには 'kubectl コマンドを直接使用することもできます
+* * Kubernetes 拡張機能 * ：さらに、 Kubernetes API 拡張機能 Astra データストアプレビューを使用できます。
++
+カスタムリソース定義（ CRD ）は Kubernetes REST API の拡張機能で、 Astra Data Store のプレビューオペレータが導入されたときに作成されます。外部エンティティは、 Kubernetes API サーバを呼び出して SSD とやり取りします。Astra Data Store プレビューでは、特定の SSD に対する更新を監視してから、内部の REST API を呼び出します。
+
+
+
+
+
+== を参照してください。
+
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]
+* https://docs.netapp.com/us-en/astra/index.html["Astra Control Service のマニュアル"^]
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center のドキュメント"^]
+* https://docs.netapp.com/us-en/trident/index.html["Astra Trident のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API を使用"^]
+* https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights のドキュメント"^]
+* https://docs.netapp.com/us-en/ontap/index.html["ONTAP のドキュメント"^]
+

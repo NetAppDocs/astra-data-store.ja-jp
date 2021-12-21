@@ -1,0 +1,14 @@
+---
+section: concepts
+title: 概念
+entries:
+- title: Astra データストアの概要
+  url: "/concepts/intro.html"
+- title: 導入モデル
+  url: "/concepts/architecture.html"
+- title: クラスタの拡張
+  url: "/concepts/expansion.html"
+- title: ストレージ効率
+  url: "/concepts/storage-efficiency.html"
+- title: セキュリティ
+  url: "/concepts/security.html"

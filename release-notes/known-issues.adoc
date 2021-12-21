@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: release-notes/known-issues.html 
+keywords: astra, control center, bugs, known issues, problems 
+summary: 既知の問題は、このリリースの製品を正常に使用できない可能性のある問題を特定します。 
+---
+= 既知の問題
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+ここでは、このプレビュー版の製品を正常に使用できなくなる原因にもなる、既知の問題について記載します。
+
+
+
+== Default Calico WireGuard インターフェイス名が Astra データストアプレビューで認識されません
+
+このエラーが発生するとポッドがクラッシュします。回避策として、 Calico の Felix 設定で wireguardInterfaceName 設定を変更して、ドットなしでインターフェイス名を指定します。例：
+
+[listing]
+----
+calicoctl patch felixconfiguration default --type='merge' -p '{"spec":{"wireguardInterfaceName":"calico_wg"}}'
+----
+各ノードに新しい名前でインターフェイスを作成する以外に、この変更は元の wireguard.cali インターフェイスの背後に残る場合もあります。これらのインターフェイスを削除して、この問題を繰り返し作成しないようにします。
+
+
+
+== VXLAN 設定と Calico CNI を使用したネットワークインターフェイス名は、 Astra データストアプレビューで認識されません
+
+このエラーが発生するとポッドがクラッシュします。回避策として、 VXLAN の設定を無効にします。
+
+
+
+== デフォルトの活性プローブ値を使用した MongoDB 環境で、ポッドがクラッシュループ状態で失敗する
+
+回避策として、 MongoDB 導入仕様で liveness プローブ initialDelaySeconds を 600 秒に設定します。
+
+
+
+== 詳細については、こちらをご覧ください
+
+* link:../release-notes/known-limitations.html["既知の制限"]
+

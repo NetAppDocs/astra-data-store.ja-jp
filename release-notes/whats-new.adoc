@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new.html 
+keywords: what's new, bugs, bug fixes, new features, enhancements 
+summary: ネットアップは Astra データストアを定期的に更新して、新機能、拡張機能、バグ修正を提供 
+---
+= このリリースの Astra データストアに含まれるもの
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+アストラデータストアの 21.12 プレビューリリースが発表されました。
+
+
+
+== 2021 年 12 月 21 日（ 21.12 ）
+
+Astra データストアの初回リリース。
+
+* link:../concepts/intro.html["それは何であるか"]
+* link:../concepts/architecture.html["導入モデルとコンポーネント"]
+* link:../get-started/requirements.html["開始には何が必要ですか"]
+* link:../get-started/install-ads.html["をインストールします"] および 
+* link:../use/kubectl-commands-ads.html["パフォーマンスの管理と監視"]
+* link:../use/monitor-with-cloud-insights.html["Cloud Insights で監視"]
+* link:../support/get-help-ads.html["ヘルプを表示します"] および 
+
+
+
+
+== 詳細については、こちらをご覧ください
+
+* link:../release-notes/known-issues.html["既知の問題"]
+* link:../release-notes/known-limitations.html["既知の制限"]
+* https://kb.netapp.com/Special:Search?qid=&fpid=230&fpth=&query=netapp+data+store&type=wiki["ネットアップの技術情報アーティクル"]
+

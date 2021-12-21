@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: get-started/quick-start.html 
+keywords: get started, quick start, astra, astra data store, deploy, deployment, kubernetes 
+summary: Astra データストアを導入するには、いくつかの手順を踏む必要があります。 
+---
+= Astra データストアプレビューのクイックスタート
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+このページでは、 Astra データストアのプレビューを開始するために必要な手順の概要を説明します。各ステップ内のリンクから、詳細が記載されたページに移動できます。
+
+ぜひお試しください。Astra Data Store のプレビューを試す場合は、 90 日間のプレビューライセンスを使用できます。
+
+https://www.netapp.com/cloud-services/astra/data-store-form/["こちらから登録してください"] から Astra データストアプレビューライセンスを取得できます。
+
+.<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="One"></span> Kubernetes クラスタの要件を確認します
+* クラスタが正常な状態で稼働し、少なくとも 4 つのオンラインワーカーノードと 1 つのマスターノードが必要です。
+* Astra データストアプレビュー環境を構成する各 Kubernetes ワーカーノードには、同じインターフェイスタイプ（ SATA 、 SAS 、 NVMe ）の SSD と、 Astra データストアプレビュークラスタに割り当てられているドライブの数が同じである必要があります。
+* SSD のシリアル番号はそれぞれ一意である必要があります。
+
+
+[role="quick-margin-para"]
+の詳細を確認してください link:../get-started/requirements.html["Astra データストアのプレビュー要件"]。
+
+.<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] alt="2"></span> Astra データストアプレビューをダウンロードしてインストールします
+* から Astra データストアプレビューをダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^]。
+* Astra データストアプレビューをローカル環境にインストールします。
+* 必要に応じて、監視オペレータをインストールします。これにより、 NetApp Cloud Insights に接続して、システムの健全性、容量、およびスループットに関する指標を表示できます。
+* Astra データストアプレビューライセンスを適用
+* Astra データストアプレビュークラスタをインストール
+
+
+[role="quick-margin-para"]
+の詳細を確認してください link:../get-started/install-ads.html["Astra データストアプレビューをインストールしています"]。
+
+.<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png"[] Alt="3"></span> 初期設定タスクをいくつか実行します
+* Astra Trident をインストール
+* Kubernetes スナップショットカスタムリソース定義（ CRD ）とコントローラをインストールする。
+* Astra データストアプレビューをストレージバックエンドとしてセットアップする。
+* Astra データストアのプレビュー用ストレージクラスを作成
+
+
+[role="quick-margin-para"]
+の詳細については、を参照してください link:../get-started/setup-ads.html["初期セットアッププロセス"]。
+
+[role="quick-margin-list"]
+Astra データストアプレビューのセットアップが完了したら、次の手順を実行します。
+
+* kubectl コマンドと kubectl ファイルシステム拡張機能を使用して、ノードの保守モードへの切り替え、ドライブの交換、ノードの交換などのタスクを含む、クラスタを管理します。の詳細を確認してください link:../use/kubectl-commands-ads.html["kubectl コマンドを Astra データストアプレビューで使用する方法"]。
+* 監視エンドポイントを設定する。の詳細を確認してください link:../use/configure-endpoints.html["監視エンドポイントの設定"]。
+
+
+[role="quick-margin-para"]
+link:../get-started/install-ads.html["Astra データストアプレビューをインストールします"]。

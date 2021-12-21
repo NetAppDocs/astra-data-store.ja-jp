@@ -1,0 +1,16 @@
+---
+section: get-started
+title: はじめに
+entries:
+- title: Astra データストアのプレビュー要件
+  url: "/get-started/requirements.html"
+- title: Astra データストアプレビューのクイックスタート
+  url: "/get-started/quick-start.html"
+- title: Astra データストアプレビューをインストールします
+  url: "/get-started/install-ads.html"
+- title: Astra Data Store のプレビューコンポーネントをセットアップする
+  url: "/get-started/setup-ads.html"
+- title: Astra データストアのプレビュー制限
+  url: "/get-started/capabilities.html"
+- title: よく寄せられる質問
+  url: "/get-started/faq-ads.html"
