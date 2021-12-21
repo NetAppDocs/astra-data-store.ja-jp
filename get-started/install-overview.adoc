@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: get-started/install-overview.html 
+keywords: astra, astra data store, kubernetes, how to install astra data store, openshift, OpenShift 
+summary: 次のいずれかの Astra データストアインストール手順を選択します 
+---
+= Astra データストアのインストールの概要
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/
+
+
+次の Astra Data Store インストール手順のいずれかを選択して実行します。
+
+* link:../get-started/install-ads.html["標準のプロセスを使用して Astra データストアをインストールします"]。
+* link:../get-started/install-ads-openshift.html["Red Hat OpenShift を使用する場合は、 OpenShift を使用して Astra データストアをインストールします"]。
+

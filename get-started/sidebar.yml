@@ -6,8 +6,13 @@ entries:
   url: "/get-started/requirements.html"
 - title: Astra データストアプレビューのクイックスタート
   url: "/get-started/quick-start.html"
-- title: Astra データストアプレビューをインストールします
-  url: "/get-started/install-ads.html"
+- title: インストールの概要
+  url: "/get-started/install-overview.html"
+  entries:
+  - title: Astra データストアプレビューをインストールします
+    url: "/get-started/install-ads.html"
+  - title: OpenShift に Astra データストアプレビューをインストールします
+    url: "/get-started/install-ads-openshift.html"
 - title: Astra Data Store のプレビューコンポーネントをセットアップする
   url: "/get-started/setup-ads.html"
 - title: Astra データストアのプレビュー制限

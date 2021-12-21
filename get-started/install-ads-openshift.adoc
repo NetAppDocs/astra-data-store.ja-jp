@@ -1,46 +1,53 @@
 ---
 sidebar: sidebar 
-permalink: get-started/install-ads.html 
-keywords: astra, astra data store, install, deploy, download 
-summary: 環境に関するいくつかの前提条件に対処した後に Astra データストアをインストールするには、バンドルをダウンロードして、以下の手順に従ってインストールします。 
+permalink: get-started/install-ads-openshift.html 
+keywords: astra, astra data store, install, deploy, openshift, OpenShift 
+summary: OpenShift を使用して Astra データストアをインストールする方法 
 ---
-= Astra データストアプレビューをインストールします
+= Red Hat OpenShift Container Platform に Astra データストアプレビューをインストールします
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-Astra データストアプレビューをインストールするには、ネットアップサポートサイトからインストールバンドルをダウンロードし、この手順に記載されているインストール手順を実行します。
-
-または、を使用することもできます link:install-ads-openshift.html["Red Hat OpenShift Container Platform （ OCP ）への Astra データストアプレビューのインストール"]。
+Red Hat OpenShift Container Platform （ OCP ）に Astra データストアプレビューをインストールするには、ネットアップサポートサイトからインストールバンドルをダウンロードし、この手順で説明するインストール手順を完了します。
 
 .必要なもの
-* link:requirements.html["インストールを開始する前に、 Astra データストアプレビュー環境を準備します"]。
+* インストールを開始する前に、 link:requirements.html["Astra データストア環境の準備"]。
 * ネットアップサポートサイトにアクセスします。 https://www.netapp.com/cloud-services/astra/data-store-form/["登録"] フルアクセスのネットアップサポートサイトアカウントをまだお持ちでない場合は、プレビュー版をお持ちください。
-* A link:../get-started/requirements.html#licensing["ネットアップライセンスファイル（ NLF ）"] Astra データストアプレビュー版ライセンスのダウンロード手順がお客様に送信されます https://www.netapp.com/cloud-services/astra/data-store-form["サインアップ"]。
+* A link:requirements.html#licensing["ネットアップライセンスファイル"] （ NLF ） for Astra Data Store のプレビュー。ライセンスのダウンロード手順は、サインアップ後に送信されます。
 * アクティブなコンテキストのクラスタ管理者権限があるアクティブな kubeconfig です。
-* の理解 link:../get-started/faq-ads.html#installation-and-use-of-astra-data-store-preview-on-a-kubernetes-cluster["ロールと権限"] Astra データストアプレビュー版で使用
-* インターネット接続：Astra データストアプレビューは、エアギャップのある環境には対応していません。直接またはプロキシ経由で support.netapp.com にアクセスするには、インターネット接続が必要です。
+* の理解 link:faq-ads.html["ロールと権限"] Astra データストアプレビュー版で使用
+* インターネット接続：Astra データストアプレビューは、エアギャップ環境には対応していません。直接またはプロキシ経由で support.netapp.com にアクセスするには、インターネット接続が必要です。
 
+
+
+
+== このタスクについて
 
 Astra Data Store プレビューインストールプロセスでは、次の手順を実行できます。
 
 * <<Download the Astra Data Store preview bundle and extract the images>>
 * <<Copy the binary and push images to your local registry>>
+* <<Create a namespace to deploy Astra Data Store preview>>
+* <<Create a custom SCC>>
+* <<Create the roles and role bindings>>
 * <<Install the Astra Data Store preview operator>>
 * <<Deploy the Astra Data Store preview version YAML>>
 * <<Apply the Astra Data Store preview license>>
 * <<Install the Astra Data Store preview cluster>>
 * <<Understand deployment-related events>>
 * <<Configure Astra Data Store preview monitoring>>
+* <<Install the monitoring operator>>
+* <<Set up iptables>>
 
 
 
 
 == Astra Data Store プレビューバンドルをダウンロードして、イメージを展開
 
-. にログインします https://mysupport.netapp.com/site/downloads/evaluation/astra-data-store/download["ネットアップサポートサイト"^] Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします
-. （任意）次のコマンドを使用して、バンドルのシグニチャを確認します。
+. にログインします https://mysupport.netapp.com/site/["ネットアップサポートサイト"] Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします
+. （任意）バンドルのシグニチャを確認します。
 +
 [listing]
 ----
@@ -83,8 +90,6 @@ docker login [your_registry_path]
 export REGISTRY=repo.company.com/astrads
 ----
 .. スクリプトを実行して Docker にイメージをロードし、イメージにタグを付けます。 [[[</Z1>[</Z1>[</Z1>_image_local_registry_push]] ローカルレジストリにイメージをプッシュします。 </Z2>
-
-
 +
 [listing]
 ----
@@ -97,6 +102,206 @@ done
 sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./manifests/*.yaml
 ----
 
+
+
+
+
+
+== Astra データストアプレビューを導入するためのネームスペースを作成します
+
+すべての Astra Data Store プレビューコンポーネントをインストールする名前空間「 astras -system 」を作成します。
+
+. ネームスペースを作成します。
++
+[listing]
+----
+kubectl create -f ads_namespace.yaml
+----
++
+例： ads_namespac.yaml
+
++
+[listing]
+----
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    control-plane: operator
+  name: astrads-system
+----
+
+
+
+
+== カスタム SCC を作成します
+
+OpenShift では、セキュリティコンテキスト制約（ SCC ）を使用して、ポッドで実行できるアクションを制御します。デフォルトでは、任意のコンテナの実行には制限付き SCC が付与され、その SCC で定義された機能のみが付与されます。
+
+制限付き SCC では、 Astra Data Store プレビュークラスタポッドで必要な権限が提供されません。この手順を使用して、 Astra データストアのプレビュー版に必要な権限（サンプルに記載）を付与します。
+
+カスタム SCC を Astra Data Store Preview ネームスペースのデフォルトのサービスアカウントに割り当てます。
+
+.手順
+. カスタム SCC を作成します。
++
+[listing]
+----
+kubectl create -f ads_privileged_scc.yaml
+----
++
+サンプル： ads_privileged_ssc.yaml
+
++
+[listing]
+----
+allowHostDirVolumePlugin: true
+allowHostIPC: true
+allowHostNetwork: true
+allowHostPID: true
+allowHostPorts: true
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: true
+allowedCapabilities:
+- '*'
+allowedUnsafeSysctls:
+- '*'
+apiVersion: security.openshift.io/v1
+defaultAddCapabilities: null
+fsGroup:
+  type: RunAsAny
+groups: []
+kind: SecurityContextConstraints
+metadata:
+  annotations:
+    kubernetes.io/description: 'ADS privileged. Grant with caution.'
+    release.openshift.io/create-only: "true"
+  name: ads-privileged
+priority: null
+readOnlyRootFilesystem: false
+requiredDropCapabilities: null
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: RunAsAny
+seccompProfiles:
+- '*'
+supplementalGroups:
+  type: RunAsAny
+users:
+- system:serviceaccount:astrads-system:default
+volumes:
+- '*'
+----
+. 「 OC get SCC 」コマンドを使用して、新たに追加された SCC を表示します。
++
+[listing]
+----
+# oc get scc/ads-privileged
+NAME             PRIV   CAPS    SELINUX    RUNASUSER   FSGROUP    SUPGROUP   PRIORITY     READONLYROOTFS   VOLUMES
+ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   <no value>   false            ["*"]
+#
+----
+
+
+
+
+== ロールとロールのバインドを作成します
+
+Astra Data Store プレビューのデフォルトのサービスアカウントで使用する必要なロールとロールのバインドを作成します。
+
+次の YAML 定義は '`astrads.netapp.io` API グループの Astra Data Store プレビューリソースで必要なさまざまな役割 ( 役割のバインドを使用 ) を割り当てます
+
+. 定義されたロールとロールのバインドを作成します。
++
+[listing]
+----
+kubectl create -f oc_role_bindings.yaml
+----
++
+例： OC_ROLE_bindings. yaml
+
++
+[listing]
+----
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: privcrole
+rules:
+- apiGroups:
+  - security.openshift.io
+  resourceNames:
+  - ads-privileged
+  resources:
+  - securitycontextconstraints
+  verbs:
+  - use
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: default-scc-rolebinding
+  namespace: astrads-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: privcrole
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: astrads-system
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ownerref
+  namespace: astrads-system
+rules:
+- apiGroups:
+  - astrads.netapp.io
+  resources:
+  - '*/finalizers'
+  verbs:
+  - update
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: or-rb
+  namespace: astrads-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ownerref
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: astrads-system
+----
+
+
+
+
+== ワーカーノードを準備します
+
+Astra データストアのワーカーノードでクラスタのプレビュー導入を準備この手順は、 Astra データストアプレビュークラスタで使用されているすべてのワーカーノードで実行します。
+
+OpenShift では、 kubelet 構成ファイル（ /var/lib/kubebelet/config.json ）に JSON 形式を使用します。Astra Data Store プレビュークラスタは 'kubelet config' ファイルの YAML 形式を検索します
+
+.手順
+. クラスタのインストールを開始する前に ' 各ワーカー・ノードに /var/lib/kubelet/config.yaml ファイルを作成します
++
+[listing]
+----
+sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml`
+----
+. クラスタ YAML が適用される前に、すべての Kubernetes ノードでこの手順を完了します。
+
+
+
+NOTE: この操作を行わないと、 Astra データストアプレビュークラスタのインストールが失敗します。
 
 
 
@@ -119,7 +324,7 @@ manifests/astradsoperator.yaml
 manifests/astradsversion.yaml
 manifests/monitoring_operator.yaml
 ----
-. kubectl apply を使用してオペレータを配備します。
+. kubectl apply コマンドを使用して ' オペレータを配備します
 +
 [listing]
 ----
@@ -199,7 +404,7 @@ astrads-operator-5ffb94fbf-7ln4h    1/1     Running   0          17m
 
 == Astra Data Store プレビュー版 YAML を導入します
 
-. kubectl apply を使用した導入：
+. kubectl apply コマンドを使用して配備します
 +
 [listing]
 ----
@@ -353,6 +558,21 @@ kind: AstraDSCluster
 ----
 kubectl apply -f ./manifests/astradscluster.yaml
 ----
+. SELinux が有効になっている場合は、 Astra Data Store プレビュークラスタ内のノードで、次のディレクトリの「 SELinux 」コンテキストにラベルを付け直します。
++
+[listing]
+----
+sudo chcon -R -t container_file_t /var/opt/netapp/firetap/rootfs/var/asup/notification/firetap/
+----
++
+[listing]
+----
+sudo chcon -R -t container_file_t /var/netapp/firetap/firegen/persist/
+----
++
+
+NOTE: これは 'SELinux がこれらのディレクトリの書き込みを禁止し ' サポートポッドが CrashLoopBackoff 状態になるためですこの手順は、 Astra データストアプレビュークラスタ内のすべてのノードで実行する必要があります。
+
 . クラスタ作成処理が完了するまで数分待ってから、ポッドが実行されていることを確認します。
 +
 [listing]
@@ -480,6 +700,57 @@ kubectl apply -f ./manifests/monitoring_operator.yaml
 kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup
 ----
 
+
+
+
+== iptables をセットアップします
+
+OpenShift SDN （ OpenShift 用のデフォルト CNI プラグイン）は、ホストループバックインターフェイス（ 127.0.0.1 / localhost ）からホストポートへのトラフィックを偽装しません。
+
+Astra Data Store プレビュークラスタでは、 localhost からクラスタサービスポート（ 9920 ）にトラフィックを転送するための NAT ルールが追加されている必要があります。
+
+.手順
+. NAT テーブルの出力チェーンの現在の「 KUBE-HOSTPORTS 」ルールの行番号をメモします。
++
+次の例では 'KUBE-HOSTPORTS' は 4 番目の位置にあります
+
++
+[listing]
+----
+$ sudo iptables -t nat -L OUTPUT --line-numbers
+Chain OUTPUT (policy ACCEPT)
+num target prot opt source destination
+1 KUBE-SERVICES all -- anywhere anywhere /* kubernetes service portals */
+2 KUBE-PORTALS-HOST all -- anywhere anywhere /* handle ClusterIPs; NOTE: this must be before the NodePort rules */
+3 KUBE-NODEPORT-HOST all -- anywhere anywhere ADDRTYPE match dst-type LOCAL /* handle service NodePorts; NOTE: this must be the last rule in the chain */
+4 KUBE-HOSTPORTS all -- anywhere anywhere /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
+----
+. 新しいルールを NAT テーブルに追加します。この場合、「 KUBE-HOSTPORTS 」エントリのすぐ上に追加します。
++
+[listing]
+----
+$ sudo iptables -t nat -I OUTPUT 4 -s 127.0.0.1 -j KUBE-MARK-MASQ -p tcp --dport 9920
+----
+. 新しく追加されたルールが 'KUBE-HOSTPORTS' ルールのすぐ上の NAT テーブルに追加されていることを確認します
++
+[listing]
+----
+$ sudo iptables -t nat -L OUTPUT --line-numbers
+Chain OUTPUT (policy ACCEPT)
+num target prot opt source destination
+1 KUBE-SERVICES all -- anywhere anywhere /* kubernetes service portals */
+2 KUBE-PORTALS-HOST all -- anywhere anywhere /* handle ClusterIPs; NOTE: this must be before the NodePort rules */
+3 KUBE-NODEPORT-HOST all -- anywhere anywhere ADDRTYPE match dst-type LOCAL /* handle service NodePorts; NOTE: this must be the last rule in the chain */
+4 KUBE-MARK-MASQ tcp -- localhost anywhere tcp dpt:9920
+5 KUBE-HOSTPORTS all -- anywhere anywhere /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
+----
+
+
+
+NOTE: Astra Data Store プレビュー版クラスタ内のすべてのノードで、次の手順を実行します。
+
+
+NOTE: Astra データストアプレビュークラスタノードが再起動した場合は、この手順を繰り返します。
 
 
 

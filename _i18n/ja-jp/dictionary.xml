@@ -515,7 +515,6 @@
   <block id="e81551a1c637af1bdd2cf807058cc5e3" category="summary">まずは、環境のサポート状況を確認します。</block>
   <block id="c066e77c0fe2c99e8fbbb9a70c883a5f" category="doc">Astra データストアのプレビュー制限</block>
   <block id="dfc6ae638b43c600bcdbe8a67cf9709c" category="paragraph">Astra データストアは、クラウドネイティブアプリケーションの管理を支援する、 Kubernetes ネイティブのオンプレミスデータセンター向け共有ファイル Software-Defined Storage （ SDS ）解決策です。</block>
-  <block id="9c4529ace9ecebb0b8ed8b19226307f1" category="paragraph">Astra Data Store プレビューリリースには、次のリソース制限があります。</block>
   <block id="be8545ae7ab0276e15898aae7acfbd7a" category="cell">リソース</block>
   <block id="a1d0ec6d56f8833a078b5a7ac4caf2d4" category="cell">最小（ Minimum ）</block>
   <block id="8321e79c278ec510f63675c040594892" category="cell">最大</block>
@@ -802,7 +801,6 @@
   <block id="5b39c767e05e7aa4e621836f3b785b9f" category="inline-link-macro">ストレージバックエンド</block>
   <block id="e606f5db902f554cc95c70ea6a7bc203" category="paragraph">Astra データストアプレビューを実行するには、 Kubernetes クラスタが Astra Trident 21.10.1 を実行している必要があります。Astra データストアプレビューは、として構成できます <block ref="318182cdb74d3be9931dae83174d547a" category="inline-link-macro-rx"></block> ネットアップの Trident で永続的ボリュームをプロビジョニング</block>
   <block id="a5d3b123919ae2c9260d2939457fc07b" category="section-title">CNI 構成</block>
-  <block id="5d9347d6b4cc0daccd2fd63126733db6" category="paragraph">Astra Data Store のプレビューは、 Calico および Weave Net CNII で検証されています。</block>
   <block id="8830b15b981296d5edf3d00560d26ed2" category="paragraph">これらの NNI では、ホストファイアウォール（ firewalld ）を無効にする必要があります。</block>
   <block id="950dab43d2896e395e031a5adfdb2982" category="section-title">永続的ボリュームの共有に関する要件</block>
   <block id="68c57e9c9ed620f9a7a94775279db0f6" category="paragraph">各アストラデータストアプレビュークラスタでは、永続ボリュームを使用して、そのクラスタにインストールされているアプリケーションのストレージニーズに対応できます。Astra Data Store プレビュー版の永続的ボリュームについては、次の要件を考慮してください。</block>
@@ -879,4 +877,74 @@
   <block id="fd18465573ec21a6218982055981f6b1" category="sidebar">ストレージ効率</block>
   <block id="2fae32629d4ef4fc6341f1751b405e45" category="sidebar">セキュリティ</block>
   <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">よく寄せられる質問</block>
+  <block id="9242577a835539354b36df9d5785b04f" category="paragraph">Astra Data Store プレビューリリースには、次のリソース制限があります。</block>
+  <block id="fb3d937ada0889a18943f9e221637388" category="admonition">Astra データストアのプレビューはパフォーマンスを調整したものであり、パフォーマンスの特性評価には使用しないでください。</block>
+  <block id="f384e304ce8ad1baf968d76cbb4f75e3" category="summary">次のいずれかの Astra データストアインストール手順を選択します</block>
+  <block id="aae3f331fbdab3d560f2829b3edb6b42" category="doc">Astra データストアのインストールの概要</block>
+  <block id="c3a5e0d3ee4046f7f704d4058047eb20" category="paragraph">次の Astra Data Store インストール手順のいずれかを選択して実行します。</block>
+  <block id="d99bdf0294b88b88ebeb7c5a3dd478d0" category="inline-link-macro">標準のプロセスを使用して Astra データストアをインストールします</block>
+  <block id="473248c5259367a46bb162931f7c51ef" category="list-text"><block ref="e2426583e3d976b64c068eb029ece1a2" category="inline-link-macro-rx"></block>。</block>
+  <block id="f70c6700d280b2af512dec2815cebb4a" category="inline-link-macro">Red Hat OpenShift を使用する場合は、 OpenShift を使用して Astra データストアをインストールします</block>
+  <block id="702096ecdc14aab30475ed7a1a2893c1" category="list-text"><block ref="9c6e2269ed85995d4b7b0fb33aa8fd3b" category="inline-link-macro-rx"></block>。</block>
+  <block id="d3d764264531a47774f6224c0245037c" category="inline-link-macro">Red Hat OpenShift Container Platform （ OCP ）への Astra データストアプレビューのインストール</block>
+  <block id="012afa59aa5540c24544e89ee39ecf33" category="paragraph">または、を使用することもできます <block ref="ec1d518175157305e3ede5bea61d33e3" category="inline-link-macro-rx"></block>。</block>
+  <block id="a425a235822edd430a58eacccd757806" category="paragraph">Astra Data Store のプレビューは、次の NNI で検証済みです。</block>
+  <block id="66f992fd154333db12979224b40bb01d" category="list-text">バニラ Kubernetes クラスタ用 Calico および Weave Net CNII</block>
+  <block id="1c6ba40a804a7b27053cbc1e9b881a53" category="list-text">Red Hat OpenShift Container Platform （ OCP ）向け OpenShift SDN</block>
+  <block id="5d12f25a06af3175aac5ead4076ccaa5" category="list-text">Google Anthos 向け Cilium</block>
+  <block id="477f44d2fd5557c2e0c1483136673d2f" category="summary">OpenShift を使用して Astra データストアをインストールする方法</block>
+  <block id="b42c39c7d62ef43f96e18ab1143c5fdd" category="doc">Red Hat OpenShift Container Platform に Astra データストアプレビューをインストールします</block>
+  <block id="58151efb3c608d0873e52f26a375688e" category="paragraph">Red Hat OpenShift Container Platform （ OCP ）に Astra データストアプレビューをインストールするには、ネットアップサポートサイトからインストールバンドルをダウンロードし、この手順で説明するインストール手順を完了します。</block>
+  <block id="18e412f69270053d6fbd006203726f31" category="inline-link-macro">Astra データストア環境の準備</block>
+  <block id="9afe9329533b4d46b804c6dce265f011" category="list-text">インストールを開始する前に、 <block ref="1339fb1bdf2e0eaea9baf01fd47337cd" category="inline-link-macro-rx"></block>。</block>
+  <block id="6896d0b08ffa51cd7dc1e431bca01038" category="inline-link-macro">ネットアップライセンスファイル</block>
+  <block id="5e33d62267635f1264e9a158679068f0" category="list-text">A <block ref="137bea87b1ed38b6b747ca593fab05eb" category="inline-link-macro-rx"></block> （ NLF ） for Astra Data Store のプレビュー。ライセンスのダウンロード手順は、サインアップ後に送信されます。</block>
+  <block id="fb124d22233366c281eae5c20e8f50a5" category="inline-link-macro">ロールと権限</block>
+  <block id="3fbcff5931f9df10a12c3e41b3b6e99c" category="list-text">の理解 <block ref="05c77a29e62e6b5374baaf8c208c49d9" category="inline-link-macro-rx"></block> Astra データストアプレビュー版で使用</block>
+  <block id="0b5bf43f901bdaa6ab67ba6ba2b415f0" category="list-text">インターネット接続：Astra データストアプレビューは、エアギャップ環境には対応していません。直接またはプロキシ経由で support.netapp.com にアクセスするには、インターネット接続が必要です。</block>
+  <block id="bbe48fb854ea022537208eeeff822f91" category="section-title">このタスクについて</block>
+  <block id="66a4210255768fa7ce150f406e4d2de3" category="list-text"><block ref="8aad3752e2094aac1115c216d64491e4" category="inline-xref-macro-rx"></block></block>
+  <block id="33479e9fa2f705061f6d568f2a579e42" category="list-text"><block ref="2726811d07a06cce3b8a8fe537309a8e" category="inline-xref-macro-rx"></block></block>
+  <block id="3b0adcdb7a1d7bd146376dcfc6accd6c" category="list-text"><block ref="0af761fa812dc9e1ab2a2b67718089d0" category="inline-xref-macro-rx"></block></block>
+  <block id="80fd50d2c29afdea09a446ffc7bb6b15" category="list-text"><block ref="96f517c99ba407f5b231283daa5c1544" category="inline-xref-macro-rx"></block></block>
+  <block id="1023cca3cbe0355c454587fe233fb54e" category="list-text"><block ref="7e400ca6d12cb414decd3ba7def8d69f" category="inline-xref-macro-rx"></block></block>
+  <block id="d4f09e9e88e4dabee8c9d9e2326277ac" category="list-text">にログインします<block ref="ce05c15478baf1fd107c1e0b09c6e8b0" category="inline-link-rx"></block> Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします</block>
+  <block id="17ed07ff15b5d43d3eca288ae4a093bd" category="list-text">（任意）バンドルのシグニチャを確認します。</block>
+  <block id="3590e28b9b85fc9dc8f47946a6a81c5b" category="section-title">Astra データストアプレビューを導入するためのネームスペースを作成します</block>
+  <block id="1d05061aec39922b91b02b045d31d674" category="paragraph">すべての Astra Data Store プレビューコンポーネントをインストールする名前空間「 astras -system 」を作成します。</block>
+  <block id="7baf7b8d385cfa43e2ebd4decbe383e8" category="list-text">ネームスペースを作成します。</block>
+  <block id="9484da3843b6d29183c961f5805374c0" category="paragraph">例： ads_namespac.yaml</block>
+  <block id="7a981942788d33c4001730188b89e6db" category="section-title">カスタム SCC を作成します</block>
+  <block id="9279e1a9a6dc21e00ad8bfe646d12d80" category="paragraph">OpenShift では、セキュリティコンテキスト制約（ SCC ）を使用して、ポッドで実行できるアクションを制御します。デフォルトでは、任意のコンテナの実行には制限付き SCC が付与され、その SCC で定義された機能のみが付与されます。</block>
+  <block id="d84d14dd008a483ff803734de04a9be6" category="paragraph">制限付き SCC では、 Astra Data Store プレビュークラスタポッドで必要な権限が提供されません。この手順を使用して、 Astra データストアのプレビュー版に必要な権限（サンプルに記載）を付与します。</block>
+  <block id="2593c56a647b16e5b609f03e09ff7e38" category="paragraph">カスタム SCC を Astra Data Store Preview ネームスペースのデフォルトのサービスアカウントに割り当てます。</block>
+  <block id="a404b42248dc15fc7c9f96beb39ce0bf" category="list-text">カスタム SCC を作成します。</block>
+  <block id="675d6759427bcd3ef0478a3576c113b4" category="paragraph">サンプル： ads_privileged_ssc.yaml</block>
+  <block id="44988a3cdc9c8d194b4f0791b2fd559e" category="list-text">「 OC get SCC 」コマンドを使用して、新たに追加された SCC を表示します。</block>
+  <block id="1ff7f0ad4e23e88d48bae4f9be6bf1d6" category="section-title">ロールとロールのバインドを作成します</block>
+  <block id="fc67753b692b97bd691fc9ce7e3373f7" category="paragraph">Astra Data Store プレビューのデフォルトのサービスアカウントで使用する必要なロールとロールのバインドを作成します。</block>
+  <block id="217623d6cc04d74a7e1c0c99da77531c" category="paragraph">次の YAML 定義は '`astrads.netapp.io` API グループの Astra Data Store プレビューリソースで必要なさまざまな役割 ( 役割のバインドを使用 ) を割り当てます</block>
+  <block id="c8679407d1ef279caad76d123b67c3cf" category="list-text">定義されたロールとロールのバインドを作成します。</block>
+  <block id="241dbe54decdb2543808cb04b50976c5" category="paragraph">例： OC_ROLE_bindings. yaml</block>
+  <block id="d7dde07915bbe8056e6854c2b5e50480" category="section-title">ワーカーノードを準備します</block>
+  <block id="4d75e8aa0d18f88ccca8348318fd0374" category="paragraph">Astra データストアのワーカーノードでクラスタのプレビュー導入を準備この手順は、 Astra データストアプレビュークラスタで使用されているすべてのワーカーノードで実行します。</block>
+  <block id="90ae8d3116b0e0639d8b6bab1fb94a83" category="paragraph">OpenShift では、 kubelet 構成ファイル（ /var/lib/kubebelet/config.json ）に JSON 形式を使用します。Astra Data Store プレビュークラスタは 'kubelet config' ファイルの YAML 形式を検索します</block>
+  <block id="619b377b67311492e2301f498fa6a192" category="list-text">クラスタのインストールを開始する前に ' 各ワーカー・ノードに /var/lib/kubelet/config.yaml ファイルを作成します</block>
+  <block id="8116c401bbe8d3e819e7fbeab37dfd9c" category="list-text">クラスタ YAML が適用される前に、すべての Kubernetes ノードでこの手順を完了します。</block>
+  <block id="e75a81ccddd342b222755829558870b4" category="admonition">この操作を行わないと、 Astra データストアプレビュークラスタのインストールが失敗します。</block>
+  <block id="ab99eb629243e2831288d50f19591112" category="list-text">kubectl apply コマンドを使用して ' オペレータを配備します</block>
+  <block id="a0043c0af3acf54941321b091a08c953" category="list-text">kubectl apply コマンドを使用して配備します</block>
+  <block id="9a18f1a51db98667d766563e48ba7225" category="list-text">SELinux が有効になっている場合は、 Astra Data Store プレビュークラスタ内のノードで、次のディレクトリの「 SELinux 」コンテキストにラベルを付け直します。</block>
+  <block id="f22b8fb6dcc9aa31e0b2d9e9e84205c7" category="admonition">これは 'SELinux がこれらのディレクトリの書き込みを禁止し ' サポートポッドが CrashLoopBackoff 状態になるためですこの手順は、 Astra データストアプレビュークラスタ内のすべてのノードで実行する必要があります。</block>
+  <block id="312c22a3876f69404939d1690151fbc4" category="section-title">iptables をセットアップします</block>
+  <block id="003e4c2f8867f9fd50148b316d4b989e" category="paragraph">OpenShift SDN （ OpenShift 用のデフォルト CNI プラグイン）は、ホストループバックインターフェイス（ 127.0.0.1 / localhost ）からホストポートへのトラフィックを偽装しません。</block>
+  <block id="1b3b86daa5e0644271ca947c2224f310" category="paragraph">Astra Data Store プレビュークラスタでは、 localhost からクラスタサービスポート（ 9920 ）にトラフィックを転送するための NAT ルールが追加されている必要があります。</block>
+  <block id="b39a623813791d04ac10ef1fc42a7fc5" category="list-text">NAT テーブルの出力チェーンの現在の「 KUBE-HOSTPORTS 」ルールの行番号をメモします。</block>
+  <block id="f510c1d362dbb0428437b2f895e8982a" category="paragraph">次の例では 'KUBE-HOSTPORTS' は 4 番目の位置にあります</block>
+  <block id="adcb2cd59b5d01edf7ca1f67e980ac9f" category="list-text">新しいルールを NAT テーブルに追加します。この場合、「 KUBE-HOSTPORTS 」エントリのすぐ上に追加します。</block>
+  <block id="d912cfb09e8afcc3ecc44ba849dbd502" category="list-text">新しく追加されたルールが 'KUBE-HOSTPORTS' ルールのすぐ上の NAT テーブルに追加されていることを確認します</block>
+  <block id="ec3c5f90c4d136c23a12315138fd7c45" category="admonition">Astra Data Store プレビュー版クラスタ内のすべてのノードで、次の手順を実行します。</block>
+  <block id="c7763a055763bd20203aefad4f95491e" category="admonition">Astra データストアプレビュークラスタノードが再起動した場合は、この手順を繰り返します。</block>
+  <block id="46921a75e8534ad7d1c379a9e3aec033" category="sidebar">インストールの概要</block>
+  <block id="3082d4232dd32a2353e231bf8f1faba4" category="sidebar">OpenShift に Astra データストアプレビューをインストールします</block>
 </blocks>

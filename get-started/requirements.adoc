@@ -165,7 +165,12 @@ Astra データストアプレビューを実行するには、 Kubernetes ク�
 
 == CNI 構成
 
-Astra Data Store のプレビューは、 Calico および Weave Net CNII で検証されています。
+Astra Data Store のプレビューは、次の NNI で検証済みです。
+
+* バニラ Kubernetes クラスタ用 Calico および Weave Net CNII
+* Red Hat OpenShift Container Platform （ OCP ）向け OpenShift SDN
+* Google Anthos 向け Cilium
+
 
 これらの NNI では、ホストファイアウォール（ firewalld ）を無効にする必要があります。
 
