@@ -20,7 +20,7 @@ Astra Data Store のプレビュー版のインストール、設定、アップ
 
 * 仮想マシンのワークロードに対して Astra Data Store プレビューを使用できますか？ * Astra Data Store プレビューリリースは、ベアメタルマシンでも仮想マシンでも Kubernetes で実行されているアプリケーションに限定されます。今後のリリースでは、 Kubernetes と ESXi 仮想マシンの両方でアプリケーションがサポートされる予定です。詳細はこちら link:../get-started/requirements.html["Astra データストアの要件"]。
 
-* Astra データストアプレビューには、他のネットアップ製品との依存関係はありますか？ * はい。Astra Data Store のプレビューを利用するには、 NetApp CSI ドライバ Astra Trident バージョン 21.10 以降をワークロードの Kubernetes クラスタに導入する必要があります。詳細はこちら link:../get-started/requirements.html["Astra データストアの要件"]。
+* Astra データストアプレビューには、他のネットアップ製品との依存関係はありますか？ * はい。Astra Data Store のプレビューを利用するには、 NetApp CSI ドライバ Astra Trident バージョン 21.10.1 以降をワークロードの Kubernetes クラスタに導入する必要があります。詳細はこちら link:../get-started/requirements.html["Astra データストアの要件"]。
 
 Astra Data Store プレビュー版クラスタをストレージバックエンドとして使用するアプリケーションであれば https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center の略"] バージョン 21.12 データ保護、ディザスタリカバリ、 Kubernetes ワークロードの移行など、アプリケーション対応のデータ管理機能を活用するために必要です。
 
@@ -56,7 +56,7 @@ Astra Data Store プレビュー版クラスタをストレージバックエン
 
 * My Kubernetes クラスタは 5 つ以上のワーカーノードで構成されています。Astra データストアプレビューを IT にインストールできますか。 * はい。Astra データストアプレビュークラスタは、 Kubernetes クラスタ内の 4 つまたは 5 つのワーカーノードに導入できます。Kubernetes クラスタには、 Astra Data Store プレビュークラスタを導入するワーカーノードを 4 つまたは 5 つ選択できます。
 
-* Astra データストアプレビューは、プライベートレジストリからのオフラインインストールをサポートしていますか。 * はい。Astra データストアプレビューは、ローカルレジストリからオフラインでインストールできます。を参照してください link:../get-started/install-ads.html["Astra データストアをインストール"]。ただし、ネットアップサポートバックエンド（ support.netapp.com ）に接続して運用を継続するには、 Astra データストアのプレビュー版を利用する必要があります（直接またはプロキシ経由）。
+* Astra データストアプレビューは、プライベートレジストリからのオフラインインストールをサポートしていますか。 * はい。Astra データストアプレビューは、ローカルレジストリからオフラインでインストールできます。を参照してください link:../get-started/install-ads.html["Astra データストアプレビューをインストールします"]。ただし、ネットアップサポートバックエンド（ support.netapp.com ）に接続して運用を継続するには、 Astra データストアのプレビュー版を利用する必要があります（直接またはプロキシ経由）。
 
 * Astra データストアプレビューを使用するにはインターネットに接続する必要がありますか？ * Astra データストアプレビューを利用するには、必須の AutoSupport バンドルを定期的に送信するために、ネットアップ AutoSupport バックエンドに接続する必要があります。この接続は、直接またはプロキシ経由で行うことができます。この接続がないか AutoSupport が無効な場合、クラスタがロックダウンされ、定期的なバンドルアップロードが再開されるまで新しいボリュームの作成が無効になります。
 

@@ -45,8 +45,8 @@ NOTE: 次のコマンド例では ' ディレクトリとして /trident` を想
 * link:requirements.html["インストールを開始する前に、 Astra データストアプレビュー環境を準備します"]。
 * をダウンロードします link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/deploy/kubernetes/snapshot-controller["Kubernetes snapshot controller yaml ファイル"]：
 +
-** k8s-setup-snapshot-controller.yaml
-** k8s-rbac -snapshot-controller.yaml
+** setup-snapshot-controller.yaml
+** rbac -snapshot-controller.yaml
 
 
 * をダウンロードします link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/client/config/crd["YAML CRD"]：
@@ -101,11 +101,11 @@ kubectl apply -f trident/snapshot.storage.k8s.io_volumesnapshots.yaml
 ----
 customresourcedefinition.apiextensions.k8s.io/volumesnapshots.snapshot.storage.k8s.io created
 ----
-. k8s-setup-snapshot-controller.yaml を適用します。
+. setup-snapshot-controller.yaml を適用します。
 +
 [listing]
 ----
-kubectl apply -f trident/k8s-setup-snapshot-controller.yaml
+kubectl apply -f trident/setup-snapshot-controller.yaml
 ----
 +
 対応：
@@ -115,11 +115,11 @@ kubectl apply -f trident/k8s-setup-snapshot-controller.yaml
 ----
 deployment.apps/snapshot-controller created
 ----
-. k8s-setup-snapshot-controller.yaml を適用します。
+. RBAC の -snapshot-controller.yaml を適用します。
 +
 [listing]
 ----
-kubectl apply -f trident/k8s-rbac-snapshot-controller.yaml
+kubectl apply -f trident/rbac-snapshot-controller.yaml
 ----
 +
 対応：
@@ -174,11 +174,11 @@ snapshot-controller-7f58886ff4-tmrd9                                    1/1     
 ads_backend.json ファイルにストレージバックエンドパラメータを設定し、 Astra データストアストレージバックエンドを作成する。
 
 .手順
-. 安全な端末で「 ads_backend.json 」を開きます。
+. 安全な端末を使用して「 ads_backend.json 」を作成します。
 +
 [listing]
 ----
-cat ads_backend.json
+vi ads_backend.json
 ----
 . JSON ファイルを設定します。
 +
@@ -186,6 +186,30 @@ cat ads_backend.json
 .. 「 namespace 」の値を、ボリュームの作成に使用するネームスペースに変更します。
 .. バックエンドではなく 'exportpolicy-CR を設定している場合を除き 'autoExportPolicy' の値を true に変更します
 .. 「 autoExportCIDRs 」リストに、アクセスを許可する IP アドレスを入力します。すべてを許可するには '0.0.0.0/0` を使用します
+.. 「 kubeconfig 」の値については、次の手順を実行します。
++
+... .kube/config YAML ファイルをスペースなしの JSON 形式に変換して最小化します。
++
+変換例：
+
++
+[listing]
+----
+python3 -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=None)' < kubeconfig_filepath > kubeconf.json
+----
+... base64 としてエンコードし、 base64 出力を「 kubeconfig 」値に使用します。
++
+エンコーディングの例：
+
++
+[listing]
+----
+cat kubeconf.json | base64 | tr -d '\n'
+----
+
+
+
+
 +
 [listing, subs="+quotes"]
 ----
@@ -197,7 +221,7 @@ cat ads_backend.json
     *"namespace": "astrads-system",*
     *"autoExportPolicy": true,*
     *"autoExportCIDRs": ["0.0.0.0/0"],*
-    "kubeconfig": "<ID>",
+    *"kubeconfig": "<ID>",*
     "debugTraceFlags": {"method": true, "api": true},
     "labels": {"cloud": "on-prem", "creator": "trident-dev"},
     "defaults": {
@@ -231,8 +255,6 @@ cat ads_backend.json
     ]
 }
 ----
-
-
 . ストレージバックエンドを作成します。
 +
 [listing]
@@ -262,11 +284,11 @@ Astra Trident のデフォルトのストレージクラスを作成し、スト
 .手順
 . trident-csi ストレージクラスを作成します。
 +
-.. 次のコマンドを実行します。
+.. ADS _SC_GENERIC .YAML を作成します。
 +
 [listing]
 ----
-cat ads_sc_generic.yaml
+vi ads_sc_generic.yaml
 ----
 +
 対応：

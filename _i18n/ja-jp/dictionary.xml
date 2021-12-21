@@ -2,13 +2,9 @@
 <blocks>
   <block id="09d2d3af569490e66174ce93301cd0b0" category="summary">Astra Data Store が提供する永続的ストレージサービスとデータ管理サービスは、 Kubernetes ネイティブのコンテナ化アプリケーションに対応しています。Astra データストアは、 Astra ファミリ製品の一部です。</block>
   <block id="0033a0be965b04e889c13f8699fa52ca" category="doc">Astra データストアプレビュー版のドキュメント</block>
-  <block id="43ec8122a289489e5938e6da7d7803ad" category="summary">ネットアップでは、 Astra データストアのサポートをさまざまな方法で提供しています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra データストアアカウントには、 Web でチケットを発行してリモートでテクニカルサポートを受けることができます。</block>
   <block id="f5291aae1c11df631ccc337d79334351" category="doc">サポートの自動監視</block>
-  <block id="49640cf3000ef562beb7641cb71c199d" category="paragraph">AutoSupport は、 Astra データストアシステムの稼働時間と情報を監視し、ネットアップサポートにメッセージを送信構成に応じて、次のシステムコンポーネントを監視できます。</block>
   <block id="650717c72d7a99e6505592f83821e4ed" category="list-text">コントロールプレーン</block>
   <block id="8c4aa541ee911e8d80451ef8cc304806" category="list-text">ストレージ</block>
-  <block id="dc9f6facbb662cedbda63315bcb2bf67" category="inline-link-macro">Astra データストアクラスタのインストール</block>
-  <block id="89966e257924f9020c7df5273a9de7c5" category="paragraph">AutoSupport は、の実行時にデフォルトで有効になります <block ref="358123e8ea557abd0b8691f487f24c11" category="inline-link-macro-rx"></block> または、 AutoSupport CR がクラスタに適用された後に実行します。有効にすると、ネットアップサポートサイト（ NSS ）に AutoSupport （ ASUP ）バンドルが自動的にアップロードされるか、手動でダウンロードすることができます。</block>
   <block id="dae8ace18bdcbcc6ae5aece263e14fe8" category="list-title">オプション（ Options ）</block>
   <block id="d41d8cd98f00b204e9800998ecf8427e" category="inline-xref"></block>
   <block id="023abf142a3991d559ced0ca57282d6a" category="list-text"><block ref="73e64b817c03e14fe2277fa69c7e863e" category="inline-xref-macro-rx"></block></block>
@@ -24,11 +20,9 @@
   <block id="c2d8f28a841240c2f4d90140f7810bf1" category="list-text">CallHome イベントベース：オペレーティングシステムから特定の callhome イベントから ASUP が生成されます。</block>
   <block id="3c71d7ce3356413ca73e41268c0f7c83" category="list-text">Kubernetes Event Based ：コントロールプレーンの特定の Kubernetes イベントから ASUP が生成されます。</block>
   <block id="372fb9362736f0e8d582ec96df84fb6a" category="paragraph">これらのトリガーシナリオでは、次のいずれかの AutoSupport タイプが生成されます。</block>
-  <block id="f0f6261dd53f9b5eff98e12509221bf7" category="list-text">ControlPlane AutoSupport ： Astra データストアのコントロールプレーンログと CRS のコレクション。</block>
   <block id="25a6232591674a3c1dbb24564f4d87fb" category="list-text">Storage AutoSupport ：ストレージレポートとパフォーマンスデータの集まり。</block>
   <block id="1ced1baf40d2db9de38616ea88ac1a4b" category="list-text">Core Dump AutoSupport ：システムコアダンプの集まり。</block>
   <block id="4d58342c8fbe7548f0680da50eadd915" category="section-title">カスタムコントロールプレーンの AutoSupport 収集を設定します</block>
-  <block id="0249554f3cd3fae8f1cc2c62f50f7ada" category="paragraph">コントロールプレーンイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています <block ref="358123e8ea557abd0b8691f487f24c11" category="inline-link-macro-rx"></block>。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。</block>
   <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">手順</block>
   <block id="704170cc11bda8cddca282c117836b3a" category="list-text">コントロールプレーンコレクション CR を作成するには、次のコマンドをカスタマイズします。</block>
   <block id="0e06b0da9f80219a18d8739f0120abbd" category="list-text">カスタムパラメータを定義します。</block>
@@ -41,7 +35,6 @@
   <block id="14435a527eab4059647b1d681292642e" category="list-text">`--forceUpload`: 強制アップロードを有効にします。デフォルトは 'false.' です</block>
   <block id="7559d5f261056c6409821093bd2ec415" category="list-text">`--retry`: 再試行を有効にしますデフォルトは 'false.' です</block>
   <block id="c7e88254029f9cd1420ef53afd3e08fe" category="section-title">カスタムのストレージ AutoSupport による収集を設定する</block>
-  <block id="ffe879572b8c2c46707f262f58096e3c" category="paragraph">ストレージコンポーネントのイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています <block ref="358123e8ea557abd0b8691f487f24c11" category="inline-link-macro-rx"></block>。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。</block>
   <block id="aa1f065e1e83bd408811c0d6b5def6ad" category="list-text">次のコマンドをカスタマイズして、ストレージ収集 CR を作成します。</block>
   <block id="685637f8394db77947ca4501d806f8a0" category="paragraph">パフォーマンスイベントを使用した例：</block>
   <block id="72bb3d88e5af1a36a5333ae707bc5a35" category="list-text">`-t &lt;iso_format&gt; -d &lt;hours&gt;` ：すべてのノードのストレージ ASUP を指定した期間収集します。標準の ISO 日付時刻形式 (`-t`) を時間単位で継続時間 (`d`) で使用します例：</block>
@@ -543,7 +536,6 @@
   <block id="96ab491ef73d5db0cd15f55e1552cc22" category="section-title">一般的な質問</block>
   <block id="63f037cc937fa1e56c508887d619f746" category="paragraph">* 本番環境で Astra データストアプレビューを使用できますか？ * いいえAstra データストアはエンタープライズクラスの耐障害性を実現するように設計、開発されていますが、 Astra データストアプレビュー版は本番環境のワークロードには適していません。</block>
   <block id="8c9b36244097b3f2c3d1ad64603311e0" category="paragraph">* 仮想マシンのワークロードに対して Astra Data Store プレビューを使用できますか？ * Astra Data Store プレビューリリースは、ベアメタルマシンでも仮想マシンでも Kubernetes で実行されているアプリケーションに限定されます。今後のリリースでは、 Kubernetes と ESXi 仮想マシンの両方でアプリケーションがサポートされる予定です。詳細はこちら <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
-  <block id="b5badd65a58ba3012cb16b9340acb2e4" category="paragraph">* Astra データストアプレビューには、他のネットアップ製品との依存関係はありますか？ * はい。Astra Data Store のプレビューを利用するには、 NetApp CSI ドライバ Astra Trident バージョン 21.10 以降をワークロードの Kubernetes クラスタに導入する必要があります。詳細はこちら <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
   <block id="9c634046a90a62883b122e76b9afcef2" category="inline-link">Astra Control Center の略</block>
   <block id="289e6d386db78ca43bf58e8260069361" category="paragraph">Astra Data Store プレビュー版クラスタをストレージバックエンドとして使用するアプリケーションであれば<block ref="6653b3fa72bfc9c83d8e5fede6da40f0" category="inline-link-rx"></block> バージョン 21.12 データ保護、ディザスタリカバリ、 Kubernetes ワークロードの移行など、アプリケーション対応のデータ管理機能を活用するために必要です。</block>
   <block id="456f2b6f01dea1c766407717c9f25ae0" category="paragraph">* Astra Data Store Preview Cluster の管理方法 * Astra Data Store のプレビュー資産の管理には、 kubectl コマンドと Kubernetes API 拡張機能を使用できます。</block>
@@ -560,8 +552,6 @@
   <block id="5cf5df8a91fc55a0f6311fceca215a7e" category="paragraph">* ベアメタルまたは仮想マシンで実行されている Kubernetes クラスタに Astra Data Store プレビューをインストールできますか？ * はい。Astra データストアプレビューは、ベアメタルまたは ESXi VM で実行されている Kubernetes クラスタにインストールできます。詳細はこちら <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
   <block id="5328f5bfdcae13ae4157ca7026b9e70c" category="paragraph">* Astra Data Store プレビュー版でサポートされている Kubernetes のバージョンは何ですか？ * Astra Data Store プレビューは、 v1.20 以降と互換性のある Kubernetes ディストリビューションで機能します。ただし、現時点では、 Kubernetes のすべてのディストリビューションで検証されているわけではありません。詳細はこちら <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
   <block id="4f6e7c240c01634d298aa9125681479c" category="paragraph">* My Kubernetes クラスタは 5 つ以上のワーカーノードで構成されています。Astra データストアプレビューを IT にインストールできますか。 * はい。Astra データストアプレビュークラスタは、 Kubernetes クラスタ内の 4 つまたは 5 つのワーカーノードに導入できます。Kubernetes クラスタには、 Astra Data Store プレビュークラスタを導入するワーカーノードを 4 つまたは 5 つ選択できます。</block>
-  <block id="cc41262b7d4f903b7e21bdf37c1621f9" category="inline-link-macro">Astra データストアをインストール</block>
-  <block id="d030077fb48de9e7b7222dda3b30a2c7" category="paragraph">* Astra データストアプレビューは、プライベートレジストリからのオフラインインストールをサポートしていますか。 * はい。Astra データストアプレビューは、ローカルレジストリからオフラインでインストールできます。を参照してください <block ref="14497a94943dc819ca2bc8999e1f8acf" category="inline-link-macro-rx"></block>。ただし、ネットアップサポートバックエンド（ support.netapp.com ）に接続して運用を継続するには、 Astra データストアのプレビュー版を利用する必要があります（直接またはプロキシ経由）。</block>
   <block id="1099f9b7653cec15b92fe0f36cf629ac" category="paragraph">* Astra データストアプレビューを使用するにはインターネットに接続する必要がありますか？ * Astra データストアプレビューを利用するには、必須の AutoSupport バンドルを定期的に送信するために、ネットアップ AutoSupport バックエンドに接続する必要があります。この接続は、直接またはプロキシ経由で行うことができます。この接続がないか AutoSupport が無効な場合、クラスタがロックダウンされ、定期的なバンドルアップロードが再開されるまで新しいボリュームの作成が無効になります。</block>
   <block id="bba57f874c98e85c47cc41e62b11c2f9" category="paragraph">* Astra Data Store プレビューで使用する役割と権限は何ですか？ * Astra Data Store プレビューオペレータを配備するには、 kubeadmin である必要があります。</block>
   <block id="7e262eb0471b79362fb1d998ef7816ad" category="paragraph">Astra Data Store のプレビューには、ノードの選択に使用されるノードリソースを検出するための「 astra -ds-nodeinfo -astradsversion 」という特権的なデミスがあります。</block>
@@ -611,8 +601,6 @@
   <block id="38e54550c131045d7072709ab7bdb0c9" category="list-text"><block ref="e8ea8205c2ef5ca696bb2e550839cf2e" category="inline-link-macro-rx"></block>。</block>
   <block id="d4d4a15663d8f6b4a3ab637d777ff538" category="inline-link-macro">Kubernetes snapshot controller yaml ファイル</block>
   <block id="68b8495487a0e2961614f4537c86b8e1" category="list-text">をダウンロードします <block ref="d8c329b5b76c4cf95f26f4b2ef41b13f" category="inline-link-macro-rx"></block>：</block>
-  <block id="0ed163b08314ab6e6b11e5a003acb2e4" category="list-text">k8s-setup-snapshot-controller.yaml</block>
-  <block id="3f417c6ca705789edb204b186611a6c0" category="list-text">k8s-rbac -snapshot-controller.yaml</block>
   <block id="e04160d92f8ef05d4ce3314e8cc91137" category="inline-link-macro">YAML CRD</block>
   <block id="d2d45e911ea557447d96c6b2cb808cb7" category="list-text">をダウンロードします <block ref="1b2aa10bf02b798532fe7f94bbd6d467" category="inline-link-macro-rx"></block>：</block>
   <block id="88e291668f9a86bd88b88b9b98a6aee8" category="list-text">snapshot.storage.k8es.io_volumesnapshotclasses.yaml</block>
@@ -621,12 +609,10 @@
   <block id="5dd799b58f0a48e81b9090706c21ffc1" category="list-text">snapshot.storage.k8es.io_volumesnapshotclasses.yaml を適用します。</block>
   <block id="1b2b0d3c628e11a19e1e37d392fc808b" category="list-text">snapshot.storage.k8es.io_volumesnapshotcontentes.yaml を適用します。</block>
   <block id="b30fb0bbee1d9ca780b2e525df30f42d" category="list-text">snapshot.storage.k8es.io_volumesnapshotes.yaml を適用します。</block>
-  <block id="67028ffd6acae86fab652d05257a9656" category="list-text">k8s-setup-snapshot-controller.yaml を適用します。</block>
   <block id="9352a98e83e5674124c81320233e2033" category="list-text">CRD YAML ファイルが適用されていることを確認します。</block>
   <block id="c5827f9636201f8d30ce9cb0189c833d" category="list-text">Snapshot コントローラファイルが適用されたことを確認します。</block>
   <block id="84ff6443c010c054303c3cacf8168ec8" category="section-title">Astra データストアをストレージバックエンドとしてセットアップする</block>
   <block id="48b4e22b3043a4f7b84801549651a221" category="paragraph">ads_backend.json ファイルにストレージバックエンドパラメータを設定し、 Astra データストアストレージバックエンドを作成する。</block>
-  <block id="ba5afba2f814cc846b6fd4a34619c288" category="list-text">安全な端末で「 ads_backend.json 」を開きます。</block>
   <block id="7be934ce8b58f4891a1f5bec99cfea5f" category="list-text">JSON ファイルを設定します。</block>
   <block id="260e28a432c0ab70e8635e32a0869a37" category="list-text">「 cluster 」の値を Astra Data Store クラスタのクラスタ名に変更します。</block>
   <block id="02122a736bce8e681ad437ec22ed0e39" category="list-text">「 namespace 」の値を、ボリュームの作成に使用するネームスペースに変更します。</block>
@@ -636,7 +622,6 @@
   <block id="d6b32a57b28d1a90833a60d9d8a653fc" category="section-title">Default Astra Data Store ストレージクラスを作成</block>
   <block id="aa80c9eb37faf3509ae07c01f5fcb711" category="paragraph">Astra Trident のデフォルトのストレージクラスを作成し、ストレージバックエンドに適用</block>
   <block id="a6c0b25130e366f4926811fccc2d9175" category="list-text">trident-csi ストレージクラスを作成します。</block>
-  <block id="337d79852891a37d41285c9101c3fff4" category="list-text">次のコマンドを実行します。</block>
   <block id="cd0b441465398fa0d75eba9947c66599" category="list-text">trident-csi の作成：</block>
   <block id="8213c33dc9ac92d509af698f9a2e597f" category="list-text">ストレージクラスが追加されたことを確認します。</block>
   <block id="22d9b315b29e2e8600a67e65475c18de" category="list-text">Astra Trident バックエンドがデフォルトのストレージクラスパラメータで更新されたことを確認します。</block>
@@ -750,7 +735,6 @@
   <block id="402a4bd631dc016fa807e263fbf090e1" category="list-text">100GiB 以上の空き容量がホストディスク（ブート）にあり、 Astra データストアプレビューログファイルを保存します。</block>
   <block id="a4ca32328536a651e07fc9b06697e84b" category="list-text">クラスタトラフィック、データトラフィック、および管理トラフィック用に、 10GbE 以上のネットワークインターフェイスが少なくとも 1 つ必要です。必要に応じて、 1GbE 以上のインターフェイスを追加で使用して管理トラフィックを分離できます。</block>
   <block id="630e5660de352108f57840f67c4ce73b" category="section-title">ハードウェアとソフトウェアの要件</block>
-  <block id="e628b45fbfeec85c34256d39bd5249e7" category="paragraph">Astra Data Store プレビューソフトウェアは、次のハードウェアプラットフォーム、ソフトウェア、ストレージ構成で検証済みです。Kubernetes クラスタの構成が異なる場合は、ネットアップコミュニティサポートにアクセスしてください。</block>
   <block id="ee6328bc3c21dc27320191d56135aa72" category="list-title">ハードウェアプラットフォーム</block>
   <block id="d9254f66df3568a13577635eecc90e21" category="list-text">HPE DL360</block>
   <block id="46cc405d71094428b9035eada2442cd4" category="list-text">HPE DL380</block>
@@ -947,4 +931,26 @@
   <block id="c7763a055763bd20203aefad4f95491e" category="admonition">Astra データストアプレビュークラスタノードが再起動した場合は、この手順を繰り返します。</block>
   <block id="46921a75e8534ad7d1c379a9e3aec033" category="sidebar">インストールの概要</block>
   <block id="3082d4232dd32a2353e231bf8f1faba4" category="sidebar">OpenShift に Astra データストアプレビューをインストールします</block>
+  <block id="e53566a3d4b03bb3bb38c32ee32acedb" category="summary">ネットアップでは、 Astra データストアのプレビュー版をさまざまな方法で提供しています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra Data Store プレビューアカウントには、 Web でチケットを発行するリモートテクニカルサポートが含まれています。</block>
+  <block id="d3002c3c5bd6594f90c9f3ba7b8c6c09" category="paragraph">AutoSupport は、 Astra データストアプレビューシステムのランタイムおよび情報を監視し、ネットアップサポートにメッセージを送信します。構成に応じて、次のシステムコンポーネントを監視できます。</block>
+  <block id="9028632a1ad8f69c5f424ba9224a7bcd" category="inline-link-macro">Astra データストアプレビュー版クラスタのインストール</block>
+  <block id="769675d8e0fcc652847a33f6fb99f035" category="paragraph">AutoSupport は、の実行時にデフォルトで有効になります <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block> または、 AutoSupport CR がクラスタに適用された後に実行します。有効にすると、ネットアップサポートサイト（ NSS ）に AutoSupport （ ASUP ）バンドルが自動的にアップロードされるか、手動でダウンロードすることができます。</block>
+  <block id="4547941b00b06ef9b132d2d05b58369d" category="list-text">ControlPlane AutoSupport ： Astra データストアプレビューコントロールプレーンログと CRS のコレクション。</block>
+  <block id="63ef41700dec8384fe67a00749f8ca7d" category="paragraph">コントロールプレーンイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block>。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。</block>
+  <block id="3fb0de2e8be52ea08e0f98a5ce31ab07" category="paragraph">ストレージコンポーネントのイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block>。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。</block>
+  <block id="171538539b3128d6bde528cba64c9b88" category="paragraph">* Astra データストアプレビューには、他のネットアップ製品との依存関係はありますか？ * はい。Astra Data Store のプレビューを利用するには、 NetApp CSI ドライバ Astra Trident バージョン 21.10.1 以降をワークロードの Kubernetes クラスタに導入する必要があります。詳細はこちら <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
+  <block id="d2020b135544f2fa03c99b6bcbafb815" category="paragraph">* Astra データストアプレビューは、プライベートレジストリからのオフラインインストールをサポートしていますか。 * はい。Astra データストアプレビューは、ローカルレジストリからオフラインでインストールできます。を参照してください <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。ただし、ネットアップサポートバックエンド（ support.netapp.com ）に接続して運用を継続するには、 Astra データストアのプレビュー版を利用する必要があります（直接またはプロキシ経由）。</block>
+  <block id="aef7cd1b81043d55ad8648455fb6ed1b" category="list-text">setup-snapshot-controller.yaml</block>
+  <block id="29e5e3a354a8524010423699de73f776" category="list-text">rbac -snapshot-controller.yaml</block>
+  <block id="4ad805069afc4d9f62366cebed53439e" category="list-text">setup-snapshot-controller.yaml を適用します。</block>
+  <block id="1871cbca326d3f3a5fb66f60c754c26f" category="list-text">RBAC の -snapshot-controller.yaml を適用します。</block>
+  <block id="7135d7688e86eac3c57f2de72b8018d5" category="list-text">安全な端末を使用して「 ads_backend.json 」を作成します。</block>
+  <block id="a124b50c086047caaf79854f3e502e65" category="list-text">「 kubeconfig 」の値については、次の手順を実行します。</block>
+  <block id="55fa2080356ace346f9938ef27eeeda2" category="list-text">.kube/config YAML ファイルをスペースなしの JSON 形式に変換して最小化します。</block>
+  <block id="52ba8594eda2bfe84ddd95e4ab3876f6" category="paragraph">変換例：</block>
+  <block id="8760732111b0a693f9646bbe82410c8d" category="list-text">base64 としてエンコードし、 base64 出力を「 kubeconfig 」値に使用します。</block>
+  <block id="bfa0adf4d3cdd7138899e834388c02a3" category="paragraph">エンコーディングの例：</block>
+  <block id="09ce0132fe4a6b9c816cfa9dd6f50e2b" category="list-text">ADS _SC_GENERIC .YAML を作成します。</block>
+  <block id="a305f5d0a6acf6a2da171a4f1b666e48" category="inline-link-macro">ネットアップコミュニティによるサポート</block>
+  <block id="de91f7f5684c6f3e8a57330d26f57452" category="paragraph">Astra Data Store プレビューソフトウェアは、次のハードウェアプラットフォーム、ソフトウェア、ストレージ構成で検証済みです。にアクセスします <block ref="4245b61ee966e939cf6bf2ddb806f6be" category="inline-link-macro-rx"></block> Kubernetes クラスタの構成が異なる場合。</block>
 </blocks>

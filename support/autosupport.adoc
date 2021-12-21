@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: support/autosupport.html 
 keywords: how to use autosupport, autosupport, asup, logs, asup bundle, support ticket, support bundle 
-summary: ネットアップでは、 Astra データストアのサポートをさまざまな方法で提供しています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra データストアアカウントには、 Web でチケットを発行してリモートでテクニカルサポートを受けることができます。 
+summary: ネットアップでは、 Astra データストアのプレビュー版をさまざまな方法で提供しています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra Data Store プレビューアカウントには、 Web でチケットを発行するリモートテクニカルサポートが含まれています。 
 ---
 = サポートの自動監視
 :hardbreaks:
@@ -10,13 +10,13 @@ summary: ネットアップでは、 Astra データストアのサポートを�
 :imagesdir: ../media/support/
 
 
-AutoSupport は、 Astra データストアシステムの稼働時間と情報を監視し、ネットアップサポートにメッセージを送信構成に応じて、次のシステムコンポーネントを監視できます。
+AutoSupport は、 Astra データストアプレビューシステムのランタイムおよび情報を監視し、ネットアップサポートにメッセージを送信します。構成に応じて、次のシステムコンポーネントを監視できます。
 
 * コントロールプレーン
 * ストレージ
 
 
-AutoSupport は、の実行時にデフォルトで有効になります link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアクラスタのインストール"] または、 AutoSupport CR がクラスタに適用された後に実行します。有効にすると、ネットアップサポートサイト（ NSS ）に AutoSupport （ ASUP ）バンドルが自動的にアップロードされるか、手動でダウンロードすることができます。
+AutoSupport は、の実行時にデフォルトで有効になります link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアプレビュー版クラスタのインストール"] または、 AutoSupport CR がクラスタに適用された後に実行します。有効にすると、ネットアップサポートサイト（ NSS ）に AutoSupport （ ASUP ）バンドルが自動的にアップロードされるか、手動でダウンロードすることができます。
 
 .オプション（ Options ）
 * <<AutoSupport triggers and scenarios>>
@@ -41,7 +41,7 @@ AutoSupport バンドルは、次の方法でトリガーされます。
 
 これらのトリガーシナリオでは、次のいずれかの AutoSupport タイプが生成されます。
 
-* ControlPlane AutoSupport ： Astra データストアのコントロールプレーンログと CRS のコレクション。
+* ControlPlane AutoSupport ： Astra データストアプレビューコントロールプレーンログと CRS のコレクション。
 * Storage AutoSupport ：ストレージレポートとパフォーマンスデータの集まり。
 * Core Dump AutoSupport ：システムコアダンプの集まり。
 
@@ -50,7 +50,7 @@ AutoSupport バンドルは、次の方法でトリガーされます。
 
 == カスタムコントロールプレーンの AutoSupport 収集を設定します
 
-コントロールプレーンイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアクラスタのインストール"]。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。
+コントロールプレーンイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアプレビュー版クラスタのインストール"]。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。
 
 .手順
 . コントロールプレーンコレクション CR を作成するには、次のコマンドをカスタマイズします。
@@ -90,7 +90,7 @@ kubectl astrasds asup collect -c controlplane custom-asup-name -e debug --namesp
 
 == カスタムのストレージ AutoSupport による収集を設定する
 
-ストレージコンポーネントのイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアクラスタのインストール"]。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。
+ストレージコンポーネントのイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアプレビュー版クラスタのインストール"]。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。
 
 .手順
 . 次のコマンドをカスタマイズして、ストレージ収集 CR を作成します。
