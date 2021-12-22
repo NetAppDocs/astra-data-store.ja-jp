@@ -173,6 +173,49 @@ astrads-system  storage-callhome.reboot.unknown-20211115t182204...  3           
 ----
 ./kubectl-astrasds asup download <ASUP_bundle_name> -o <location>
 ----
+
+
+== コアファイルをアップロードします
+
+サービスがクラッシュすると、クラッシュ（コアファイル）時に関連するメモリの内容を含むファイルとともに AutoSupport （ ASUP ）メッセージが作成されます。Astra Data Store プレビューでは、 ASUP メッセージがネットアップサポートに自動的にアップロードされますが、コアファイルを手動でアップロードして ASUP メッセージに関連付ける必要があります。
+
+.手順
+. 次の「 kubectl 」コマンドを使用して ASUP メッセージを表示します。
++
+[listing]
+----
+kubectl astrasds asup list --namespace=astrads-system
+----
++
+次のような出力が表示されます。
+
++
+[listing]
+----
+NAMESPACE      NAME                                                SEQUENCE NUMBER EVENT                           SIZE    STATE       LOCAL COLLECTION
+
+astrads-system  storage-coredump-20211216t140851311961680               1              coredump                197848373       compressed      astrads-ds-support-sxxn7:/var/firetap/firegen/persist/core.firestorm.2630_1639665426.gz
+----
+. 次の「 kubectl 」コマンドを使用して、 ASUP メッセージからコアファイルをダウンロードします。ダウンロードするファイルの保存先ディレクトリを指定するには '-o オプションを使用します
++
+[listing]
+----
+kubectl astrads asup download storage-coredump-20211216t140851311961680 -o <absolute_path_to_destination_directory>
+----
++
+
+NOTE: まれに、他のコアファイルが適切に処理されていたために、コアファイルをダウンロードできない場合があります。この場合、コマンドは「 Cannot stat ： No such file or directory 」というエラーを返します。このエラーが表示された場合は、を実行できます link:get-help-ads.html["ヘルプを表示します"]。
+
+. Web ブラウザを開き、を参照します https://upload.netapp.com/sg["NetApp Authenticated File Upload ツール"^]ログインしていない場合は、ネットアップサポートのクレデンシャルを入力します。
+. [ ケース番号を持たない * ] チェックボックスをオンにします。
+. [* Closest Region] * メニューで、最も近いリージョンを選択します。
+. [* Upload （アップロード） ] ボタンを選択します。
+. 前の手順でダウンロードしたコアファイルを参照して選択します。
++
+アップロードが開始されます。アップロードが完了すると、成功のメッセージが表示されます。
+
+
+
 [discrete]
 == 詳細については、こちらをご覧ください
 
