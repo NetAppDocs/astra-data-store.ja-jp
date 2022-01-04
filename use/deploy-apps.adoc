@@ -24,7 +24,7 @@ Astra データストアプレビューで使用できるテストアプリケ�
 +
 [listing]
 ----
-helm repo add bitnami https://helm.repo.eng.netapp.com/
+helm repo add bitnami https://charts.bitnami.com/bitnami
 ----
 . MongoDB の導入
 +
