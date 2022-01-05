@@ -33,5 +33,5 @@ Astra データストアの初回リリース。
 
 * link:../release-notes/known-issues.html["既知の問題"]
 * link:../release-notes/known-limitations.html["既知の制限"]
-* https://kb.netapp.com/Special:Search?qid=&fpid=230&fpth=&query=netapp+data+store&type=wiki["ネットアップの技術情報アーティクル"]
+* https://kb.netapp.com/Special:Search?qid=&fpid=230&fpth=&query=netapp+data+store&type=wiki["ネットアップの技術情報アーティクル"^]
 

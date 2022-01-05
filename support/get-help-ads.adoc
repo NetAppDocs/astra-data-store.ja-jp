@@ -13,7 +13,7 @@ summary: ネットアップでは、 Astra データストアのサポートを�
 ネットアップでは、 Astra データストアのプレビュー版をさまざまな方法で提供しています。無償のセルフサービスサポートオプションは、ナレッジベース（ KB ）記事や Slack チャンネルなど、 24 時間 365 日ご利用いただけます。
 
 
-IMPORTANT: Astra データストアプレビュー版のコミュニティテクニカルサポートを利用できます。ネットアップサポートサイト（ NSS ）でケースを作成することはできません。フィードバックオプションを通じてサポートに連絡するか、 Slack チャンネルを利用してセルフサービスで連絡できます。
+IMPORTANT: Astra データストアプレビュー版のコミュニティテクニカルサポートを利用できます。を使用してケースを作成します https://mysupport.netapp.com/site/["ネットアップサポートサイト（ NSS ）"^] プレビューリリースでは使用できません。フィードバックオプションを通じてサポートに連絡するか、 Slack チャンネルを利用してセルフサービスで連絡できます。
 
 
 
@@ -29,7 +29,7 @@ Astra Data Store プレビューに関する記事、 FAQ 、またはトラブ�
 +
 現在表示しているドキュメントサイトです。
 
-* https://netapp.io/slack["ネットアップの「コンテナ」 Slack チャンネル"]
+* https://netapp.io/slack["ネットアップの「コンテナ」 Slack チャンネル"^]
 +
 「コンテナ」チャネルに移動して、同業者やエキスパートと交流しましょう。
 
@@ -43,5 +43,5 @@ astra.feedback@netapp.com に電子メールを送信して、あなたの考え
 == 詳細については、こちらをご覧ください
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["ネットアップにファイルをアップロードする方法（ログインが必要）"^]
-* https://kb.netapp.com/Special:Search?qid=&fpid=230&fpth=&query=netapp+data+store&type=wiki["ネットアップの技術情報アーティクル"]
+* https://kb.netapp.com/Special:Search?qid=&fpid=230&fpth=&query=netapp+data+store&type=wiki["ネットアップの技術情報アーティクル"^]
 

@@ -10,11 +10,11 @@ summary: OpenShift を使用して Astra データストアをインストール
 :imagesdir: ../media/get-started/
 
 
-Red Hat OpenShift Container Platform （ OCP ）に Astra データストアプレビューをインストールするには、ネットアップサポートサイトからインストールバンドルをダウンロードし、この手順で説明するインストール手順を完了します。
+Red Hat OpenShift Container Platform （ OCP ）に Astra データストアプレビューをインストールするには、からインストールバンドルをダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^] およびこの手順に記載されているインストール手順を実行します。
 
 .必要なもの
 * インストールを開始する前に、 link:requirements.html["Astra データストア環境の準備"]。
-* ネットアップサポートサイトにアクセスします。 https://www.netapp.com/cloud-services/astra/data-store-form/["登録"] フルアクセスのネットアップサポートサイトアカウントをまだお持ちでない場合は、プレビュー版をお持ちください。
+* にアクセスします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^]。 フルアクセスのネットアップサポートサイトアカウントをまだお持ちでない場合は、プレビュー版をお持ちください。
 * A link:requirements.html#licensing["ネットアップライセンスファイル"] （ NLF ） for Astra Data Store のプレビュー。ライセンスのダウンロード手順は、サインアップ後に送信されます。
 * アクティブなコンテキストのクラスタ管理者権限があるアクティブな kubeconfig です。
 * の理解 link:faq-ads.html["ロールと権限"] Astra データストアプレビュー版で使用
@@ -46,7 +46,7 @@ Astra Data Store プレビューインストールプロセスでは、次の手
 
 == Astra Data Store プレビューバンドルをダウンロードして、イメージを展開
 
-. にログインします https://mysupport.netapp.com/site/["ネットアップサポートサイト"] Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします
+. にログインします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^] Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします
 . （任意）バンドルのシグニチャを確認します。
 +
 [listing]

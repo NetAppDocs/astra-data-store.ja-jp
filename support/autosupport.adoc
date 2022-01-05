@@ -16,7 +16,7 @@ AutoSupport は、 Astra データストアプレビューシステムのラン�
 * ストレージ
 
 
-AutoSupport は、の実行時にデフォルトで有効になります link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアプレビュー版クラスタのインストール"] または、 AutoSupport CR がクラスタに適用された後に実行します。有効にすると、ネットアップサポートサイト（ NSS ）に AutoSupport （ ASUP ）バンドルが自動的にアップロードされるか、手動でダウンロードすることができます。
+AutoSupport は、の実行時にデフォルトで有効になります link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアプレビュー版クラスタのインストール"] または、 AutoSupport CR がクラスタに適用された後に実行します。有効にすると、 AutoSupport （ ASUP ）バンドルがに自動的にアップロードされます https://mysupport.netapp.com/site/["ネットアップサポートサイト（ NSS ）"^] または、手動でダウンロードすることもできます。
 
 .オプション（ Options ）
 * <<AutoSupport triggers and scenarios>>

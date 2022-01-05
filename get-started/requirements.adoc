@@ -190,7 +190,7 @@ Astra Data Store のプレビューは、次の NNI で検証済みです。
 
 == ライセンス
 
-Astra データストアのプレビュー機能をフル活用するには、 Astra データストアのプレビューライセンスが必要です。 https://www.netapp.com/cloud-services/astra/data-store-form/["こちらから登録してください"] から Astra データストアプレビューライセンスを取得できます。ライセンスのダウンロード手順は、サインアップ後に送信されます。
+Astra データストアのプレビュー機能をフル活用するには、 Astra データストアのプレビューライセンスが必要です。 https://www.netapp.com/cloud-services/astra/data-store-form/["こちらから登録してください"^] から Astra データストアプレビューライセンスを取得できます。ライセンスのダウンロード手順は、サインアップ後に送信されます。
 
 
 

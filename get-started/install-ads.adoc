@@ -10,14 +10,14 @@ summary: 環境に関するいくつかの前提条件に対処した後に Astr
 :imagesdir: ../media/get-started/
 
 
-Astra データストアプレビューをインストールするには、ネットアップサポートサイトからインストールバンドルをダウンロードし、この手順に記載されているインストール手順を実行します。
+Astra データストアプレビューをインストールするには、からインストールバンドルをダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^] およびこの手順に記載されているインストール手順を実行します。
 
 または、を使用することもできます link:install-ads-openshift.html["Red Hat OpenShift Container Platform （ OCP ）への Astra データストアプレビューのインストール"]。
 
 .必要なもの
 * link:requirements.html["インストールを開始する前に、 Astra データストアプレビュー環境を準備します"]。
-* ネットアップサポートサイトにアクセスします。 https://www.netapp.com/cloud-services/astra/data-store-form/["登録"] フルアクセスのネットアップサポートサイトアカウントをまだお持ちでない場合は、プレビュー版をお持ちください。
-* A link:../get-started/requirements.html#licensing["ネットアップライセンスファイル（ NLF ）"] Astra データストアプレビュー版ライセンスのダウンロード手順がお客様に送信されます https://www.netapp.com/cloud-services/astra/data-store-form["サインアップ"]。
+* にアクセスします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^]。 フルアクセスのネットアップサポートサイトアカウントをまだお持ちでない場合は、プレビュー版をお持ちください。
+* A link:../get-started/requirements.html#licensing["ネットアップライセンスファイル（ NLF ）"] Astra データストアプレビュー版ライセンスのダウンロード手順がお客様に送信されます https://www.netapp.com/cloud-services/astra/data-store-form["サインアップ"^]。
 * アクティブなコンテキストのクラスタ管理者権限があるアクティブな kubeconfig です。
 * の理解 link:../get-started/faq-ads.html#installation-and-use-of-astra-data-store-preview-on-a-kubernetes-cluster["ロールと権限"] Astra データストアプレビュー版で使用
 * インターネット接続：Astra データストアプレビューは、エアギャップのある環境には対応していません。直接またはプロキシ経由で support.netapp.com にアクセスするには、インターネット接続が必要です。
@@ -39,7 +39,7 @@ Astra Data Store プレビューインストールプロセスでは、次の手
 
 == Astra Data Store プレビューバンドルをダウンロードして、イメージを展開
 
-. にログインします https://mysupport.netapp.com/site/downloads/evaluation/astra-data-store/download["ネットアップサポートサイト"^] Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします
+. にログインします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^] Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします
 . （任意）次のコマンドを使用して、バンドルのシグニチャを確認します。
 +
 [listing]

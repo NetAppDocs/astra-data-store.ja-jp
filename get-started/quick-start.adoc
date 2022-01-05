@@ -14,7 +14,7 @@ summary: Astra データストアを導入するには、いくつかの手順�
 
 ぜひお試しください。Astra Data Store のプレビューを試す場合は、 90 日間のプレビューライセンスを使用できます。
 
-https://www.netapp.com/cloud-services/astra/data-store-form/["こちらから登録してください"] から Astra データストアプレビューライセンスを取得できます。
+https://www.netapp.com/cloud-services/astra/data-store-form/["こちらから登録してください"^] から Astra データストアプレビューライセンスを取得できます。
 
 .<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="One"></span> Kubernetes クラスタの要件を確認します
 * クラスタが正常な状態で稼働し、少なくとも 4 つのオンラインワーカーノードと 1 つのマスターノードが必要です。

@@ -51,7 +51,6 @@
   <block id="62270328bca14e3c5f465539f788f727" category="summary">ネットアップでは、 Astra データストアのサポートをさまざまな方法で提供しています。無償のセルフサポートオプションは、ナレッジベース（ KB ）記事や Slack チャンネルなど、 24 時間 365 日ご利用いただけます。</block>
   <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">ヘルプを表示します</block>
   <block id="d552a345b3d00c6f71959b92aa25ca1b" category="paragraph">ネットアップでは、 Astra データストアのプレビュー版をさまざまな方法で提供しています。無償のセルフサービスサポートオプションは、ナレッジベース（ KB ）記事や Slack チャンネルなど、 24 時間 365 日ご利用いただけます。</block>
-  <block id="def636186f6865da6164029742c5770c" category="admonition">Astra データストアプレビュー版のコミュニティテクニカルサポートを利用できます。ネットアップサポートサイト（ NSS ）でケースを作成することはできません。フィードバックオプションを通じてサポートに連絡するか、 Slack チャンネルを利用してセルフサービスで連絡できます。</block>
   <block id="975b87a5b34ee0b24e625810de1f893e" category="section-title">セルフサービスサポートオプション</block>
   <block id="6b9b3535d917a5890db4ef00a3718361" category="paragraph">次のオプションは、 24 時間 365 日無料で利用できます。</block>
   <block id="51ad2162ed9916cdcbfc1328306dae36" category="inline-link">ナレッジベース（ログインが必要）</block>
@@ -60,12 +59,10 @@
   <block id="5b6cf869265c13af8566f192b4ab3d2a" category="list-text">ドキュメント</block>
   <block id="9a4d3fdb6af496c18bc70f14153f8c4f" category="paragraph">現在表示しているドキュメントサイトです。</block>
   <block id="d848bab8e653fc20f34b1c1978752770" category="inline-link">ネットアップの「コンテナ」 Slack チャンネル</block>
-  <block id="9b8b012f5616c6319fb498a523fa4b0e" category="list-text"><block ref="9b8b012f5616c6319fb498a523fa4b0e" category="inline-link-rx"></block></block>
   <block id="43af2a6a35a58993fd484dd742044607" category="paragraph">「コンテナ」チャネルに移動して、同業者やエキスパートと交流しましょう。</block>
   <block id="9945b7c9f8a0452d5794aa8f1b4132db" category="list-text">フィードバック用 E メール</block>
   <block id="ddcadc1ed2a47b8718aecd096c744e15" category="paragraph">astra.feedback@netapp.com に電子メールを送信して、あなたの考え、アイデア、懸念事項をお知らせください。</block>
   <block id="c5384541d9e6cac27f9cab2bc075e08e" category="inline-link">ネットアップの技術情報アーティクル</block>
-  <block id="0d5d403d97559647821c34bcade73e7a" category="list-text"><block ref="d83d8c86f659bf9b2c03970d84b53394" category="inline-link-rx"></block></block>
   <block id="b3103953d0eb8d92f14a4edc6e2fe28a" category="summary">kubectl コマンドを Astra データストアで使用して、ドライブを交換します。</block>
   <block id="bbbd86c2ee5337914a858400c6fdb7a2" category="doc">ドライブを交換します</block>
   <block id="fe7c99ee714339295ef1464eff2444c5" category="paragraph">以下に、クラスタ内の障害が発生したドライブを交換する手順の概要を示します。</block>
@@ -180,7 +177,6 @@
   <block id="5885997e518dde2f5740ce73f16e6ad5" category="inline-link-macro">kubectl-astras バイナリをインストールします</block>
   <block id="75f04a74c77e9463b905044df556832c" category="list-text"><block ref="0eacfcf04ba7b53f6921ae59c21fee42" category="inline-link-macro-rx"></block> Astra Data Store プレビューインストールドキュメントに従うことで、</block>
   <block id="e6ba49b0d11a72603e691022f17a15ab" category="inline-link-macro">Cloud Insights アカウントを作成します</block>
-  <block id="64d3b11fec8198c348c02089354e0e98" category="list-text"><block ref="3df917f86d29a2e2f04984ff132f6c20" category="inline-link-macro-rx"></block>。</block>
   <block id="1dad80a4e0ed05870800cf83e046f731" category="list-text">'awk 、 curl 、 grep ' および 'jq' の各コマンドが使用可能であることを確認します</block>
   <block id="284dc6d1de61ec5c2a96db8bc40dd3ab" category="paragraph">次の情報を収集します。</block>
   <block id="bb9b8565e3823e4ec709b95221f40bd1" category="list-text">* Cloud Insights API キー * 。各カテゴリに対する読み取り / 書き込み権限： Acquisition Unit 、 Data Collection 、 Data Ingestion 、 Log Ingestionこれは、読み取り / 書き込み処理、 Acquisition Unit のセットアップ、およびデータの取り込みプロセスのセットアップに使用されます。</block>
@@ -537,7 +533,6 @@
   <block id="63f037cc937fa1e56c508887d619f746" category="paragraph">* 本番環境で Astra データストアプレビューを使用できますか？ * いいえAstra データストアはエンタープライズクラスの耐障害性を実現するように設計、開発されていますが、 Astra データストアプレビュー版は本番環境のワークロードには適していません。</block>
   <block id="8c9b36244097b3f2c3d1ad64603311e0" category="paragraph">* 仮想マシンのワークロードに対して Astra Data Store プレビューを使用できますか？ * Astra Data Store プレビューリリースは、ベアメタルマシンでも仮想マシンでも Kubernetes で実行されているアプリケーションに限定されます。今後のリリースでは、 Kubernetes と ESXi 仮想マシンの両方でアプリケーションがサポートされる予定です。詳細はこちら <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
   <block id="9c634046a90a62883b122e76b9afcef2" category="inline-link">Astra Control Center の略</block>
-  <block id="289e6d386db78ca43bf58e8260069361" category="paragraph">Astra Data Store プレビュー版クラスタをストレージバックエンドとして使用するアプリケーションであれば<block ref="6653b3fa72bfc9c83d8e5fede6da40f0" category="inline-link-rx"></block> バージョン 21.12 データ保護、ディザスタリカバリ、 Kubernetes ワークロードの移行など、アプリケーション対応のデータ管理機能を活用するために必要です。</block>
   <block id="456f2b6f01dea1c766407717c9f25ae0" category="paragraph">* Astra Data Store Preview Cluster の管理方法 * Astra Data Store のプレビュー資産の管理には、 kubectl コマンドと Kubernetes API 拡張機能を使用できます。</block>
   <block id="8769fb0b311c9d4eb4ae12703797ec2d" category="paragraph">* アストラデータストアのプレビュークラスタ指標はどのように監視できますか？ * Cloud Insights を使用して、アストラデータストアのプレビュー指標を監視できます。を参照してください <block ref="5f4e23cb821c4c14144c1c2b8f6c948e" category="inline-link-macro-rx"></block>。</block>
   <block id="a3732b03ca4422ce6b70efcd6e224c8f" category="paragraph">ログを監視することもできます。を参照してください <block ref="3d73dda56e07b3410aee41dd59d50b4f" category="inline-link-macro-rx"></block>。</block>
@@ -556,7 +551,6 @@
   <block id="bba57f874c98e85c47cc41e62b11c2f9" category="paragraph">* Astra Data Store プレビューで使用する役割と権限は何ですか？ * Astra Data Store プレビューオペレータを配備するには、 kubeadmin である必要があります。</block>
   <block id="7e262eb0471b79362fb1d998ef7816ad" category="paragraph">Astra Data Store のプレビューには、ノードの選択に使用されるノードリソースを検出するための「 astra -ds-nodeinfo -astradsversion 」という特権的なデミスがあります。</block>
   <block id="24e04714db6e86f8b770da300196abe4" category="paragraph">さらに、管理者は、権限付き Kubernetes ジョブを使用して、選択したワーカーノードにストレージクラスタのコンテナをインストールし、 Astra Data Store プレビューストレージクラスタを構築します。</block>
-  <block id="3ac365fe03aac888c56d143184752fb0" category="paragraph">* Astra Data Store プレビューインストールのために更新する必要があるマニフェストファイルは何ですか？ * ネットアップサポートサイトからダウンロードした Astra Data Store プレビューバンドルには、次のマニフェストが含まれています。</block>
   <block id="d870af338cdfa7ad024a4babd5d5c020" category="list-text">Astradscluster.yaml</block>
   <block id="de40745cae6783730dd65bb03555d562" category="list-text">Astradsoperator.yaml</block>
   <block id="d2730d5e8f46678286a382b660c902d6" category="list-text">astadsversion.yaml</block>
@@ -565,11 +559,9 @@
   <block id="92d1656d06303733c5e1398fb273a17e" category="section-title">トラブルシューティングとサポート</block>
   <block id="74ba5cdb40feb42b19d5c7769a72ac66" category="paragraph">ネットアップのコンテナ向け Slack チャネルを使用して、ネットアップの Astra データストアプレビューでコミュニティサポートにアクセスできます。このチャネルの監視は、ネットアップのサポートエンジニアとテクニカルマーケティングエンジニアが行います。</block>
   <block id="61615f0fb929e3dc8c5ed73825a9a333" category="inline-link">ネットアップコンテナ向け Slack チャンネル</block>
-  <block id="eb8fcf37f17153346e926af0904aa1c4" category="paragraph"><block ref="eb8fcf37f17153346e926af0904aa1c4" category="inline-link-rx"></block></block>
   <block id="98d4a15143a74da57ac042934633419c" category="paragraph">プレビューリリースでは、システムがクラウドに接続され、 NetApp Active IQ ツールと AutoSupport ツールに統合されている必要があります。</block>
   <block id="0596e50aba44f7e1a22cfd6eba221eb1" category="inline-link-macro">Astra データストアサポート業務</block>
   <block id="95d0cc0c791e77283e4f15685fecea58" category="paragraph">詳細はこちら <block ref="8d8c8ec655e8397711a9f4c0b3d58c93" category="inline-link-macro-rx"></block>。</block>
-  <block id="babfff07f519258008994d4fc8c24ca1" category="paragraph">* サポートケースを作成する方法、または簡単な質問を明確にする方法を教えてください。 * サポートケースを作成する方法、または簡単な質問について説明する方法については、問題またはの質問を参照してください<block ref="4b307ae9f8df03c1a35a9ddfa102ae01" category="inline-link-rx"></block>。ネットアップサポートがお客様にフォローアップし、ベストエフォートでの解決を支援します。</block>
   <block id="e55eed1f8e319d189f948d8925157ae5" category="paragraph">* 新機能のリクエストをどのようにして提出しますか？ * サポートされている構成や機能について質問がある場合は、 astra.feedback@netapp.com までお問い合わせください。</block>
   <block id="d8d50c12bd11a2109a7a384f43b0930a" category="inline-link-macro">サポートバンドルの生成</block>
   <block id="e859e608d59cef8fc0f0cccdb868853f" category="paragraph">* サポートログバンドルの生成方法については、を参照してください <block ref="0e3e1e21aa20734c9ddadb346fd8f7d6" category="inline-link-macro-rx"></block> Astra Data Store プレビュー版のサポートログバンドルをセットアップおよびダウンロードする手順については、こちらを参照してください。</block>
@@ -600,9 +592,7 @@
   <block id="b3f07915b49e4ea1df947a086346e6cc" category="inline-link-macro">インストールを開始する前に、 Astra データストアプレビュー環境を準備します</block>
   <block id="38e54550c131045d7072709ab7bdb0c9" category="list-text"><block ref="e8ea8205c2ef5ca696bb2e550839cf2e" category="inline-link-macro-rx"></block>。</block>
   <block id="d4d4a15663d8f6b4a3ab637d777ff538" category="inline-link-macro">Kubernetes snapshot controller yaml ファイル</block>
-  <block id="68b8495487a0e2961614f4537c86b8e1" category="list-text">をダウンロードします <block ref="d8c329b5b76c4cf95f26f4b2ef41b13f" category="inline-link-macro-rx"></block>：</block>
   <block id="e04160d92f8ef05d4ce3314e8cc91137" category="inline-link-macro">YAML CRD</block>
-  <block id="d2d45e911ea557447d96c6b2cb808cb7" category="list-text">をダウンロードします <block ref="1b2aa10bf02b798532fe7f94bbd6d467" category="inline-link-macro-rx"></block>：</block>
   <block id="88e291668f9a86bd88b88b9b98a6aee8" category="list-text">snapshot.storage.k8es.io_volumesnapshotclasses.yaml</block>
   <block id="5bcf00e7f0cf36a49beb0a818ec6cbef" category="list-text">snapshot.storage.k8es.io_volumesnapshotcontentes.yaml</block>
   <block id="cc5824f53c7ffbd99cb349e87efde1f4" category="list-text">snapshot.storage.k8es.io_volumesnapshots.yaml</block>
@@ -626,12 +616,9 @@
   <block id="8213c33dc9ac92d509af698f9a2e597f" category="list-text">ストレージクラスが追加されたことを確認します。</block>
   <block id="22d9b315b29e2e8600a67e65475c18de" category="list-text">Astra Trident バックエンドがデフォルトのストレージクラスパラメータで更新されたことを確認します。</block>
   <block id="f6b5c68237555d09d9a7f7e2de93b432" category="summary">環境に関するいくつかの前提条件に対処した後に Astra データストアをインストールするには、バンドルをダウンロードして、以下の手順に従ってインストールします。</block>
-  <block id="a99bbd4efcfb17a742c0ddb6c66d33b4" category="paragraph">Astra データストアプレビューをインストールするには、ネットアップサポートサイトからインストールバンドルをダウンロードし、この手順に記載されているインストール手順を実行します。</block>
   <block id="0ba7583639a274c434bbe6ef797115a4" category="inline-link">登録</block>
-  <block id="208dc8838b660b6eee73ddccec7c2e45" category="list-text">ネットアップサポートサイトにアクセスします。<block ref="1fd2eaa3264309dbe654ce780a5bda21" category="inline-link-rx"></block> フルアクセスのネットアップサポートサイトアカウントをまだお持ちでない場合は、プレビュー版をお持ちください。</block>
   <block id="dfcac5e258bdfa0f1d552f9e95472f56" category="inline-link-macro">ネットアップライセンスファイル（ NLF ）</block>
   <block id="ad3b46ea44ef643f0aa6cf10b5cddef7" category="inline-link">サインアップ</block>
-  <block id="999cdcc895cc526aaf602ee12ee3266d" category="list-text">A <block ref="01e924afc9d6eb5b6b87b95944c8b962" category="inline-link-macro-rx"></block> Astra データストアプレビュー版ライセンスのダウンロード手順がお客様に送信されます<block ref="ddfab7b8f273b80482ec6ca64a01b0c4" category="inline-link-rx"></block>。</block>
   <block id="7f7646bb0a5fb6cf0454a38c4d1f06d6" category="list-text">アクティブなコンテキストのクラスタ管理者権限があるアクティブな kubeconfig です。</block>
   <block id="bef0c0a82c5520f237b380213d0b07d6" category="inline-link-macro">ロールと権限</block>
   <block id="806b5637c063705c8d625e758efc64b6" category="list-text">の理解 <block ref="dee7c80cda852bd179a0b8a64dc2d187" category="inline-link-macro-rx"></block> Astra データストアプレビュー版で使用</block>
@@ -647,7 +634,6 @@
   <block id="d81ec671d645986632c1dff9a52a8d03" category="list-text"><block ref="9fcc40a9325fa4fdd116019afa5bfea2" category="inline-xref-macro-rx"></block></block>
   <block id="38a46257d48221851cd4c911eb65d23a" category="section-title">Astra Data Store プレビューバンドルをダウンロードして、イメージを展開</block>
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">ネットアップサポートサイト</block>
-  <block id="ef2dd39c433a604bf33391ebcd7f3854" category="list-text">にログインします<block ref="179992dc1b5e9762dea364da8b44a283" category="inline-link-rx"></block> Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします</block>
   <block id="7ccab09493cf97c9665c6c2126741ee5" category="list-text">（任意）次のコマンドを使用して、バンドルのシグニチャを確認します。</block>
   <block id="ae32a002cf3df8354380980ceb442a90" category="list-text">画像を抽出します。</block>
   <block id="a179389f208c9573ee510e5e4bcceeba" category="section-title">バイナリをコピーし、ローカルレジストリにイメージをプッシュします</block>
@@ -793,7 +779,6 @@
   <block id="b9e835c1024473d6793b9eb0f6dbf66c" category="list-text">nfs-utils パッケージはワーカーノードにインストールする必要があります。</block>
   <block id="abb957fb7548aff796259f85d536571f" category="list-text">Kubernetes アプリケーションは、 NFSv4.1 で共有されている永続的ボリュームを使用してファイルにアクセスします。 NFSv4.1 では、 AUTH_SYS の認証方法が必要です。</block>
   <block id="e48fa26d86f93c0095683fa3998fe381" category="inline-link">こちらから登録してください</block>
-  <block id="e88524429305e37bd73a6b99a2182f42" category="paragraph">Astra データストアのプレビュー機能をフル活用するには、 Astra データストアのプレビューライセンスが必要です。<block ref="46a5ef130a429145ae865d2b93a630d6" category="inline-link-rx"></block> から Astra データストアプレビューライセンスを取得できます。ライセンスのダウンロード手順は、サインアップ後に送信されます。</block>
   <block id="0dab9f614d7de2d86a6e3ab5423bb50e" category="section-title">AutoSupport の設定</block>
   <block id="8e15885329078651f14e154e8002de30" category="paragraph">Astra データストアプレビューを利用するには、 AutoSupport を有効にし、 AutoSupport バックエンドに接続する必要があります。これは、直接インターネットアクセスまたはプロキシ設定を経由する可能性があります。</block>
   <block id="89dbe396da9bd6ab3205e241874bebca" category="inline-link-macro">必須のテレメトリ AutoSupport バンドルの送信に使用される定期設定</block>
@@ -804,7 +789,6 @@
   <block id="3551ec406ac2e45ff0f50e87c946ab31" category="doc">Astra データストアプレビューのクイックスタート</block>
   <block id="aa9dba12e956af910d79b88fd258601d" category="paragraph">このページでは、 Astra データストアのプレビューを開始するために必要な手順の概要を説明します。各ステップ内のリンクから、詳細が記載されたページに移動できます。</block>
   <block id="2778cb9b46b47b6f77215d7a65f475b1" category="paragraph">ぜひお試しください。Astra Data Store のプレビューを試す場合は、 90 日間のプレビューライセンスを使用できます。</block>
-  <block id="9df3c7b804c4fb849cc1089fc12ec734" category="paragraph"><block ref="0b42ce17ba1a149ab9e15f2cfdeb306a" category="inline-link-rx"></block> から Astra データストアプレビューライセンスを取得できます。</block>
   <block id="4854d4c0301c6f34c76f1cb78057e09e" category="list-title">&lt;span class="image"&gt;&lt;img src=<block ref="0c3becc25d95e48b9ca863002a042824" category="inline-link-rx"></block> Alt="One"&gt;&lt;/span&gt; Kubernetes クラスタの要件を確認します</block>
   <block id="600570cd3d6ec071fcd2e2a4b40dcab5" category="list-text">クラスタが正常な状態で稼働し、少なくとも 4 つのオンラインワーカーノードと 1 つのマスターノードが必要です。</block>
   <block id="769e7d2e2b3a8a07afb7dfcd707bb4dd" category="list-text">Astra データストアプレビュー環境を構成する各 Kubernetes ワーカーノードには、同じインターフェイスタイプ（ SATA 、 SAS 、 NVMe ）の SSD と、 Astra データストアプレビュークラスタに割り当てられているドライブの数が同じである必要があります。</block>
@@ -878,7 +862,6 @@
   <block id="5d12f25a06af3175aac5ead4076ccaa5" category="list-text">Google Anthos 向け Cilium</block>
   <block id="477f44d2fd5557c2e0c1483136673d2f" category="summary">OpenShift を使用して Astra データストアをインストールする方法</block>
   <block id="b42c39c7d62ef43f96e18ab1143c5fdd" category="doc">Red Hat OpenShift Container Platform に Astra データストアプレビューをインストールします</block>
-  <block id="58151efb3c608d0873e52f26a375688e" category="paragraph">Red Hat OpenShift Container Platform （ OCP ）に Astra データストアプレビューをインストールするには、ネットアップサポートサイトからインストールバンドルをダウンロードし、この手順で説明するインストール手順を完了します。</block>
   <block id="18e412f69270053d6fbd006203726f31" category="inline-link-macro">Astra データストア環境の準備</block>
   <block id="9afe9329533b4d46b804c6dce265f011" category="list-text">インストールを開始する前に、 <block ref="1339fb1bdf2e0eaea9baf01fd47337cd" category="inline-link-macro-rx"></block>。</block>
   <block id="6896d0b08ffa51cd7dc1e431bca01038" category="inline-link-macro">ネットアップライセンスファイル</block>
@@ -892,7 +875,6 @@
   <block id="3b0adcdb7a1d7bd146376dcfc6accd6c" category="list-text"><block ref="0af761fa812dc9e1ab2a2b67718089d0" category="inline-xref-macro-rx"></block></block>
   <block id="80fd50d2c29afdea09a446ffc7bb6b15" category="list-text"><block ref="96f517c99ba407f5b231283daa5c1544" category="inline-xref-macro-rx"></block></block>
   <block id="1023cca3cbe0355c454587fe233fb54e" category="list-text"><block ref="7e400ca6d12cb414decd3ba7def8d69f" category="inline-xref-macro-rx"></block></block>
-  <block id="d4f09e9e88e4dabee8c9d9e2326277ac" category="list-text">にログインします<block ref="ce05c15478baf1fd107c1e0b09c6e8b0" category="inline-link-rx"></block> Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします</block>
   <block id="17ed07ff15b5d43d3eca288ae4a093bd" category="list-text">（任意）バンドルのシグニチャを確認します。</block>
   <block id="3590e28b9b85fc9dc8f47946a6a81c5b" category="section-title">Astra データストアプレビューを導入するためのネームスペースを作成します</block>
   <block id="1d05061aec39922b91b02b045d31d674" category="paragraph">すべての Astra Data Store プレビューコンポーネントをインストールする名前空間「 astras -system 」を作成します。</block>
@@ -934,7 +916,6 @@
   <block id="e53566a3d4b03bb3bb38c32ee32acedb" category="summary">ネットアップでは、 Astra データストアのプレビュー版をさまざまな方法で提供しています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra Data Store プレビューアカウントには、 Web でチケットを発行するリモートテクニカルサポートが含まれています。</block>
   <block id="d3002c3c5bd6594f90c9f3ba7b8c6c09" category="paragraph">AutoSupport は、 Astra データストアプレビューシステムのランタイムおよび情報を監視し、ネットアップサポートにメッセージを送信します。構成に応じて、次のシステムコンポーネントを監視できます。</block>
   <block id="9028632a1ad8f69c5f424ba9224a7bcd" category="inline-link-macro">Astra データストアプレビュー版クラスタのインストール</block>
-  <block id="769675d8e0fcc652847a33f6fb99f035" category="paragraph">AutoSupport は、の実行時にデフォルトで有効になります <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block> または、 AutoSupport CR がクラスタに適用された後に実行します。有効にすると、ネットアップサポートサイト（ NSS ）に AutoSupport （ ASUP ）バンドルが自動的にアップロードされるか、手動でダウンロードすることができます。</block>
   <block id="4547941b00b06ef9b132d2d05b58369d" category="list-text">ControlPlane AutoSupport ： Astra データストアプレビューコントロールプレーンログと CRS のコレクション。</block>
   <block id="63ef41700dec8384fe67a00749f8ca7d" category="paragraph">コントロールプレーンイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block>。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。</block>
   <block id="3fb0de2e8be52ea08e0f98a5ce31ab07" category="paragraph">ストレージコンポーネントのイベントをレポートするカスタムの AutoSupport 収集設定を作成できます。ほとんどのインストールでは、定期的なイベントレポートがの間にデフォルトで有効になっています <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block>。この手順では、選択したパラメータに基づいてレポートする AutoSupport CR を設定する方法について説明します。</block>
@@ -967,4 +948,23 @@
   <block id="ccdb41b7a646fbb51f839a4e474a81cb" category="list-text">[* Upload （アップロード） ] ボタンを選択します。</block>
   <block id="aeb709613322d29961877072452bfe23" category="list-text">前の手順でダウンロードしたコアファイルを参照して選択します。</block>
   <block id="d3b3561d6d067e8ee0dccc1a1af988d9" category="paragraph">アップロードが開始されます。アップロードが完了すると、成功のメッセージが表示されます。</block>
+  <block id="0c6bf31289bc5bf0b95228b0d2a8ec60" category="inline-link">ネットアップサポートサイト（ NSS ）</block>
+  <block id="a2ff6cb31659d7f5864cbf551727e519" category="paragraph">AutoSupport は、の実行時にデフォルトで有効になります <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block> または、 AutoSupport CR がクラスタに適用された後に実行します。有効にすると、 AutoSupport （ ASUP ）バンドルがに自動的にアップロードされます<block ref="6030415907234973f3f8d5646d406ab7" category="inline-link-rx"></block> または、手動でダウンロードすることもできます。</block>
+  <block id="30f6976fd56ced2f4cf61b05186ff1c1" category="admonition">Astra データストアプレビュー版のコミュニティテクニカルサポートを利用できます。を使用してケースを作成します<block ref="6030415907234973f3f8d5646d406ab7" category="inline-link-rx"></block> プレビューリリースでは使用できません。フィードバックオプションを通じてサポートに連絡するか、 Slack チャンネルを利用してセルフサービスで連絡できます。</block>
+  <block id="2a78d6757f0c5e50314bbac0fd7b7197" category="list-text"><block ref="2a78d6757f0c5e50314bbac0fd7b7197" category="inline-link-rx"></block></block>
+  <block id="915175f508b5f3177445a98b51f0097f" category="list-text"><block ref="4bd40507b5d2224d965f5d4747d374a9" category="inline-link-rx"></block></block>
+  <block id="370d30d60f255a6b1433c4bffa91f24a" category="list-text"><block ref="8ab0f7c088572fbc1585d10ad0d13c53" category="inline-link-macro-rx"></block>。</block>
+  <block id="98c3c6380874a3d6a2da7db71afe52d7" category="paragraph">Astra Data Store プレビュー版クラスタをストレージバックエンドとして使用するアプリケーションであれば<block ref="73c15736d78e1e14f234b40f7cdc3048" category="inline-link-rx"></block> バージョン 21.12 データ保護、ディザスタリカバリ、 Kubernetes ワークロードの移行など、アプリケーション対応のデータ管理機能を活用するために必要です。</block>
+  <block id="4c0ef7c9699c23c05811fdaa8dd6d7fc" category="paragraph">* Astra Data Store プレビューインストール用に更新する必要があるマニフェストファイルは何ですか？ * からダウンロードした Astra Data Store プレビューバンドルから<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block>では、次のマニフェストが表示されます。</block>
+  <block id="1e16f2b8556745da1de7a0b75522a635" category="paragraph"><block ref="1e16f2b8556745da1de7a0b75522a635" category="inline-link-rx"></block></block>
+  <block id="6c234a5312f8379bcb9fbcc441d2528b" category="paragraph">* サポートケースを作成する方法、または簡単な質問を明確にする方法を教えてください。 * サポートケースを作成する方法、または簡単な質問について説明する方法については、問題またはの質問を参照してください<block ref="58c7b0218bcdd8930a7bd42e42b82022" category="inline-link-rx"></block>。ネットアップサポートがお客様にフォローアップし、ベストエフォートでの解決を支援します。</block>
+  <block id="bb77e148c413e9e6fe81c660d1b64bcb" category="list-text">をダウンロードします <block ref="07b1214d7f04b151683fccdcb3396163" category="inline-link-macro-rx"></block>：</block>
+  <block id="6087aa1a980e9fb03c3d42ed429d3090" category="list-text">をダウンロードします <block ref="424f4872df67a1a5528184cc2ca8dc8c" category="inline-link-macro-rx"></block>：</block>
+  <block id="2f67cd55143c2541e6edf7020c06c3d5" category="paragraph">Astra データストアプレビューをインストールするには、からインストールバンドルをダウンロードします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> およびこの手順に記載されているインストール手順を実行します。</block>
+  <block id="74bc6e591c8afde1756c60343fc6adb7" category="list-text">にアクセスします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block>。<block ref="a14d2f1983300ed8731dcf11dfa18e8a" category="inline-link-rx"></block> フルアクセスのネットアップサポートサイトアカウントをまだお持ちでない場合は、プレビュー版をお持ちください。</block>
+  <block id="3f18a8915118a57279458e475c19506d" category="list-text">A <block ref="01e924afc9d6eb5b6b87b95944c8b962" category="inline-link-macro-rx"></block> Astra データストアプレビュー版ライセンスのダウンロード手順がお客様に送信されます<block ref="ef54037861aa5e9e926253483ef1a002" category="inline-link-rx"></block>。</block>
+  <block id="06e707c9bfaad1d590b948f0c4975ea0" category="list-text">にログインします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします</block>
+  <block id="99fe05ab680c40d38239fb7349931f94" category="paragraph">Astra データストアのプレビュー機能をフル活用するには、 Astra データストアのプレビューライセンスが必要です。<block ref="757d0023964aa1a63172c6b6c4a3c459" category="inline-link-rx"></block> から Astra データストアプレビューライセンスを取得できます。ライセンスのダウンロード手順は、サインアップ後に送信されます。</block>
+  <block id="d7bf95d6f9f4a327892f5cc8792f238b" category="paragraph">Red Hat OpenShift Container Platform （ OCP ）に Astra データストアプレビューをインストールするには、からインストールバンドルをダウンロードします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> およびこの手順に記載されているインストール手順を実行します。</block>
+  <block id="b2d8407a2a6a35cada2688cd35c7c330" category="paragraph"><block ref="0bcb35f051e8c1238923547e4a123c09" category="inline-link-rx"></block> から Astra データストアプレビューライセンスを取得できます。</block>
 </blocks>

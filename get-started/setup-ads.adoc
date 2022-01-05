@@ -43,13 +43,13 @@ NOTE: 次のコマンド例では ' ディレクトリとして /trident` を想
 
 .必要なもの
 * link:requirements.html["インストールを開始する前に、 Astra データストアプレビュー環境を準備します"]。
-* をダウンロードします link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/deploy/kubernetes/snapshot-controller["Kubernetes snapshot controller yaml ファイル"]：
+* をダウンロードします link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/deploy/kubernetes/snapshot-controller["Kubernetes snapshot controller yaml ファイル"^]：
 +
 ** setup-snapshot-controller.yaml
 ** rbac -snapshot-controller.yaml
 
 
-* をダウンロードします link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/client/config/crd["YAML CRD"]：
+* をダウンロードします link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/client/config/crd["YAML CRD"^]：
 +
 ** snapshot.storage.k8es.io_volumesnapshotclasses.yaml
 ** snapshot.storage.k8es.io_volumesnapshotcontentes.yaml

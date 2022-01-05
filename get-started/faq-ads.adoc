@@ -22,7 +22,7 @@ Astra Data Store のプレビュー版のインストール、設定、アップ
 
 * Astra データストアプレビューには、他のネットアップ製品との依存関係はありますか？ * はい。Astra Data Store のプレビューを利用するには、 NetApp CSI ドライバ Astra Trident バージョン 21.10.1 以降をワークロードの Kubernetes クラスタに導入する必要があります。詳細はこちら link:../get-started/requirements.html["Astra データストアの要件"]。
 
-Astra Data Store プレビュー版クラスタをストレージバックエンドとして使用するアプリケーションであれば https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center の略"] バージョン 21.12 データ保護、ディザスタリカバリ、 Kubernetes ワークロードの移行など、アプリケーション対応のデータ管理機能を活用するために必要です。
+Astra Data Store プレビュー版クラスタをストレージバックエンドとして使用するアプリケーションであれば https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center の略"^] バージョン 21.12 データ保護、ディザスタリカバリ、 Kubernetes ワークロードの移行など、アプリケーション対応のデータ管理機能を活用するために必要です。
 
 * Astra Data Store Preview Cluster の管理方法 * Astra Data Store のプレビュー資産の管理には、 kubectl コマンドと Kubernetes API 拡張機能を使用できます。
 
@@ -66,7 +66,7 @@ Astra Data Store のプレビューには、ノードの選択に使用される
 
 さらに、管理者は、権限付き Kubernetes ジョブを使用して、選択したワーカーノードにストレージクラスタのコンテナをインストールし、 Astra Data Store プレビューストレージクラスタを構築します。
 
-* Astra Data Store プレビューインストールのために更新する必要があるマニフェストファイルは何ですか？ * ネットアップサポートサイトからダウンロードした Astra Data Store プレビューバンドルには、次のマニフェストが含まれています。
+* Astra Data Store プレビューインストール用に更新する必要があるマニフェストファイルは何ですか？ * からダウンロードした Astra Data Store プレビューバンドルから https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^]では、次のマニフェストが表示されます。
 
 * Astradscluster.yaml
 * Astradsoperator.yaml
@@ -82,13 +82,13 @@ Astra Data Store のプレビューには、ノードの選択に使用される
 
 ネットアップのコンテナ向け Slack チャネルを使用して、ネットアップの Astra データストアプレビューでコミュニティサポートにアクセスできます。このチャネルの監視は、ネットアップのサポートエンジニアとテクニカルマーケティングエンジニアが行います。
 
-https://netapp.io/slack["ネットアップコンテナ向け Slack チャンネル"]
+https://netapp.io/slack["ネットアップコンテナ向け Slack チャンネル"^]
 
 プレビューリリースでは、システムがクラウドに接続され、 NetApp Active IQ ツールと AutoSupport ツールに統合されている必要があります。
 
 詳細はこちら link:../support/get-help-ads.html["Astra データストアサポート業務"]。
 
-* サポートケースを作成する方法、または簡単な質問を明確にする方法を教えてください。 * サポートケースを作成する方法、または簡単な質問について説明する方法については、問題またはの質問を参照してください https://netapp.io/slack["ネットアップコンテナ向け Slack チャンネル"]。ネットアップサポートがお客様にフォローアップし、ベストエフォートでの解決を支援します。
+* サポートケースを作成する方法、または簡単な質問を明確にする方法を教えてください。 * サポートケースを作成する方法、または簡単な質問について説明する方法については、問題またはの質問を参照してください https://netapp.io/slack["ネットアップコンテナ向け Slack チャンネル"^]。ネットアップサポートがお客様にフォローアップし、ベストエフォートでの解決を支援します。
 
 * 新機能のリクエストをどのようにして提出しますか？ * サポートされている構成や機能について質問がある場合は、 astra.feedback@netapp.com までお問い合わせください。
 
