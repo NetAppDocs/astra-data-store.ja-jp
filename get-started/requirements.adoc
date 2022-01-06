@@ -17,6 +17,9 @@ Astra データストアプレビュー：ベアメタル環境と VM ベース�
 Astra Data Store プレビューは、 Astra Trident CSI ドライバを使用した Kubernetes ワークロードの PVS のプロビジョニングのみをサポートします。VM ワークロードは、 Astra データストアの今後のリリースでサポートされる予定です。
 
 
+NOTE: Astra Control Center から Astra データストアプレビュークラスタを管理する場合は、 Astra データストアプレビュークラスタがを満たしていることを確認します https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html#kubernetes-cluster-general-requirements["Astra Control Center で管理するクラスタの要件"^] ここに記載されている要件に加えて、
+
+
 
 == Kubernetes ワーカーノードのリソース要件
 
@@ -39,10 +42,10 @@ Kubernetes クラスタ内の各ワーカーノード上の Astra Data Store プ
 | オプションのキャッシュデバイスの数 | 1 （ 8GiB 以上） | 該当なし 
 
 
-| vCPU の数 | 9. | 9. 
+| vCPU の数 | 10. | 10. 
 
 
-| RAM | 34GiB | 34GiB 
+| RAM | 35GiB | 35GiB 
 |===
 
 NOTE: 書き込みパフォーマンスを最大限に高めるには、専用の耐久性、低レイテンシ、低容量キャッシュデバイスを構成する必要があります。

@@ -715,7 +715,6 @@
   <block id="2f40c66dc5287c36ac7043a57079206d" category="cell">1 （ 8GiB 以上）</block>
   <block id="81665fcb678cc0680902f66f3be020c4" category="cell">vCPU の数</block>
   <block id="e53619c1fe611a51eeeb8d148ba6e532" category="cell">RAM</block>
-  <block id="3e4ee04dedab0a44100bf5980be3b0ca" category="cell">34GiB</block>
   <block id="06bdc266ef961962430b8fc45fbe6b6c" category="admonition">書き込みパフォーマンスを最大限に高めるには、専用の耐久性、低レイテンシ、低容量キャッシュデバイスを構成する必要があります。</block>
   <block id="e87c8f6d1c135adc9868a1a25397c000" category="paragraph">各ワーカーノードには、次の追加要件があります。</block>
   <block id="402a4bd631dc016fa807e263fbf090e1" category="list-text">100GiB 以上の空き容量がホストディスク（ブート）にあり、 Astra データストアプレビューログファイルを保存します。</block>
@@ -967,4 +966,7 @@
   <block id="99fe05ab680c40d38239fb7349931f94" category="paragraph">Astra データストアのプレビュー機能をフル活用するには、 Astra データストアのプレビューライセンスが必要です。<block ref="757d0023964aa1a63172c6b6c4a3c459" category="inline-link-rx"></block> から Astra データストアプレビューライセンスを取得できます。ライセンスのダウンロード手順は、サインアップ後に送信されます。</block>
   <block id="d7bf95d6f9f4a327892f5cc8792f238b" category="paragraph">Red Hat OpenShift Container Platform （ OCP ）に Astra データストアプレビューをインストールするには、からインストールバンドルをダウンロードします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> およびこの手順に記載されているインストール手順を実行します。</block>
   <block id="b2d8407a2a6a35cada2688cd35c7c330" category="paragraph"><block ref="0bcb35f051e8c1238923547e4a123c09" category="inline-link-rx"></block> から Astra データストアプレビューライセンスを取得できます。</block>
+  <block id="d6de7af55cd34df4b1343663f9fa47a7" category="inline-link">Astra Control Center で管理するクラスタの要件</block>
+  <block id="9cca478435cbf9a301f081bd39778626" category="admonition">Astra Control Center から Astra データストアプレビュークラスタを管理する場合は、 Astra データストアプレビュークラスタがを満たしていることを確認します<block ref="83b31cb7736faa6a9df5c1f9a84caa88" category="inline-link-rx"></block> ここに記載されている要件に加えて、</block>
+  <block id="4471592d544ec3b277df3be14efdb667" category="cell">35GiB</block>
 </blocks>

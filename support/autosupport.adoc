@@ -192,9 +192,9 @@ kubectl astrasds asup list --namespace=astrads-system
 +
 [listing]
 ----
-NAMESPACE      NAME                                                SEQUENCE NUMBER EVENT                           SIZE    STATE       LOCAL COLLECTION
+NAMESPACE       NAME                                          SEQUENCE NUMBER   EVENT       SIZE         STATE         LOCAL COLLECTION
 
-astrads-system  storage-coredump-20211216t140851311961680               1              coredump                197848373       compressed      astrads-ds-support-sxxn7:/var/firetap/firegen/persist/core.firestorm.2630_1639665426.gz
+astrads-system  storage-coredump-20211216t140851311961680     1                 coredump    197848373    compressed    astrads-ds-support-sxxn7:/var/firetap/firegen/persist/core.firestorm.2630_1639665426.gz
 ----
 . 次の「 kubectl 」コマンドを使用して、 ASUP メッセージからコアファイルをダウンロードします。ダウンロードするファイルの保存先ディレクトリを指定するには '-o オプションを使用します
 +
