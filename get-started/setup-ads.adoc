@@ -195,7 +195,7 @@ vi ads_backend.json
 +
 [listing]
 ----
-python3 -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=None)' < kubeconfig_filepath > kubeconf.json
+python3 -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=None)' < ~/.kube/config > kubeconf.json
 ----
 ... base64 としてエンコードし、 base64 出力を「 kubeconfig 」値に使用します。
 +
@@ -221,7 +221,7 @@ cat kubeconf.json | base64 | tr -d '\n'
     *"namespace": "astrads-system",*
     *"autoExportPolicy": true,*
     *"autoExportCIDRs": ["0.0.0.0/0"],*
-    *"kubeconfig": "<ID>",*
+    *"kubeconfig": "<base64_output_of_kubeconf_json>",*
     "debugTraceFlags": {"method": true, "api": true},
     "labels": {"cloud": "on-prem", "creator": "trident-dev"},
     "defaults": {
@@ -255,11 +255,17 @@ cat kubeconf.json | base64 | tr -d '\n'
     ]
 }
 ----
+. Trident インストーラをダウンロードしたディレクトリに移動します。
++
+[listing]
+----
+cd <trident-installer or path to folder containing tridentctl>
+----
 . ストレージバックエンドを作成します。
 +
 [listing]
 ----
-tridentctl create backend -f ads_backend.json -n trident
+./tridentctl create backend -f ads_backend.json -n trident
 ----
 +
 回答例：
@@ -284,11 +290,11 @@ Astra Trident のデフォルトのストレージクラスを作成し、スト
 .手順
 . trident-csi ストレージクラスを作成します。
 +
-.. ADS _SC_GENERIC .YAML を作成します。
+.. ads _sc_example.yaml を作成します：
 +
 [listing]
 ----
-vi ads_sc_generic.yaml
+vi ads_sc_example.yaml
 ----
 +
 対応：
@@ -311,7 +317,7 @@ mountOptions:
 +
 [listing]
 ----
-kubectl create -f ads_sc_generic.yaml
+kubectl create -f ads_sc_example.yaml
 ----
 +
 対応：
@@ -338,11 +344,17 @@ kubectl get storageclass -A
 NAME          PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
 trident-csi   csi.trident.netapp.io   Delete          Immediate           true                   6h29m
 ----
+. Trident インストーラをダウンロードしたディレクトリに移動します。
++
+[listing]
+----
+cd <trident-installer or path to folder containing tridentctl>
+----
 . Astra Trident バックエンドがデフォルトのストレージクラスパラメータで更新されたことを確認します。
 +
 [listing]
 ----
-tridentctl get backend -n trident -o yaml
+./tridentctl get backend -n trident -o yaml
 ----
 +
 回答例：
