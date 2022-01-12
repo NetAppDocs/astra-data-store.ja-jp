@@ -92,7 +92,7 @@ https://netapp.io/slack["ネットアップコンテナ向け Slack チャンネ
 
 * 新機能のリクエストをどのようにして提出しますか？ * サポートされている構成や機能について質問がある場合は、 astra.feedback@netapp.com までお問い合わせください。
 
-* サポートログバンドルの生成方法については、を参照してください link:../support/get-help.html#generate-support-bundle-to-provide-to-netapp-support["サポートバンドルの生成"] Astra Data Store プレビュー版のサポートログバンドルをセットアップおよびダウンロードする手順については、こちらを参照してください。
+* サポートログバンドルの生成方法については、を参照してください link:../support/get-help-ads.html#generate-support-bundle-to-provide-to-netapp-support["サポートバンドルの生成"] Astra Data Store プレビュー版のサポートログバンドルをセットアップおよびダウンロードする手順については、こちらを参照してください。
 
 * Astra データストアプレビューで Kubernetes ノードが見つかりません。どうすれば修正できますか？ * を参照してください link:../get-started/install-ads.html["Astra データストアプレビューをインストールします"]。
 

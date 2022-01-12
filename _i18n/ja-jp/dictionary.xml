@@ -541,7 +541,6 @@
   <block id="95d0cc0c791e77283e4f15685fecea58" category="paragraph">詳細はこちら <block ref="8d8c8ec655e8397711a9f4c0b3d58c93" category="inline-link-macro-rx"></block>。</block>
   <block id="e55eed1f8e319d189f948d8925157ae5" category="paragraph">* 新機能のリクエストをどのようにして提出しますか？ * サポートされている構成や機能について質問がある場合は、 astra.feedback@netapp.com までお問い合わせください。</block>
   <block id="d8d50c12bd11a2109a7a384f43b0930a" category="inline-link-macro">サポートバンドルの生成</block>
-  <block id="e859e608d59cef8fc0f0cccdb868853f" category="paragraph">* サポートログバンドルの生成方法については、を参照してください <block ref="0e3e1e21aa20734c9ddadb346fd8f7d6" category="inline-link-macro-rx"></block> Astra Data Store プレビュー版のサポートログバンドルをセットアップおよびダウンロードする手順については、こちらを参照してください。</block>
   <block id="36a38d337710d18d8d4579ea32c02c53" category="paragraph">* Astra データストアプレビューで Kubernetes ノードが見つかりません。どうすれば修正できますか？ * を参照してください <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。</block>
   <block id="b65c882f5478cc6c135a753a8298028e" category="paragraph">* IPv6 アドレスは管理ネットワーク、データネットワーク、クラスタネットワークに使用できますか？ * いいえ、 Astra データストアプレビューでサポートされているのは IPv4 アドレスのみです。IPv6 のサポートは、 Astra データストアプレビューの今後のリリースで追加される予定です。</block>
   <block id="91f1ab6c785beb94a57d22cb6b25c708" category="paragraph">* Astra Data Store プレビューでボリュームをプロビジョニングする際に使用される NFS のバージョンは何ですか？ * デフォルトでは、 Kubernetes アプリケーション用にプロビジョニングされたすべてのボリュームに対して、 Astra Data Store プレビューで NFS v4.1 がサポートされています。</block>
@@ -982,4 +981,5 @@
   <block id="658b90d4dc3b6a2eac6d3fe324c8cfcc" category="list-text">* DevOps 向けの Kubernetes 「アプリケーションサービス」プラットフォームを使用 * ：柔軟性に優れたソフトウェア定義のセルフサービス型プラットフォームを構築して、自動化された反復可能なサービスを提供し、開発者が必要とする複雑さを解消します。</block>
   <block id="de08a04337cd312be055df354ff4a143" category="section-title">Astra データストアのプレビュー機能</block>
   <block id="8868678235b1972f674ec06ef7e3b57f" category="section-title">Astra データストアのプレビュー版を入手しましょう</block>
+  <block id="1165a0185db86745710cb672405b42d6" category="paragraph">* サポートログバンドルの生成方法については、を参照してください <block ref="fabd9c024e7cacda497223e92e4a9bcb" category="inline-link-macro-rx"></block> Astra Data Store プレビュー版のサポートログバンドルをセットアップおよびダウンロードする手順については、こちらを参照してください。</block>
 </blocks>
