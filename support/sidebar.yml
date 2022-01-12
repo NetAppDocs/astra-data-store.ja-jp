@@ -2,6 +2,8 @@
 section: support
 title: 知識とサポート
 entries:
+- title: トラブルシューティング
+  url: "/support/troubleshooting-ads.html"
 - title: ヘルプを表示します
   url: "/support/get-help-ads.html"
 - title: サポートの自動監視

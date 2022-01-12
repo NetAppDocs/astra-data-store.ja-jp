@@ -4,7 +4,7 @@ permalink: concepts/architecture.html
 keywords: astra, astra datastore, architecture, deployment, astra data store, kubernetes, netapp, clusters, trident 
 summary: アストラデータストアは、スタンドアロンの Kubernetes クラスタに導入できます。スタンドアロンの Kubernetes クラスタは、別のクラスタで実行されている Kubernetes アプリケーションに永続的ボリュームを提供します。 Kubernetes クラスタは、同じノードプールで他のアプリケーションをホストしたり、 Kubernetes クラスタで別のノードプールでアプリケーションをホストしたりすることもできます。 
 ---
-= Astra データストア導入モデル
+= Astra データストアプレビュー導入モデル
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/concepts/
@@ -25,7 +25,7 @@ Astra データストアプレビューは、 Astra 製品ファミリーの一�
 
 
 
-== Astra データストアエコシステム
+== Astra データストアプレビューエコシステム
 
 Astra データストアプレビューは、次の機能で動作します。
 
@@ -37,21 +37,21 @@ Astra Control Center は、 ONTAP または Astra データストアプレビュ
 +
 Trident を使用して、 Astra データストアプレビューでボリュームを作成
 
-* * Cloud Insights * ：ネットアップのクラウドインフラ監視ツールである Cloud Insights を使用すると、 Astra Control で管理された Kubernetes クラスタのパフォーマンスと利用率を監視できます。Cloud Insights ：ストレージ使用率とワークロードの相関関係を示します。Cloud Insights 接続を Astra Control で有効にすると、 Astra Control の UI ページにテレメトリ情報が表示されます。
+* * Cloud Insights * ：ネットアップのクラウドインフラ監視ツールである Cloud Insights を使用すると、 Astra Control で管理された Kubernetes クラスタのパフォーマンスと利用率を監視できます。Cloud Insights ：ストレージ使用率とワークロードの相関関係を示します。
 +
-Cloud Insights は、 Astra データストアプレビューにリソースに関する情報を表示します。
+Cloud Insights 接続を Astra Control で有効にすると、 Astra Control の UI ページにテレメトリ情報が表示されます。Cloud Insights は、 Astra データストアプレビューで管理されているリソースに関する情報を表示します。
 
 
 
 
 
-== Astra データストアインターフェイス
+== Astra データストアプレビューインターフェイス
 
 さまざまなインターフェイスを使用してタスクを完了できます。
 
 * * Web ユーザーインターフェイス (UI) * ： Astra Control Service と Astra Control Center は、同じ Web ベースの UI を使用して、アプリケーションの管理、移行、保護を行うことができます。また、 Astra データストアのプレビューボリュームに関する情報も表示されます。
 * * API* ： Astra Control Service と Astra Control Center は、同じ Astra Control API を使用します。API を使用するタスクは、 UI を使用するタスクと同じです。Astra Control API を使用して、 Astra データストアのプレビューに関する情報を取得することもできます。
-* *kubectl コマンド *: Astra データストアプレビューを操作するには 'kubectl コマンドを直接使用することもできます
+* *kubectl コマンド *: Astra データストアプレビューを操作するには 'kubectl コマンドを直接使用できます
 * * Kubernetes 拡張機能 * ：さらに、 Kubernetes API 拡張機能 Astra データストアプレビューを使用できます。
 +
 カスタムリソース定義（ CRD ）は Kubernetes REST API の拡張機能で、 Astra Data Store のプレビューオペレータが導入されたときに作成されます。外部エンティティは、 Kubernetes API サーバを呼び出して SSD とやり取りします。Astra Data Store プレビューでは、特定の SSD に対する更新を監視してから、内部の REST API を呼び出します。

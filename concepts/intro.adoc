@@ -4,18 +4,18 @@ permalink: concepts/intro.html
 keywords: introduction, how astra works, how Astra works, what Astra is, astra data store, datastore, kubernetes 
 summary: Astra データストアは、コンテナワークロードと VM ワークロードの両方に対応する Kubernetes ネイティブの共有ファイルサービスで、エンタープライズデータ管理を実現します。 
 ---
-= Astra データストアの概要
+= Astra データストアの概要プレビュー
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/concepts/
 
 
-Astra データストアは、クラウドネイティブアプリケーションの管理を支援する、 Kubernetes ネイティブのオンプレミスデータセンター向け共有ファイル Software-Defined Storage （ SDS ）解決策です。Astra データストアは、コンテナと VM の両方のワークロードに対して、ネットアップのエンタープライズデータ管理とネイティブの共有ファイルサービスを提供します。
+Astra データストアプレビュー：クラウドネイティブアプリケーションの管理を支援する、 Kubernetes ネイティブのオンプレミスデータセンター向け共有ファイル Software-Defined Storage （ SDS ）解決策です。Astra データストアは、コンテナと VM の両方のワークロードに対して、ネットアップのエンタープライズデータ管理とネイティブの共有ファイルサービスを提供します。
 
-Astra データストアでは、次のことが可能です。
+Astra Data Store プレビューでは、次のことが可能です。
 
-* * Kubernetes のコンテナ化されたワークロードをサポート * ：コンテナ化されたワークロードを、使用するエンタープライズデータ管理サービスとツールでサポートします。
-* * Kubernetes の「アプリケーションサービス」プラットフォームを DevOps 向けに使用 * ：柔軟性に優れたソフトウェア定義のセルフサービス型プラットフォームを構築して、自動化された繰り返し可能なサービスを提供します。これにより、 developerselfasts から複雑さが解消されます。
+* * Kubernetes のコンテナ化されたワークロード * をサポート：使用するエンタープライズデータ管理サービスとツールを利用できます。
+* * DevOps 向けの Kubernetes 「アプリケーションサービス」プラットフォームを使用 * ：柔軟性に優れたソフトウェア定義のセルフサービス型プラットフォームを構築して、自動化された反復可能なサービスを提供し、開発者が必要とする複雑さを解消します。
 
 
 
@@ -42,7 +42,7 @@ image:astra-product-family.png["Astra 製品ファミリー"]
 
 
 
-== Astra データストアの機能
+== Astra データストアのプレビュー機能
 
 Astra データストアは、 Kubernetes ネイティブのエンドツーエンドのストレージとデータ管理機能をクラウドネイティブアプリケーションに提供します。以下の機能が必要です。
 
@@ -62,7 +62,7 @@ Astra データストアは、 Kubernetes ネイティブのエンドツーエ�
 
 
 
-== Astra データストアの利用を開始しましょう
+== Astra データストアのプレビュー版を入手しましょう
 
 最初に、 link:../get-started/requirements.html["Astra データストアの要件をご確認ください"]。
 

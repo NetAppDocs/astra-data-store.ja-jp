@@ -4,13 +4,13 @@ permalink: concepts/storage-efficiency.html
 keywords: how astra works, how Astra works, what Astra is, astra data store, 
 summary: Astra Data Store では、シンプロビジョニング、ゼロブロックの排除、圧縮、重複排除などのストレージ効率化テクノロジを使用しています。 
 ---
-= Astra データストアのストレージ効率
+= Astra データストアプレビュー版の Storage Efficiency
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/concepts/
 
 
-Astra データストアでは、 ONTAP テクノロジと SolidFire テクノロジを基盤とする Storage Efficiency テクノロジを次のように利用しています。
+Astra データストアプレビュー：ネットアップの ONTAP テクノロジと SolidFire テクノロジを基盤とした Storage Efficiency テクノロジを次のように活用
 
 * * シンプロビジョニング * ：シンプロビジョニングされたボリュームは、ストレージが事前に予約されていないボリュームです。代わりに、ストレージは必要に応じて動的に割り当てられます。ボリュームまたは LUN 内のデータが削除されると、空きスペースはストレージシステムに戻されます
 * * ゼロブロックの検出と排除 * ：シンプロビジョニングを使用した ONTAP ストレージシステムでは、ボリュームが初期化されている領域を検出して、そのスペースを解放して他の場所で使用することができます。
@@ -20,7 +20,7 @@ Astra データストアでは、 ONTAP テクノロジと SolidFire テクノ�
 
 これらの機能はすべてデフォルトで有効になっています。
 
-を参照してください https://docs.netapp.com/ontap-9/index.jsp["Storage Efficiency の詳細"]。
+を参照してください https://docs.netapp.com/ontap-9/index.jsp["Storage Efficiency の詳細"^]。
 
 
 

@@ -22,9 +22,10 @@ Astra Data Store プレビューアンインストールプロセスでは、次
 * <<Delete the volumes and export policies>>
 * <<Delete the Astra Data Store preview cluster>>
 * <<Delete the license>>
-* <<Delete the astrads installation>>
+* <<Delete the Astra Data Store preview installation>>
 * <<Validate the removal of the astrads-system namespace>>
 * <<Ensure containers are not running on worker nodes>>
+* <<Delete OpenShift Container Platform resources>>
 
 
 
@@ -164,6 +165,35 @@ NOTE: オペレータ、 nodeinfo ポッド、およびクラスタコントロ�
 ssh <mynode1>
 # runc list
 ----
+
+
+== OpenShift Container Platform リソースを削除します
+
+Red Hat OpenShift Container Platform （ OCP ）に Astra Data Store preview をインストールした場合は、 OCP セキュリティコンテキスト制約（ SCC ）と役割バインディングリソースをアンインストールできます。
+
+OpenShift では、セキュリティコンテキスト制約（ SCC ）を使用して、ポッドで実行できるアクションを制御します。
+
+標準のアンインストールプロセスが完了したら、次の手順を実行します。
+
+. SCC リソースを削除します。
++
+[listing]
+----
+oc delete -f ads_privileged_scc.yaml
+----
+. ロールバインドリソースを削除します
++
+[listing]
+----
+oc delete -f oc_role_bindings.yaml
+----
++
+
+NOTE: これらの手順で「 resources not found errors 」を無視します。 
+
+. すべての Kubernetes ノードから /var/lib/kubebelet/config.yaml を削除します 
+
+
 
 
 == 手動削除のサンプル

@@ -12,7 +12,7 @@ summary: Cloud Insights 指標を使用して、 Astra データストアアセ�
 
 Cloud Insights を使用して、 Astra データストアのプレビュー指標を監視できます。
 
-* <<Perform Cloud Insight connection prerequisites>>
+* <<Complete Cloud Insight connection prerequisite tasks>>
 * <<Download and run the installation script>>
 * <<Edit the Cloud Insights connection>>
 * <<Disconnect from Cloud Insights>>
@@ -24,13 +24,13 @@ Cloud Insights に表示される Astra データストアプレビュー指標�
 
 
 
-== Cloud Insight の接続の前提条件を実行する
+== Cloud Insight の接続の前提条件となるタスクを実行
 
 Cloud Insights を使用して Astra データストアに接続する前に、次の作業が必要です。
 
-* link:install-ads.html#install-the-monitoring-operator["Astra Data Store Monitoring Operator をインストールします"]。
-* link:install-ads.html#copy-the-binary-and-push-images-to-your-local-registry["kubectl-astras バイナリをインストールします"] Astra Data Store プレビューインストールドキュメントに従うことで、
-* link:https://docs.netapp.com/us-en/cloudinsights/task_cloud_insights_onboarding_1.html["Cloud Insights アカウントを作成します"^]。
+* link:../get-started/install-ads.html["Astra Data Store Monitoring Operator をインストールします"] これは、 Astra Data Store プレビューインストール手順の一部です。
+* link:../get-started/install-ads.html["kubectl-astras バイナリをインストールします"] これは、 Astra Data Store プレビューインストール手順の一部です。
+* https://docs.netapp.com/us-en/cloudinsights/task_cloud_insights_onboarding_1.html["Cloud Insights アカウントを作成します"^]。
 * 'awk 、 curl 、 grep ' および 'jq' の各コマンドが使用可能であることを確認します
 
 
