@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head class="at-element-marker">
+  <title>Astra データストアのプレビュー要件</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Astra データストアのプレビュー要件" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/get-started/requirements.html" />
+	<meta property="og:description" content="まずは、環境のサポート状況を確認します。" />
+  <meta property="og:image" content="https://docs.netapp.com/ja-jp/astra-data-store/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="まずは、環境のサポート状況を確認します。">
+  <meta name="keywords" content=" kubernetes cluster, cluster requirements, version requirements, supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/ja-jp/astra-data-store/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Controls AsciiDoctor Admonition Blocks -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/astra-data-store/css/font-awesome.min.css">
+
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/ja-jp/astra-data-store/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/astra-data-store/css/netapp.css">
+
+  <!-- WWW CSS Content -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/astra-data-store/css/www-luci-dotcom.min.css">
+  <link rel="stylesheet" type="text/css" href="/ja-jp/astra-data-store/css/www-netapp-dotcom.css">
+  <link rel="stylesheet" href="/ja-jp/astra-data-store/css/www-netapp-library-critical.min.css" media="all" >
+  <link rel="stylesheet" href="/ja-jp/astra-data-store/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/ja-jp/astra-data-store/css/www-netapp-library-global-header-footer.min.css">
+
+  <!-- NetApp IE Customizations -->
+  <link rel="stylesheet" href='/ja-jp/astra-data-store/css/na-utility.css' type='text/css'>
+  <link rel="stylesheet" href='/ja-jp/astra-data-store/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/ja-jp/astra-data-store/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/ja-jp/astra-data-store/css/na-pagenav.css' type='text/css'>
+
+  
+  <link rel="stylesheet" href="/ja-jp/astra-data-store/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/ja-jp/astra-data-store/css/tabbed-blocks.css" type="text/css">
+  <link rel="stylesheet" href='/ja-jp/astra-data-store/css/product-family.css' type="text/css">
+  
+
+  
+  <link rel='stylesheet' href='/ja-jp/astra-data-store/css/na-feature.css' type='text/css'>
+  
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/ja-jp/astra-data-store/js/na-search.js'></script>
+  
+
+  
+  <script src='/ja-jp/astra-data-store/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/ja-jp/astra-data-store/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/ja-jp/astra-data-store/css/prism-netapp.css' type='text/css'>
+
+
+  <script src='/ja-jp/astra-data-store/js/na-utility.js'></script>
+  <script src='/ja-jp/astra-data-store/js/clouddocs.js'></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    var head = document.getElementsByTagName('head')[0];
+    var adobe = document.createElement("script");
+    adobe.type = "text/javascript";
+    adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+    head.appendChild(adobe);
+  }
+  </script>
+  <script src='/ja-jp/astra-data-store/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/ja-jp/astra-data-store/js/toc.js'></script>
+  <script src='/ja-jp/astra-data-store/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+  <script src='/ja-jp/astra-data-store/js/version-dropdown.js'></script>
+  <script src='/ja-jp/astra-data-store/js/product-family.js'></script>
+  <script src='/ja-jp/astra-data-store/js/FileSaver.min.js'></script>
+  <script src='/ja-jp/astra-data-store/js/jszip-utils.min.js'></script>
+  <script src='/ja-jp/astra-data-store/js/jszip.min.js'></script>
+  <script src='/ja-jp/astra-data-store/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">製品とソリューション</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">サポートとトレーニング</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">コミュニティ</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">ブログ</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">ユーザ事例</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/ja-jp/astra-data-store/search.html"
+          data-type="widget" 
+          data-placeholder="ドキュメントを検索" 
+          data-no-results-found="{query}に該当する結果はありません" 
+          data-did-you-mean="{suggestion} を検索" 
+          data-no-results-found-did-you-mean="{query} に該当する結果はありません。{suggestion} の間違いではありませんか?" 
+          data-results-found="{hitCount} 件見つかりました"  
+          data-sk-es-pf-indexes=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
+      <div id="ie-i18n-menu">
+      <span class="ie-i18n-lang">日本語</span>
+        <button class="ie-i18n-icon-container" type="button">
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
+        <div class="n-language-selector-menu">
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                </li></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" >
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>利用可能なPDF<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        <a target="_blank" href="/ja-jp/astra-data-store/pdfs/fullsite-sidebar/Astra_データストアプレビュー版のドキュメント.pdf" >
+          <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/リリースノート.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            リリースノート
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/概念.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            概念
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/はじめに.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            はじめに
+          </a>
+          
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/get-started/requirements.pdf" >
+    <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/インストールの概要.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            インストールの概要
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/Astra_データストアを使用.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            Astra データストアを使用
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/知識とサポート.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            知識とサポート
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/ja-jp/astra-data-store/images/pdf-zip.png" width="16" height="16"/>
+      <pre>個別のPDFドキュメントのコレクション<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/index.html">
+        Astra データストアのドキュメント
+      </a></li><li class="subfolders "><a href="/ja-jp/astra-data-store/release-notes/rn_overview.html">
+        <div class="na-navbar-padding"> リリースノート</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/release-notes/whats-new.html">
+        今回のリリースの Astra データストアの内容
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/release-notes/known-issues.html">
+        既知の問題
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/release-notes/known-limitations.html">
+        既知の制限
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 概念</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/intro.html">
+        Astra データストアの概要
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/architecture.html">
+        導入モデル
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/expansion.html">
+        クラスタの拡張
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/storage-efficiency.html">
+        ストレージ効率
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/security.html">
+        セキュリティ
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> はじめに</div>
+      </a>
+      <ul><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/requirements.html">
+        Astra データストアのプレビュー要件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/quick-start.html">
+        Astra データストアプレビューのクイックスタート
+      </a></li><li class="subfolders "><a href="/ja-jp/astra-data-store/get-started/install-overview.html">
+        <div class="na-navbar-padding"> インストールの概要</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/install-ads.html">
+        Astra データストアプレビューをインストールします
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/install-ads-openshift.html">
+        OpenShift に Astra データストアプレビューをインストールします
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/setup-ads.html">
+        Astra Data Store のプレビューコンポーネントをセットアップする
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/capabilities.html">
+        Astra データストアのプレビュー制限
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/faq-ads.html">
+        よく寄せられる質問
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Astra データストアを使用</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/kubectl-commands-ads.html">
+        Astra データストア資産の管理
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/deploy-apps.html">
+        アプリケーションをセットアップする
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/maintain-cluster.html">
+        クラスタを管理
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-cloud-insights.html">
+        Cloud Insights で指標を監視
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/configure-endpoints.html">
+        イベントログを設定して監視する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/ads-acc-ui.html">
+        Astra Control Center の統合
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads.html">
+        Astra データストアプレビューをアンインストールします
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 知識とサポート</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/support/troubleshooting-ads.html">
+        トラブルシューティング
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/support/get-help-ads.html">
+        ヘルプを表示します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/support/autosupport.html">
+        サポートの自動監視
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/legal-notices.html">
+        法的通知
+      </a></li></ul>
+</div>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container -->
+    <article class="page-content">
+      <div class="ie-utility">
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://www.netapp.com">ホーム</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">ドキュメント</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/ja-jp/astra-data-store/">Astra&nbsp;Data&nbsp;Store</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          Astra データストアのプレビュー要件
+        </li>
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> 日本語は機械翻訳による参考訳です。内容に矛盾や不一致があった場合には、英語の内容が優先されます。 </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Astra データストアのプレビュー要件</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2022-01-06 20:08:29 +0000">01/06/2022</time>
+    
+  
+
+<span>寄稿者
+  <a target="_blank" href="https://github.com/netapp-mwallis">
+    <img  class="avatar avatar-small"
+          alt="netapp-mwallis"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/53353653?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/netapp-dbagwell">
+    <img  class="avatar avatar-small"
+          alt="netapp-dbagwell"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/53352450?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/amgrissino">
+    <img  class="avatar avatar-small"
+          alt="amgrissino"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/36450105?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+
+</p>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>まずは、 Astra データストアのプレビュー要件を満たす環境であることを確認してください。</p>
+</div>
+<div class="paragraph">
+<p>Astra データストアプレビュー：ベアメタル環境と VM ベース環境の両方をサポートAstra データストアプレビュークラスタは、 4 つ以上のワーカーノードを含む Kubernetes クラスタで実行できます。Astra データストアプレビューソフトウェアは、同じ Kubernetes クラスタで実行されている他のアプリケーションと共存できます。</p>
+</div>
+<div class="paragraph">
+<p>Astra Data Store プレビューは、 Astra Trident CSI ドライバを使用した Kubernetes ワークロードの PVS のプロビジョニングのみをサポートします。VM ワークロードは、 Astra データストアの今後のリリースでサポートされる予定です。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+Astra Control Center から Astra データストアプレビュークラスタを管理する場合は、 Astra データストアプレビュークラスタがを満たしていることを確認します <a href="https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html#kubernetes-cluster-general-requirements" target="_blank" rel="noopener">"Astra Control Center で管理するクラスタの要件"</a> ここに記載されている要件に加えて、
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="kubernetes-ワーカーノードのリソース要件">Kubernetes ワーカーノードのリソース要件</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Kubernetes クラスタ内の各ワーカーノード上の Astra Data Store プレビューソフトウェアに割り当てるために必要なリソースの最小要件を次に示します。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">リソース</th>
+<th class="tableblock halign-left valign-top">最小（ Minimum ）</th>
+<th class="tableblock halign-left valign-top">最大</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">データドライブの数</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>3 （独立したキャッシュデバイスを使用）</p>
+</li>
+<li>
+<p>4 （キャッシュデバイスがない場合）</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">データドライブのサイズ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4TiB 未満</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">オプションのキャッシュデバイスの数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 （ 8GiB 以上）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">該当なし</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vCPU の数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RAM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">35GiB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">35GiB</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+書き込みパフォーマンスを最大限に高めるには、専用の耐久性、低レイテンシ、低容量キャッシュデバイスを構成する必要があります。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>各ワーカーノードには、次の追加要件があります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>100GiB 以上の空き容量がホストディスク（ブート）にあり、 Astra データストアプレビューログファイルを保存します。</p>
+</li>
+<li>
+<p>クラスタトラフィック、データトラフィック、および管理トラフィック用に、 10GbE 以上のネットワークインターフェイスが少なくとも 1 つ必要です。必要に応じて、 1GbE 以上のインターフェイスを追加で使用して管理トラフィックを分離できます。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ハードウェアとソフトウェアの要件">ハードウェアとソフトウェアの要件</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Astra Data Store プレビューソフトウェアは、次のハードウェアプラットフォーム、ソフトウェア、ストレージ構成で検証済みです。にアクセスします <a href="../support/get-help-ads.html">"ネットアップコミュニティによるサポート"</a> Kubernetes クラスタの構成が異なる場合。</p>
+</div>
+<div class="ulist">
+<div class="title">ハードウェアプラットフォーム</div>
+<ul>
+<li>
+<p>HPE DL360</p>
+</li>
+<li>
+<p>HPE DL380</p>
+</li>
+<li>
+<p>Dell R640</p>
+</li>
+<li>
+<p>Dell R740</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Astra データストアプレビューは、次のドライブタイプで検証済みです。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>* ベアメタル環境 * ：ハイパーバイザーを使用せずに Linux クラスタ上の Kubernetes クラスタに Astra データストアプレビューを直接インストール。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>SATA または NVMe TLC SSD 。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>* VM ベースの導入 * ： ESXi クラスタでホストされた Linux VM 上の Kubernetes クラスタに Astra データストアプレビューをインストール。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>SATA 、 SAS 、または NVMe TLC SSD ベースのデータストア。</p>
+</li>
+<li>
+<p>仮想ディスクまたはパススルードライブとして提供されるドライブ。</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+ホストがハードウェア RAID コントローラの背後で SSD を使用している場合は、「パススルー」モードを使用するようにハードウェア RAID コントローラを設定します。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+各ドライブのシリアル番号は一意である必要があります。VM 作成中に仮想マシンの詳細設定に 'disk.enableuuid=true' 属性を追加します
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">ソフトウェア</div>
+<ul>
+<li>
+<p>ハイパーバイザー： Astra データストアプレビュー版は、 ESXi 7.0 を使用する VMware ベースの VM 環境で検証済みです。KVM ベースの導入は、 Astra データストアプレビューではサポートされていません。</p>
+</li>
+<li>
+<p>Astra データストアプレビューは、次のホストオペレーティングシステムで検証済みです。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Red Hat Enterprise Linux 8.4</p>
+</li>
+<li>
+<p>Red Hat Enterprise Linux 8.2 の場合</p>
+</li>
+<li>
+<p>Red Hat Enterprise Linux 7.9</p>
+</li>
+<li>
+<p>Red Hat Enterprise Linux CoreOS (RHCS)</p>
+</li>
+<li>
+<p>CentOS 8</p>
+</li>
+<li>
+<p>Ubuntu 20.04</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Astra Data Store プレビュー版は、以下の Kubernetes ディストリビューションで検証済みです。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Red Hat OpenShift 4.7</p>
+</li>
+<li>
+<p>Google Anthos 1.7</p>
+</li>
+<li>
+<p>Kubernetes 1.21</p>
+</li>
+<li>
+<p>Kubernetes 1.20</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+Astra Data Store のプレビュー版では、ストレージのプロビジョニングとオーケストレーションに Trident バージョン 21.10.1 が必要です。を参照してください <a href="setup-ads.html#install-astra-trident">"Astra Trident のインストール手順"</a>。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ネットワーク要件">ネットワーク要件</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Astra データストアプレビューを実行するには、 MVIP 用にクラスタごとに 1 つの IP アドレスが必要です。MIP と同じサブネット内の未使用の IP アドレスまたは未設定の IP アドレスを指定する必要があります。Astra Data Store プレビュー管理インターフェイスは、 Kubernetes ノードの管理インターフェイスと同じである必要があります。</p>
+</div>
+<div class="paragraph">
+<p>また、次の表に示すように各ノードを設定することもできます。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+この表では、 MIP ：管理 IP アドレス CIP ：クラスタ IP アドレス MVIP ：管理仮想 IP アドレスの略語を使用しています
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">設定</th>
+<th class="tableblock halign-left valign-top">IP アドレスが必要です</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ノードごとに 1 つのネットワークインターフェイス</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>ノードごとに 2 つ：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>MIP/CIP ：ノードごとに管理インターフェイスに設定済みの IP アドレスが 1 つあります</p>
+</li>
+<li>
+<p>データ IP ： MIP と同じサブネットに含まれる、ノードごとに未使用の IP アドレスまたは未設定の IP アドレスの 1 つ</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ノードごとに 2 つのネットワークインターフェイス</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>ノードあたり 3 本：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>mip ：ノードごとに管理インターフェイスで事前に設定された IP アドレスを 1 つ</p>
+</li>
+<li>
+<p>cip ： MIP とは異なるサブネット内のノードごとに、データインターフェイスに事前に設定された IP アドレスを 1 つだけ指定します</p>
+</li>
+<li>
+<p>データ IP ： CIP と同じサブネット内の各ノードに未使用または未設定の IP アドレスが 1 つあります</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+これらの構成では ' クラスタカスタムリソース (CR) ファイルのデータネットワークゲートウェイフィールド 'astraadscluster.yaml ' は省略してください各ノードの既存のルーティング設定には、すべてのアドレスを指定できます。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+これらの構成では VLAN タグは使用されません。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="csi-ドライバ">CSI ドライバ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Astra データストアプレビューを実行するには、 Kubernetes クラスタが Astra Trident 21.10.1 を実行している必要があります。Astra データストアプレビューは、として構成できます <a href="../get-started/setup-ads.html#set-up-astra-data-store-as-storage-backend">"ストレージバックエンド"</a> ネットアップの Trident で永続的ボリュームをプロビジョニング</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cni-構成">CNI 構成</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Astra Data Store のプレビューは、次の NNI で検証済みです。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>バニラ Kubernetes クラスタ用 Calico および Weave Net CNII</p>
+</li>
+<li>
+<p>Red Hat OpenShift Container Platform （ OCP ）向け OpenShift SDN</p>
+</li>
+<li>
+<p>Google Anthos 向け Cilium</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>これらの NNI では、ホストファイアウォール（ firewalld ）を無効にする必要があります。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="永続的ボリュームの共有に関する要件">永続的ボリュームの共有に関する要件</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>各アストラデータストアプレビュークラスタでは、永続ボリュームを使用して、そのクラスタにインストールされているアプリケーションのストレージニーズに対応できます。Astra Data Store プレビュー版の永続的ボリュームについては、次の要件を考慮してください。</p>
+</div>
+<div class="ulist">
+<div class="title">要件</div>
+<ul>
+<li>
+<p>NFSv4.1 クライアント / サーバを Kubernetes クラスタにインストールする必要があります。</p>
+</li>
+<li>
+<p>nfs-utils パッケージはワーカーノードにインストールする必要があります。</p>
+</li>
+<li>
+<p>Kubernetes アプリケーションは、 NFSv4.1 で共有されている永続的ボリュームを使用してファイルにアクセスします。 NFSv4.1 では、 AUTH_SYS の認証方法が必要です。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ライセンス">ライセンス</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Astra データストアのプレビュー機能をフル活用するには、 Astra データストアのプレビューライセンスが必要です。 <a href="https://www.netapp.com/cloud-services/astra/data-store-form/" target="_blank" rel="noopener">"こちらから登録してください"</a> から Astra データストアプレビューライセンスを取得できます。ライセンスのダウンロード手順は、サインアップ後に送信されます。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="autosupport-の設定">AutoSupport の設定</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Astra データストアプレビューを利用するには、 AutoSupport を有効にし、 AutoSupport バックエンドに接続する必要があります。これは、直接インターネットアクセスまたはプロキシ設定を経由する可能性があります。</p>
+</div>
+<div class="paragraph">
+<p>。 <a href="../get-started/install-ads.html#install-the-astra-data-store-cluster">"必須のテレメトリ AutoSupport バンドルの送信に使用される定期設定"</a> 変更しないでください。定期的な AutoSupport バンドルの送信を無効にすると、クラスタがロックダウンされ、定期的な設定が再度有効になるまで新しいボリュームを作成できなくなります。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="次の手順">次の手順</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>を表示します <a href="quick-start.html">"クイックスタート"</a> 概要（ Overview ）：</p>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astra データストアのプレビュー要件](https://docs.netapp.com/ja-jp/astra-data-store/get-started/requirements.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/get-started/requirements.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">このページ</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  <div style="clear: both"></div><!-- Main needs to have height -->
+</div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+
+</ul>
+</div>
+<div class="n-footer__social-links">
+<ul class="n-footer__social-link-list">
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
+<span class="n-footer__social-link-text">blog</span>
+<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+  <title>blog@</title>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#blog"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
+<span class="n-footer__social-link-text">community</span>
+<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+<title>community@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#comments"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
+<span class="n-footer__social-link-text">twitter</span>
+<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+<title>twitter@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#twitter"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
+<span class="n-footer__social-link-text">facebook</span>
+<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+<title>facebook@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#facebook"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+<span class="n-footer__social-link-text">linkedin</span>
+<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+<title>linkedin@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#linkedin"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+<span class="n-footer__social-link-text">youtube</span>
+<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+<title>youtube@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#youtube"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+<span class="n-footer__social-link-text">slideshare</span>
+<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+<title>slideshare@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/astra-data-store/common/svg/sprite.svg#slideshare"></use>
+</svg>
+
+</a>
+</li>
+</ul>
+</div>
+
+</div>
+<div class="n-footer__bottom-right">
+  <p class="n-footer__fine-print">Web サイトについてのフィードバックを<a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">お寄せください</a>
+  <a href="https://docs.netapp.com/ja-jp/announcements/" class="n-footer__copyright">お知らせ</a>
+  </p>
+</div>
+</div>
+</div>
+</footer>
+
+      </div>
+
+      <!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/ja-jp/astra-data-store/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/ja-jp/astra-data-store/js/prism.js'></script>
+      <script type="text/javascript" src='/ja-jp/astra-data-store/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/ja-jp/astra-data-store/js/www-ntap.js'></script>
+    <script src='/ja-jp/astra-data-store/js/tabbed-blocks.js'></script>
+  </body>
+
+  
+</html>
