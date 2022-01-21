@@ -14,7 +14,7 @@ summary: まずは、環境のサポート状況を確認します。
 
 Astra データストアプレビュー：ベアメタル環境と VM ベース環境の両方をサポートAstra データストアプレビュークラスタは、 4 つ以上のワーカーノードを含む Kubernetes クラスタで実行できます。Astra データストアプレビューソフトウェアは、同じ Kubernetes クラスタで実行されている他のアプリケーションと共存できます。
 
-Astra Data Store プレビューは、 Astra Trident CSI ドライバを使用した Kubernetes ワークロードの PVS のプロビジョニングのみをサポートします。VM ワークロードは、 Astra データストアの今後のリリースでサポートされる予定です。
+Astra Data Store のプレビューでは、 Astra Trident CSI ドライバを使用して Kubernetes ワークロード用の永続的ボリュームのみをプロビジョニングできます。VM ワークロードは、 Astra データストアの今後のリリースでサポートされる予定です。
 
 
 NOTE: Astra Control Center から Astra データストアプレビュークラスタを管理する場合は、 Astra データストアプレビュークラスタがを満たしていることを確認します https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html#kubernetes-cluster-general-requirements["Astra Control Center で管理するクラスタの要件"^] ここに記載されている要件に加えて、
@@ -23,7 +23,7 @@ NOTE: Astra Control Center から Astra データストアプレビュークラ�
 
 == Kubernetes ワーカーノードのリソース要件
 
-Kubernetes クラスタ内の各ワーカーノード上の Astra Data Store プレビューソフトウェアに割り当てるために必要なリソースの最小要件を次に示します。
+Kubernetes クラスタ内の各ワーカーノード上の Astra Data Store プレビューソフトウェアに割り当てるために必要なリソース要件は次のとおりです。
 
 |===
 | リソース | 最小（ Minimum ） | 最大 
@@ -119,7 +119,7 @@ NOTE: Astra Data Store のプレビュー版では、ストレージのプロビ
 
 == ネットワーク要件
 
-Astra データストアプレビューを実行するには、 MVIP 用にクラスタごとに 1 つの IP アドレスが必要です。MIP と同じサブネット内の未使用の IP アドレスまたは未設定の IP アドレスを指定する必要があります。Astra Data Store プレビュー管理インターフェイスは、 Kubernetes ノードの管理インターフェイスと同じである必要があります。
+Astra データストアプレビューを実行するには、クラスタごとに MVIP 用の IP アドレスが 1 つ必要です。MIP と同じサブネット内の未使用の IP アドレスまたは未設定の IP アドレスを指定する必要があります。Astra Data Store プレビュー管理インターフェイスは、 Kubernetes ノードの管理インターフェイスと同じである必要があります。
 
 また、次の表に示すように各ノードを設定することもできます。
 

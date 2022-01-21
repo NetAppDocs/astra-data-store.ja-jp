@@ -120,7 +120,7 @@ NOTE: オペレータ、 nodeinfo ポッド、およびクラスタコントロ�
 +
 [listing]
 ----
-~% kubectl delete astradsversion atradsversion -n astrads-system
+~% kubectl delete astradsversion astradsversion -n astrads-system
 ~% kubectl get astradsversion -n astrads-system
 
 ----

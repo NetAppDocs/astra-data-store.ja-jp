@@ -22,16 +22,13 @@ kubectl コマンドを使用し、 Kubernetes API 拡張機能を使用して�
 * ノードを交換
 
 
-
-
-== 必要なもの
-
-* Astra データストアプレビュー kubectl プラグインがインストールされました link:../get-started/install-ads.html["Astra データストアプレビューをインストールします"]
+.必要なもの
+* にインストールした Astra データストアプレビュー用 kubectl プラグイン link:../get-started/install-ads.html["Astra データストアプレビューをインストールします"]
 
 
 
 
-== Kubernetes カスタム API リソースが Astra データストアのプレビュー版として用意されました
+== Astra データストアプレビュー用の Kubernetes カスタム API リソースを列挙
 
 Kubernetes の内部で kubectl コマンドを使用して、 Astra データストアプレビュークラスタとやり取りし、状態を確認できます。
 
@@ -39,7 +36,7 @@ Kubernetes の内部で kubectl コマンドを使用して、 Astra データ�
 
 このリストは、後で示すように、各 Astra Data Store プレビューオブジェクトの短い名前を取得して入力を減らすのに特に役立ちます。
 
-. Kubernetes のカスタム API リソースである Astra データストアのプレビューの一覧を表示します。
+. Kubernetes のカスタム API リソースである Astra データストアプレビュー版のリストを表示します。
 +
 [listing]
 ----
@@ -100,7 +97,7 @@ astrads-system   astradsautosupport.astrads.netapp.io/storage-callhome.dbs.clust
 NAMESPACE        NAME                                  ADSCLUSTER          VALID PRODUCT          EVALUATION ENDDATE    VALIDATED
 astrads-system   astradslicense.astrads.netapp.io/e0   astrads-cluster-9f1 true  Astra Data Store true       2022-02-07 2021-12-16T20:43:23Z
 ----
-. 最後に、短縮名の 1 つを使用して、クラスタ内のボリュームの現在の状態を表示します。
+. 短縮名の 1 つを使用して、クラスタ内のボリュームの現在の状態を表示します。
 +
 [listing]
 ----
