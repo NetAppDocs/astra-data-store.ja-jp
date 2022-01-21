@@ -703,7 +703,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-17 16:39:00 +0000">01/17/2022</time>
+    <time datetime="2022-01-21 20:21:27 +0000">01/21/2022</time>
     
   
 
@@ -716,19 +716,19 @@
           style="border-radius: 50%;"/>
   </a>
   
-  <a target="_blank" href="https://github.com/netapp-mwallis">
-    <img  class="avatar avatar-small"
-          alt="netapp-mwallis"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/53353653?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
   <a target="_blank" href="https://github.com/netapp-dbagwell">
     <img  class="avatar avatar-small"
           alt="netapp-dbagwell"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/53352450?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/netapp-mwallis">
+    <img  class="avatar avatar-small"
+          alt="netapp-mwallis"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/53353653?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -765,22 +765,18 @@
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="必要なもの">必要なもの</h2>
-<div class="sectionbody">
 <div class="ulist">
+<div class="title">必要なもの</div>
 <ul>
 <li>
-<p>Astra データストアプレビュー kubectl プラグインがインストールされました <a href="../get-started/install-ads.html">"Astra データストアプレビューをインストールします"</a></p>
+<p>にインストールした Astra データストアプレビュー用 kubectl プラグイン <a href="../get-started/install-ads.html">"Astra データストアプレビューをインストールします"</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="kubernetes-カスタム-api-リソースが-astra-データストアのプレビュー版として用意されました">Kubernetes カスタム API リソースが Astra データストアのプレビュー版として用意されました</h2>
+<h2 id="astra-データストアプレビュー用の-kubernetes-カスタム-api-リソースを列挙">Astra データストアプレビュー用の Kubernetes カスタム API リソースを列挙</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Kubernetes の内部で kubectl コマンドを使用して、 Astra データストアプレビュークラスタとやり取りし、状態を確認できます。</p>
@@ -794,7 +790,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Kubernetes のカスタム API リソースである Astra データストアのプレビューの一覧を表示します。</p>
+<p>Kubernetes のカスタム API リソースである Astra データストアプレビュー版のリストを表示します。</p>
 <div class="listingblock">
 <div class="content">
 <pre>kubectl api-resources --api-group astrads.netapp.io
@@ -859,7 +855,7 @@ astrads-system   astradslicense.astrads.netapp.io/e0   astrads-cluster-9f1 true 
 </div>
 </li>
 <li>
-<p>最後に、短縮名の 1 つを使用して、クラスタ内のボリュームの現在の状態を表示します。</p>
+<p>短縮名の 1 つを使用して、クラスタ内のボリュームの現在の状態を表示します。</p>
 <div class="listingblock">
 <div class="content">
 <pre>bash-4.2$ kubectl get adsvo -A
