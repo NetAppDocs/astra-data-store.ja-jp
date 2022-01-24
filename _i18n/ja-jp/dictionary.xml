@@ -393,7 +393,6 @@
   <block id="6929f0cedcea1d6e056ea216f0388b3a" category="summary">Astra データストアクラスタは拡張が可能です。</block>
   <block id="85c9296df6a3c9630ed684b4af8847a8" category="doc">クラスタの拡張</block>
   <block id="adb8e906da60ee75c25264b57f7ea87b" category="inline-link-macro">Astra データストアの要件</block>
-  <block id="53ba6f78a5959abd0fed5dd621c61f53" category="paragraph">Astra データストアプレビュー：クラスタ内でさまざまなタイプや機能のノードをサポートクラスタを拡張する場合は、パフォーマンス機能がクラスタ内のパフォーマンスが最も低いノードよりも低いノード以外のノードを追加することを Astra データストアプレビューでサポートしています。新しいノードのストレージ容量は既存のノードと同じである必要があります。拡張時の新しいノードを含むすべてのノードは、に示した最小要件を満たしている必要があります <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
   <block id="ef22ff17624b3faeed227ce5c717eb5f" category="inline-link">Astra Control Service のマニュアル</block>
   <block id="6762180adf48075df77efbf264e982ec" category="list-text"><block ref="6762180adf48075df77efbf264e982ec" category="inline-link-rx"></block></block>
   <block id="14d9b10c6196045941347a9e85704b50" category="inline-link">Astra Trident のドキュメント</block>
@@ -717,7 +716,6 @@
   <block id="a33be05f8cf7234feb5f33257c901f01" category="list-text">データ IP ： CIP と同じサブネット内の各ノードに未使用または未設定の IP アドレスが 1 つあります</block>
   <block id="6960e0648bb96ae26e178a20a5b245eb" category="admonition">これらの構成では ' クラスタカスタムリソース (CR) ファイルのデータネットワークゲートウェイフィールド 'astraadscluster.yaml ' は省略してください各ノードの既存のルーティング設定には、すべてのアドレスを指定できます。</block>
   <block id="c6614b840aed1f56769d06419ac7f1fa" category="admonition">これらの構成では VLAN タグは使用されません。</block>
-  <block id="ceedae14ac976bff9044b24f80f01669" category="section-title">CSI ドライバ</block>
   <block id="5b39c767e05e7aa4e621836f3b785b9f" category="inline-link-macro">ストレージバックエンド</block>
   <block id="e606f5db902f554cc95c70ea6a7bc203" category="paragraph">Astra データストアプレビューを実行するには、 Kubernetes クラスタが Astra Trident 21.10.1 を実行している必要があります。Astra データストアプレビューは、として構成できます <block ref="318182cdb74d3be9931dae83174d547a" category="inline-link-macro-rx"></block> ネットアップの Trident で永続的ボリュームをプロビジョニング</block>
   <block id="a5d3b123919ae2c9260d2939457fc07b" category="section-title">CNI 構成</block>
@@ -982,4 +980,6 @@
   <block id="47f8b794122f623881dd8d068fac57ee" category="list-text">クラスタが正常な状態で稼働し、少なくとも 4 つのオンラインワーカーノードが必要です。</block>
   <block id="7d39093ae7a79f74883015012f6ca82f" category="list-text">Kubernetes スナップショットカスタムリソース定義（ CRD ）とコントローラをインストールする。</block>
   <block id="15daf8b029674b0b28ec44dbd2615e14" category="list-text">デフォルトの Astra データストアプレビューストレージクラスを作成</block>
+  <block id="a8272dc0dc5732e847bfe578c20695d8" category="paragraph">Astra データストアプレビュー：クラスタ内でさまざまなタイプや機能のノードをサポートクラスタを拡張する場合は、パフォーマンス機能がクラスタ内のパフォーマンスが最も低いノードよりも低いノード以外のノードを追加することを Astra データストアプレビューでサポートしています。新しいノードのストレージ容量は既存のノードと同じである必要があります。拡張時の新しいノードを含むすべてのノードは、に示した最小要件を満たしている必要があります <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
+  <block id="086e6c16e3fe8e13c336612ef636aa02" category="section-title">Astra Trident</block>
 </blocks>

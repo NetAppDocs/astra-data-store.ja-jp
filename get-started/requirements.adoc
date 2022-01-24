@@ -160,7 +160,7 @@ NOTE: これらの構成では VLAN タグは使用されません。
 
 
 
-== CSI ドライバ
+== Astra Trident
 
 Astra データストアプレビューを実行するには、 Kubernetes クラスタが Astra Trident 21.10.1 を実行している必要があります。Astra データストアプレビューは、として構成できます link:../get-started/setup-ads.html#set-up-astra-data-store-as-storage-backend["ストレージバックエンド"] ネットアップの Trident で永続的ボリュームをプロビジョニング
 
