@@ -4,7 +4,7 @@ title: Astra データストアを使用
 entries:
 - title: Astra データストア資産の管理
   url: "/use/kubectl-commands-ads.html"
-- title: アプリケーションをセットアップする
+- title: テストアプリケーションを展開します
   url: "/use/deploy-apps.html"
 - title: クラスタを管理
   url: "/use/maintain-cluster.html"

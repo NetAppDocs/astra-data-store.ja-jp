@@ -17,7 +17,7 @@ summary: Astra データストアを導入するには、いくつかの手順�
 https://www.netapp.com/cloud-services/astra/data-store-form/["こちらから登録してください"^] から Astra データストアプレビューライセンスを取得できます。
 
 .<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="One"></span> Kubernetes クラスタの要件を確認します
-* クラスタが正常な状態で稼働し、少なくとも 4 つのオンラインワーカーノードが必要です。
+* クラスタが正常な状態で稼働し、少なくとも 4 つのワーカーノードがある必要があります。
 * Astra データストアプレビュー環境を構成する各 Kubernetes ワーカーノードには、同じインターフェイスタイプ（ SATA 、 SAS 、 NVMe ）の SSD と、 Astra データストアプレビュークラスタに割り当てられているドライブの数が同じである必要があります。
 * SSD のシリアル番号はそれぞれ一意である必要があります。
 
@@ -28,9 +28,10 @@ https://www.netapp.com/cloud-services/astra/data-store-form/["こちらから登
 .<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] alt="2"></span> Astra データストアプレビューをダウンロードしてインストールします
 * から Astra データストアプレビューをダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^]。
 * Astra データストアプレビューをローカル環境にインストールします。
-* 必要に応じて、監視オペレータをインストールします。これにより、 NetApp Cloud Insights に接続して、システムの健全性、容量、およびスループットに関する指標を表示できます。
 * Astra データストアプレビューライセンスを適用
 * Astra データストアプレビュークラスタをインストール
+* Astra データストアのプレビュー監視を設定
+* Red Hat OpenShift を使用する場合は、 Red Hat OpenShift Container Platform （ OCP ）に Astra データストアプレビューをインストールします。
 
 
 [role="quick-margin-para"]
@@ -46,7 +47,7 @@ https://www.netapp.com/cloud-services/astra/data-store-form/["こちらから登
 [role="quick-margin-para"]
 の詳細については、を参照してください link:../get-started/setup-ads.html["初期セットアッププロセス"]。
 
-[role="quick-margin-list"]
+[role="quick-margin-para"]
 Astra データストアプレビューのセットアップが完了したら、次の手順を実行します。
 
 * kubectl コマンドと kubectl ファイルシステム拡張機能を使用して、ノードの保守モードへの切り替え、ドライブの交換、ノードの交換などのタスクを含む、クラスタを管理します。の詳細を確認してください link:../use/kubectl-commands-ads.html["kubectl コマンドを Astra データストアプレビューで使用する方法"]。

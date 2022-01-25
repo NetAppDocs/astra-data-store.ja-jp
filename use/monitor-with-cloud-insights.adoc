@@ -12,7 +12,7 @@ summary: Cloud Insights 指標を使用して、 Astra データストアアセ�
 
 Cloud Insights を使用して、 Astra データストアのプレビュー指標を監視できます。
 
-* <<Complete Cloud Insight connection prerequisite tasks>>
+* <<Complete Cloud Insights connection prerequisite tasks>>
 * <<Download and run the installation script>>
 * <<Edit the Cloud Insights connection>>
 * <<Disconnect from Cloud Insights>>
@@ -24,7 +24,7 @@ Cloud Insights に表示される Astra データストアプレビュー指標�
 
 
 
-== Cloud Insight の接続の前提条件となるタスクを実行
+== Cloud Insights 接続の前提条件となる作業を完了する
 
 Cloud Insights を使用して Astra データストアに接続する前に、次の作業が必要です。
 
@@ -257,7 +257,7 @@ Cloud Insights から切断するには、最初に Cloud Insights UI から Ast
 
 
 
-=== Astra Data Store コレクタを削除
+=== Astra Data Store プレビューコレクタを削除
 
 . Cloud Insights にログインします。
 . [*Admin*>] > [* Data Collectors] を選択して、 [Data Collectors] ページにアクセスします。

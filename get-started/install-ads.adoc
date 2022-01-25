@@ -14,6 +14,7 @@ Astra データストアプレビューをインストールするには、か�
 
 または、を使用することもできます link:install-ads-openshift.html["Red Hat OpenShift Container Platform （ OCP ）への Astra データストアプレビューのインストール"]。
 
+video::jz6EuryqYps[youtube, ]
 .必要なもの
 * link:requirements.html["インストールを開始する前に、 Astra データストアプレビュー環境を準備します"]。
 * にアクセスします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^]。 フルアクセスのネットアップサポートサイトアカウントをまだお持ちでない場合は、プレビュー版をお持ちください。
