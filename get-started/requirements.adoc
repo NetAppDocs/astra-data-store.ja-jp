@@ -71,15 +71,15 @@ Astra Data Store プレビューソフトウェアは、次のハードウェア
 
 Astra データストアプレビューは、次のドライブタイプで検証済みです。
 
-* * ベアメタル環境 * ：ハイパーバイザーを使用せずに Linux クラスタ上の Kubernetes クラスタに Astra データストアプレビューを直接インストール。
+* * ベアメタル環境 * ：ハイパーバイザーを使用せずに Linux クラスタ上の Kubernetes クラスタに Astra データストアプレビューを直接インストール
 +
-** SATA または NVMe TLC SSD 。
+** NVMe TLC SSD
 
 
-* * VM ベースの導入 * ： ESXi クラスタでホストされた Linux VM 上の Kubernetes クラスタに Astra データストアプレビューをインストール。
+* * VM ベースの導入 * ： ESXi クラスタでホストされた Linux VM 上の Kubernetes クラスタに Astra データストアプレビューをインストール
 +
-** SATA 、 SAS 、または NVMe TLC SSD ベースのデータストア。
-** 仮想ディスクまたはパススルードライブとして提供されるドライブ。
+** SAS または NVMe TLC SSD ベースのデータストア
+** 仮想ディスクまたはパススルードライブとして提供されるドライブ
 
 
 
