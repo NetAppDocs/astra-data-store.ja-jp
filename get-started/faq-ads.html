@@ -624,7 +624,7 @@
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/kubectl-commands-ads.html">
         Astra データストア資産の管理
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/deploy-apps.html">
-        アプリケーションをセットアップする
+        テストアプリケーションを展開します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/maintain-cluster.html">
         クラスタを管理
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-cloud-insights.html">
@@ -703,7 +703,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-24 21:54:32 +0000">01/24/2022</time>
+    <time datetime="2022-01-25 17:29:21 +0000">01/25/2022</time>
     
   
 
@@ -754,12 +754,15 @@
 <p>本番環境で Astra データストアプレビューを使用できますか？ * いいえAstra データストアはエンタープライズクラスの耐障害性を実現するように設計、開発されていますが、 Astra データストアプレビュー版は本番環境のワークロードには適していません。</p>
 </li>
 <li>
-<p>仮想マシンのワークロードに対して Astra Data Store プレビューを使用できますか？ * Astra Data Store プレビューリリースは、ベアメタルマシンでも仮想マシンでも Kubernetes で実行されているアプリケーションに限定されます。今後のリリースでは、 Kubernetes と ESXi 仮想マシンの両方でアプリケーションがサポートされる予定です。詳細はこちら <a href="../get-started/requirements.html">"Astra データストアの要件"</a>。</p>
+<p>仮想マシンのワークロードに対して Astra Data Store プレビューを使用できますか？ * Astra Data Store プレビューリリースは、ベアメタルマシンでも仮想マシンでも Kubernetes で実行されているアプリケーションに限定されます。今後のリリースでは、 Kubernetes と ESXi 仮想マシンの両方でアプリケーションがサポートされる予定です。を参照してください <a href="../get-started/requirements.html">"Astra データストアの要件"</a>。</p>
 </li>
 <li>
-<p>Astra データストアプレビューには、他のネットアップ製品との依存関係はありますか？ * はい。Astra Data Store のプレビューを利用するには、 NetApp CSI ドライバ Astra Trident バージョン 21.10.1 以降をワークロードの Kubernetes クラスタに導入する必要があります。詳細はこちら <a href="../get-started/requirements.html">"Astra データストアの要件"</a>。</p>
+<p>Astra Data Store のプレビュー版には、他のネットアップ製品との依存関係はありますか？ *</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>はい。Astra Data Store のプレビューを利用するには、 NetApp CSI ドライバ Astra Trident バージョン 21.10.1 以降をワークロードの Kubernetes クラスタに導入する必要があります。詳細はこちら <a href="../get-started/requirements.html">"Astra データストアの要件"</a>。</p>
 </div>
 <div class="paragraph">
 <p>Astra Data Store プレビュー版クラスタをストレージバックエンドとして使用するアプリケーションであれば <a href="https://docs.netapp.com/us-en/astra-control-center/index.html" target="_blank" rel="noopener">"Astra Control Center の略"</a> バージョン 21.12 データ保護、ディザスタリカバリ、 Kubernetes ワークロードの移行など、アプリケーション対応のデータ管理機能を活用するために必要です。</p>
@@ -807,7 +810,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>詳細はこちら <a href="../get-started/requirements.html">"Astra データストアの要件"</a>。</p>
+<p>を参照してください <a href="../get-started/requirements.html">"Astra データストアの要件"</a>。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -824,16 +827,23 @@
 <div class="ulist">
 <ul>
 <li>
-<p>ベアメタルまたは仮想マシンで実行されている Kubernetes クラスタに Astra Data Store プレビューをインストールできますか？ * はい。Astra データストアプレビューは、ベアメタルまたは ESXi VM で実行されている Kubernetes クラスタにインストールできます。詳細はこちら <a href="../get-started/requirements.html">"Astra データストアのプレビュー要件"</a>。</p>
+<p>ベアメタルまたは仮想マシンで実行されている Kubernetes クラスタに Astra Data Store プレビューをインストールできますか？ * はい。Astra データストアプレビューは、ベアメタルまたは ESXi VM で実行されている Kubernetes クラスタにインストールできます。を参照してください <a href="../get-started/requirements.html">"Astra データストアのプレビュー要件"</a>。</p>
 </li>
 <li>
-<p>Astra Data Store プレビュー版でサポートされている Kubernetes のバージョンは何ですか？ * Astra Data Store プレビューは、 v1.20 以降と互換性のある Kubernetes ディストリビューションで機能します。ただし、現時点では、 Kubernetes のすべてのディストリビューションで検証されているわけではありません。詳細はこちら <a href="../get-started/requirements.html">"Astra データストアのプレビュー要件"</a>。</p>
+<p>Astra Data Store プレビュー版でサポートされている Kubernetes のバージョンは何ですか。 *</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Astra Data Store プレビューは、 v1.20 以降と互換性のある Kubernetes ディストリビューションで機能します。ただし、現時点では、 Kubernetes のすべてのディストリビューションで検証されているわけではありません。詳細はこちら <a href="../get-started/requirements.html">"Astra データストアのプレビュー要件"</a>。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>My Kubernetes クラスタは 5 つ以上のワーカーノードで構成されています。Astra データストアプレビューを IT にインストールできますか。 * はい。Astra データストアプレビュークラスタは、 Kubernetes クラスタ内の 4 つのワーカーノードに導入できます。導入後、クラスタを 5 つのワーカーノードに拡張できます。</p>
 </li>
 <li>
-<p>My Kubernetes クラスタは 5 つ以上のワーカーノードで構成されています。Astra データストアプレビューを IT にインストールできますか。 * はい。Astra データストアプレビュークラスタは、 Kubernetes クラスタ内の 4 つまたは 5 つのワーカーノードに導入できます。Kubernetes クラスタには、 Astra Data Store プレビュークラスタを導入するワーカーノードを 4 つまたは 5 つ選択できます。</p>
-</li>
-<li>
-<p>Astra データストアプレビューは、プライベートレジストリからのオフラインインストールをサポートしていますか。 * はい。Astra データストアプレビューは、ローカルレジストリからオフラインでインストールできます。を参照してください <a href="../get-started/install-ads.html">"Astra データストアプレビューをインストールします"</a>。ただし、ネットアップサポートバックエンド（ support.netapp.com ）に接続して運用を継続するには、 Astra データストアのプレビュー版を利用する必要があります（直接またはプロキシ経由）。</p>
+<p>Astra データストアプレビューは、プライベートレジストリからのオフラインインストールをサポートしていますか。 * はい。Astra データストアプレビューは、ローカルレジストリからオフラインでインストールできます。を参照してください <a href="../get-started/install-ads.html">"Astra データストアプレビューをインストールします"</a>。ただし、 Astra データストアプレビューを継続的に利用するには、 NetApp AutoSupport バックエンド（ support.netapp.com ）に（直接またはプロキシ経由で）接続する必要があります。</p>
 </li>
 <li>
 <p>Astra データストアプレビューを使用するにはインターネットに接続する必要がありますか？ * Astra データストアプレビューを利用するには、必須の AutoSupport バンドルを定期的に送信するために、ネットアップ AutoSupport バックエンドに接続する必要があります。直接接続かプロキシ経由で接続できます。この接続がないか AutoSupport が無効な場合、クラスタがロックダウンされ、定期的なバンドルアップロードが再開されるまで新しいボリュームの作成が無効になります。</p>
@@ -886,7 +896,7 @@
 <p>プレビューリリースでは、システムがクラウドに接続され、 NetApp Active IQ ツールと AutoSupport ツールに統合されている必要があります。</p>
 </div>
 <div class="paragraph">
-<p>詳細はこちら <a href="../support/get-help-ads.html">"Astra データストアサポート業務"</a>。</p>
+<p>を参照してください <a href="../support/get-help-ads.html">"Astra データストアサポート業務"</a>。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -914,7 +924,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>詳細はこちら <a href="../get-started/requirements.html">"Astra データストアのプレビュー要件"</a>。</p>
+<p>を参照してください <a href="../get-started/requirements.html">"Astra データストアのプレビュー要件"</a>。</p>
 </div>
 </div>
 </div>

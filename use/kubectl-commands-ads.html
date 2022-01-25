@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>kubectl コマンドを使用して Astra データストアのプレビューを管理</title>
+  <title>kubectl コマンドを使用して Astra データストアのプレビューアセットを管理</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="kubectl コマンドを使用して Astra データストアのプレビューを管理" />
+  <meta property="og:title" content="kubectl コマンドを使用して Astra データストアのプレビューアセットを管理" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/use/kubectl-commands-ads.html" />
 	<meta property="og:description" content="kubectl コマンドは Astra データストアで直接使用できます。" />
@@ -624,7 +624,7 @@
       <ul><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/kubectl-commands-ads.html">
         Astra データストア資産の管理
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/deploy-apps.html">
-        アプリケーションをセットアップする
+        テストアプリケーションを展開します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/maintain-cluster.html">
         クラスタを管理
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-cloud-insights.html">
@@ -673,7 +673,7 @@
           <a href="/ja-jp/astra-data-store/">Astra&nbsp;Data&nbsp;Store</a>
         </li>
         <li class="n-breadcrumb__list-item">
-          kubectl コマンドを使用して Astra データストアのプレビューを管理
+          kubectl コマンドを使用して Astra データストアのプレビューアセットを管理
         </li>
       </ul>
     </div>
@@ -696,14 +696,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">kubectl コマンドを使用して Astra データストアのプレビューを管理</h1>
+  <h1 class="n-doc__component-detail-heading">kubectl コマンドを使用して Astra データストアのプレビューアセットを管理</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-01-24 21:54:32 +0000">01/24/2022</time>
+    <time datetime="2022-01-25 17:29:21 +0000">01/25/2022</time>
     
   
 
@@ -793,9 +793,15 @@
 <p>Kubernetes のカスタム API リソースである Astra データストアプレビュー版のリストを表示します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>kubectl api-resources --api-group astrads.netapp.io
-
-NAME                   SHORTNAMES  APIGROUP           NAMESPACED  KIND
+<pre>kubectl api-resources --api-group astrads.netapp.io</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>対応：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME                   SHORTNAMES  APIGROUP           NAMESPACED  KIND
 astradsversions         adsve      astrads.netapp.io  true        AstraDSVersion
 astradsclusters         adscl      astrads.netapp.io  true        AstraDSCluster
 astradslicenses         adsli      astrads.netapp.io  true        AstraDSLicense
@@ -815,9 +821,15 @@ astradsnodemanagements  adsnm      astrads.netapp.io  true        AstraDSNodeMan
 <p>Kubernetes クラスタ内の現在の Astra データストアプレビューオブジェクトをすべて取得するには、「 kubectl get ads-a 」コマンドを使用します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>bash-4.2$ kubectl get ads -A
-
-NAMESPACE        NAME                                        AGE
+<pre>kubectl get ads -A</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>対応：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAMESPACE        NAME                                        AGE
 astrads-system   astradsqospolicy.astrads.netapp.io/bronze   45h
 astrads-system   astradsqospolicy.astrads.netapp.io/gold     45h
 astrads-system   astradsqospolicy.astrads.netapp.io/silver   45h
@@ -858,8 +870,15 @@ astrads-system   astradslicense.astrads.netapp.io/e0   astrads-cluster-9f1 true 
 <p>短縮名の 1 つを使用して、クラスタ内のボリュームの現在の状態を表示します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>bash-4.2$ kubectl get adsvo -A
-NAMESPACE        NAME       SIZE   IP               CLUSTER                   CREATED
+<pre>kubectl get adsvo -A</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>対応：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAMESPACE        NAME       SIZE   IP               CLUSTER                   CREATED
 astrads-system   test234    21Gi   172.25.138.109   astrads-cluster-9f1c99f   true
 astrads-system   test2345   21Gi   172.25.138.111   astrads-cluster-9f1c99f   true</pre>
 </div>
@@ -881,8 +900,15 @@ astrads-system   test2345   21Gi   172.25.138.111   astrads-cluster-9f1c99f   tr
 <p>Astra Data Store preview kubectl 拡張機能のすべてのコマンドのヘルプを表示します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>bash-4.2$ kubectl astrads -h
-A kubectl plugin for inspecting your AstraDS deployment
+<pre>kubectl astrads -h</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>対応：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>A kubectl plugin for inspecting your AstraDS deployment
 
 Usage:
   astrads [command]
@@ -929,11 +955,15 @@ Flags:
 <p>コマンドの詳細については 'astrads [command]--help' を使用してください</p>
 <div class="listingblock">
 <div class="content">
-<pre>  # Show help for a specific astrads command
-
-  bash-4.2$ kubectl astrads asup collect --help
-  WARNING: YOU ARE USING A DEV RELEASE
-  Collect the autosupport bundle by specifying the component to collect. It will default to manual event.
+<pre>kubectl astrads asup collect --help</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>対応：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  Collect the autosupport bundle by specifying the component to collect. It will default to manual event.
 
   Usage:
     astrads asup collect [flags]
@@ -996,7 +1026,7 @@ Flags:
   <div class="page-nav-toolbar">
     <div id="version-dropdown"></div>
     <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[kubectl コマンドを使用して Astra データストアのプレビューを管理](https://docs.netapp.com/ja-jp/astra-data-store/use/kubectl-commands-ads.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[kubectl コマンドを使用して Astra データストアのプレビューアセットを管理](https://docs.netapp.com/ja-jp/astra-data-store/use/kubectl-commands-ads.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a>
       <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/kubectl-commands-ads.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a>
       <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a>
     </div>
