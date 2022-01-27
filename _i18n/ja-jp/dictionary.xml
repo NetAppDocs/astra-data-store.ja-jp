@@ -512,7 +512,6 @@
   <block id="9b5fa79969e9a6e522104cdbe7e5b5d3" category="paragraph">* Astra Data Store プレビューリリースからアップグレードできますか。 * いいえAstra データストアプレビューは本番環境のワークロードには適用されず、 Astra データストアプレビューソフトウェアの新しいリリースには新規インストールが必要になります。</block>
   <block id="f8e5d5352b626bd2d029c4bd8ea9d47a" category="summary">Astra データストアをインストールし、環境に関する前提条件をいくつか取り上げたら、 Astra Trident のインストールまたは更新、 Kubernetes のスナップショット機能の設定、ストレージバックエンドのセットアップ、およびデフォルトのストレージクラスの作成を行います。</block>
   <block id="19631c9457203d96b87631ebe7414561" category="doc">Astra Data Store のプレビューコンポーネントをセットアップする</block>
-  <block id="c6b43cb83affec45395d5e8463e67e03" category="paragraph">Astra Data Store のプレビューをインストールし、環境に関するいくつかの前提条件に対処したら、 Astra Trident をインストールし、 Kubernetes のスナップショット機能を設定し、ストレージバックエンドをセットアップして、デフォルトのストレージクラスを作成します。</block>
   <block id="b242850ad01d99f75ddfd4f74dfebad7" category="list-text"><block ref="e182f16fc549d59ca5882ebcc8d36a3d" category="inline-xref-macro-rx"></block></block>
   <block id="38dbb49a55339dc2dbba9028c6176375" category="list-text"><block ref="a0e69e669f52a5cafaeb2bea82f6649c" category="inline-xref-macro-rx"></block></block>
   <block id="01b9d33e8be610298a88d84e6d7abbfe" category="list-text"><block ref="dcd2e63384cc1964e08e6b39f6f60b05" category="inline-xref-macro-rx"></block></block>
@@ -525,7 +524,6 @@
   <block id="9cbe472556d86bca1de7978af69e74d5" category="list-text"><block ref="802e7b84d831ea6d56a6d132aa8a7db4" category="inline-link-rx"></block>。</block>
   <block id="c2c5c71258d8e55bd320745371789d00" category="admonition">Trident オペレータは、手動または Helm を使用して導入できます。</block>
   <block id="d79ccdfe6809f469235ccec6dcc85362" category="section-title">Kubernetes スナップショットの CRD とコントローラをインストールします</block>
-  <block id="fb9ed05e85a3a832de77678ce6afc3a6" category="paragraph">PVC スナップショットを作成するには、 Kubernetes スナップショットの CRD とコントローラが必要です。環境に CRD とコントローラがインストールされていない場合は、次のコマンドを実行してインストールします。</block>
   <block id="f6a6928c71289ccfc6e517aa2e23c8dd" category="admonition">次のコマンド例では ' ディレクトリとして /trident` を想定していますが ' 使用するディレクトリは 'YAML ファイルのダウンロードに使用した任意のディレクトリにすることができます</block>
   <block id="b3f07915b49e4ea1df947a086346e6cc" category="inline-link-macro">インストールを開始する前に、 Astra データストアプレビュー環境を準備します</block>
   <block id="38e54550c131045d7072709ab7bdb0c9" category="list-text"><block ref="e8ea8205c2ef5ca696bb2e550839cf2e" category="inline-link-macro-rx"></block>。</block>
@@ -986,4 +984,7 @@
   <block id="9b457c92683a310dc6efb6123d814fa6" category="list-text">* VM ベースの導入 * ： ESXi クラスタでホストされた Linux VM 上の Kubernetes クラスタに Astra データストアプレビューをインストール</block>
   <block id="9f79eec1648f781d94bc7ca1e42c3417" category="list-text">SAS または NVMe TLC SSD ベースのデータストア</block>
   <block id="09195210bb32cb68478488870fe3d637" category="list-text">仮想ディスクまたはパススルードライブとして提供されるドライブ</block>
+  <block id="5a880b8c445a800acadf32c4ad7af071" category="list-text"><block ref="a71874fb50b79b81cbba98e9c1dfefdf" category="inline-xref-macro-rx"></block></block>
+  <block id="d123277e1fd8558573c3d0919aa684f3" category="paragraph">Astra Data Store のプレビューをインストールし、環境に関するいくつかの前提条件に対処したら、 Astra Trident をインストールし、 Kubernetes のスナップショット機能を設定し、ストレージバックエンドをセットアップして、デフォルトのストレージクラスを作成します。</block>
+  <block id="5ab1da70b106ac4cac7486f910a193f7" category="paragraph">永続的ボリューム要求（ PVC ）の Snapshot を作成するには、 Kubernetes の Snapshot SSD とコントローラが必要です。環境に CRD とコントローラがインストールされていない場合は、次のコマンドを実行してインストールします。</block>
 </blocks>
