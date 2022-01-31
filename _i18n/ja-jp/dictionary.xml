@@ -123,7 +123,6 @@
   <block id="482723983a4f2af954e36ff41e567451" category="inline-link-macro">既知の制限</block>
   <block id="58ddb149ad752e78b7ddd185699b6c95" category="list-text"><block ref="58ddb149ad752e78b7ddd185699b6c95" category="inline-link-macro-rx"></block></block>
   <block id="3c60bfdc14ab00c255a4234e22b93fce" category="summary">ネットアップは Astra データストアを定期的に更新して、新機能、拡張機能、バグ修正を提供</block>
-  <block id="fd8fab2b77961e520a179634de8b2fa4" category="doc">このリリースの Astra データストアに含まれるもの</block>
   <block id="60b3c8fc57a7a1ef017f271fa49525b0" category="paragraph">アストラデータストアの 21.12 プレビューリリースが発表されました。</block>
   <block id="543a7bce413677fa93bd0df794199bfc" category="section-title">2021 年 12 月 21 日（ 21.12 ）</block>
   <block id="b90b098f5e10f362e0311f845f8db412" category="inline-link-macro">それは何であるか</block>
@@ -987,4 +986,5 @@
   <block id="5a880b8c445a800acadf32c4ad7af071" category="list-text"><block ref="a71874fb50b79b81cbba98e9c1dfefdf" category="inline-xref-macro-rx"></block></block>
   <block id="d123277e1fd8558573c3d0919aa684f3" category="paragraph">Astra Data Store のプレビューをインストールし、環境に関するいくつかの前提条件に対処したら、 Astra Trident をインストールし、 Kubernetes のスナップショット機能を設定し、ストレージバックエンドをセットアップして、デフォルトのストレージクラスを作成します。</block>
   <block id="5ab1da70b106ac4cac7486f910a193f7" category="paragraph">永続的ボリューム要求（ PVC ）の Snapshot を作成するには、 Kubernetes の Snapshot SSD とコントローラが必要です。環境に CRD とコントローラがインストールされていない場合は、次のコマンドを実行してインストールします。</block>
+  <block id="dc226deab720368a24dc5cc25f3ad415" category="doc">このリリースの Astra データストアの内容</block>
 </blocks>

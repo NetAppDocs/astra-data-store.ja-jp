@@ -4,7 +4,7 @@ permalink: release-notes/whats-new.html
 keywords: what's new, bugs, bug fixes, new features, enhancements 
 summary: ネットアップは Astra データストアを定期的に更新して、新機能、拡張機能、バグ修正を提供 
 ---
-= このリリースの Astra データストアに含まれるもの
+= このリリースの Astra データストアの内容
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/release-notes/
