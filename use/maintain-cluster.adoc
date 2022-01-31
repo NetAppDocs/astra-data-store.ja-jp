@@ -43,10 +43,10 @@ summary: Astra データストアで kubectl コマンドを使用すると、�
 +
 [listing]
 ----
-ADS Data Networks:
-    Addresses:  dataIP1, dataIP2, dataIP3, dataIP4, *newdataIP*
+adsDataNetworks:
+    -addresses:  dataIP1,dataIP2,dataIP3,dataIP4,*newdataIP*
 ----
-.. CR ファイルを保存します。
+.. CR を保存します。
 .. Astra データストアプレビュークラスタにノードを追加します。
 +
 [listing]
