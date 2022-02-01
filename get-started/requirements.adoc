@@ -208,3 +208,9 @@ Astra データストアプレビューを利用するには、 AutoSupport を�
 == 次の手順
 
 を表示します link:quick-start.html["クイックスタート"] 概要（ Overview ）：
+
+
+
+== を参照してください。
+
+link:capabilities.html["Astra データストアのプレビュー制限"]

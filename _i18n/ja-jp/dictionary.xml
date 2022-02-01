@@ -472,8 +472,6 @@
   <block id="45c48cce2e2d7fbdea1afc51c7c6ad26" category="cell">9.</block>
   <block id="71ace59df32db700cac820349c67dd2a" category="admonition">Astra データストアプレビュー版は、 VM ワークロードをサポートしていない。VMware VVOL ワークロードは今後のリリースでサポートする予定です。</block>
   <block id="0a20c90d5270bed19fcaf851778c663b" category="section-title">次の手順</block>
-  <block id="b4851e92b19af0c5c82447fc0937709d" category="inline-link-macro">要件</block>
-  <block id="a695e2ec087393b67c5decc922a11745" category="paragraph">構成がに合っていることを確認します <block ref="3675fd04b78685cacd6e23511ab11d10" category="inline-link-macro-rx"></block>。</block>
   <block id="b1151aae9531d2f5e85d085e8878cea6" category="summary">この FAQ は、質問に対する簡単な回答を探している場合に役立ちます。</block>
   <block id="0fc384ade3fa0a49e6200f91385d65a9" category="doc">Astra データストアのプレビューに関する FAQ</block>
   <block id="6014dc7d785a91f39eda065d13d62e52" category="paragraph">Astra Data Store のプレビュー版のインストール、設定、アップグレード、トラブルシューティングに関する FAQ を掲載しています。</block>
@@ -973,7 +971,6 @@
   <block id="2f4d5933ff58ee63b72cffb00159b0f4" category="paragraph">* Astra データストアプレビューは、プライベートレジストリからのオフラインインストールをサポートしていますか。 * はい。Astra データストアプレビューは、ローカルレジストリからオフラインでインストールできます。を参照してください <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。ただし、 Astra データストアプレビューを継続的に利用するには、 NetApp AutoSupport バックエンド（ support.netapp.com ）に（直接またはプロキシ経由で）接続する必要があります。</block>
   <block id="f6ef14054d61951d57b5e044756b16ef" category="paragraph">ネットアップのコンテナ向け Slack チャネルを使用して、ネットアップの Astra データストアプレビューでコミュニティサポートにアクセスできます。このチャネルの監視は、ネットアップのサポートエンジニアとテクニカルマーケティングエンジニアが行います。</block>
   <block id="b84bc82d6b1290562ebf05231992936a" category="paragraph">を参照してください <block ref="8d8c8ec655e8397711a9f4c0b3d58c93" category="inline-link-macro-rx"></block>。</block>
-  <block id="9afd9c344216e29885949ef527d064ad" category="paragraph">を参照してください <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
   <block id="847bcba6596dcd74ce49891aa01b04cb" category="list-text">クラスタが正常な状態で稼働し、少なくとも 4 つのワーカーノードがある必要があります。</block>
   <block id="b9d6af3a248ddac19c1574ec0ea3368f" category="list-text">Astra データストアのプレビュー監視を設定</block>
   <block id="68ae8bfef44263c7568e9225825a9511" category="list-text">Red Hat OpenShift を使用する場合は、 Red Hat OpenShift Container Platform （ OCP ）に Astra データストアプレビューをインストールします。</block>
@@ -987,4 +984,6 @@
   <block id="5ab1da70b106ac4cac7486f910a193f7" category="paragraph">永続的ボリューム要求（ PVC ）の Snapshot を作成するには、 Kubernetes の Snapshot SSD とコントローラが必要です。環境に CRD とコントローラがインストールされていない場合は、次のコマンドを実行してインストールします。</block>
   <block id="dc226deab720368a24dc5cc25f3ad415" category="doc">このリリースの Astra データストアの内容</block>
   <block id="034057e29f8eb1feedd93c2bb1f3c021" category="list-text">CR を保存します。</block>
+  <block id="eb178327aa7fefe80b381533b11cc4e6" category="paragraph">を参照してください <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block> および <block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block>。</block>
+  <block id="e15c2a80de21c8f7a5baec91689e624f" category="paragraph"><block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block></block>
 </blocks>

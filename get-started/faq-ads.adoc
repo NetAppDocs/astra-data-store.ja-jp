@@ -106,7 +106,7 @@ https://netapp.io/slack["ネットアップコンテナ向け Slack チャンネ
 
 * 大容量ドライブで Astra データストアプレビューを構成しても、大容量の永続ボリュームを取得できないのはなぜですか？ * Astra データストアプレビューにより、 Astra データセンターのすべてのノードでプロビジョニングされる最大容量が 1TiB に、すべてのノードで最大 5TiB に制限されます クラスタのプレビューを保存します。
 
-を参照してください link:../get-started/requirements.html["Astra データストアのプレビュー要件"]。
+を参照してください link:../get-started/requirements.html["Astra データストアのプレビュー要件"] および 。
 
 
 
