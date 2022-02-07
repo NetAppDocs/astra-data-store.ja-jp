@@ -13,6 +13,7 @@ summary: Cloud Insights 指標を使用して、 Astra データストアアセ�
 Cloud Insights を使用して、 Astra データストアのプレビュー指標を監視できます。
 
 * <<Complete Cloud Insights connection prerequisite tasks>>
+* <<Acquisition Unit storage>>
 * <<Download and run the installation script>>
 * <<Edit the Cloud Insights connection>>
 * <<Disconnect from Cloud Insights>>
@@ -26,7 +27,7 @@ Cloud Insights に表示される Astra データストアプレビュー指標�
 
 == Cloud Insights 接続の前提条件となる作業を完了する
 
-Cloud Insights を使用して Astra データストアに接続する前に、次の作業が必要です。
+Cloud Insights を使用して Astra データストアに接続する前に、次の作業を完了する必要があります。
 
 * link:../get-started/install-ads.html["Astra Data Store Monitoring Operator をインストールします"] これは、 Astra Data Store プレビューインストール手順の一部です。
 * link:../get-started/install-ads.html["kubectl-astras バイナリをインストールします"] これは、 Astra Data Store プレビューインストール手順の一部です。
@@ -36,19 +37,27 @@ Cloud Insights を使用して Astra データストアに接続する前に、�
 
 次の情報を収集します。
 
-* * Cloud Insights API キー * 。各カテゴリに対する読み取り / 書き込み権限： Acquisition Unit 、 Data Collection 、 Data Ingestion 、 Log Ingestionこれは、読み取り / 書き込み処理、 Acquisition Unit のセットアップ、およびデータの取り込みプロセスのセットアップに使用されます。
+* * Cloud Insights API アクセストークン * 。各カテゴリに対する読み取り / 書き込み権限： Acquisition Unit 、 Data Collection 、 Data Ingestion 、 Log Ingestionこれは、読み取り / 書き込み処理、 Acquisition Unit のセットアップ、およびデータの取り込みプロセスのセットアップに使用されます。
 * * Kubernetes API サーバの IP アドレスとポート * 。Astra データストアプレビュークラスタを監視するために使用します。
 * * Kubernetes API トークン * 。これは Kubernetes API を呼び出すために使用されます。
-* * 永続ボリューム構成 * 。永続ボリュームのプロビジョニング方法に関する情報。詳細については、以下の「 Acquisition Unit 」を参照してください。
+* * 永続ボリューム構成 * 。永続ボリュームのプロビジョニング方法に関する情報。
 
+
+
+
+== Acquisition Unit のストレージ
+
+Acquisition Unit には、インストールファイル、設定データ、およびログを格納するための永続ボリュームが 3 つ必要です。Monitoring Operator は、デフォルトのストレージクラスを使用して、永続的ボリューム要求を作成します。インストーラ・スクリプトの実行時に '-s' オプションを使用して ' 別のストレージ・クラス名を指定できます
+
+Kubernetes クラスタにストレージプロビジョニングツール（ NetApp Trident など）がない場合は、インストーラスクリプトの実行時に -r オプションを使用してローカルファイルシステムパスを提供できます。-r オプションが設定されている場合 ' インストーラ・スクリプトは ' 指定されたディレクトリ内に 3 つの永続ボリュームを作成しますこのディレクトリには、 150GB 以上の空きスペースが必要です。
 
 
 
 == インストールスクリプトをダウンロードして実行します
 
-Cloud Insights では、 Bash スクリプトを使用して Astra データストアのプレビュー監視を監視オペレータから有効にすることができます。インストールスクリプトは、 Astra Data Store コレクタ、 Telegraf Agent 、および Fluent Bit Agent を備えた Acquisition Unit をインストールします。
+Cloud Insights では、 Bash スクリプトを使用して Astra データストアのプレビュー監視を監視オペレータから有効にすることができます。インストールスクリプトは、 Astra Data Store コレクタ、 Telegraf エージェント、および Fluent ビットエージェントを備えた Acquisition Unit をインストールします。
 
-Cloud Insights テナントのドメイン名と選択した API アクセスキーは、ダウンロード時にインストーラスクリプトに組み込まれます。
+Cloud Insights テナントのドメイン名と選択した Cloud Insights API アクセストークンは、ダウンロード時にインストーラスクリプトに組み込まれます。
 
 その後、次のように指標が送信されます。
 
@@ -56,7 +65,40 @@ Cloud Insights テナントのドメイン名と選択した API アクセスキ
 * FLUENT ビットは、ログ取り込みサービスにログを送信します。
 
 
-.手順
+
+
+=== インストーラスクリプトのヘルプを表示します
+
+インストーラスクリプトの完全なヘルプテキストを次に示します。
+
+インストーラスクリプトのヘルプテキストを表示します。
+
+[listing]
+----
+./cloudinsights-ads-monitoring.sh -h
+----
+対応：
+
+[listing]
+----
+USAGE: cloudinsights-ads-monitoring.sh [OPTIONS]
+Configure monitoring of Astra Data Store by Cloud Insights.
+OPTIONS:
+  -h                      Display this help message.
+  -d ci_domain_name       Cloud Insights tenant domain name.
+  -i kubernetes_ip        Kubernetes API server IP address.
+  -k ci_api_key           Cloud Insights API Access Token.
+  -n namespace            Namespace for monitoring components. (default: netapp-monitoring)
+  -p kubernetes_port      Kubernetes API server port. (default: 6443)
+  -r root_pv_dir          Create 3 Persistent Volumes in this directory for the Acquisition Unit.
+                          Only specify this option if there is no Storage Provisioner installed and the PVs do not already exist.
+  -s storage_class        Storage Class name for provisioning Acquisition Unit PVs. If not specified, the default storage class will be used.
+  -t kubernetes_token     Kubernetes API server token.
+----
+
+
+=== インストールスクリプトを実行します
+
 . Cloud Insights アカウントがない場合は作成します。
 . Cloud Insights にログインします。
 . Cloud Insights メニューから、 *Admin*>*Data Collector* をクリックします。
@@ -65,10 +107,10 @@ Cloud Insights テナントのドメイン名と選択した API アクセスキ
 image:ci_select_data_collector_tile.png["Cloud Insights に Astra データストアのタイルが表示されている"]
 
 . 「 * アストラデータストア * 」タイルをクリックします。
-. 正しい API アクセストークンを選択するか、新しいトークンを作成します。
+. 正しい Cloud Insights API アクセストークンを選択するか、新しいトークンを作成します。
 . 指示に従って、インストーラスクリプトをダウンロードし、権限を更新し、スクリプトを実行します。
 +
-このスクリプトには、 Cloud Insights テナントの URL と選択した API アクセストークンが含まれます。
+このスクリプトには、 Cloud Insights テナントの URL と選択した Cloud Insights API アクセストークンが含まれています。
 
 +
 image:ci_install_page_filledin.png["Cloud Insights に Astra データストアのインストールページが表示される"]
@@ -79,10 +121,10 @@ image:ci_install_page_filledin.png["Cloud Insights に Astra データストア�
 
 +
 
-NOTE: エラーが原因でスクリプトが終了した場合は、エラーが解決したら再実行できます。デフォルトの設定を使用しない環境では、 Monitoring Operator 名前空間や Kubernetes API サーバポートなどの追加のパラメータがサポートされます。「 -h 」オプションを使用して、使用法とヘルプテキストを表示します。
+NOTE: エラーが原因でスクリプトが終了した場合は、エラーが解決してから再度実行できます。デフォルトの設定を使用しない環境では、 Monitoring Operator 名前空間や Kubernetes API サーバポートなどの追加のパラメータがサポートされます。使い方とヘルプテキストを表示するには、 cloudinsights-ads-monitoring.sh -h オプションを使用します。
 
 +
-インストールスクリプトを実行すると、次のような出力が生成されます。
+設定が正常に完了すると、次のような出力が生成されます。
 
 +
 [listing]
@@ -100,14 +142,6 @@ Astra Data Store collector data '<CLUSTER_NAME>' created
 Configuration done!
 ----
 
-
-
-
-=== Acquisition Unit のストレージ
-
-Acquisition Unit には、インストールファイル、設定データ、およびログを格納するために 3 つの Persistent Volume が必要です。監視オペレータは、デフォルトのストレージクラスを使用して、永続ボリュームに関する請求を作成します。インストーラ・スクリプトの実行時に '-s' オプションを使用して ' 別のストレージ・クラス名を指定できます
-
-Kubernetes クラスタにストレージプロビジョニングツール（ NetApp Trident など）がない場合は、インストーラスクリプトの実行時に -r オプションを使用してローカルファイルシステムパスを提供できます。-r オプションが設定されている場合 ' インストーラ・スクリプトは ' 指定されたディレクトリ内に 3 つの永続ボリュームを作成しますこのディレクトリには、 150GB 以上の空きスペースが必要です。
 
 
 
@@ -177,36 +211,12 @@ status:
 ----
 
 
-== インストーラのスクリプトヘルプ
-
-インストーラスクリプトの完全なヘルプテキストを次に示します。
-
-[listing]
-----
-./cloudinsights-ads-monitoring.sh -h
-
-USAGE: cloudinsights-ads-monitoring.sh [OPTIONS]
-Configure monitoring of Astra Data Store by Cloud Insights.
-OPTIONS:
-  -h                      Display this help message.
-  -d ci_domain_name       Cloud Insights tenant domain name.
-  -i kubernetes_ip        Kubernetes API server IP address.
-  -k ci_api_key           Cloud Insights API Access Key.
-  -n namespace            Namespace for monitoring components. (default: netapp-monitoring)
-  -p kubernetes_port      Kubernetes API server port. (default: 6443)
-  -r root_pv_dir          Create 3 Persistent Volumes in this directory for the Acquisition Unit.
-                          Only specify this option if there is no Storage Provisioner installed and the PVs do not already exist.
-  -s storage_class        Storage Class name for provisioning Acquisition Unit PVs. If not specified, the default storage class will be used.
-  -t kubernetes_token     Kubernetes API server token.
-----
-
-
 == Cloud Insights 接続を編集します
 
-Kubernetes API キーまたは Cloud Insights API キーは、あとから編集できます。
+Kubernetes API トークンまたは Cloud Insights API アクセストークンはあとから編集できます。
 
-* Kubernetes API キーを更新する場合は、 Cloud Insights UI から Astra データストアコレクタを編集する必要があります。
-* テレメトリとログに使用される Cloud Insights API キーを更新する場合は、 kubectl コマンドを使用して Monitoring Operator CR を編集する必要があります。
+* Kubernetes API トークンを更新する場合は、 Cloud Insights UI から Astra データストアコレクタを編集する必要があります。
+* テレメトリとログに使用される Cloud Insights API アクセストークンを更新する場合は、 kubectl コマンドを使用して Monitoring Operator CR を編集する必要があります。
 
 
 
@@ -217,6 +227,8 @@ Kubernetes API キーまたは Cloud Insights API キーは、あとから編集
 . [*Admin*>] > [* Data Collectors] を選択して、 [Data Collectors] ページにアクセスします。
 . Astra データストアクラスタのエントリを探します。
 . ページの右側にあるメニューをクリックし、「 * 編集 * 」を選択します。
+. Kubernetes API トークンフィールドを新しい値で更新します。
+. [ コレクタの保存 *] を選択します
 
 
 
@@ -232,7 +244,7 @@ Kubernetes API キーまたは Cloud Insights API キーは、あとから編集
 kubectl --namespace netapp-monitoring edit agent agent-monitoring-netapp
 ----
 . 「 output-sink 」セクションを探し、「 ci 」という名前のエントリを見つけます。
-. ラベル「 api-key 」の場合は、現在の値を新しい API キーに置き換えます。
+. ラベル「 api-key 」の場合は、現在の値を新しい Cloud Insights API アクセストークンに置き換えます。
 +
 セクションは次のようになります。
 
@@ -247,7 +259,7 @@ kubectl --namespace netapp-monitoring edit agent agent-monitoring-netapp
 . エディタウィンドウを保存して終了します。
 
 
-モニタリングオペレータは、 Telegraf ビットと Fluent ビットを更新して、新しい API キーを使用します。
+モニタリングオペレータは、 Tegraf ビットと Fluent ビットを更新して、新しい Cloud Insights API アクセストークンを使用します。
 
 
 
@@ -262,7 +274,7 @@ Cloud Insights から切断するには、最初に Cloud Insights UI から Ast
 . Cloud Insights にログインします。
 . [*Admin*>] > [* Data Collectors] を選択して、 [Data Collectors] ページにアクセスします。
 . Astra データストアクラスタのエントリを探します。
-. 画面の右側にある kebab メニューを選択し、 * Delete * （削除）を選択します。
+. 画面の右側のメニューを選択し、「 * 削除 * 」を選択します。
 . 確認ページで * Delete * をクリックします。
 
 
@@ -276,9 +288,9 @@ Cloud Insights から切断するには、最初に Cloud Insights UI から Ast
 ----
 kubectl --namespace netapp-monitoring edit agent agent-monitoring-netapp
 ----
-. 「 au 」セクションを探し、「 IsEnabled:false 」を設定します
+. 「 au 」セクションを探し、「 IsEnabled 」を「 false 」に設定します
 . 「 FLUENT ビット」セクションを探し、「 ADS テール CI 」という名前のプラグインを削除します。プラグインがない場合は、「 FLUENT - BIT 」セクションを削除できます。
-. 「テレグラム」セクションを探し、「 ads-open-metric 」という名前のプラグインを削除します。プラグインがない場合は、「テレグラム」セクションを削除できます。
+. 「テレグラム」セクションを探し、「 ads - オープンメトリック」という名前のプラグインを削除します。プラグインがない場合は、「テレグラム」セクションを削除できます。
 . 「 output-sink 」セクションを探し、「 ci 」という名前のシンクを取り外します。
 . エディタウィンドウを保存して終了します。
 +
@@ -291,19 +303,19 @@ kubectl --namespace netapp-monitoring edit agent agent-monitoring-netapp
 kubectl delete pv au-lib au-log au-pv
 ----
 +
-次に、 AU を実行していたノードの実際のディレクトリを削除します。
+次に、 Acquisition Unit を実行していたノードの実際のディレクトリを削除します。
 
 . Acquisition Unit ポッドが削除されたら、 Cloud Insights から Acquisition Unit を削除できます。
 +
 .. Cloud Insights メニューで、 *Admin*>*Data Collector* を選択します。
 .. [* Acquisition Units * （ Acquisition Unit * ） ] タブをクリックします。
 .. Acquisition Unit ポッドの横にあるメニューをクリックします。
-.. [ 削除（ Delete ） ] をクリックします。
+.. 「 * 削除」を選択します。
 
 
 
 
-モニタリングオペレータが Telegraf および Fluent ビット設定を更新し、 Acquisition Unit を削除します。
+Monitoring Operator は、 Telegraf および Fluent ビットの設定を更新し、 Acquisition Unit を削除します。
 
 
 

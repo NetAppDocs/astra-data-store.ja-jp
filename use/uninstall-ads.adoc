@@ -10,7 +10,7 @@ summary: Astra データストアをアンインストールするには、ワ�
 :imagesdir: ../media/use/
 
 
-Astra データストアプレビューをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、クラスタ、 ライセンス、導入環境、 Astra データストアプレビューネームスペース。
+Astra データストアのプレビューとコントロールプレーンをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、 Astra データストアクラスタ、ライセンス、導入環境、および Astra データストアのプレビューネームスペースを削除します。
 
 .必要なもの
 * root 管理権限
@@ -84,8 +84,6 @@ NOTE: オペレータ、 nodeinfo ポッド、およびクラスタコントロ�
 
 クラスタを削除すると ' 基盤となるオペレーティング・システムもノードからアンインストールされ 'FIRETAAP' および netwd' サービスが停止します
 
-アンインストーラが完了するまでに約 1 分かかります。次に、 Astra データストアのプレビュー用リソースの削除が、クラスタを対象として開始します。
-
 . クラスタを削除します。
 +
 [listing]
@@ -96,10 +94,13 @@ NOTE: オペレータ、 nodeinfo ポッド、およびクラスタコントロ�
 
 
 
+NOTE: アンインストーラが完了するまでに約 1 分かかります。次に、 Astra データストアのプレビュー用リソースの削除が、クラスタを対象として開始します。
+
+
 
 === ライセンスを削除します
 
-. クラスタ内の各ワーカー・ノードに SSH 接続し ' ワーカー・ノードで 'FIRETAAP' または 'netwd' が実行されていないことを確認します
+. クラスタから各ワーカー・ノードに SSH 接続し 'FIRETAAP' または netwd' がワーカー・ノードで実行されていないことを確認します
 . Astra データストアプレビューライセンスを削除します。
 +
 [listing]
@@ -120,26 +121,26 @@ NOTE: オペレータ、 nodeinfo ポッド、およびクラスタコントロ�
 +
 [listing]
 ----
-~% kubectl delete astradsversion astradsversion -n astrads-system
-~% kubectl get astradsversion -n astrads-system
+kubectl delete astradsversion astradsversion -n astrads-system
+kubectl get astradsversion -n astrads-system
 
 ----
 . DemonSets データストアと Astra データストアのすべてのプレビューコントローラリソースを削除します。
 +
 [listing]
 ----
-~% kubectl delete ds --all -n astrads-system
-~% kubectl get ds -n astrads-system
+kubectl delete ds --all -n astrads-system
+kubectl get ds -n astrads-system
 
-~% kubectl delete deployments --all -n astrads-system
-~% kubectl get deployments -n astrads-system
+kubectl delete deployments --all -n astrads-system
+kubectl get deployments -n astrads-system
 ----
 . 残りのアーティファクトと演算子 YAML ファイルを削除します。
 +
 [listing]
 ----
-~% kubectl delete -f ./manifests/astradsoperator.yaml
-~% kubectl get pods -n astrads-system
+kubectl delete -f ./manifests/astradsoperator.yaml
+kubectl get pods -n astrads-system
 
 ----
 
@@ -152,7 +153,7 @@ NOTE: オペレータ、 nodeinfo ポッド、およびクラスタコントロ�
 
 [listing]
 ----
-~% kubectl get ns | grep astrads-system
+kubectl get ns | grep astrads-system
 ----
 
 
@@ -189,7 +190,7 @@ oc delete -f oc_role_bindings.yaml
 ----
 +
 
-NOTE: これらの手順で「 resources not found errors 」を無視します。 
+NOTE: これらの手順で「 resources not found 」エラーを無視します。 
 
 . すべての Kubernetes ノードから /var/lib/kubebelet/config.yaml を削除します 
 
@@ -198,7 +199,7 @@ NOTE: これらの手順で「 resources not found errors 」を無視します�
 
 == 手動削除のサンプル
 
-次に、手動アンインストールスクリプトの実行例を示します。
+次に、手動アンインストールスクリプトの例を示します。
 
 [listing]
 ----

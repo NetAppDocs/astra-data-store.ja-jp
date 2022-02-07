@@ -165,19 +165,12 @@
   <block id="76a54526b50db93a67991b9df579b40e" category="inline-image-macro">Cloud Insights が Astra データストアの指標を示している</block>
   <block id="74cf95137df35241bf62c4cf6aaa0a33" category="paragraph">Cloud Insights に表示される Astra データストアプレビュー指標の例を次に示します。<block ref="b65cc9dd5d7dd9b89d038ad2252a3b1c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="712f099047cda3cd74ff8f01de43d978" category="paragraph">を使用して、 Astra データストアのプレビューで生成された指標のリストを表示することもできます <block ref="00ffaabd9466e38e21fd83d76092ff60" category="inline-xref-macro-rx"></block>。</block>
-  <block id="7d14a02fd20aa817b9f312556759bc77" category="paragraph">Cloud Insights を使用して Astra データストアに接続する前に、次の作業が必要です。</block>
   <block id="7b67f0c7b487cbbd9d0de335853f47bc" category="inline-link-macro">Astra Data Store Monitoring Operator をインストールします</block>
   <block id="5885997e518dde2f5740ce73f16e6ad5" category="inline-link-macro">kubectl-astras バイナリをインストールします</block>
   <block id="e6ba49b0d11a72603e691022f17a15ab" category="inline-link-macro">Cloud Insights アカウントを作成します</block>
   <block id="1dad80a4e0ed05870800cf83e046f731" category="list-text">'awk 、 curl 、 grep ' および 'jq' の各コマンドが使用可能であることを確認します</block>
   <block id="284dc6d1de61ec5c2a96db8bc40dd3ab" category="paragraph">次の情報を収集します。</block>
-  <block id="bb9b8565e3823e4ec709b95221f40bd1" category="list-text">* Cloud Insights API キー * 。各カテゴリに対する読み取り / 書き込み権限： Acquisition Unit 、 Data Collection 、 Data Ingestion 、 Log Ingestionこれは、読み取り / 書き込み処理、 Acquisition Unit のセットアップ、およびデータの取り込みプロセスのセットアップに使用されます。</block>
-  <block id="c4907f71169d00508df63ef9afdc68a1" category="list-text">* Kubernetes API サーバの IP アドレスとポート * 。Astra データストアプレビュークラスタを監視するために使用します。</block>
-  <block id="621014ace1f1a70456f973648580f813" category="list-text">* Kubernetes API トークン * 。これは Kubernetes API を呼び出すために使用されます。</block>
-  <block id="e76594ced2224ed170caf674cdb7add8" category="list-text">* 永続ボリューム構成 * 。永続ボリュームのプロビジョニング方法に関する情報。詳細については、以下の「 Acquisition Unit 」を参照してください。</block>
   <block id="3d3a08f39e79301ab5c0cdfa66b5b7ff" category="section-title">インストールスクリプトをダウンロードして実行します</block>
-  <block id="af33037136184f5cf3624e0858a76571" category="paragraph">Cloud Insights では、 Bash スクリプトを使用して Astra データストアのプレビュー監視を監視オペレータから有効にすることができます。インストールスクリプトは、 Astra Data Store コレクタ、 Telegraf Agent 、および Fluent Bit Agent を備えた Acquisition Unit をインストールします。</block>
-  <block id="bf6aeb656eff14833c40fdf5b3a48145" category="paragraph">Cloud Insights テナントのドメイン名と選択した API アクセスキーは、ダウンロード時にインストーラスクリプトに組み込まれます。</block>
   <block id="9d4660ed840630e640b31ec3c061e7bc" category="paragraph">その後、次のように指標が送信されます。</block>
   <block id="3adb3d8a32b42a2857ad4c4b8a9003a6" category="list-text">Telegraf は指標を Cloud Insights データレイクに送信します。</block>
   <block id="40c73fe92317526aa4df3d36fd3ad73d" category="list-text">FLUENT ビットは、ログ取り込みサービスにログを送信します。</block>
@@ -188,56 +181,35 @@
   <block id="b3cf4c5680f339b50263248f2dc48379" category="inline-image-macro">Cloud Insights に Astra データストアのタイルが表示されている</block>
   <block id="866756ca1b4623d0fb04ca4b14daa435" category="paragraph"><block ref="866756ca1b4623d0fb04ca4b14daa435" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0064fffa49fa46977bec11c251364b0a" category="list-text">「 * アストラデータストア * 」タイルをクリックします。</block>
-  <block id="a634a0958bbdef5350d68e97eacc5ba6" category="list-text">正しい API アクセストークンを選択するか、新しいトークンを作成します。</block>
   <block id="70830da013f2c90eadbbf13f0eea52ad" category="list-text">指示に従って、インストーラスクリプトをダウンロードし、権限を更新し、スクリプトを実行します。</block>
-  <block id="0198ace6f08bad7ae327801e20fff81f" category="paragraph">このスクリプトには、 Cloud Insights テナントの URL と選択した API アクセストークンが含まれます。</block>
   <block id="e9cb0fa56b60ddf0f40cb6d55732a359" category="inline-image-macro">Cloud Insights に Astra データストアのインストールページが表示される</block>
   <block id="7b0669fbc22af2b3bf66ea2884c43b85" category="paragraph"><block ref="7b0669fbc22af2b3bf66ea2884c43b85" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e9b4c864cce989f3d20b0b6aeb60895a" category="list-text">スクリプトが完了したら、 [ セットアップの完了 ] をクリックします。</block>
   <block id="5b2bcd3ee1bf241ef578bd747aaa2275" category="paragraph">インストールスクリプトが完了すると、「データソース」リストに「 Astra Data Store 」コレクタが表示されます。</block>
-  <block id="6050a6b00788c5a261f4b24b7978d60a" category="admonition">エラーが原因でスクリプトが終了した場合は、エラーが解決したら再実行できます。デフォルトの設定を使用しない環境では、 Monitoring Operator 名前空間や Kubernetes API サーバポートなどの追加のパラメータがサポートされます。「 -h 」オプションを使用して、使用法とヘルプテキストを表示します。</block>
-  <block id="2863b1500d8c376831f57b60f0cbed61" category="paragraph">インストールスクリプトを実行すると、次のような出力が生成されます。</block>
   <block id="99e77960ebd5aad3286059bfbd0615c5" category="section-title">Acquisition Unit のストレージ</block>
-  <block id="7d53bd0f620e632b71c278ad068a19b9" category="paragraph">Acquisition Unit には、インストールファイル、設定データ、およびログを格納するために 3 つの Persistent Volume が必要です。監視オペレータは、デフォルトのストレージクラスを使用して、永続ボリュームに関する請求を作成します。インストーラ・スクリプトの実行時に '-s' オプションを使用して ' 別のストレージ・クラス名を指定できます</block>
   <block id="2d71aa866fd6e440cf6290ebb9f988be" category="paragraph">Kubernetes クラスタにストレージプロビジョニングツール（ NetApp Trident など）がない場合は、インストーラスクリプトの実行時に -r オプションを使用してローカルファイルシステムパスを提供できます。-r オプションが設定されている場合 ' インストーラ・スクリプトは ' 指定されたディレクトリ内に 3 つの永続ボリュームを作成しますこのディレクトリには、 150GB 以上の空きスペースが必要です。</block>
   <block id="20d6c8958970fb1a2ce1a95613e7665b" category="section-title">エージェント CR の例</block>
   <block id="445c2dfab85f0763a057d90aef225a43" category="paragraph">以下に、インストーラスクリプトの実行後の「 Monitoring - NetApp 」エージェントの CR の例を示します。</block>
-  <block id="483cd8f1747e8a0029d3cad4d22f2e94" category="section-title">インストーラのスクリプトヘルプ</block>
   <block id="062a54c44bdfd9858c8054292864b1a5" category="paragraph">インストーラスクリプトの完全なヘルプテキストを次に示します。</block>
   <block id="23dd88d71d7767914d0ba74ce09182b0" category="section-title">Cloud Insights 接続を編集します</block>
-  <block id="d542a9812ed087b9931c2c36f1357b43" category="paragraph">Kubernetes API キーまたは Cloud Insights API キーは、あとから編集できます。</block>
-  <block id="03d3f4f6b02641ad0957f7ae992ab815" category="list-text">Kubernetes API キーを更新する場合は、 Cloud Insights UI から Astra データストアコレクタを編集する必要があります。</block>
-  <block id="c022dc42fc6794590ff337762e9aa004" category="list-text">テレメトリとログに使用される Cloud Insights API キーを更新する場合は、 kubectl コマンドを使用して Monitoring Operator CR を編集する必要があります。</block>
   <block id="38c3b25ebad55273cd701d86d7c5674d" category="section-title">Kubernetes API トークンを更新します</block>
   <block id="27322a77dff94e81f835410f4584b839" category="list-text">[*Admin*&gt;] &gt; [* Data Collectors] を選択して、 [Data Collectors] ページにアクセスします。</block>
   <block id="9e23ceb78a6420f20917e3be85d18084" category="list-text">Astra データストアクラスタのエントリを探します。</block>
   <block id="2a3e436e3df2f6c013a096178e37bd12" category="list-text">ページの右側にあるメニューをクリックし、「 * 編集 * 」を選択します。</block>
   <block id="dad6a897e4f52efceaed582e77ec0445" category="section-title">Cloud Insights API アクセストークンを更新します</block>
-  <block id="b511b5f3ed5ea6ca0fd6cb60a0fd377a" category="list-text">[*Admin*&gt;*API Access*] を選択し、 [*+API アクセストークン *] をクリックして、新しい Cloud Insights API アクセストークンを作成します。</block>
   <block id="83400e61f62d567ac8c59eb422c53296" category="list-text">エージェント CR を編集します。</block>
-  <block id="a9555691664079ea9bedb729314bc590" category="list-text">「 output-sink 」セクションを探し、「 ci 」という名前のエントリを見つけます。</block>
-  <block id="662b463e12d39626a0f9269cb252a7db" category="list-text">ラベル「 api-key 」の場合は、現在の値を新しい API キーに置き換えます。</block>
   <block id="48d5af6637803a576ddb9b4b5335594f" category="paragraph">セクションは次のようになります。</block>
   <block id="08b6b5aaedb7004643c0c9f98ad82005" category="list-text">エディタウィンドウを保存して終了します。</block>
-  <block id="26d9ef960bdd0f4e9874ad46ba43d683" category="paragraph">モニタリングオペレータは、 Telegraf ビットと Fluent ビットを更新して、新しい API キーを使用します。</block>
   <block id="3186f8d18929c5ad50382958c1069796" category="section-title">Cloud Insights から切断します</block>
   <block id="dd3afc6527618de50ab808c19960d8e5" category="paragraph">Cloud Insights から切断するには、最初に Cloud Insights UI から Astra データストアコレクタを削除する必要があります。これが完了したら、モニタリングオペレータから Acquisition Unit 、 Telegraf 、および Fluent の各ビット設定を削除できます。</block>
-  <block id="3f82a83a5c61062d40184dc63f47bb9a" category="list-text">画面の右側にある kebab メニューを選択し、 * Delete * （削除）を選択します。</block>
   <block id="4a4676a685d60e6b1f5813c3907f9ab6" category="list-text">確認ページで * Delete * をクリックします。</block>
   <block id="c65fb1125fbf2f9e2e44e32e61b62a02" category="section-title">Acquisition Unit 、 Telegraf 、および Fluent ビットを削除します</block>
-  <block id="ec2389605ec052321571ac13ec063738" category="list-text">「 au 」セクションを探し、「 IsEnabled:false 」を設定します</block>
-  <block id="90db19427057dc11bc0e2f5c8cf30876" category="list-text">「 FLUENT ビット」セクションを探し、「 ADS テール CI 」という名前のプラグインを削除します。プラグインがない場合は、「 FLUENT - BIT 」セクションを削除できます。</block>
-  <block id="ba6f7b853b4d707dd3cf6b7f2c0f497e" category="list-text">「テレグラム」セクションを探し、「 ads-open-metric 」という名前のプラグインを削除します。プラグインがない場合は、「テレグラム」セクションを削除できます。</block>
-  <block id="1339f6affca26c5e554081de2348724c" category="list-text">「 output-sink 」セクションを探し、「 ci 」という名前のシンクを取り外します。</block>
   <block id="0b8e607bb970ba8b1809c142f6ee9d2c" category="paragraph">モニタリングオペレータが Telegraf および Fluent ビット設定を更新し、 Acquisition Unit ポッドを削除します。</block>
   <block id="79e2afd2ba4ca7ab8246defff43d1c68" category="list-text">ストレージプロビジョニング担当者ではなく Acquisition Unit PVS にローカルディレクトリを使用した場合は、 PVS を削除します。</block>
-  <block id="950c71908905ca13bfc6137988331cc3" category="paragraph">次に、 AU を実行していたノードの実際のディレクトリを削除します。</block>
   <block id="c1943291194b3d4796fcf7f9eff18d27" category="list-text">Acquisition Unit ポッドが削除されたら、 Cloud Insights から Acquisition Unit を削除できます。</block>
   <block id="e7b273b59c7a2201eeccd5ba9337bd87" category="list-text">Cloud Insights メニューで、 *Admin*&gt;*Data Collector* を選択します。</block>
   <block id="6e4c4ac7964722923536e1f01d80dab2" category="list-text">[* Acquisition Units * （ Acquisition Unit * ） ] タブをクリックします。</block>
   <block id="2fa6aa4ecba5f4acf3de663c21cc69ea" category="list-text">Acquisition Unit ポッドの横にあるメニューをクリックします。</block>
-  <block id="874db297b2254479eeb702a2d7fa8dab" category="list-text">[ 削除（ Delete ） ] をクリックします。</block>
-  <block id="0dd656c262cdf7d8dc379079337de685" category="paragraph">モニタリングオペレータが Telegraf および Fluent ビット設定を更新し、 Acquisition Unit を削除します。</block>
   <block id="6b40eaae8ec9ab8ff4f2fcec876f582d" category="section-title">Open Metrics API のヘルプを参照してください</block>
   <block id="6f04ea05bd96c0439a8a2cd32768b309" category="paragraph">Astra データストアプレビューから指標を収集するために使用できる API のリストを次に示します。</block>
   <block id="d6e7985c9eb9d0b51b91b2cb937d7335" category="list-text">「 help 」行は指標を表します。</block>
@@ -273,7 +245,6 @@
   <block id="125f85ae4d1ff2dd68b6b65a8b46611f" category="list-text">kubectl の astrads faileddrive replace' が不適切なシリアル番号を使用して実行された場合 ' 次のようなエラーが表示されます</block>
   <block id="cf12ebbc6fe7b3e21046a7d8c5b3dd5f" category="summary">Astra データストアをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、クラスタ、 ライセンス、導入環境、ネームスペース：</block>
   <block id="2c5e778cc6a11e1829770d5339f5c0fa" category="doc">Astra データストアプレビューをアンインストールします</block>
-  <block id="66c366a59302f9026a436cdc64aca9e6" category="paragraph">Astra データストアプレビューをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、クラスタ、 ライセンス、導入環境、 Astra データストアプレビューネームスペース。</block>
   <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">必要なもの</block>
   <block id="1af4d14d7adc73a0cf26c741f9acf9df" category="list-text">root 管理権限</block>
   <block id="e88f686261fc285399abfcc5575efcee" category="paragraph">Astra Data Store プレビューアンインストールプロセスでは、次の手順が簡単に実行できます。</block>
@@ -302,7 +273,6 @@
   <block id="ed4aa92f77103f4b2c27a6ee04599f0e" category="paragraph">アンインストーラが完了するまでに約 1 分かかります。次に、 Astra データストアのプレビュー用リソースの削除が、クラスタを対象として開始します。</block>
   <block id="cca5f52fa80eb378d8e9e4499d5a49f7" category="list-text">クラスタを削除します。</block>
   <block id="224bb9d3e58164d87f1e7b1480ff3195" category="section-title">ライセンスを削除します</block>
-  <block id="8c26fafc2eb158f8e1dbc5b78f67860a" category="list-text">クラスタ内の各ワーカー・ノードに SSH 接続し ' ワーカー・ノードで 'FIRETAAP' または 'netwd' が実行されていないことを確認します</block>
   <block id="922f0882e69507614b86bbe67722122a" category="list-text">Astra データストアプレビューライセンスを削除します。</block>
   <block id="9524d1588970b8601d9a6c11fbff86d2" category="section-title">Astra データストアプレビューインストールを削除します</block>
   <block id="89471d1ad77aea625df3d06c6b912a6f" category="paragraph">クラスタ内のコントローラ、演算子、ネームスペース、およびサポートポッドを削除します。</block>
@@ -314,7 +284,6 @@
   <block id="742a4dc582c34fb3bbb34a9f3cbeebe6" category="section-title">ワーカーノードでコンテナが実行されていないことを確認します</block>
   <block id="1c04122c814ac034ca14e14adb8c12af" category="paragraph">'FIRETAAP' や 'netwd' などのコンテナがワーカー・ノードで実行されていないことを確認します各ノードで次のコマンドを実行します。</block>
   <block id="9a92a0354fa775cc894dda9e1e38f27b" category="section-title">手動削除のサンプル</block>
-  <block id="b6e1c19fae1f4cf0d8f94a34c5986b69" category="paragraph">次に、手動アンインストールスクリプトの実行例を示します。</block>
   <block id="81b61a86df10dc2cb308e96040fb3001" category="summary">Kubectl コマンドを Astra データストアとともに使用して、 Conluent などで使用するエンドポイントを設定できます。</block>
   <block id="d273de2a7e6e6a63f6353f5a40dccab4" category="doc">イベントログを設定して監視する</block>
   <block id="e1e4be2e0e9d34430d4dead51a9b0d00" category="paragraph">Event Management System （ EMS ；イベント管理システム）ログを監視するには、次の高度なタスクを実行します。</block>
@@ -325,22 +294,15 @@
   <block id="9d72b006a6d605a65b501b1b03349829" category="paragraph">Astra Data Store プレビュークラスタ CR でモニタリングオプションが設定されていない場合は、「 astras 」拡張機能を使用して設定できます。</block>
   <block id="90bd1d70191335d705a79fedb6c343b1" category="paragraph">入力するコマンド</block>
   <block id="5976be1a3647c1d1d6df4ce77cd4c6de" category="paragraph">ここで、</block>
-  <block id="c5f610ac611fbf25aebdcb7de1887bca" category="list-text">インストールされているエージェントの名前空間 : 監視エージェントです。監視オペレータの CR です。</block>
-  <block id="3cf816c5eb575aae005fa877a4221022" category="list-text">-r はオプションです</block>
   <block id="55d4dcfd496ed26612f1ed4e159ccc06" category="section-title">Cloud Insights をセットアップする</block>
   <block id="0a4b147ab38de7df220f6ee52041f91b" category="inline-link-macro">NetApp Cloud Insights のセットアップ方法</block>
-  <block id="79d4adf2aeb2c6fc85b983dc5d4d6f9a" category="paragraph">を参照してください <block ref="d6cf67ce476502ac807e2e588f6f029e" category="inline-link-macro-rx"></block> Astra データストアプレビュー版で使用できます。</block>
   <block id="a0c8187b710dd8d0521c6fc63ed20869" category="section-title">イベントログを Elastic にストリーミングする</block>
-  <block id="9121f315839d8a93e2079fd601d5e184" category="paragraph">EMS イベントやその他のポッドログをストリーミングして、ログを Elastic などのサードパーティのエンドポイントにストリーミングするには、「 astrads 」拡張機能を使用します。</block>
   <block id="4af77be2edf71f87d3321c846afd5117" category="admonition">Elastic ホスト名は IP アドレスでもかまいません。</block>
   <block id="9cce7a0f3945aa56f21e3dc73f7b5c53" category="summary">Astra Control Center のユーザーインタフェース（ UI ）を使用して、 Astra データストアのタスクを実行できます。</block>
   <block id="9d008b99518fac45f7d187af6cdf7b49" category="doc">Astra Control Center with Astra のデータストアプレビューを使用</block>
   <block id="5c44ae2c3fecaf90b28c9365e2a18f93" category="paragraph">Astra Control Center のユーザーインタフェース（ UI ）を使用して、 Astra データストアのプレビュータスクを実行できます。</block>
   <block id="c74d76591828afc252e7610bdae71ca9" category="section-title">Astra Control Center for Astra のデータストアプレビューのセットアップ</block>
   <block id="04141f6e6895167b5976a22e32f00290" category="paragraph">Astra Data Store プレビュー用の Astra Control Center UI を使用するには、次のタスクを実行する必要があります。</block>
-  <block id="1c0d9f7d761fc733b600942ce233b4ea" category="inline-link">Astra データストアプレビュークラスタを Astra Control Center インストールにインポートします</block>
-  <block id="d15c24960fb67cfd894bc720e9d2ff2d" category="list-text">クラスタを追加Astra Data Store プレビューがインストールされた、基盤となる Kubernetes クラスタです。を参照してください<block ref="6761f7730b26a17df3c3b59e4408b7b0" category="inline-link-rx"></block>。</block>
-  <block id="e1f95da35f557b3cdc93de4656df9aaa" category="list-text">Astra データストアプレビュー用のストレージバックエンドをクラスタに追加します。</block>
   <block id="4e649e66878b3f3b5aec5f752e57b985" category="admonition">ストレージバックエンドを追加し、 Astra データストアプレビューを含む Kubernetes クラスタがない場合は、最初にクラスタを追加する必要があります。</block>
   <block id="2e94174c851b8d4d2427c96e0af4821c" category="section-title">Astra Control Center でできること</block>
   <block id="eb243fd6f95dd4bfb1d1ccb0cca34d9f" category="paragraph">Astra Control Center for Astra Data Store プレビューをセットアップしたら、 Astra Control Center UI を使用して次のタスクを実行できます。</block>
@@ -348,8 +310,6 @@
   <block id="20a4a00ee22fc4ed42dc6dde7ca930a2" category="list-text"><block ref="8cc2b5fb4f2b8a99de3d80d9680561a7" category="inline-link-rx"></block>。</block>
   <block id="b3566e6d807a064421758708ff05ddc5" category="inline-link">Astra データストアのプレビューバックエンドストレージを管理</block>
   <block id="c0d07d3b128a5a7d6f60b9e86bf4f804" category="list-text"><block ref="7c89f9f798010106cb6d616702f15231" category="inline-link-rx"></block>。</block>
-  <block id="4d4207ccf851f0f5668d15b17831080c" category="inline-link">ノード、ディスク、および永続ボリューム要求（ PVC ）とその状態を表示します</block>
-  <block id="5e4382914eda12bec56e077c0d932f92" category="list-text"><block ref="5df70763c7346a3df0879f904f4e4dc6" category="inline-link-rx"></block>。</block>
   <block id="4b7a1134c870f779c0b8eecedfde4cbf" category="inline-link">Astra ファミリーの紹介</block>
   <block id="c2cc3948cdbda6ce71e4b9eb57f2cb63" category="list-text"><block ref="c2cc3948cdbda6ce71e4b9eb57f2cb63" category="inline-link-rx"></block></block>
   <block id="3a4b2c66d4bdac6ce0e3340c71a39eda" category="inline-link">Astra Control Center のドキュメント</block>
@@ -894,7 +854,6 @@
   <block id="7e6e334737be518763a54980c076bd52" category="paragraph">標準のアンインストールプロセスが完了したら、次の手順を実行します。</block>
   <block id="ea3636dddb52a396bae27bd0e6aed06e" category="list-text">SCC リソースを削除します。</block>
   <block id="fd617944a08113e478bdc0aa81855d1e" category="list-text">ロールバインドリソースを削除します</block>
-  <block id="c4bc5ab0b4775b4a9c0dc56e5a147ad0" category="admonition">これらの手順で「 resources not found errors 」を無視します。 </block>
   <block id="2d2b3d157d3e998229a25a7e0b312343" category="list-text">すべての Kubernetes ノードから /var/lib/kubebelet/config.yaml を削除します </block>
   <block id="06ae80c1558e7ebb2d814d7146df1dd4" category="doc">Astra データストアプレビュー導入モデル</block>
   <block id="70944dd74ab42c58bf0bbebb73b3d92e" category="section-title">Astra データストアプレビューエコシステム</block>
@@ -986,4 +945,53 @@
   <block id="034057e29f8eb1feedd93c2bb1f3c021" category="list-text">CR を保存します。</block>
   <block id="eb178327aa7fefe80b381533b11cc4e6" category="paragraph">を参照してください <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block> および <block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block>。</block>
   <block id="e15c2a80de21c8f7a5baec91689e624f" category="paragraph"><block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block></block>
+  <block id="b4c14db8eec92ee84594deeb518a4976" category="list-text"><block ref="2d483405481d39b9a6c7adc5f6fbf7e7" category="inline-xref-macro-rx"></block></block>
+  <block id="3f87463fbb506d4f0516867e384903e8" category="paragraph">Cloud Insights を使用して Astra データストアに接続する前に、次の作業を完了する必要があります。</block>
+  <block id="24437864eef7531173e2d2270e155f21" category="list-text">* Cloud Insights API アクセストークン * 。各カテゴリに対する読み取り / 書き込み権限： Acquisition Unit 、 Data Collection 、 Data Ingestion 、 Log Ingestionこれは、読み取り / 書き込み処理、 Acquisition Unit のセットアップ、およびデータの取り込みプロセスのセットアップに使用されます。</block>
+  <block id="665fae15e5d8b77388e1f6f3894519c3" category="list-text">* Kubernetes API サーバの IP アドレスとポート * 。Astra データストアプレビュークラスタを監視するために使用します。</block>
+  <block id="9d04fb2bf64ae7e0296e32806229a724" category="list-text">* Kubernetes API トークン * 。これは Kubernetes API を呼び出すために使用されます。</block>
+  <block id="935cc921263d28418fb73a354cd41efd" category="list-text">* 永続ボリューム構成 * 。永続ボリュームのプロビジョニング方法に関する情報。</block>
+  <block id="8ebcaa8a2aa9767eae1ff42756477e57" category="paragraph">Acquisition Unit には、インストールファイル、設定データ、およびログを格納するための永続ボリュームが 3 つ必要です。Monitoring Operator は、デフォルトのストレージクラスを使用して、永続的ボリューム要求を作成します。インストーラ・スクリプトの実行時に '-s' オプションを使用して ' 別のストレージ・クラス名を指定できます</block>
+  <block id="ce434fffb15ebd4de5a7b6cd1a60eecb" category="paragraph">Cloud Insights では、 Bash スクリプトを使用して Astra データストアのプレビュー監視を監視オペレータから有効にすることができます。インストールスクリプトは、 Astra Data Store コレクタ、 Telegraf エージェント、および Fluent ビットエージェントを備えた Acquisition Unit をインストールします。</block>
+  <block id="c36a5ac3e36a3f3614c8e101f10af370" category="paragraph">Cloud Insights テナントのドメイン名と選択した Cloud Insights API アクセストークンは、ダウンロード時にインストーラスクリプトに組み込まれます。</block>
+  <block id="2c6bbc18ee7837963ff00fc80383b96e" category="section-title">インストーラスクリプトのヘルプを表示します</block>
+  <block id="1f381d1e7d5352848c4005ed024d0548" category="paragraph">インストーラスクリプトのヘルプテキストを表示します。</block>
+  <block id="544bfaab1cf7bfdf8d87b2a8985db6fd" category="section-title">インストールスクリプトを実行します</block>
+  <block id="fc09f2223645935b2fa19867a3a7d89f" category="list-text">正しい Cloud Insights API アクセストークンを選択するか、新しいトークンを作成します。</block>
+  <block id="f98f8e73d564dde8a48c2ec342a8f9cc" category="paragraph">このスクリプトには、 Cloud Insights テナントの URL と選択した Cloud Insights API アクセストークンが含まれています。</block>
+  <block id="60afd5a6ed383f75d7a48ec9267857a4" category="admonition">エラーが原因でスクリプトが終了した場合は、エラーが解決してから再度実行できます。デフォルトの設定を使用しない環境では、 Monitoring Operator 名前空間や Kubernetes API サーバポートなどの追加のパラメータがサポートされます。使い方とヘルプテキストを表示するには、 cloudinsights-ads-monitoring.sh -h オプションを使用します。</block>
+  <block id="ce088431d95196ba5e34a00a7b33a554" category="paragraph">設定が正常に完了すると、次のような出力が生成されます。</block>
+  <block id="4dce790e0705b733aeab27193373f151" category="paragraph">Kubernetes API トークンまたは Cloud Insights API アクセストークンはあとから編集できます。</block>
+  <block id="94c3a6521fc4a57866841e68413f5f21" category="list-text">Kubernetes API トークンを更新する場合は、 Cloud Insights UI から Astra データストアコレクタを編集する必要があります。</block>
+  <block id="bd07b3393af79a48c0a0b1e42df77832" category="list-text">テレメトリとログに使用される Cloud Insights API アクセストークンを更新する場合は、 kubectl コマンドを使用して Monitoring Operator CR を編集する必要があります。</block>
+  <block id="cf39a76494d7973b947bf14137f64a6a" category="list-text">Kubernetes API トークンフィールドを新しい値で更新します。</block>
+  <block id="5716a76c5b22d46dd556b4d306c3d0a4" category="list-text">[ コレクタの保存 *] を選択します</block>
+  <block id="95626f976ae18ae94a4188b238d2f44f" category="list-text">[*Admin*&gt;*API Access*] を選択し、 [*+API アクセストークン *] をクリックして、新しい Cloud Insights API アクセストークンを作成します。</block>
+  <block id="fb2035a56f9eb3ca2f926e8e51229894" category="list-text">「 output-sink 」セクションを探し、「 ci 」という名前のエントリを見つけます。</block>
+  <block id="492f23e1dbe929adf7f122a925bd064b" category="list-text">ラベル「 api-key 」の場合は、現在の値を新しい Cloud Insights API アクセストークンに置き換えます。</block>
+  <block id="e6e7891e2154effc45ae14b20c8ad639" category="paragraph">モニタリングオペレータは、 Tegraf ビットと Fluent ビットを更新して、新しい Cloud Insights API アクセストークンを使用します。</block>
+  <block id="69c14c6dd63bad8df8635c6ebbd47642" category="list-text">画面の右側のメニューを選択し、「 * 削除 * 」を選択します。</block>
+  <block id="fb3d4d58b3608fb49919890d83965595" category="list-text">「 au 」セクションを探し、「 IsEnabled 」を「 false 」に設定します</block>
+  <block id="7fb94990d3a57c8bbff9d9a146085077" category="list-text">「 FLUENT ビット」セクションを探し、「 ADS テール CI 」という名前のプラグインを削除します。プラグインがない場合は、「 FLUENT - BIT 」セクションを削除できます。</block>
+  <block id="28a0e32efc6733e78be34afe16b6461c" category="list-text">「テレグラム」セクションを探し、「 ads - オープンメトリック」という名前のプラグインを削除します。プラグインがない場合は、「テレグラム」セクションを削除できます。</block>
+  <block id="c19be73a533496804bd908db8efca532" category="list-text">「 output-sink 」セクションを探し、「 ci 」という名前のシンクを取り外します。</block>
+  <block id="fbe0315ffcbe25b549dae9be4cd9c17a" category="paragraph">次に、 Acquisition Unit を実行していたノードの実際のディレクトリを削除します。</block>
+  <block id="0f024621e0673f1f4e657983682d6e72" category="list-text">「 * 削除」を選択します。</block>
+  <block id="f5ef604e5c1749fb34d2f40f286b77cb" category="paragraph">Monitoring Operator は、 Telegraf および Fluent ビットの設定を更新し、 Acquisition Unit を削除します。</block>
+  <block id="937f64044c15c693fee5e345b823c82a" category="paragraph">Astra データストアのプレビューとコントロールプレーンをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、 Astra データストアクラスタ、ライセンス、導入環境、および Astra データストアのプレビューネームスペースを削除します。</block>
+  <block id="22f4771b27effd4ed241a94c1c3b8fae" category="list-text">クラスタから各ワーカー・ノードに SSH 接続し 'FIRETAAP' または netwd' がワーカー・ノードで実行されていないことを確認します</block>
+  <block id="f40621c004c5b23c3485a800fe73c8df" category="admonition">これらの手順で「 resources not found 」エラーを無視します。 </block>
+  <block id="341aec78c4fcb8bc2fd0114d84ad9f59" category="paragraph">次に、手動アンインストールスクリプトの例を示します。</block>
+  <block id="592559968efa9408ca73078a0281426c" category="list-text">インストールされているエージェントのネームスペース： Monitoring Agent のネームスペースを入力します。この名前は、 Monitoring Operator のデフォルトの名前である NetApp CR になります。</block>
+  <block id="2c823bca43aea2d1d1f31e9983e361b7" category="list-text">-r は 'Fluent イメージまたは Telegraf イメージが置かれている Docker レジストリをセットアップするためのオプションですデフォルトでは ' パスは docker.repo.eng.netapp.com/global/astra` に設定されていますこのパスは変更できます</block>
+  <block id="aeb979a8c81ef5b2987fb3c032221352" category="paragraph">ログを表示するには Cloud Insights の設定は任意ですが、 Cloud Insights を使用してデータを表示すると便利です。を参照してください <block ref="d6cf67ce476502ac807e2e588f6f029e" category="inline-link-macro-rx"></block> Astra データストアプレビュー版で使用できます。</block>
+  <block id="d9d6ed14c600162e996a2b655fe76a5b" category="paragraph">EMS イベントやその他のポッドログを Elastic などのサードパーティのエンドポイントにストリーミングするには、「 astrads 」拡張機能を使用します。</block>
+  <block id="dd28600b37d206c458b334bd7ffb8392" category="inline-link-macro">Astra データストアがインストールされている、基盤となる Kubernetes クラスタを追加</block>
+  <block id="486935e8eec639b9908b1b27009a3d45" category="list-text"><block ref="0abc3178943c2e313a51344a5a71a6f4" category="inline-link-macro-rx"></block>。</block>
+  <block id="97bf50f54963d01dea9409c25b12a862" category="inline-link-macro">Astra データストアプレビュー用のストレージバックエンドをクラスタに追加します</block>
+  <block id="2f0c9fb30324413f2ab0cdaea50981c0" category="list-text"><block ref="bad2a7ffbfb74e3294d159537164f102" category="inline-link-macro-rx"></block>。</block>
+  <block id="fb1b2d57a629a279f6ff0d53a5227a85" category="inline-link">ノード、ディスク、永続的ボリューム要求（ PVC ）を監視</block>
+  <block id="13c2044ccdb84b5f13a75cb4056babe7" category="list-text"><block ref="77a980d120eceb0ef7837945f6cac4d0" category="inline-link-rx"></block>。</block>
+  <block id="d2345544e5b85f26908fbbfcea4178f8" category="inline-link">Astra Control API の略</block>
+  <block id="e84bb7e947a5b25481546110f575734a" category="list-text"><block ref="e84bb7e947a5b25481546110f575734a" category="inline-link-rx"></block></block>
 </blocks>
