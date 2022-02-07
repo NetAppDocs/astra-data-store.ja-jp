@@ -712,7 +712,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-02 22:37:31 +0000">02/02/2022</time>
+    <time datetime="2022-02-07 19:10:32 +0000">02/07/2022</time>
     
   
 
@@ -750,7 +750,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra データストアプレビューをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、クラスタ、 ライセンス、導入環境、 Astra データストアプレビューネームスペース。</p>
+<p>Astra データストアのプレビューとコントロールプレーンをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、 Astra データストアクラスタ、ライセンス、導入環境、および Astra データストアのプレビューネームスペースを削除します。</p>
 </div>
 <div class="ulist">
 <div class="title">必要なもの</div>
@@ -881,9 +881,6 @@
 <div class="paragraph">
 <p>クラスタを削除すると ' 基盤となるオペレーティング・システムもノードからアンインストールされ 'FIRETAAP' および netwd' サービスが停止します</p>
 </div>
-<div class="paragraph">
-<p>アンインストーラが完了するまでに約 1 分かかります。次に、 Astra データストアのプレビュー用リソースの削除が、クラスタを対象として開始します。</p>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -897,13 +894,25 @@
 </li>
 </ol>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+アンインストーラが完了するまでに約 1 分かかります。次に、 Astra データストアのプレビュー用リソースの削除が、クラスタを対象として開始します。
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="ライセンスを削除します">ライセンスを削除します</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>クラスタ内の各ワーカー・ノードに SSH 接続し ' ワーカー・ノードで 'FIRETAAP' または 'netwd' が実行されていないことを確認します</p>
+<p>クラスタから各ワーカー・ノードに SSH 接続し 'FIRETAAP' または netwd' がワーカー・ノードで実行されていないことを確認します</p>
 </li>
 <li>
 <p>Astra データストアプレビューライセンスを削除します。</p>
@@ -928,8 +937,8 @@
 <p>Astra Data Store プレビューインストールオブジェクトを削除します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl delete astradsversion astradsversion -n astrads-system
-~% kubectl get astradsversion -n astrads-system</pre>
+<pre>kubectl delete astradsversion astradsversion -n astrads-system
+kubectl get astradsversion -n astrads-system</pre>
 </div>
 </div>
 </li>
@@ -937,11 +946,11 @@
 <p>DemonSets データストアと Astra データストアのすべてのプレビューコントローラリソースを削除します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl delete ds --all -n astrads-system
-~% kubectl get ds -n astrads-system
+<pre>kubectl delete ds --all -n astrads-system
+kubectl get ds -n astrads-system
 
-~% kubectl delete deployments --all -n astrads-system
-~% kubectl get deployments -n astrads-system</pre>
+kubectl delete deployments --all -n astrads-system
+kubectl get deployments -n astrads-system</pre>
 </div>
 </div>
 </li>
@@ -949,8 +958,8 @@
 <p>残りのアーティファクトと演算子 YAML ファイルを削除します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl delete -f ./manifests/astradsoperator.yaml
-~% kubectl get pods -n astrads-system</pre>
+<pre>kubectl delete -f ./manifests/astradsoperator.yaml
+kubectl get pods -n astrads-system</pre>
 </div>
 </div>
 </li>
@@ -964,7 +973,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl get ns | grep astrads-system</pre>
+<pre>kubectl get ns | grep astrads-system</pre>
 </div>
 </div>
 </div>
@@ -1018,7 +1027,7 @@
 <img src="/us-en/astra-data-store/images/note.svg" alt="注記">
 </td>
 <td class="content">
-これらの手順で「 resources not found errors 」を無視します。 
+これらの手順で「 resources not found 」エラーを無視します。 
 </td>
 </tr>
 </table>
@@ -1035,7 +1044,7 @@
 <h2 id="手動削除のサンプル">手動削除のサンプル</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>次に、手動アンインストールスクリプトの実行例を示します。</p>
+<p>次に、手動アンインストールスクリプトの例を示します。</p>
 </div>
 <div class="listingblock">
 <div class="content">

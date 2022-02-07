@@ -712,7 +712,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-02 22:37:31 +0000">02/02/2022</time>
+    <time datetime="2022-02-07 19:10:32 +0000">02/07/2022</time>
     
   
 
@@ -778,7 +778,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl astrads monitoring setup -n &lt;NAMESPACE OF AGENT INSTALLED&gt;  -r &lt;DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES&gt;</pre>
+<pre>~% kubectl astrads monitoring setup -n &lt;NAMESPACE OF AGENT INSTALLED&gt;
+   -r &lt;DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -787,10 +788,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>インストールされているエージェントの名前空間 : 監視エージェントです。監視オペレータの CR です。</p>
+<p>インストールされているエージェントのネームスペース： Monitoring Agent のネームスペースを入力します。この名前は、 Monitoring Operator のデフォルトの名前である NetApp CR になります。</p>
 </li>
 <li>
-<p>-r はオプションです</p>
+<p>-r は 'Fluent イメージまたは Telegraf イメージが置かれている Docker レジストリをセットアップするためのオプションですデフォルトでは ' パスは docker.repo.eng.netapp.com/global/astra` に設定されていますこのパスは変更できます</p>
 </li>
 </ul>
 </div>
@@ -800,7 +801,7 @@
 <h2 id="cloud-insights-をセットアップする">Cloud Insights をセットアップする</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>を参照してください <a href="../use/monitor-with-cloud-insights.html">"NetApp Cloud Insights のセットアップ方法"</a> Astra データストアプレビュー版で使用できます。</p>
+<p>ログを表示するには Cloud Insights の設定は任意ですが、 Cloud Insights を使用してデータを表示すると便利です。を参照してください <a href="../use/monitor-with-cloud-insights.html">"NetApp Cloud Insights のセットアップ方法"</a> Astra データストアプレビュー版で使用できます。</p>
 </div>
 </div>
 </div>
@@ -808,7 +809,7 @@
 <h2 id="イベントログを-elastic-にストリーミングする">イベントログを Elastic にストリーミングする</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>EMS イベントやその他のポッドログをストリーミングして、ログを Elastic などのサードパーティのエンドポイントにストリーミングするには、「 astrads 」拡張機能を使用します。</p>
+<p>EMS イベントやその他のポッドログを Elastic などのサードパーティのエンドポイントにストリーミングするには、「 astrads 」拡張機能を使用します。</p>
 </div>
 <div class="paragraph">
 <p>入力するコマンド</p>
