@@ -51,7 +51,7 @@ Astra Data Store プレビューをアンインストールするには、ネッ
 +
 [listing]
 ----
-sed -i -e “s~netappsdsoperator.yaml~astradsoperator.yaml~” uninstall.sh
+sed -i -e 's~netappsdsoperator.yaml~astradsoperator.yaml~' uninstall.sh
 ----
 . 次のスクリプトを実行して、アンインストールする項目を指定します。
 +
