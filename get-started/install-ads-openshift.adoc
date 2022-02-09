@@ -39,7 +39,6 @@ Astra Data Store プレビューインストールプロセスでは、次の手
 * <<Understand deployment-related events>>
 * <<Configure Astra Data Store preview monitoring>>
 * <<Install the monitoring operator>>
-* <<Set up iptables>>
 
 
 
@@ -482,7 +481,7 @@ NOTE: YAML ファイルの簡単な例は、次の手順を実行します。
 *** 「 mvip 」文字列を、クラスタ内の任意のワーカーノードからルーティング可能なフローティング管理 IP の IP アドレスに変更します。
 *** 「 adsDataNetworks 」に、 NetApp ボリュームをマウントするホストからルーティング可能なフローティング IP アドレス（「アドレス」）をカンマで区切って追加します。ノードごとに 1 つのフローティング IP アドレスを使用します。データネットワーク IP アドレスは、 Astra Data Store のプレビューノードと同じ数以上必要です。Astra データストアプレビューの場合、少なくとも 4 つのアドレスを意味します。あとで 5 つのノードにクラスタを拡張する予定の場合は、 5 つのアドレスを意味します。
 *** 「 adsDataNetworks 」で、データネットワークが使用するネットマスクを指定します。
-*** 「 adsNetworkInterfaces 」で、「 mgmt 」と「 data 」の値を、管理、クラスタ、およびストレージに使用するネットワークインターフェイス名に置き換えます。名前を指定しない場合、ノードのプライマリインターフェイスが管理、クラスタ、ストレージのネットワークに使用されます。
+*** 「 adsNetworkInterfaces 」で、「 <mgmt_interface_name> 」および「 <cluster_and _storage_interface_name> 」の値を、管理、クラスタ、およびストレージに使用するネットワークインターフェイス名に置き換えます。名前を指定しない場合、ノードのプライマリインターフェイスが管理、クラスタ、ストレージのネットワークに使用されます。
 +
 
 NOTE: クラスタとストレージのネットワークのインターフェイスが同じである必要があります。Astra Data Store プレビュー管理インターフェイスは、 Kubernetes ノードの管理インターフェイスと同じである必要があります。
@@ -520,13 +519,14 @@ kind: AstraDSCluster
       *netmask:*
   # Specify the network interface names to use for management, cluster and storage networks.
   # If none are specified, the node's primary interface will be used for management, cluster and storage networking.
-  # To move the cluster and storage networks a different interface than management, specify all three interfaces to use here.
-  # The Astra Data Store management interface should be same as the Kubernetes node’s management interface.
+  # To move the cluster and storage networks to a different interface than management, specify all three interfaces to use here.
   # NOTE: The cluster and storage networks need to be on the same interface.
   *adsNetworkInterfaces:*
-    *managementInterface: "mgmt"*
-    *clusterInterface: "data"*
-    *storageInterface: "data"*
+    *managementInterface: "<mgmt_interface_name>"*
+    *clusterInterface: "<cluster_and_storage_interface_name>"*
+    *storageInterface: "<cluster_and_storage_interface_name>"*
+  # [Optional] Provide a k8s label key that defines which protection domain a node belongs to.
+    # adsProtectionDomainKey: ""
   # [Optional] Provide a monitoring config to be used to setup/configure a monitoring agent.
  *# monitoringConfig:*
    *# namespace: "netapp-monitoring"*
@@ -700,57 +700,6 @@ kubectl apply -f ./manifests/monitoring_operator.yaml
 kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup
 ----
 
-
-
-
-== iptables をセットアップします
-
-OpenShift SDN （ OpenShift 用のデフォルト CNI プラグイン）は、ホストループバックインターフェイス（ 127.0.0.1 / localhost ）からホストポートへのトラフィックを偽装しません。
-
-Astra Data Store プレビュークラスタでは、 localhost からクラスタサービスポート（ 9920 ）にトラフィックを転送するための NAT ルールが追加されている必要があります。
-
-.手順
-. NAT テーブルの出力チェーンの現在の「 KUBE-HOSTPORTS 」ルールの行番号をメモします。
-+
-次の例では 'KUBE-HOSTPORTS' は 4 番目の位置にあります
-
-+
-[listing]
-----
-$ sudo iptables -t nat -L OUTPUT --line-numbers
-Chain OUTPUT (policy ACCEPT)
-num target prot opt source destination
-1 KUBE-SERVICES all -- anywhere anywhere /* kubernetes service portals */
-2 KUBE-PORTALS-HOST all -- anywhere anywhere /* handle ClusterIPs; NOTE: this must be before the NodePort rules */
-3 KUBE-NODEPORT-HOST all -- anywhere anywhere ADDRTYPE match dst-type LOCAL /* handle service NodePorts; NOTE: this must be the last rule in the chain */
-4 KUBE-HOSTPORTS all -- anywhere anywhere /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
-----
-. 新しいルールを NAT テーブルに追加します。この場合、「 KUBE-HOSTPORTS 」エントリのすぐ上に追加します。
-+
-[listing]
-----
-$ sudo iptables -t nat -I OUTPUT 4 -s 127.0.0.1 -j KUBE-MARK-MASQ -p tcp --dport 9920
-----
-. 新しく追加されたルールが 'KUBE-HOSTPORTS' ルールのすぐ上の NAT テーブルに追加されていることを確認します
-+
-[listing]
-----
-$ sudo iptables -t nat -L OUTPUT --line-numbers
-Chain OUTPUT (policy ACCEPT)
-num target prot opt source destination
-1 KUBE-SERVICES all -- anywhere anywhere /* kubernetes service portals */
-2 KUBE-PORTALS-HOST all -- anywhere anywhere /* handle ClusterIPs; NOTE: this must be before the NodePort rules */
-3 KUBE-NODEPORT-HOST all -- anywhere anywhere ADDRTYPE match dst-type LOCAL /* handle service NodePorts; NOTE: this must be the last rule in the chain */
-4 KUBE-MARK-MASQ tcp -- localhost anywhere tcp dpt:9920
-5 KUBE-HOSTPORTS all -- anywhere anywhere /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
-----
-
-
-
-NOTE: Astra Data Store プレビュー版クラスタ内のすべてのノードで、次の手順を実行します。
-
-
-NOTE: Astra データストアプレビュークラスタノードが再起動した場合は、この手順を繰り返します。
 
 
 

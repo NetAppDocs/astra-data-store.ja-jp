@@ -4,13 +4,25 @@ permalink: release-notes/whats-new.html
 keywords: 'what"s new, bugs, bug fixes, new features, enhancements' 
 summary: ネットアップは Astra データストアを定期的に更新して、新機能、拡張機能、バグ修正を提供 
 ---
-= このリリースの Astra データストアの内容
+= このリリースの Astra データストアの新機能
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/release-notes/
 
 
-アストラデータストアの 21.12 プレビューリリースが発表されました。
+アストラデータストアのプレビューリリースの 2021.12.1 パッチを発表します。
+
+
+
+== 2022 年 2 月 8 日（ 2021.12.1 ）
+
+Astra Data Store プレビュー (21.12) 用のパッチリリース (2021.12.1) 。
+
+* 今回のリリースでは、 Astra データストアのプレビューで、 VXLAN 構成を Calico CNI でサポートしています。
+* Calico WireGuard 対応のネットワーク構成が Astra データストアプレビューでサポートされるようになりました。
+* 更新された AstraDSCluster.YAML 「 adsNetworkInterfaces 」セクションには、わかりやすいコメントが含まれています。
+* kubectl コマンドアンインストールプロセスの代わりに、新しい Astra データストアアンインストールスクリプトが提供されるようになりました。
+
 
 
 

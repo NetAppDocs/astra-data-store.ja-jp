@@ -14,27 +14,17 @@ summary: 既知の問題は、このリリースの製品を正常に使用で�
 
 
 
-== Default Calico WireGuard インターフェイス名が Astra データストアプレビューで認識されません
-
-このエラーが発生するとポッドがクラッシュします。回避策として、 Calico の Felix 設定で wireguardInterfaceName 設定を変更して、ドットなしでインターフェイス名を指定します。例：
-
-[listing]
-----
-calicoctl patch felixconfiguration default --type='merge' -p '{"spec":{"wireguardInterfaceName":"calico_wg"}}'
-----
-各ノードに新しい名前でインターフェイスを作成する以外に、この変更は元の wireguard.cali インターフェイスの背後に残る場合もあります。これらのインターフェイスを削除して、この問題を繰り返し作成しないようにします。
-
-
-
-== VXLAN 設定と Calico CNI を使用したネットワークインターフェイス名は、 Astra データストアプレビューで認識されません
-
-このエラーが発生するとポッドがクラッシュします。回避策として、 VXLAN の設定を無効にします。
-
-
-
 == デフォルトの活性プローブ値を使用した MongoDB 環境で、ポッドがクラッシュループ状態で失敗する
 
 回避策として、 MongoDB 導入仕様で liveness プローブ initialDelaySeconds を 600 秒に設定します。
+
+
+
+== 原因 ポッドは、 Astra データストアプレビューのアンインストールプロセスで終了状態のままになる場合があります
+
+Kubernetes v1.20 の Astra データストアプレビューアンインストールプロセスでは、原因 ポッドが終了状態のまま残ることがあります。
+
+を参照してください link:../use/uninstall-ads-manual.html["スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする"] または。
 
 
 

@@ -278,7 +278,7 @@ NOTE: YAML ファイルの簡単な例は、次の手順を実行します。
 *** 「 mvip 」文字列を、クラスタ内の任意のワーカーノードからルーティング可能なフローティング管理 IP の IP アドレスに変更します。
 *** 「 adsDataNetworks 」に、 NetApp ボリュームをマウントするホストからルーティング可能なフローティング IP アドレス（「アドレス」）をカンマで区切って追加します。ノードごとに 1 つのフローティング IP アドレスを使用します。データネットワーク IP アドレスは、 Astra Data Store のプレビューノードと同じ数以上必要です。Astra データストアプレビューの場合、少なくとも 4 つのアドレスを意味します。あとで 5 つのノードにクラスタを拡張する予定の場合は、 5 つのアドレスを意味します。
 *** 「 adsDataNetworks 」で、データネットワークが使用するネットマスクを指定します。
-*** 「 adsNetworkInterfaces 」で、「 mgmt 」と「 data 」の値を、管理、クラスタ、およびストレージに使用するネットワークインターフェイス名に置き換えます。名前を指定しない場合、ノードのプライマリインターフェイスが管理、クラスタ、ストレージのネットワークに使用されます。
+*** 「 adsNetworkInterfaces 」で、「 <mgmt_interface_name> 」および「 <cluster_and _storage_interface_name> 」の値を、管理、クラスタ、およびストレージに使用するネットワークインターフェイス名に置き換えます。名前を指定しない場合、ノードのプライマリインターフェイスが管理、クラスタ、ストレージのネットワークに使用されます。
 +
 
 NOTE: クラスタとストレージのネットワークのインターフェイスが同じである必要があります。Astra Data Store プレビュー管理インターフェイスは、 Kubernetes ノードの管理インターフェイスと同じである必要があります。
@@ -316,13 +316,14 @@ kind: AstraDSCluster
       *netmask:*
   # Specify the network interface names to use for management, cluster and storage networks.
   # If none are specified, the node's primary interface will be used for management, cluster and storage networking.
-  # To move the cluster and storage networks a different interface than management, specify all three interfaces to use here.
-  # The Astra Data Store management interface should be same as the Kubernetes node’s management interface.
+  # To move the cluster and storage networks to a different interface than management, specify all three interfaces to use here.
   # NOTE: The cluster and storage networks need to be on the same interface.
   *adsNetworkInterfaces:*
-    *managementInterface: "mgmt"*
-    *clusterInterface: "data"*
-    *storageInterface: "data"*
+    *managementInterface: "<mgmt_interface_name>"*
+    *clusterInterface: "<cluster_and_storage_interface_name>"*
+    *storageInterface: "<cluster_and_storage_interface_name>"*
+  # [Optional] Provide a k8s label key that defines which protection domain a node belongs to.
+    # adsProtectionDomainKey: ""
   # [Optional] Provide a monitoring config to be used to setup/configure a monitoring agent.
  *# monitoringConfig:*
    *# namespace: "netapp-monitoring"*

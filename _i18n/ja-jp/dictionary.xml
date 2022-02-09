@@ -113,17 +113,12 @@
   <block id="34515f1d88b10d0db0a78eba6c533394" category="summary">既知の問題は、このリリースの製品を正常に使用できない可能性のある問題を特定します。</block>
   <block id="95dc0391ce7b396d7dd5622284e8fc3e" category="doc">既知の問題</block>
   <block id="cbf07725210d7794bc72ba637e814463" category="paragraph">ここでは、このプレビュー版の製品を正常に使用できなくなる原因にもなる、既知の問題について記載します。</block>
-  <block id="0e4fba3a066f36e9068d0c009d7e645b" category="section-title">Default Calico WireGuard インターフェイス名が Astra データストアプレビューで認識されません</block>
-  <block id="0a2658de7347bd058fe644ff8377e067" category="paragraph">このエラーが発生するとポッドがクラッシュします。回避策として、 Calico の Felix 設定で wireguardInterfaceName 設定を変更して、ドットなしでインターフェイス名を指定します。例：</block>
-  <block id="7b9da3c0b330f1b48579aeceb36d8fe9" category="paragraph">各ノードに新しい名前でインターフェイスを作成する以外に、この変更は元の wireguard.cali インターフェイスの背後に残る場合もあります。これらのインターフェイスを削除して、この問題を繰り返し作成しないようにします。</block>
   <block id="611ef1043a7be23a79c733584b983303" category="section-title">VXLAN 設定と Calico CNI を使用したネットワークインターフェイス名は、 Astra データストアプレビューで認識されません</block>
-  <block id="dbeae861992513b6eb728dc3b93f660d" category="paragraph">このエラーが発生するとポッドがクラッシュします。回避策として、 VXLAN の設定を無効にします。</block>
   <block id="7c88f5c8e51811bf930b3f587b58d58a" category="section-title">デフォルトの活性プローブ値を使用した MongoDB 環境で、ポッドがクラッシュループ状態で失敗する</block>
   <block id="c4a3b0f34e2b8b73bccefd6f730679b0" category="paragraph">回避策として、 MongoDB 導入仕様で liveness プローブ initialDelaySeconds を 600 秒に設定します。</block>
   <block id="482723983a4f2af954e36ff41e567451" category="inline-link-macro">既知の制限</block>
   <block id="58ddb149ad752e78b7ddd185699b6c95" category="list-text"><block ref="58ddb149ad752e78b7ddd185699b6c95" category="inline-link-macro-rx"></block></block>
   <block id="3c60bfdc14ab00c255a4234e22b93fce" category="summary">ネットアップは Astra データストアを定期的に更新して、新機能、拡張機能、バグ修正を提供</block>
-  <block id="60b3c8fc57a7a1ef017f271fa49525b0" category="paragraph">アストラデータストアの 21.12 プレビューリリースが発表されました。</block>
   <block id="543a7bce413677fa93bd0df794199bfc" category="section-title">2021 年 12 月 21 日（ 21.12 ）</block>
   <block id="b90b098f5e10f362e0311f845f8db412" category="inline-link-macro">それは何であるか</block>
   <block id="0366914bfcaaf0f822d79c3c7babc483" category="list-text"><block ref="0366914bfcaaf0f822d79c3c7babc483" category="inline-link-macro-rx"></block></block>
@@ -140,8 +135,6 @@
   <block id="a2349035bf4872c12c78cb2d856a9336" category="list-text"><block ref="be0f477de0f57aea94404872654dcee8" category="inline-link-macro-rx"></block> および <block ref="60f068e3a346c283b9ad7095bc3a22bf" category="inline-link-macro-rx"></block></block>
   <block id="0956972ccb3f1ffed4c31a057c597e7d" category="list-text"><block ref="0956972ccb3f1ffed4c31a057c597e7d" category="inline-link-macro-rx"></block></block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="doc">リリースノート</block>
-  <block id="9496fd053449dc632695aa62786ebaf1" category="inline-link-macro">今回のリリースの Astra データストアの内容</block>
-  <block id="1761491776db9658a9d9f4322aef4187" category="list-text"><block ref="1761491776db9658a9d9f4322aef4187" category="inline-link-macro-rx"></block></block>
   <block id="3f4fc4220755866f399810fee47c7884" category="inline-link-macro">GitHub の貢献者</block>
   <block id="65ed3c4720fad34d453db54755338725" category="paragraph">Twitter で @NetAppDoc をフォローしてください。を作成し、ドキュメントに関するフィードバックを送信します <block ref="78cabac26f0b6e0ce9a3e24d1b749910" category="inline-link-macro-rx"></block> または、 doccomments@netapp.com に電子メールを送信します。</block>
   <block id="1eba71d64e6c5e410e558530711e835b" category="summary">既知の制限事項は、このリリースの製品でサポートされていないプラットフォーム、デバイス、機能、または製品と正しく相互運用できない機能を特定します。これらの制限事項を慎重に確認してください</block>
@@ -244,13 +237,10 @@
   <block id="ca6aaabf5c74238b64f1f77fc1078fb1" category="paragraph">可能な交換用ドライブをフィルタリングせずにすべてのドライブを一覧表示するには '--all' を 'show-replacements' コマンドに追加します</block>
   <block id="125f85ae4d1ff2dd68b6b65a8b46611f" category="list-text">kubectl の astrads faileddrive replace' が不適切なシリアル番号を使用して実行された場合 ' 次のようなエラーが表示されます</block>
   <block id="cf12ebbc6fe7b3e21046a7d8c5b3dd5f" category="summary">Astra データストアをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、クラスタ、 ライセンス、導入環境、ネームスペース：</block>
-  <block id="2c5e778cc6a11e1829770d5339f5c0fa" category="doc">Astra データストアプレビューをアンインストールします</block>
   <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">必要なもの</block>
   <block id="1af4d14d7adc73a0cf26c741f9acf9df" category="list-text">root 管理権限</block>
   <block id="e88f686261fc285399abfcc5575efcee" category="paragraph">Astra Data Store プレビューアンインストールプロセスでは、次の手順が簡単に実行できます。</block>
   <block id="05424633f0bd5eefeaa3629e5c4d1ae1" category="list-text"><block ref="cab67cc4c69f00a37ed4ae97c08b5a2c" category="inline-xref-macro-rx"></block></block>
-  <block id="46c883ff8d48945b15db394f9ac2050d" category="list-text"><block ref="c650fcae59c3ef6d3a0e731f55d376df" category="inline-xref-macro-rx"></block></block>
-  <block id="0bc81830f1dfb9de112bee2d6bd91b91" category="list-text"><block ref="26d229d5e2e3968e71c3402c5a09214b" category="inline-xref-macro-rx"></block></block>
   <block id="cacd3064543c7be5a9b55ffd25a40141" category="list-text"><block ref="d494c9949a6c752fae5f375dcac6bb64" category="inline-xref-macro-rx"></block></block>
   <block id="334982a7418a341303b6f2204ca1e0fe" category="list-text"><block ref="621e8ae438ccf9d5bd1e2f424bbe8b78" category="inline-xref-macro-rx"></block></block>
   <block id="85e4b847a7452c3cb60874d0fbf806b3" category="list-text"><block ref="9ae241411ebdbe5b7431af3f015cef5e" category="inline-xref-macro-rx"></block></block>
@@ -556,7 +546,6 @@
   <block id="868e18bdd7bc8799f8c1e1f00b94d58c" category="list-text">「 mvip 」文字列を、クラスタ内の任意のワーカーノードからルーティング可能なフローティング管理 IP の IP アドレスに変更します。</block>
   <block id="cc80da2ca49204147d1a136f50492c90" category="list-text">「 adsDataNetworks 」に、 NetApp ボリュームをマウントするホストからルーティング可能なフローティング IP アドレス（「アドレス」）をカンマで区切って追加します。ノードごとに 1 つのフローティング IP アドレスを使用します。データネットワーク IP アドレスは、 Astra Data Store のプレビューノードと同じ数以上必要です。Astra データストアプレビューの場合、少なくとも 4 つのアドレスを意味します。あとで 5 つのノードにクラスタを拡張する予定の場合は、 5 つのアドレスを意味します。</block>
   <block id="29b31f9baad8004ca9125758588d82c3" category="list-text">「 adsDataNetworks 」で、データネットワークが使用するネットマスクを指定します。</block>
-  <block id="dc9f3800ee8e188d0fb3e1fb1687d270" category="list-text">「 adsNetworkInterfaces 」で、「 mgmt 」と「 data 」の値を、管理、クラスタ、およびストレージに使用するネットワークインターフェイス名に置き換えます。名前を指定しない場合、ノードのプライマリインターフェイスが管理、クラスタ、ストレージのネットワークに使用されます。</block>
   <block id="575504814fb95c79b3ed9e5f1035436b" category="admonition">クラスタとストレージのネットワークのインターフェイスが同じである必要があります。Astra Data Store プレビュー管理インターフェイスは、 Kubernetes ノードの管理インターフェイスと同じである必要があります。</block>
   <block id="8da4a001932be2ff606e6df10493966a" category="inline-xref">監視オペレータ</block>
   <block id="644ad178aa7628cc443a92bf64c7cfca" category="list-text">（任意） * monitoringConfig* ：を設定する場合 <block ref="0f1aa9f35704db6c7d3dfbe726efcbc1" category="inline-xref-macro-rx"></block> （監視に Astra Control Center を使用していない場合はオプション）、セクションからコメントを削除し、エージェント CR （監視用オペレータリソース）が適用されるネームスペース（デフォルトは「 NetApp-monitoring 」）を追加し、前の手順で使用したレジストリ（「 Your_registry_path 」）のリポジトリパスを追加します。</block>
@@ -749,7 +738,6 @@
   <block id="33479e9fa2f705061f6d568f2a579e42" category="list-text"><block ref="2726811d07a06cce3b8a8fe537309a8e" category="inline-xref-macro-rx"></block></block>
   <block id="3b0adcdb7a1d7bd146376dcfc6accd6c" category="list-text"><block ref="0af761fa812dc9e1ab2a2b67718089d0" category="inline-xref-macro-rx"></block></block>
   <block id="80fd50d2c29afdea09a446ffc7bb6b15" category="list-text"><block ref="96f517c99ba407f5b231283daa5c1544" category="inline-xref-macro-rx"></block></block>
-  <block id="1023cca3cbe0355c454587fe233fb54e" category="list-text"><block ref="7e400ca6d12cb414decd3ba7def8d69f" category="inline-xref-macro-rx"></block></block>
   <block id="17ed07ff15b5d43d3eca288ae4a093bd" category="list-text">（任意）バンドルのシグニチャを確認します。</block>
   <block id="3590e28b9b85fc9dc8f47946a6a81c5b" category="section-title">Astra データストアプレビューを導入するためのネームスペースを作成します</block>
   <block id="1d05061aec39922b91b02b045d31d674" category="paragraph">すべての Astra Data Store プレビューコンポーネントをインストールする名前空間「 astras -system 」を作成します。</block>
@@ -777,15 +765,6 @@
   <block id="a0043c0af3acf54941321b091a08c953" category="list-text">kubectl apply コマンドを使用して配備します</block>
   <block id="9a18f1a51db98667d766563e48ba7225" category="list-text">SELinux が有効になっている場合は、 Astra Data Store プレビュークラスタ内のノードで、次のディレクトリの「 SELinux 」コンテキストにラベルを付け直します。</block>
   <block id="f22b8fb6dcc9aa31e0b2d9e9e84205c7" category="admonition">これは 'SELinux がこれらのディレクトリの書き込みを禁止し ' サポートポッドが CrashLoopBackoff 状態になるためですこの手順は、 Astra データストアプレビュークラスタ内のすべてのノードで実行する必要があります。</block>
-  <block id="312c22a3876f69404939d1690151fbc4" category="section-title">iptables をセットアップします</block>
-  <block id="003e4c2f8867f9fd50148b316d4b989e" category="paragraph">OpenShift SDN （ OpenShift 用のデフォルト CNI プラグイン）は、ホストループバックインターフェイス（ 127.0.0.1 / localhost ）からホストポートへのトラフィックを偽装しません。</block>
-  <block id="1b3b86daa5e0644271ca947c2224f310" category="paragraph">Astra Data Store プレビュークラスタでは、 localhost からクラスタサービスポート（ 9920 ）にトラフィックを転送するための NAT ルールが追加されている必要があります。</block>
-  <block id="b39a623813791d04ac10ef1fc42a7fc5" category="list-text">NAT テーブルの出力チェーンの現在の「 KUBE-HOSTPORTS 」ルールの行番号をメモします。</block>
-  <block id="f510c1d362dbb0428437b2f895e8982a" category="paragraph">次の例では 'KUBE-HOSTPORTS' は 4 番目の位置にあります</block>
-  <block id="adcb2cd59b5d01edf7ca1f67e980ac9f" category="list-text">新しいルールを NAT テーブルに追加します。この場合、「 KUBE-HOSTPORTS 」エントリのすぐ上に追加します。</block>
-  <block id="d912cfb09e8afcc3ecc44ba849dbd502" category="list-text">新しく追加されたルールが 'KUBE-HOSTPORTS' ルールのすぐ上の NAT テーブルに追加されていることを確認します</block>
-  <block id="ec3c5f90c4d136c23a12315138fd7c45" category="admonition">Astra Data Store プレビュー版クラスタ内のすべてのノードで、次の手順を実行します。</block>
-  <block id="c7763a055763bd20203aefad4f95491e" category="admonition">Astra データストアプレビュークラスタノードが再起動した場合は、この手順を繰り返します。</block>
   <block id="46921a75e8534ad7d1c379a9e3aec033" category="sidebar">インストールの概要</block>
   <block id="3082d4232dd32a2353e231bf8f1faba4" category="sidebar">OpenShift に Astra データストアプレビューをインストールします</block>
   <block id="e53566a3d4b03bb3bb38c32ee32acedb" category="summary">ネットアップでは、 Astra データストアのプレビュー版をさまざまな方法で提供しています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra Data Store プレビューアカウントには、 Web でチケットを発行するリモートテクニカルサポートが含まれています。</block>
@@ -941,7 +920,6 @@
   <block id="5a880b8c445a800acadf32c4ad7af071" category="list-text"><block ref="a71874fb50b79b81cbba98e9c1dfefdf" category="inline-xref-macro-rx"></block></block>
   <block id="d123277e1fd8558573c3d0919aa684f3" category="paragraph">Astra Data Store のプレビューをインストールし、環境に関するいくつかの前提条件に対処したら、 Astra Trident をインストールし、 Kubernetes のスナップショット機能を設定し、ストレージバックエンドをセットアップして、デフォルトのストレージクラスを作成します。</block>
   <block id="5ab1da70b106ac4cac7486f910a193f7" category="paragraph">永続的ボリューム要求（ PVC ）の Snapshot を作成するには、 Kubernetes の Snapshot SSD とコントローラが必要です。環境に CRD とコントローラがインストールされていない場合は、次のコマンドを実行してインストールします。</block>
-  <block id="dc226deab720368a24dc5cc25f3ad415" category="doc">このリリースの Astra データストアの内容</block>
   <block id="034057e29f8eb1feedd93c2bb1f3c021" category="list-text">CR を保存します。</block>
   <block id="eb178327aa7fefe80b381533b11cc4e6" category="paragraph">を参照してください <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block> および <block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block>。</block>
   <block id="e15c2a80de21c8f7a5baec91689e624f" category="paragraph"><block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block></block>
@@ -979,9 +957,7 @@
   <block id="0f024621e0673f1f4e657983682d6e72" category="list-text">「 * 削除」を選択します。</block>
   <block id="f5ef604e5c1749fb34d2f40f286b77cb" category="paragraph">Monitoring Operator は、 Telegraf および Fluent ビットの設定を更新し、 Acquisition Unit を削除します。</block>
   <block id="937f64044c15c693fee5e345b823c82a" category="paragraph">Astra データストアのプレビューとコントロールプレーンをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、 Astra データストアクラスタ、ライセンス、導入環境、および Astra データストアのプレビューネームスペースを削除します。</block>
-  <block id="22f4771b27effd4ed241a94c1c3b8fae" category="list-text">クラスタから各ワーカー・ノードに SSH 接続し 'FIRETAAP' または netwd' がワーカー・ノードで実行されていないことを確認します</block>
   <block id="f40621c004c5b23c3485a800fe73c8df" category="admonition">これらの手順で「 resources not found 」エラーを無視します。 </block>
-  <block id="341aec78c4fcb8bc2fd0114d84ad9f59" category="paragraph">次に、手動アンインストールスクリプトの例を示します。</block>
   <block id="592559968efa9408ca73078a0281426c" category="list-text">インストールされているエージェントのネームスペース： Monitoring Agent のネームスペースを入力します。この名前は、 Monitoring Operator のデフォルトの名前である NetApp CR になります。</block>
   <block id="2c823bca43aea2d1d1f31e9983e361b7" category="list-text">-r は 'Fluent イメージまたは Telegraf イメージが置かれている Docker レジストリをセットアップするためのオプションですデフォルトでは ' パスは docker.repo.eng.netapp.com/global/astra` に設定されていますこのパスは変更できます</block>
   <block id="aeb979a8c81ef5b2987fb3c032221352" category="paragraph">ログを表示するには Cloud Insights の設定は任意ですが、 Cloud Insights を使用してデータを表示すると便利です。を参照してください <block ref="d6cf67ce476502ac807e2e588f6f029e" category="inline-link-macro-rx"></block> Astra データストアプレビュー版で使用できます。</block>
@@ -994,4 +970,50 @@
   <block id="13c2044ccdb84b5f13a75cb4056babe7" category="list-text"><block ref="77a980d120eceb0ef7837945f6cac4d0" category="inline-link-rx"></block>。</block>
   <block id="d2345544e5b85f26908fbbfcea4178f8" category="inline-link">Astra Control API の略</block>
   <block id="e84bb7e947a5b25481546110f575734a" category="list-text"><block ref="e84bb7e947a5b25481546110f575734a" category="inline-link-rx"></block></block>
+  <block id="605c1163c92b6665e6e3a6e4d3e2b5ab" category="section-title">原因 ポッドは、 Astra データストアプレビューのアンインストールプロセスで終了状態のままになる場合があります</block>
+  <block id="c18987560174df439a894c56864d83c2" category="paragraph">Kubernetes v1.20 の Astra データストアプレビューアンインストールプロセスでは、原因 ポッドが終了状態のまま残ることがあります。</block>
+  <block id="a030a13efde84131d965c146d7bf8f3a" category="inline-link-macro">スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする</block>
+  <block id="a1d719a64af2e2fa944c702e48d96096" category="inline-link-macro">Astra データストアプレビューをスクリプトで自動的にアンインストールします</block>
+  <block id="0742cb091f55684dbf38e47d41776cc5" category="paragraph">を参照してください <block ref="b866e48fdeb7aae2eabda2e75fe60c7f" category="inline-link-macro-rx"></block> または<block ref="7d1c65f7beae1b21b3f162365b72d51c" category="inline-link-macro-rx"></block>。</block>
+  <block id="39b72bf4e7fc80a70a26d746cbef58ad" category="doc">このリリースの Astra データストアの新機能</block>
+  <block id="3eb82e828f1c951f4b92741841e7ffc0" category="paragraph">アストラデータストアのプレビューリリースの 2021.12.1 パッチを発表します。</block>
+  <block id="aa1ac4b92c201cc0069ddd9b8f5ef562" category="section-title">2022 年 2 月 8 日（ 2021.12.1 ）</block>
+  <block id="bd8f00179fbca4385570ecda2bce2b26" category="paragraph">Astra Data Store プレビュー (21.12) 用のパッチリリース (2021.12.1) 。</block>
+  <block id="4530f8c7839b1f969ceb5c2a31b6c4ec" category="list-text">今回のリリースでは、 Astra データストアのプレビューで、 VXLAN 構成を Calico CNI でサポートしています。</block>
+  <block id="1a7c93d5ddfb9e849dc78f3e532c9c39" category="list-text">Calico WireGuard 対応のネットワーク構成が Astra データストアプレビューでサポートされるようになりました。</block>
+  <block id="03c2a88196227c124e45e61db29b2a19" category="list-text">更新された AstraDSCluster.YAML 「 adsNetworkInterfaces 」セクションには、わかりやすいコメントが含まれています。</block>
+  <block id="172a28b95bfacecd355a263df8cfb2dd" category="list-text">kubectl コマンドアンインストールプロセスの代わりに、新しい Astra データストアアンインストールスクリプトが提供されるようになりました。</block>
+  <block id="5b386366b4ab49808562bc6fd84e29ca" category="summary">このリリースの解決済みの問題で、製品の使用を妨げる可能性があります。</block>
+  <block id="8e33d0035ce9088a5bcc4cff0c38cf36" category="doc">解決済みの問題</block>
+  <block id="479ffb12d996aec220f356434b84d0b6" category="paragraph">このリリースでは、次の問題 が修正されています。</block>
+  <block id="3378074c8eeb58b3185929269c8770d7" category="paragraph">このエラーが原因でポッドがクラッシュしました。</block>
+  <block id="a75f3479bc8ee07b1c30e1dc43a5f950" category="paragraph">アストラデータストアプレビューの 21.12 プレビューリリースが発表されました。</block>
+  <block id="e563ac1a793c6c7311b2c41e978bf313" category="inline-link-macro">このリリースの Astra データストアプレビューの新機能</block>
+  <block id="0a8304d2d371d90a957d4e1ce36197c4" category="list-text"><block ref="0a8304d2d371d90a957d4e1ce36197c4" category="inline-link-macro-rx"></block></block>
+  <block id="468558a9981278b44ae6cb6ec9f51a45" category="doc">スクリプトを使用せずに Astra データストアプレビューをアンインストールする</block>
+  <block id="9f72a703d568eb4188aacd99d7e14ab3" category="paragraph">自動スクリプトを使用せずに Astra Data Store プレビューを手動でアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、クラスタ、 ライセンス、導入環境、 Astra データストアプレビューネームスペース。</block>
+  <block id="dda8e2faeb675dbd55f4dc4333ca9101" category="inline-link-macro">Astra データストアプレビューをスクリプトでアンインストールします</block>
+  <block id="4d4331643a6c4cdb1d3cff4333651acf" category="paragraph">または、を使用することもできます <block ref="10f20f8f0c8029fb16615ac874dc8e91" category="inline-link-macro-rx"></block>。</block>
+  <block id="74c7f82da4ac975c826c5ae87e571b3e" category="list-text"><block ref="0aa963d1fa0308215678c4fc347a4f29" category="inline-xref-macro-rx"></block></block>
+  <block id="27467ea82f97476b92fc774a658ab09e" category="list-text"><block ref="697a537b02595eaae32733e664d168f5" category="inline-xref-macro-rx"></block></block>
+  <block id="8c26fafc2eb158f8e1dbc5b78f67860a" category="list-text">クラスタ内の各ワーカー・ノードに SSH 接続し ' ワーカー・ノードで 'FIRETAAP' または 'netwd' が実行されていないことを確認します</block>
+  <block id="c4bc5ab0b4775b4a9c0dc56e5a147ad0" category="admonition">これらの手順で「 resources not found errors 」を無視します。 </block>
+  <block id="b6e1c19fae1f4cf0d8f94a34c5986b69" category="paragraph">次に、手動アンインストールスクリプトの実行例を示します。</block>
+  <block id="23f386330fd2090f3c6e9816f5db1c72" category="section-title">Astra データストアプレビューアンインストールプロセスのトラブルシューティングを行う</block>
+  <block id="8b1fa32151850024119fafb21ccb3d78" category="paragraph">この問題 が発生した場合は、次のコマンドを実行して、 'astrs-system' 名前空間内のすべてのポッドを強制的に削除します。</block>
+  <block id="349659e7f762d959632a5f5df41d5229" category="doc">Astra データストアプレビューを自動スクリプトでアンインストールします</block>
+  <block id="beb97c9f432337b4e23df3290f3b8309" category="inline-link-macro">スクリプトを使用せずに Astra データストアプレビューをアンインストールする</block>
+  <block id="5c47adf11d9827e88343a4bdff0bac3d" category="paragraph">または、を使用することもできます <block ref="706dcbdb4a2486772e8b2c9892b534ee" category="inline-link-macro-rx"></block>。</block>
+  <block id="0280ad96110683ba834751f8caae2449" category="list-text"><block ref="beebbaa837c0d8f0102332e76a141522" category="inline-xref-macro-rx"></block></block>
+  <block id="e086eb1f9d8ebe5afe55cc047525fc41" category="section-title">Astra データストアクラスタをアンインストールします</block>
+  <block id="9528274a95ae00c713f7ba810614b9d9" category="paragraph">Astra Data Store プレビューをアンインストールするには、ネットアップサポートサイトからダウンロードした Astra Data Store tar ファイルで「 uninstall.sh 」スクリプトを使用します。</block>
+  <block id="6d3ae875fc703d9d98a6ac916046e2ce" category="list-text">'マニフェスト ' ディレクトリの 'uninstall.sh' を探します</block>
+  <block id="dd48706656a492ee3c3d8405bf558d38" category="list-text">次の「 sed 」コマンドを実行します。</block>
+  <block id="450614a3dcd37aa64dd16358c06d694c" category="list-text">次のスクリプトを実行して、アンインストールする項目を指定します。</block>
+  <block id="69ff5b52aae09b4aaf83249ef2547012" category="list-text">クラスタのみをアンインストールする場合は、「 uninstall.sh &lt;cluster&gt;` 」と入力します</block>
+  <block id="c7f603430bf030fb2e62840f2f04800f" category="paragraph">それ以外の場合は、すべてをアンインストールするには、「 uninstall.sh 」と入力します</block>
+  <block id="d83aa4400bb8ceb7d02f04215363b8fa" category="admonition">ほとんどの場合、すべてをアンインストールします。その後クラスタを再導入する場合は、クラスタだけをアンインストールすることもできます。</block>
+  <block id="15388dda568bd0771380969281e3fb4d" category="list-text">プロンプトで続行することを確認し、「 erasedata 」と入力します</block>
+  <block id="858c3e811ac734bb143694fc06b49de1" category="list-text">「 adsNetworkInterfaces 」で、「 &lt;mgmt_interface_name&gt; 」および「 &lt;cluster_and _storage_interface_name&gt; 」の値を、管理、クラスタ、およびストレージに使用するネットワークインターフェイス名に置き換えます。名前を指定しない場合、ノードのプライマリインターフェイスが管理、クラスタ、ストレージのネットワークに使用されます。</block>
+  <block id="1b828e66f98e1084d2ec48e088373a14" category="sidebar">このリリースの Astra データストアの新機能</block>
 </blocks>

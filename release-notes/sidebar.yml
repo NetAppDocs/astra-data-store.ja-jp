@@ -3,7 +3,7 @@ section: release-notes
 title: リリースノート
 url: "/release-notes/rn_overview.html"
 entries:
-- title: 今回のリリースの Astra データストアの内容
+- title: このリリースの Astra データストアの新機能
   url: "/release-notes/whats-new.html"
 - title: 既知の問題
   url: "/release-notes/known-issues.html"

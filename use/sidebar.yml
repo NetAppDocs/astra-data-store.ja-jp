@@ -14,5 +14,7 @@ entries:
   url: "/use/configure-endpoints.html"
 - title: Astra Control Center の統合
   url: "/use/ads-acc-ui.html"
-- title: Astra データストアプレビューをアンインストールします
+- title: Astra データストアプレビューをスクリプトで自動的にアンインストールします
   url: "/use/uninstall-ads.html"
+- title: スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする
+  url: "/use/uninstall-ads-manual.html"
