@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>Astra データストアプレビューをアンインストールします</title>
+  <title>Astra データストアプレビューを自動スクリプトでアンインストールします</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Astra データストアプレビューをアンインストールします" />
+  <meta property="og:title" content="Astra データストアプレビューを自動スクリプトでアンインストールします" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/use/uninstall-ads.html" />
 	<meta property="og:description" content="Astra データストアをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、クラスタ、 ライセンス、導入環境、ネームスペース：" />
@@ -501,6 +501,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -582,7 +584,7 @@
         <div class="na-navbar-padding"> リリースノート</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/release-notes/whats-new.html">
-        今回のリリースの Astra データストアの内容
+        このリリースの Astra データストアの新機能
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/release-notes/known-issues.html">
         既知の問題
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/release-notes/known-limitations.html">
@@ -636,7 +638,9 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/ads-acc-ui.html">
         Astra Control Center の統合
       </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads.html">
-        Astra データストアプレビューをアンインストールします
+        Astra データストアプレビューをスクリプトで自動的にアンインストールします
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads-manual.html">
+        スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知識とサポート</div>
       </a>
@@ -682,7 +686,7 @@
           <a href="/ja-jp/astra-data-store/">Astra&nbsp;Data&nbsp;Store</a>
         </li>
         <li class="n-breadcrumb__list-item">
-          Astra データストアプレビューをアンインストールします
+          Astra データストアプレビューを自動スクリプトでアンインストールします
         </li>
       </ul>
     </div>
@@ -705,14 +709,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Astra データストアプレビューをアンインストールします</h1>
+  <h1 class="n-doc__component-detail-heading">Astra データストアプレビューを自動スクリプトでアンインストールします</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-02-07 19:10:32 +0000">02/07/2022</time>
+    <time datetime="2022-02-09 14:52:12 +0000">02/09/2022</time>
     
   
 
@@ -725,19 +729,19 @@
           style="border-radius: 50%;"/>
   </a>
   
-  <a target="_blank" href="https://github.com/netapp-dbagwell">
-    <img  class="avatar avatar-small"
-          alt="netapp-dbagwell"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/53352450?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
   <a target="_blank" href="https://github.com/netapp-mwallis">
     <img  class="avatar avatar-small"
           alt="netapp-mwallis"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/53353653?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/netapp-dbagwell">
+    <img  class="avatar avatar-small"
+          alt="netapp-dbagwell"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/53352450?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -751,6 +755,9 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>Astra データストアのプレビューとコントロールプレーンをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、 Astra データストアクラスタ、ライセンス、導入環境、および Astra データストアのプレビューネームスペースを削除します。</p>
+</div>
+<div class="paragraph">
+<p>または、を使用することもできます <a href="../use/uninstall-ads-manual.html">"スクリプトを使用せずに Astra データストアプレビューをアンインストールする"</a>。</p>
 </div>
 <div class="ulist">
 <div class="title">必要なもの</div>
@@ -769,16 +776,7 @@
 <p><a href="#Remove existing workloads and bindings">[Remove existing workloads and bindings]</a></p>
 </li>
 <li>
-<p><a href="#Delete the volumes and export policies">[Delete the volumes and export policies]</a></p>
-</li>
-<li>
-<p><a href="#Delete the Astra Data Store preview cluster">[Delete the Astra Data Store preview cluster]</a></p>
-</li>
-<li>
-<p><a href="#Delete the license">[Delete the license]</a></p>
-</li>
-<li>
-<p><a href="#Delete the Astra Data Store preview installation">[Delete the Astra Data Store preview installation]</a></p>
+<p><a href="#Uninstall Astra Data Store cluster">[Uninstall Astra Data Store cluster]</a></p>
 </li>
 <li>
 <p><a href="#Validate the removal of the astrads-system namespace">[Validate the removal of the astrads-system namespace]</a></p>
@@ -788,6 +786,9 @@
 </li>
 <li>
 <p><a href="#Delete OpenShift Container Platform resources">[Delete OpenShift Container Platform resources]</a></p>
+</li>
+<li>
+<p><a href="#Troubleshoot the Astra Data Store preview uninstall process">[Troubleshoot the Astra Data Store preview uninstall process]</a></p>
 </li>
 </ul>
 </div>
@@ -815,159 +816,179 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="astra-データストアプレビュークラスタとコントロールプレーンをアンインストールします">Astra データストアプレビュークラスタとコントロールプレーンをアンインストールします</h2>
+<h2 id="astra-データストアクラスタをアンインストールします">Astra データストアクラスタをアンインストールします</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra Data Store プレビューを手動でアンインストールするには、次の手順に従います。</p>
-</div>
-<div class="sect2">
-<h3 id="ボリュームとエクスポートポリシーを削除します">ボリュームとエクスポートポリシーを削除します</h3>
-<div class="paragraph">
-<p>クラスタを削除する前に、 Astra データストアプレビューボリュームとエクスポートポリシーを削除する必要があります。</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/tip.svg" alt="ヒント">
-</td>
-<td class="content">
-ボリュームとエクスポートポリシーを最初に削除しないと、 Astra Data Store のプレビューボリュームオブジェクトが削除されるまで、クラスタの削除プロセスは一時停止します。クラスタの削除を開始する前に、それらの項目を削除する方が効率的です。
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<div class="title">手順</div>
-<ol class="arabic">
-<li>
-<p>ボリュームを削除します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete astradsvolumes --all -A
-~% kubectl get astradsvolumes -A</pre>
-</div>
-</div>
-</li>
-<li>
-<p>エクスポートポリシーを削除します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete astradsexportpolicies --all -A
-~% kubectl get astradsexportpolicies -A</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="astra-データストアプレビュークラスタを削除">Astra データストアプレビュークラスタを削除</h3>
-<div class="paragraph">
-<p>クラスタを削除すると、 Astra Data Store preview cluster object custom resource （ CR ）とクラスタを対象としたリソースのみが削除される。</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
-</td>
-<td class="content">
-オペレータ、 nodeinfo ポッド、およびクラスタコントローラ（ Kubernetes を対象としたリソース）は、クラスタを削除しても削除されません。
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>クラスタを削除すると ' 基盤となるオペレーティング・システムもノードからアンインストールされ 'FIRETAAP' および netwd' サービスが停止します</p>
+<p>Astra Data Store プレビューをアンインストールするには、ネットアップサポートサイトからダウンロードした Astra Data Store tar ファイルで「 uninstall.sh 」スクリプトを使用します。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>クラスタを削除します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete astradsclusters --all -A
-~% kubectl get astradsclusters -A</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
-</td>
-<td class="content">
-アンインストーラが完了するまでに約 1 分かかります。次に、 Astra データストアのプレビュー用リソースの削除が、クラスタを対象として開始します。
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ライセンスを削除します">ライセンスを削除します</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>クラスタから各ワーカー・ノードに SSH 接続し 'FIRETAAP' または netwd' がワーカー・ノードで実行されていないことを確認します</p>
+<p>'マニフェスト ' ディレクトリの 'uninstall.sh' を探します</p>
 </li>
 <li>
-<p>Astra データストアプレビューライセンスを削除します。</p>
+<p>次の「 sed 」コマンドを実行します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl delete astradslicenses --all -A
-~% kubectl get astradslicenses -A</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="astra-データストアプレビューインストールを削除します">Astra データストアプレビューインストールを削除します</h3>
-<div class="paragraph">
-<p>クラスタ内のコントローラ、演算子、ネームスペース、およびサポートポッドを削除します。</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Astra Data Store プレビューインストールオブジェクトを削除します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>kubectl delete astradsversion astradsversion -n astrads-system
-kubectl get astradsversion -n astrads-system</pre>
+<pre>sed -i -e “s~netappsdsoperator.yaml~astradsoperator.yaml~” uninstall.sh</pre>
 </div>
 </div>
 </li>
 <li>
-<p>DemonSets データストアと Astra データストアのすべてのプレビューコントローラリソースを削除します。</p>
+<p>次のスクリプトを実行して、アンインストールする項目を指定します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>kubectl delete ds --all -n astrads-system
-kubectl get ds -n astrads-system
+<pre>./uninstall.sh
 
-kubectl delete deployments --all -n astrads-system
-kubectl get deployments -n astrads-system</pre>
+You must run this script with an argument specifying what should be uninstalled
+To uninstall the ADS cluster run ./uninstall.sh cluster
+To uninstall everything run ./uninstall all</pre>
 </div>
 </div>
 </li>
 <li>
-<p>残りのアーティファクトと演算子 YAML ファイルを削除します。</p>
+<p>クラスタのみをアンインストールする場合は、「 uninstall.sh &lt;cluster&gt;` 」と入力します</p>
+<div class="paragraph">
+<p>それ以外の場合は、すべてをアンインストールするには、「 uninstall.sh 」と入力します</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+ほとんどの場合、すべてをアンインストールします。その後クラスタを再導入する場合は、クラスタだけをアンインストールすることもできます。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>プロンプトで続行することを確認し、「 erasedata 」と入力します</p>
+<div class="paragraph">
+<p>対応：</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre>kubectl delete -f ./manifests/astradsoperator.yaml
-kubectl get pods -n astrads-system</pre>
+<pre>./uninstall.sh all
+
+Enter 'erasedata' to confirm you want proceed with the uninstall: erasedata
++----------------------------------------------------+
+| Wed Feb  2 10:14:01 EST 2022                       |
+| ADS cluster uninstall started                      |
++----------------------------------------------------+
+Deleting astradsvolumes
+Deleted astradsvolumes
+Deleting astradsexportpolicies
+Deleted astradsexportpolicies
+Deleting astradsvolumesnapshots
+Deleted astradsvolumesnapshots
+Deleting astradsclusters
+Deleting astradsclusters
+Deleting astradslicenses
+Deleted astradslicenses
+
++----------------------------------------------------+
+| Wed Feb  2 10:15:18 EST 2022                       |
+| ADS cluster uninstall done                         |
++----------------------------------------------------+
+
++----------------------------------------------------+
+| Wed Feb  2 10:15:18 EST 2022                       |
+| ADS system uninstall started                       |
++----------------------------------------------------+
+Removing astradsversion
+astradsversion.astrads.netapp.io "astradsversion" deleted
+Removed astradsversion
+Removing daemonsets
+daemonset.apps "astrads-ds-nodeinfo-astradsversion" deleted
+Removed daemonsets
+Removing deployments
+deployment.apps "astrads-cluster-controller" deleted
+deployment.apps "astrads-license-controller" deleted
+deployment.apps "astrads-operator" deleted
+Removed deployments
+Removing all other AstraDS resources
+namespace "astrads-system" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsautosupports.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradscloudsnapshots.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsclusters.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsexportpolicies.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsfaileddrives.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradslicenses.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsnfsoptions.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsnodeinfoes.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsnodemanagements.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsqospolicies.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsversions.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsvolumefiles.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsvolumes.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsvolumesnapshots.astrads.netapp.io" deleted
+role.rbac.authorization.k8s.io "astrads-astrads-system-admin-role" deleted
+role.rbac.authorization.k8s.io "astrads-astrads-system-reader-role" deleted
+role.rbac.authorization.k8s.io "astrads-astrads-system-writer-role" deleted
+role.rbac.authorization.k8s.io "astrads-leader-election-role" deleted
+role.rbac.authorization.k8s.io "astrads-manager-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astrads-admin-clusterrole" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astrads-reader-clusterrole" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astrads-writer-clusterrole" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsautosupport-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsautosupport-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsexportpolicy-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsexportpolicy-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsfaileddrive-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsfaileddrive-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsnfsoption-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsnfsoption-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsnodeinfo-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsnodeinfo-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsnodemanagement-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsnodemanagement-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsqospolicy-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsversion-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsversion-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsvolumefile-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsvolumefile-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsvolumesnapshot-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsvolumesnapshot-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-manager-role" deleted
+rolebinding.rbac.authorization.k8s.io "astrads-astrads-admin-rolebinding" deleted
+rolebinding.rbac.authorization.k8s.io "astrads-astrads-reader-rolebinding" deleted
+rolebinding.rbac.authorization.k8s.io "astrads-astrads-writer-rolebinding" deleted
+rolebinding.rbac.authorization.k8s.io "astrads-leader-election-rolebinding" deleted
+rolebinding.rbac.authorization.k8s.io "astrads-manager-rolebinding" deleted
+clusterrolebinding.rbac.authorization.k8s.io "astrads-astrads-admin-rolebinding" deleted
+clusterrolebinding.rbac.authorization.k8s.io "astrads-astrads-reader-rolebinding" deleted
+clusterrolebinding.rbac.authorization.k8s.io "astrads-astrads-writer-rolebinding" deleted
+clusterrolebinding.rbac.authorization.k8s.io "astrads-manager-rolebinding" deleted
+configmap "astrads-autosupport-cm" deleted
+configmap "astrads-firetap-cm" deleted
+configmap "astrads-kevents-asup" deleted
+configmap "astrads-metrics-cm" deleted
+secret "astrads-autosupport-certs" deleted
++----------------------------------------------------+
+| Wed Feb  2 10:16:36 EST 2022                       |
+| ADS system uninstall done                          |
++----------------------------------------------------+</pre>
 </div>
 </div>
 </li>
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="astrs-system-名前空間の削除を検証します">astrs-system 名前空間の削除を検証します</h3>
+</div>
+<div class="sect1">
+<h2 id="astrs-system-名前空間の削除を検証します">astrs-system 名前空間の削除を検証します</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>次のコマンドで結果が返されないことを確認します。</p>
 </div>
@@ -977,8 +998,10 @@ kubectl get pods -n astrads-system</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="ワーカーノードでコンテナが実行されていないことを確認します">ワーカーノードでコンテナが実行されていないことを確認します</h3>
+</div>
+<div class="sect1">
+<h2 id="ワーカーノードでコンテナが実行されていないことを確認します">ワーカーノードでコンテナが実行されていないことを確認します</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>'FIRETAAP' や 'netwd' などのコンテナがワーカー・ノードで実行されていないことを確認します各ノードで次のコマンドを実行します。</p>
 </div>
@@ -986,7 +1009,6 @@ kubectl get pods -n astrads-system</pre>
 <div class="content">
 <pre>ssh &lt;mynode1&gt;
 # runc list</pre>
-</div>
 </div>
 </div>
 </div>
@@ -1041,89 +1063,17 @@ kubectl get pods -n astrads-system</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="手動削除のサンプル">手動削除のサンプル</h2>
+<h2 id="astra-データストアプレビューアンインストールプロセスのトラブルシューティングを行う">Astra データストアプレビューアンインストールプロセスのトラブルシューティングを行う</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>次に、手動アンインストールスクリプトの例を示します。</p>
+<p>Kubernetes v1.20 の Astra データストアプレビューアンインストールプロセスでは、原因 ポッドが終了状態のまま残ることがあります。</p>
+</div>
+<div class="paragraph">
+<p>この問題 が発生した場合は、次のコマンドを実行して、 'astrs-system' 名前空間内のすべてのポッドを強制的に削除します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl delete astradsvolumes --all -A
-No resources found
-$ kubectl delete astradsexportpolicies --all -A
-No resources found
-$ kubectl delete astradsclusters --all -A
-astradscluster.astrads.netapp.io "astrads-sti-c6220-09-10-11-12" deleted
-
-$ kubectl delete astradslicenses --all -A
-astradslicense.astrads.netapp.io "e900000005" deleted
-
-$ kubectl delete astradsdeployment astradsdeployment -n astrads-system
-astradsdeployment.astrads.netapp.io "astradsdeployment" deleted
-
-$ kubectl delete ds --all -n astrads-system
-daemonset.apps "astrads-ds-astrads-sti-c6220-09-10-11-12" deleted
-daemonset.apps "astrads-ds-nodeinfo-astradsdeployment" deleted
-daemonset.apps "astrads-ds-support" deleted
-
-$ kubectl delete deployments --all -n astrads-system
-deployment.apps "astrads-cluster-controller" deleted
-deployment.apps "astrads-deployment-support" deleted
-deployment.apps "astrads-license-controller" deleted
-deployment.apps "astrads-operator" deleted
-
-$ kubectl delete -f /.../firetap/sds/manifests/netappsdsoperator.yaml
-namespace "astrads-system" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsautosupports.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradscloudsnapshots.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsclusters.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsdeployments.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsexportpolicies.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsfaileddrives.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradslicenses.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsnfsoptions.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsnodeinfoes.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsqospolicies.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsvolumefiles.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsvolumes.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsvolumesnapshots.astrads.netapp.io" deleted
-role.rbac.authorization.k8s.io "astrads-leader-election-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-autosupport-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-autosupport-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-manager-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-metrics-reader" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappexportpolicy-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappexportpolicy-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsdeployment-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsdeployment-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnfsoption-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnfsoption-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnodeinfo-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnodeinfo-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-proxy-role" deleted
-rolebinding.rbac.authorization.k8s.io "astrads-leader-election-rolebinding" deleted
-clusterrolebinding.rbac.authorization.k8s.io "astrads-manager-rolebinding" deleted
-clusterrolebinding.rbac.authorization.k8s.io "astrads-proxy-rolebinding" deleted
-configmap "astrads-autosupport-cm" deleted
-configmap "astrads-firetap-cm" deleted
-configmap "astrads-fluent-bit-cm" deleted
-configmap "astrads-kevents-asup" deleted
-configmap "astrads-metrics-cm" deleted
-service "astrads-operator-metrics-service" deleted
- Error from server (NotFound): error when deleting "/.../export/firetap/sds/manifests/netappsdsoperator.yaml": deployments.apps "astrads-operator" not found
-
-$ kubectl get ns | grep astrads-system
-
-[root@sti-rx2540-535c ~]# runc list
-ID      PID     STATUS    BUNDLE       CREATED    OWNER</pre>
+<pre>kubectl delete pods --all  -n astrads-system   --force --grace-period 0</pre>
 </div>
 </div>
 </div>
@@ -1138,7 +1088,7 @@ ID      PID     STATUS    BUNDLE       CREATED    OWNER</pre>
   <div class="page-nav-toolbar">
     <div id="version-dropdown"></div>
     <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astra データストアプレビューをアンインストールします](https://docs.netapp.com/ja-jp/astra-data-store/use/uninstall-ads.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astra データストアプレビューを自動スクリプトでアンインストールします](https://docs.netapp.com/ja-jp/astra-data-store/use/uninstall-ads.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a>
       <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/uninstall-ads.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a>
       <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a>
     </div>

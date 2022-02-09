@@ -501,6 +501,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -582,7 +584,7 @@
         <div class="na-navbar-padding"> リリースノート</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/release-notes/whats-new.html">
-        今回のリリースの Astra データストアの内容
+        このリリースの Astra データストアの新機能
       </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/release-notes/known-issues.html">
         既知の問題
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/release-notes/known-limitations.html">
@@ -636,7 +638,9 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/ads-acc-ui.html">
         Astra Control Center の統合
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads.html">
-        Astra データストアプレビューをアンインストールします
+        Astra データストアプレビューをスクリプトで自動的にアンインストールします
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads-manual.html">
+        スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知識とサポート</div>
       </a>
@@ -712,7 +716,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-07 19:10:32 +0000">02/07/2022</time>
+    <time datetime="2022-02-09 14:52:12 +0000">02/09/2022</time>
     
   
 
@@ -722,6 +726,22 @@
           alt="netapp-dbagwell"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/53352450?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/amgrissino">
+    <img  class="avatar avatar-small"
+          alt="amgrissino"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/36450105?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/netapp-mwallis">
+    <img  class="avatar avatar-small"
+          alt="netapp-mwallis"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/53353653?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -739,34 +759,21 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="default-calico-wireguard-インターフェイス名が-astra-データストアプレビューで認識されません">Default Calico WireGuard インターフェイス名が Astra データストアプレビューで認識されません</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>このエラーが発生するとポッドがクラッシュします。回避策として、 Calico の Felix 設定で wireguardInterfaceName 設定を変更して、ドットなしでインターフェイス名を指定します。例：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>calicoctl patch felixconfiguration default --type='merge' -p '{"spec":{"wireguardInterfaceName":"calico_wg"}}'</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>各ノードに新しい名前でインターフェイスを作成する以外に、この変更は元の wireguard.cali インターフェイスの背後に残る場合もあります。これらのインターフェイスを削除して、この問題を繰り返し作成しないようにします。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="vxlan-設定と-calico-cni-を使用したネットワークインターフェイス名は-astra-データストアプレビューで認識されません">VXLAN 設定と Calico CNI を使用したネットワークインターフェイス名は、 Astra データストアプレビューで認識されません</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>このエラーが発生するとポッドがクラッシュします。回避策として、 VXLAN の設定を無効にします。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="デフォルトの活性プローブ値を使用した-mongodb-環境でポッドがクラッシュループ状態で失敗する">デフォルトの活性プローブ値を使用した MongoDB 環境で、ポッドがクラッシュループ状態で失敗する</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>回避策として、 MongoDB 導入仕様で liveness プローブ initialDelaySeconds を 600 秒に設定します。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="原因-ポッドは-astra-データストアプレビューのアンインストールプロセスで終了状態のままになる場合があります">原因 ポッドは、 Astra データストアプレビューのアンインストールプロセスで終了状態のままになる場合があります</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Kubernetes v1.20 の Astra データストアプレビューアンインストールプロセスでは、原因 ポッドが終了状態のまま残ることがあります。</p>
+</div>
+<div class="paragraph">
+<p>を参照してください <a href="../use/uninstall-ads-manual.html">"スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする"</a> または。</p>
 </div>
 </div>
 </div>

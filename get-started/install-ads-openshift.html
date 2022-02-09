@@ -501,6 +501,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -582,7 +584,7 @@
         <div class="na-navbar-padding"> リリースノート</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/release-notes/whats-new.html">
-        今回のリリースの Astra データストアの内容
+        このリリースの Astra データストアの新機能
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/release-notes/known-issues.html">
         既知の問題
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/release-notes/known-limitations.html">
@@ -636,7 +638,9 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/ads-acc-ui.html">
         Astra Control Center の統合
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads.html">
-        Astra データストアプレビューをアンインストールします
+        Astra データストアプレビューをスクリプトで自動的にアンインストールします
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads-manual.html">
+        スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知識とサポート</div>
       </a>
@@ -712,7 +716,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-07 19:10:32 +0000">02/07/2022</time>
+    <time datetime="2022-02-09 14:52:12 +0000">02/09/2022</time>
     
   
 
@@ -812,9 +816,6 @@
 </li>
 <li>
 <p><a href="#Install the monitoring operator">[Install the monitoring operator]</a></p>
-</li>
-<li>
-<p><a href="#Set up iptables">[Set up iptables]</a></p>
 </li>
 </ul>
 </div>
@@ -1379,7 +1380,7 @@ YAML ファイルの簡単な例は、次の手順を実行します。
 <p>「 adsDataNetworks 」で、データネットワークが使用するネットマスクを指定します。</p>
 </li>
 <li>
-<p>「 adsNetworkInterfaces 」で、「 mgmt 」と「 data 」の値を、管理、クラスタ、およびストレージに使用するネットワークインターフェイス名に置き換えます。名前を指定しない場合、ノードのプライマリインターフェイスが管理、クラスタ、ストレージのネットワークに使用されます。</p>
+<p>「 adsNetworkInterfaces 」で、「 &lt;mgmt_interface_name&gt; 」および「 &lt;cluster_and _storage_interface_name&gt; 」の値を、管理、クラスタ、およびストレージに使用するネットワークインターフェイス名に置き換えます。名前を指定しない場合、ノードのプライマリインターフェイスが管理、クラスタ、ストレージのネットワークに使用されます。</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1441,13 +1442,14 @@ kind: AstraDSCluster
       <strong>netmask:</strong>
   # Specify the network interface names to use for management, cluster and storage networks.
   # If none are specified, the node's primary interface will be used for management, cluster and storage networking.
-  # To move the cluster and storage networks a different interface than management, specify all three interfaces to use here.
-  # The Astra Data Store management interface should be same as the Kubernetes node’s management interface.
+  # To move the cluster and storage networks to a different interface than management, specify all three interfaces to use here.
   # NOTE: The cluster and storage networks need to be on the same interface.
   <strong>adsNetworkInterfaces:</strong>
-    <strong>managementInterface: "mgmt"</strong>
-    <strong>clusterInterface: "data"</strong>
-    <strong>storageInterface: "data"</strong>
+    <strong>managementInterface: "&lt;mgmt_interface_name&gt;"</strong>
+    <strong>clusterInterface: "&lt;cluster_and_storage_interface_name&gt;"</strong>
+    <strong>storageInterface: "&lt;cluster_and_storage_interface_name&gt;"</strong>
+  # [Optional] Provide a k8s label key that defines which protection domain a node belongs to.
+    # adsProtectionDomainKey: ""
   # [Optional] Provide a monitoring config to be used to setup/configure a monitoring agent.
  <strong># monitoringConfig:</strong>
    <strong># namespace: "netapp-monitoring"</strong>
@@ -1674,86 +1676,6 @@ astrads-example-cluster   created   2021.10.0   p100000006       10.x.x.x   10m<
 </li>
 </ol>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="iptables-をセットアップします">iptables をセットアップします</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>OpenShift SDN （ OpenShift 用のデフォルト CNI プラグイン）は、ホストループバックインターフェイス（ 127.0.0.1 / localhost ）からホストポートへのトラフィックを偽装しません。</p>
-</div>
-<div class="paragraph">
-<p>Astra Data Store プレビュークラスタでは、 localhost からクラスタサービスポート（ 9920 ）にトラフィックを転送するための NAT ルールが追加されている必要があります。</p>
-</div>
-<div class="olist arabic">
-<div class="title">手順</div>
-<ol class="arabic">
-<li>
-<p>NAT テーブルの出力チェーンの現在の「 KUBE-HOSTPORTS 」ルールの行番号をメモします。</p>
-<div class="paragraph">
-<p>次の例では 'KUBE-HOSTPORTS' は 4 番目の位置にあります</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ sudo iptables -t nat -L OUTPUT --line-numbers
-Chain OUTPUT (policy ACCEPT)
-num target prot opt source destination
-1 KUBE-SERVICES all -- anywhere anywhere /* kubernetes service portals */
-2 KUBE-PORTALS-HOST all -- anywhere anywhere /* handle ClusterIPs; NOTE: this must be before the NodePort rules */
-3 KUBE-NODEPORT-HOST all -- anywhere anywhere ADDRTYPE match dst-type LOCAL /* handle service NodePorts; NOTE: this must be the last rule in the chain */
-4 KUBE-HOSTPORTS all -- anywhere anywhere /* kube hostport portals */ ADDRTYPE match dst-type LOCAL</pre>
-</div>
-</div>
-</li>
-<li>
-<p>新しいルールを NAT テーブルに追加します。この場合、「 KUBE-HOSTPORTS 」エントリのすぐ上に追加します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>$ sudo iptables -t nat -I OUTPUT 4 -s 127.0.0.1 -j KUBE-MARK-MASQ -p tcp --dport 9920</pre>
-</div>
-</div>
-</li>
-<li>
-<p>新しく追加されたルールが 'KUBE-HOSTPORTS' ルールのすぐ上の NAT テーブルに追加されていることを確認します</p>
-<div class="listingblock">
-<div class="content">
-<pre>$ sudo iptables -t nat -L OUTPUT --line-numbers
-Chain OUTPUT (policy ACCEPT)
-num target prot opt source destination
-1 KUBE-SERVICES all -- anywhere anywhere /* kubernetes service portals */
-2 KUBE-PORTALS-HOST all -- anywhere anywhere /* handle ClusterIPs; NOTE: this must be before the NodePort rules */
-3 KUBE-NODEPORT-HOST all -- anywhere anywhere ADDRTYPE match dst-type LOCAL /* handle service NodePorts; NOTE: this must be the last rule in the chain */
-4 KUBE-MARK-MASQ tcp -- localhost anywhere tcp dpt:9920
-5 KUBE-HOSTPORTS all -- anywhere anywhere /* kube hostport portals */ ADDRTYPE match dst-type LOCAL</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
-</td>
-<td class="content">
-Astra Data Store プレビュー版クラスタ内のすべてのノードで、次の手順を実行します。
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
-</td>
-<td class="content">
-Astra データストアプレビュークラスタノードが再起動した場合は、この手順を繰り返します。
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
