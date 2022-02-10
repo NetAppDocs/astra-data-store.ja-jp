@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>法的通知</title>
+  <title>Prometheus と Grafana で指標を監視します</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="法的通知" />
+  <meta property="og:title" content="Prometheus と Grafana で指標を監視します" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/legal-notices.html" />
-	<meta property="og:description" content="著作権に関する声明、商標、特許などにアクセスできます。" />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/use/monitor-with-prometheus-grafana.html" />
+	<meta property="og:description" content="Prometheus と Grafana を使用して、 Astra データストアのアセットを監視できます。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
@@ -18,8 +18,8 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="著作権に関する声明、商標、特許などにアクセスできます。">
-  <meta name="keywords" content=" copyrights, notice, trademarks, patents, privacy, open source">
+  <meta name="description" content="Prometheus と Grafana を使用して、 Astra データストアのアセットを監視できます。">
+  <meta name="keywords" content=" astra, astra data store, kubectl, endpoints, prometheus, grafana, visualization">
   
   
 
@@ -281,13 +281,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/legal-notices.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/monitor-with-prometheus-grafana.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/legal-notices.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/monitor-with-prometheus-grafana.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/legal-notices.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/monitor-with-prometheus-grafana.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/legal-notices.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/monitor-with-prometheus-grafana.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -485,6 +485,15 @@
 
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/use/monitor-with-prometheus-grafana.pdf" >
+    <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -532,15 +541,6 @@
   
 
 
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/legal-notices.pdf" >
-    <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
 
 
 </li></ul>
@@ -635,7 +635,7 @@
         クラスタを管理
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-cloud-insights.html">
         Cloud Insights で指標を監視
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-prometheus-grafana.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-prometheus-grafana.html">
         Prometheus と Grafana で指標を監視します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/configure-endpoints.html">
         イベントログを設定して監視する
@@ -654,7 +654,7 @@
         ヘルプを表示します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/support/autosupport.html">
         サポートの自動監視
-      </a></li></ul></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/legal-notices.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/legal-notices.html">
         法的通知
       </a></li></ul>
 </div>
@@ -690,7 +690,7 @@
           <a href="/ja-jp/astra-data-store/">Astra&nbsp;Data&nbsp;Store</a>
         </li>
         <li class="n-breadcrumb__list-item">
-          法的通知
+          Prometheus と Grafana で指標を監視します
         </li>
       </ul>
     </div>
@@ -713,7 +713,7 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">法的通知</h1>
+  <h1 class="n-doc__component-detail-heading">Prometheus と Grafana で指標を監視します</h1>
 </div>
 
 
@@ -725,19 +725,11 @@
   
 
 <span>寄稿者
-  <a target="_blank" href="https://github.com/amgrissino">
+  <a target="_blank" href="https://github.com/netapp-mwallis">
     <img  class="avatar avatar-small"
-          alt="amgrissino"
+          alt="netapp-mwallis"
           width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/36450105?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
-  <a target="_blank" href="https://github.com/netapp-dbagwell">
-    <img  class="avatar avatar-small"
-          alt="netapp-dbagwell"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/53352450?v=4"
+          src="https://avatars.githubusercontent.com/u/53353653?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -747,14 +739,125 @@
 </p>
 
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://raw.githubusercontent.com/NetAppDocs/common/main/_include/common-legal-notices.adoc">""</a></p>
+<p>Prometheus と Grafana を使用して、 Astra データストアのプレビュー指標を監視できます。Prometheus で Astra Data Store プレビュー Kubernetes クラスタ指標エンドポイントから指標を収集するように設定でき、 Grafana を使用して指標データを表示できます。</p>
 </div>
-<div class="paragraph">
-<p><a href="https://raw.githubusercontent.com/NetAppDocs/common/main/_include/open-source-notice-intro.adoc">""</a></p>
+<div class="ulist">
+<div class="title">必要なもの</div>
+<ul>
+<li>
+<p>Prometheus パッケージと Grafana パッケージを Astra Data Store プレビュークラスタ、または Astra Data Store プレビュークラスタと通信可能な別のクラスタでダウンロードしてインストールしておく必要があります。公式ドキュメントの指示に従って、各ツールをインストールします。</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://prometheus.io/docs/prometheus/latest/installation/" target="_blank" rel="noopener">"Prometheus をインストールする"</a></p>
+</li>
+<li>
+<p><a href="https://grafana.com/docs/grafana/latest/installation/debian/" target="_blank" rel="noopener">"Grafana をインストールします"</a></p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p>Prometheus と Grafana が Astra データストアプレビュー Kubernetes クラスタと通信できる必要があります。Prometheus と Grafana が Astra Data Store プレビュークラスタにインストールされていない場合は、 Astra Data Store プレビュークラスタで実行されている指標サービスと通信できることを確認する必要があります。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="prometheus-を設定する">Prometheus を設定する</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p><a href="NOTICE_AstraDataStore_Preview_21.12.pdf" target="_blank" rel="noopener">"Astra Data Store 21.12 リリースの注意事項"</a></p>
+<p>Astra Data Store プレビューでは、 Kubernetes クラスタの TCP ポート 9341 で指標サービスが公開されます。このサービスから指標を収集するには、 Prometheus を設定する必要があります。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Prometheus インストール用の「 prometheus.yml 」構成ファイルを編集します。</p>
+</li>
+<li>
+<p>Astra Data Store プレビューサービス名とそのポートを指すサービス目標を追加します。例：</p>
+<div class="listingblock">
+<div class="content">
+<pre>scrape_configs:
+static_configs:
+- targets: ['astrads-metrics-service.astrads-system:9341']</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Prometheus サービスを開始します。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="grafana-を設定します">Grafana を設定します</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Prometheus で収集された指標を表示するように Grafana を設定できます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Grafana インストールの「 datasources.yaml 」設定ファイルを編集します。</p>
+</li>
+<li>
+<p>Prometheus をデータソースとして追加します。例：</p>
+<div class="listingblock">
+<div class="content">
+<pre>apiVersion: 1
+
+datasources:
+  - name: astradatastore-prometheus
+    type: prometheus
+    access: proxy
+    url: http://localhost:9090
+    jsonData:
+      manageAlerts: false</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Grafana サービスを開始します。</p>
+</li>
+<li>
+<p>Grafana のマニュアルに記載されている手順に従ってください <a href="https://grafana.com/docs/grafana/latest/getting-started/getting-started/" target="_blank" rel="noopener">"始めましょう"</a>。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="grafana-ダッシュボードテンプレートをインポートします">Grafana ダッシュボードテンプレートをインポートします</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Astra Data Store Preview をインストールするためにダウンロードしたバンドルファイルには、 Grafana からインポートできる Grafana ダッシュボードテンプレートファイルが含まれています。このダッシュボードテンプレートを使用すると、 Astra データストアのプレビューで確認できる指標の種類とその表示方法を確認できます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Astra Data Store プレビューの tar.gz' バンドルを開きます</p>
+</li>
+<li>
+<p>'マニフェスト ' ディレクトリを開きます</p>
+</li>
+<li>
+<p>「 graafana _cluster.json 」ファイルと「 graafana _volume.json 」ファイルを展開します。</p>
+</li>
+<li>
+<p>Grafana Web UI の使用、 <a href="https://grafana.com/docs/grafana/latest/dashboards/export-import/" target="_blank" rel="noopener">"でのダッシュボードテンプレートファイルを Grafana にインポートします"</a>。</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 
     </article>
@@ -766,8 +869,8 @@
   <div class="page-nav-toolbar">
     <div id="version-dropdown"></div>
     <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[法的通知](https://docs.netapp.com/ja-jp/astra-data-store/legal-notices.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/legal-notices.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Prometheus と Grafana で指標を監視します](https://docs.netapp.com/ja-jp/astra-data-store/use/monitor-with-prometheus-grafana.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/monitor-with-prometheus-grafana.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a>
       <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a>
     </div>
     <div class="page-nav-container">
