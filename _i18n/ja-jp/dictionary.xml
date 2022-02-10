@@ -1016,4 +1016,31 @@
   <block id="15388dda568bd0771380969281e3fb4d" category="list-text">プロンプトで続行することを確認し、「 erasedata 」と入力します</block>
   <block id="858c3e811ac734bb143694fc06b49de1" category="list-text">「 adsNetworkInterfaces 」で、「 &lt;mgmt_interface_name&gt; 」および「 &lt;cluster_and _storage_interface_name&gt; 」の値を、管理、クラスタ、およびストレージに使用するネットワークインターフェイス名に置き換えます。名前を指定しない場合、ノードのプライマリインターフェイスが管理、クラスタ、ストレージのネットワークに使用されます。</block>
   <block id="1b828e66f98e1084d2ec48e088373a14" category="sidebar">このリリースの Astra データストアの新機能</block>
+  <block id="211e9e8a4cf9ff3c00e04155da6f31d9" category="summary">Prometheus と Grafana を使用して、 Astra データストアのアセットを監視できます。</block>
+  <block id="00e0d60d6c6845e2c5c19961e437a70c" category="doc">Prometheus と Grafana で指標を監視します</block>
+  <block id="7b132651c6be946cb45ebbc5729d0fae" category="paragraph">Prometheus と Grafana を使用して、 Astra データストアのプレビュー指標を監視できます。Prometheus で Astra Data Store プレビュー Kubernetes クラスタ指標エンドポイントから指標を収集するように設定でき、 Grafana を使用して指標データを表示できます。</block>
+  <block id="90895f68c3d61650306b9827ff7c6324" category="list-text">Prometheus パッケージと Grafana パッケージを Astra Data Store プレビュークラスタ、または Astra Data Store プレビュークラスタと通信可能な別のクラスタでダウンロードしてインストールしておく必要があります。公式ドキュメントの指示に従って、各ツールをインストールします。</block>
+  <block id="88b8613d339947a37e41b1f514dcc42c" category="inline-link">Prometheus をインストールする</block>
+  <block id="763383a68e405097875c37e8ab57d401" category="list-text"><block ref="763383a68e405097875c37e8ab57d401" category="inline-link-rx"></block></block>
+  <block id="3de41522a35f102d48905bc53fd5c383" category="inline-link">Grafana をインストールします</block>
+  <block id="a557323906eaeb845274f1275674df7a" category="list-text"><block ref="a557323906eaeb845274f1275674df7a" category="inline-link-rx"></block></block>
+  <block id="a78f5549cd86895c64aa29975a576b48" category="list-text">Prometheus と Grafana が Astra データストアプレビュー Kubernetes クラスタと通信できる必要があります。Prometheus と Grafana が Astra Data Store プレビュークラスタにインストールされていない場合は、 Astra Data Store プレビュークラスタで実行されている指標サービスと通信できることを確認する必要があります。</block>
+  <block id="7119175e2ec3286002664b430cbc1c19" category="section-title">Prometheus を設定する</block>
+  <block id="cd93c151a525dff780b53bdf1dee4c20" category="paragraph">Astra Data Store プレビューでは、 Kubernetes クラスタの TCP ポート 9341 で指標サービスが公開されます。このサービスから指標を収集するには、 Prometheus を設定する必要があります。</block>
+  <block id="262824fa21333665f816f40f8094f64e" category="list-text">Prometheus インストール用の「 prometheus.yml 」構成ファイルを編集します。</block>
+  <block id="73df1fcf9d0ed4ea97560857f6173bd5" category="list-text">Astra Data Store プレビューサービス名とそのポートを指すサービス目標を追加します。例：</block>
+  <block id="4ce6645d84fcfdc26a06bbcb3cb2200e" category="list-text">Prometheus サービスを開始します。</block>
+  <block id="e91d9af5ad925c5de9147c893effa4d4" category="section-title">Grafana を設定します</block>
+  <block id="fd629abff45ee23c6bdc73d9d91a66a4" category="paragraph">Prometheus で収集された指標を表示するように Grafana を設定できます。</block>
+  <block id="51b365774144e20a83d88f3a9cd021ae" category="list-text">Grafana インストールの「 datasources.yaml 」設定ファイルを編集します。</block>
+  <block id="c3aa2019ef2104794c22ebca3d9699af" category="list-text">Prometheus をデータソースとして追加します。例：</block>
+  <block id="72d2326d0f93988ea6c944cc1f71e4d7" category="list-text">Grafana サービスを開始します。</block>
+  <block id="d59dfb8e877e5af488f89204ccb03248" category="list-text">Grafana のマニュアルに記載されている手順に従ってください<block ref="1cf3392e814c31461defe80ff0d63d38" category="inline-link-rx"></block>。</block>
+  <block id="9ef9f6e92b5af42394c5f060e5252493" category="section-title">Grafana ダッシュボードテンプレートをインポートします</block>
+  <block id="b7941e6fc2c5f63e8515ed63676c7d70" category="paragraph">Astra Data Store Preview をインストールするためにダウンロードしたバンドルファイルには、 Grafana からインポートできる Grafana ダッシュボードテンプレートファイルが含まれています。このダッシュボードテンプレートを使用すると、 Astra データストアのプレビューで確認できる指標の種類とその表示方法を確認できます。</block>
+  <block id="1783d559dc171f13beba29b4df9ac9d9" category="list-text">Astra Data Store プレビューの tar.gz' バンドルを開きます</block>
+  <block id="7aa7363407fe50db6732fda1c3546635" category="list-text">'マニフェスト ' ディレクトリを開きます</block>
+  <block id="3da799470552bc99d72c76674914bc47" category="list-text">「 graafana _cluster.json 」ファイルと「 graafana _volume.json 」ファイルを展開します。</block>
+  <block id="7b2ccb49d7bc87351cf57d3e0c234471" category="inline-link">でのダッシュボードテンプレートファイルを Grafana にインポートします</block>
+  <block id="2d44692dc4e76f18d1b4df631a84302e" category="list-text">Grafana Web UI の使用、<block ref="2cc34fe35a733f5131c1ab2d18b17aaf" category="inline-link-rx"></block>。</block>
 </blocks>

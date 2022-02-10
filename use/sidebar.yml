@@ -10,6 +10,8 @@ entries:
   url: "/use/maintain-cluster.html"
 - title: Cloud Insights で指標を監視
   url: "/use/monitor-with-cloud-insights.html"
+- title: Prometheus と Grafana で指標を監視します
+  url: "/use/monitor-with-prometheus-grafana.html"
 - title: イベントログを設定して監視する
   url: "/use/configure-endpoints.html"
 - title: Astra Control Center の統合
