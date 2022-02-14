@@ -16,7 +16,7 @@ AutoSupport は、 Astra データストアプレビューシステムのラン�
 * ストレージ
 
 
-AutoSupport は、の実行時にデフォルトで有効になります link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアプレビュー版クラスタのインストール"] または、 AutoSupport CR がクラスタに適用された後に実行します。有効にすると、 AutoSupport （ ASUP ）バンドルがに自動的にアップロードされます https://mysupport.netapp.com/site/["ネットアップサポートサイト（ NSS ）"^] または、手動でダウンロードすることもできます。
+AutoSupport は、の実行時にデフォルトで有効になります link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra データストアプレビュー版クラスタのインストール"] または、 AutoSupport のカスタムリソース（ CR ）をクラスタに適用したあとに追加します。有効にすると、 AutoSupport （ ASUP ）バンドルがに自動的にアップロードされます https://mysupport.netapp.com/site/["ネットアップサポートサイト（ NSS ）"^] または、手動でダウンロードすることもできます。
 
 .オプション（ Options ）
 * <<AutoSupport triggers and scenarios>>
@@ -33,18 +33,18 @@ AutoSupport は、の実行時にデフォルトで有効になります link:..
 
 AutoSupport バンドルは、次の方法でトリガーされます。
 
-* 定期的： CR で定義された間隔で ASUP バンドルが作成されます。
-* User Triggered ：独自の ASUP を手動で作成してログを参照できます。
-* coredumps ：ノードにコアダンプがある場合は、 ASUP が生成され、コアがネットアップに送信されて詳しい調査が行われます。
-* CallHome イベントベース：オペレーティングシステムから特定の callhome イベントから ASUP が生成されます。
-* Kubernetes Event Based ：コントロールプレーンの特定の Kubernetes イベントから ASUP が生成されます。
+* * 定期的 * ： CR で定義された間隔で ASUP バンドルが作成されます。
+* * ユーザトリガー * ：自分の ASUP を手動で作成して、ログを参照できます。
+* * コアダンプ * ：ノードにコアダンプがある場合は ASUP が生成され、コアがネットアップに送信されて詳しい調査が行われます。
+* * CallHome イベントベース * ：オペレーティングシステムから特定の callhome イベントから ASUP が生成されます。
+* * Kubernetes イベントベース * ：コントロールプレーンの特定の Kubernetes イベントから ASUP が生成されます。
 
 
 これらのトリガーシナリオでは、次のいずれかの AutoSupport タイプが生成されます。
 
-* ControlPlane AutoSupport ： Astra データストアプレビューコントロールプレーンログと CRS のコレクション。
-* Storage AutoSupport ：ストレージレポートとパフォーマンスデータの集まり。
-* Core Dump AutoSupport ：システムコアダンプの集まり。
+* * ControlPlane AutoSupport * ： Astra データストアプレビューコントロールプレーンログと CRS のコレクション。
+* * Storage AutoSupport * ：ストレージ・レポートとパフォーマンス・データの集合。
+* * コアダンプ AutoSupport * ：システムコアダンプの集まり。
 
 
 
@@ -64,7 +64,7 @@ kubectl astasds asup collect -c controlplane --namespace=astrads-system
 .. カスタムパラメータを定義します。
 +
 *** `<myASUPNAME>` ：生成する AutoSupport CR の名前。
-*** `-e <event name>` ：イベント名の収集をトリガーするイベント名は、 component.yaml ( コントローラをサポートするためにマウントされている ) で事前に定義されている必要があります。
+*** `-e <event name>` ：コレクションをトリガーするイベント名。イベント名は component.yaml ( コントローラをサポートするためにマウントされている ) で事前に定義する必要があります
 +
 例
 
@@ -78,9 +78,9 @@ kubectl astrasds asup collect -c controlplane custom-asup-name -e debug --namesp
 .. 必要に応じて、システムに追加のパラメータを追加します。
 +
 *** `--cluster` ：このフラグはマルチクラスタ環境で必要です。
-*** `-- localCollection` : ローカルコレクションをイネーブルにします。デフォルトは 'false.' です
-*** `--forceUpload`: 強制アップロードを有効にします。デフォルトは 'false.' です
-*** `--retry`: 再試行を有効にしますデフォルトは 'false.' です
+*** `-- localCollection` : ローカルコレクションをイネーブルにします。デフォルトは「 false 」です。
+*** `--forceUpload`: 強制アップロードを有効にします。デフォルトは「 false 」です。
+*** `--retry`: 再試行を有効にしますデフォルトは「 false 」です。
 
 
 
@@ -104,7 +104,7 @@ kubectl astrasds asup collect -c storage --namespace=astrads-system
 .. カスタムパラメータを定義します。
 +
 *** `<myASUPNAME>` ：生成する AutoSupport CR の名前。
-*** `-e <event name>` ：イベント名の収集をトリガーするイベント名は、 component.yaml ( コントローラをサポートするためにマウントされている ) で事前に定義されている必要があります。
+*** `-e <event name>` ：コレクションをトリガーするイベント名。イベント名は component.yaml ( コントローラをサポートするためにマウントされている ) で事前に定義する必要があります
 +
 パフォーマンスイベントを使用した例：
 
@@ -136,9 +136,9 @@ kubectl astrads asup collect -c storage --nodes example1,example2,example3
 .. 必要に応じて、システムに追加のパラメータを追加します。
 +
 *** `--cluster` ：このフラグはマルチクラスタ環境で必要です。
-*** `-- localCollection` : ローカルコレクションをイネーブルにします。デフォルトは 'false.' です
-*** `--forceUpload`: 強制アップロードを有効にします。デフォルトは 'false.' です
-*** `--retry`: 再試行を有効にしますデフォルトは 'false.' です
+*** `-- localCollection` : ローカルコレクションをイネーブルにします。デフォルトは「 false 」です。
+*** `--forceUpload`: 強制アップロードを有効にします。デフォルトは「 false 」です。
+*** `--retry`: 再試行を有効にしますデフォルトは「 false 」です。
 
 
 

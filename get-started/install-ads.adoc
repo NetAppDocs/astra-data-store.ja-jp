@@ -36,6 +36,8 @@ Astra Data Store プレビューインストールプロセスでは、次の手
 * <<Configure Astra Data Store preview monitoring>>
 
 
+画像レジストリをシークレットで操作できるように Astra データストアプレビューを有効にする場合は、を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_enable_Astra_Data_Store_preview_to_work_with_image_registries_with_secret["こちらの技術情報"]。
+
 
 
 == Astra Data Store プレビューバンドルをダウンロードして、イメージを展開
@@ -467,7 +469,7 @@ kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup
 
 === 監視オペレータをインストールします
 
-（オプション） Astra データストアのプレビューが Astra Control Center にインポートされない場合にのみ、監視オペレータをお勧めします。モニタリングオペレータは、アストラデータストアプレビューインスタンスがスタンドアロン環境である場合、 Cloud Insights を使用してテレメトリを監視する場合、または Elastic などのサードパーティのエンドポイントにログをストリーミングする場合にインストールできます。
+（オプション） Astra Data Store プレビューを Astra Control Center にインポートしない場合は、監視オペレータをお勧めします。モニタリングオペレータは、アストラデータストアプレビューインスタンスがスタンドアロン環境である場合、 Cloud Insights を使用してテレメトリを監視する場合、または Elastic などのサードパーティのエンドポイントにログをストリーミングする場合にインストールできます。
 
 . 次のインストールコマンドを実行します。
 +
