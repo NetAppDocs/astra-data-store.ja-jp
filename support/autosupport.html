@@ -720,7 +720,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-10 22:17:48 +0000">02/10/2022</time>
+    <time datetime="2022-02-14 19:29:20 +0000">02/14/2022</time>
     
   
 
@@ -763,7 +763,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>AutoSupport は、の実行時にデフォルトで有効になります <a href="../get-started/install-ads.html#install-the-astra-data-store-cluster">"Astra データストアプレビュー版クラスタのインストール"</a> または、 AutoSupport CR がクラスタに適用された後に実行します。有効にすると、 AutoSupport （ ASUP ）バンドルがに自動的にアップロードされます <a href="https://mysupport.netapp.com/site/" target="_blank" rel="noopener">"ネットアップサポートサイト（ NSS ）"</a> または、手動でダウンロードすることもできます。</p>
+<p>AutoSupport は、の実行時にデフォルトで有効になります <a href="../get-started/install-ads.html#install-the-astra-data-store-cluster">"Astra データストアプレビュー版クラスタのインストール"</a> または、 AutoSupport のカスタムリソース（ CR ）をクラスタに適用したあとに追加します。有効にすると、 AutoSupport （ ASUP ）バンドルがに自動的にアップロードされます <a href="https://mysupport.netapp.com/site/" target="_blank" rel="noopener">"ネットアップサポートサイト（ NSS ）"</a> または、手動でダウンロードすることもできます。</p>
 </div>
 <div class="ulist">
 <div class="title">オプション（ Options ）</div>
@@ -799,19 +799,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>定期的： CR で定義された間隔で ASUP バンドルが作成されます。</p>
+<p>* 定期的 * ： CR で定義された間隔で ASUP バンドルが作成されます。</p>
 </li>
 <li>
-<p>User Triggered ：独自の ASUP を手動で作成してログを参照できます。</p>
+<p>* ユーザトリガー * ：自分の ASUP を手動で作成して、ログを参照できます。</p>
 </li>
 <li>
-<p>coredumps ：ノードにコアダンプがある場合は、 ASUP が生成され、コアがネットアップに送信されて詳しい調査が行われます。</p>
+<p>* コアダンプ * ：ノードにコアダンプがある場合は ASUP が生成され、コアがネットアップに送信されて詳しい調査が行われます。</p>
 </li>
 <li>
-<p>CallHome イベントベース：オペレーティングシステムから特定の callhome イベントから ASUP が生成されます。</p>
+<p>* CallHome イベントベース * ：オペレーティングシステムから特定の callhome イベントから ASUP が生成されます。</p>
 </li>
 <li>
-<p>Kubernetes Event Based ：コントロールプレーンの特定の Kubernetes イベントから ASUP が生成されます。</p>
+<p>* Kubernetes イベントベース * ：コントロールプレーンの特定の Kubernetes イベントから ASUP が生成されます。</p>
 </li>
 </ul>
 </div>
@@ -821,13 +821,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>ControlPlane AutoSupport ： Astra データストアプレビューコントロールプレーンログと CRS のコレクション。</p>
+<p>* ControlPlane AutoSupport * ： Astra データストアプレビューコントロールプレーンログと CRS のコレクション。</p>
 </li>
 <li>
-<p>Storage AutoSupport ：ストレージレポートとパフォーマンスデータの集まり。</p>
+<p>* Storage AutoSupport * ：ストレージ・レポートとパフォーマンス・データの集合。</p>
 </li>
 <li>
-<p>Core Dump AutoSupport ：システムコアダンプの集まり。</p>
+<p>* コアダンプ AutoSupport * ：システムコアダンプの集まり。</p>
 </li>
 </ul>
 </div>
@@ -859,7 +859,7 @@
 <p><code>&lt;myASUPNAME&gt;</code> ：生成する AutoSupport CR の名前。</p>
 </li>
 <li>
-<p><code>-e &lt;event name&gt;</code> ：イベント名の収集をトリガーするイベント名は、 component.yaml ( コントローラをサポートするためにマウントされている ) で事前に定義されている必要があります。</p>
+<p><code>-e &lt;event name&gt;</code> ：コレクションをトリガーするイベント名。イベント名は component.yaml ( コントローラをサポートするためにマウントされている ) で事前に定義する必要があります</p>
 <div class="paragraph">
 <p>例</p>
 </div>
@@ -884,13 +884,13 @@
 <p><code>--cluster</code> ：このフラグはマルチクラスタ環境で必要です。</p>
 </li>
 <li>
-<p><code>-- localCollection</code> : ローカルコレクションをイネーブルにします。デフォルトは 'false.' です</p>
+<p><code>-- localCollection</code> : ローカルコレクションをイネーブルにします。デフォルトは「 false 」です。</p>
 </li>
 <li>
-<p><code>--forceUpload</code>: 強制アップロードを有効にします。デフォルトは 'false.' です</p>
+<p><code>--forceUpload</code>: 強制アップロードを有効にします。デフォルトは「 false 」です。</p>
 </li>
 <li>
-<p><code>--retry</code>: 再試行を有効にしますデフォルトは 'false.' です</p>
+<p><code>--retry</code>: 再試行を有効にしますデフォルトは「 false 」です。</p>
 </li>
 </ul>
 </div>
@@ -928,7 +928,7 @@
 <p><code>&lt;myASUPNAME&gt;</code> ：生成する AutoSupport CR の名前。</p>
 </li>
 <li>
-<p><code>-e &lt;event name&gt;</code> ：イベント名の収集をトリガーするイベント名は、 component.yaml ( コントローラをサポートするためにマウントされている ) で事前に定義されている必要があります。</p>
+<p><code>-e &lt;event name&gt;</code> ：コレクションをトリガーするイベント名。イベント名は component.yaml ( コントローラをサポートするためにマウントされている ) で事前に定義する必要があります</p>
 <div class="paragraph">
 <p>パフォーマンスイベントを使用した例：</p>
 </div>
@@ -980,13 +980,13 @@
 <p><code>--cluster</code> ：このフラグはマルチクラスタ環境で必要です。</p>
 </li>
 <li>
-<p><code>-- localCollection</code> : ローカルコレクションをイネーブルにします。デフォルトは 'false.' です</p>
+<p><code>-- localCollection</code> : ローカルコレクションをイネーブルにします。デフォルトは「 false 」です。</p>
 </li>
 <li>
-<p><code>--forceUpload</code>: 強制アップロードを有効にします。デフォルトは 'false.' です</p>
+<p><code>--forceUpload</code>: 強制アップロードを有効にします。デフォルトは「 false 」です。</p>
 </li>
 <li>
-<p><code>--retry</code>: 再試行を有効にしますデフォルトは 'false.' です</p>
+<p><code>--retry</code>: 再試行を有効にしますデフォルトは「 false 」です。</p>
 </li>
 </ul>
 </div>
