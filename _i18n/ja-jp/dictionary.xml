@@ -947,10 +947,6 @@
   <block id="2c823bca43aea2d1d1f31e9983e361b7" category="list-text">-r は 'Fluent イメージまたは Telegraf イメージが置かれている Docker レジストリをセットアップするためのオプションですデフォルトでは ' パスは docker.repo.eng.netapp.com/global/astra` に設定されていますこのパスは変更できます</block>
   <block id="aeb979a8c81ef5b2987fb3c032221352" category="paragraph">ログを表示するには Cloud Insights の設定は任意ですが、 Cloud Insights を使用してデータを表示すると便利です。を参照してください <block ref="d6cf67ce476502ac807e2e588f6f029e" category="inline-link-macro-rx"></block> Astra データストアプレビュー版で使用できます。</block>
   <block id="d9d6ed14c600162e996a2b655fe76a5b" category="paragraph">EMS イベントやその他のポッドログを Elastic などのサードパーティのエンドポイントにストリーミングするには、「 astrads 」拡張機能を使用します。</block>
-  <block id="dd28600b37d206c458b334bd7ffb8392" category="inline-link-macro">Astra データストアがインストールされている、基盤となる Kubernetes クラスタを追加</block>
-  <block id="486935e8eec639b9908b1b27009a3d45" category="list-text"><block ref="0abc3178943c2e313a51344a5a71a6f4" category="inline-link-macro-rx"></block>。</block>
-  <block id="97bf50f54963d01dea9409c25b12a862" category="inline-link-macro">Astra データストアプレビュー用のストレージバックエンドをクラスタに追加します</block>
-  <block id="2f0c9fb30324413f2ab0cdaea50981c0" category="list-text"><block ref="bad2a7ffbfb74e3294d159537164f102" category="inline-link-macro-rx"></block>。</block>
   <block id="fb1b2d57a629a279f6ff0d53a5227a85" category="inline-link">ノード、ディスク、永続的ボリューム要求（ PVC ）を監視</block>
   <block id="13c2044ccdb84b5f13a75cb4056babe7" category="list-text"><block ref="77a980d120eceb0ef7837945f6cac4d0" category="inline-link-rx"></block>。</block>
   <block id="d2345544e5b85f26908fbbfcea4178f8" category="inline-link">Astra Control API の略</block>
@@ -1045,4 +1041,8 @@
   <block id="1892645d2782c9bf9dc34851d08c3fc0" category="inline-link">こちらの技術情報</block>
   <block id="9d360497e26014d0f465e4f870bdeadc" category="paragraph">画像レジストリをシークレットで操作できるように Astra データストアプレビューを有効にする場合は、を参照してください<block ref="31862b8c922a22dfae2a0bc44d5fcca7" category="inline-link-rx"></block>。</block>
   <block id="8b3692dee4534020feae3ae8064407c3" category="paragraph">（オプション） Astra Data Store プレビューを Astra Control Center にインポートしない場合は、監視オペレータをお勧めします。モニタリングオペレータは、アストラデータストアプレビューインスタンスがスタンドアロン環境である場合、 Cloud Insights を使用してテレメトリを監視する場合、または Elastic などのサードパーティのエンドポイントにログをストリーミングする場合にインストールできます。</block>
+  <block id="ae5562b31c4323f309fb889a9b093cdf" category="inline-link">Astra データストアを実行している、基盤となる Kubernetes クラスタを Astra Control Center に追加します</block>
+  <block id="fc8f50043a90344f7ed3abf976a2c2bf" category="list-text"><block ref="4c0801f62183e0e2f60f1c6b67702af3" category="inline-link-rx"></block>。</block>
+  <block id="75dda14e63e81d459a63d119ddf1df01" category="inline-link">Astra データストアのプレビューをストレージバックエンドとして Astra Control Center に追加</block>
+  <block id="463b550d7836a6234ad681f2c2eb84f6" category="list-text"><block ref="6ba69dca5449a718fd2d8fff37a9e3af" category="inline-link-rx"></block>。</block>
 </blocks>

@@ -18,8 +18,8 @@ Astra Control Center のユーザーインタフェース（ UI ）を使用し�
 
 Astra Data Store プレビュー用の Astra Control Center UI を使用するには、次のタスクを実行する必要があります。
 
-* link:../get-started/setup_overview.html#add-cluster["Astra データストアがインストールされている、基盤となる Kubernetes クラスタを追加"^]。
-* link:../get-started/setup_overview.html#add-a-storage-backend["Astra データストアプレビュー用のストレージバックエンドをクラスタに追加します"]。
+* https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-cluster["Astra データストアを実行している、基盤となる Kubernetes クラスタを Astra Control Center に追加します"]。
+* https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-a-storage-backend["Astra データストアのプレビューをストレージバックエンドとして Astra Control Center に追加"]。
 +
 
 NOTE: ストレージバックエンドを追加し、 Astra データストアプレビューを含む Kubernetes クラスタがない場合は、最初にクラスタを追加する必要があります。
