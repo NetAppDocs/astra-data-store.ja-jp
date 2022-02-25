@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: get-started/install-ads.html 
-keywords: astra, astra data store, install, deploy, download 
-summary: 環境に関するいくつかの前提条件に対処した後に Astra データストアをインストールするには、バンドルをダウンロードして、以下の手順に従ってインストールします。 
+keywords: astra, astra data store, install, deploy, download, openshift, red hat, ocp 
+summary: 環境に関するいくつかの前提条件に対処した後に Astra データストアをインストールするには、バンドルをダウンロードし、次の手順に従ってインストールします。OpenShift に Astra データストアをインストールする方法 
 ---
 = Astra データストアプレビューをインストールします
 :hardbreaks:
@@ -10,9 +10,7 @@ summary: 環境に関するいくつかの前提条件に対処した後に Astr
 :imagesdir: ../media/get-started/
 
 
-Astra データストアプレビューをインストールするには、からインストールバンドルをダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^] およびこの手順に記載されているインストール手順を実行します。
-
-または、を使用することもできます link:install-ads-openshift.html["Red Hat OpenShift Container Platform （ OCP ）への Astra データストアプレビューのインストール"]。
+Astra データストアプレビューをインストールするには、からインストールバンドルをダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^] およびこの手順 に記載されているインストール手順を実行します。
 
 video::jz6EuryqYps[youtube, ]
 .必要なもの
@@ -26,8 +24,14 @@ video::jz6EuryqYps[youtube, ]
 
 Astra Data Store プレビューインストールプロセスでは、次の手順を実行できます。
 
+一部の手順は、 Red Hat OpenShift Container Platform （ OCP ）への導入にのみ必要であり、 OCP としてのみ指定されています。OCP 以外の Kubernetes クラスタへの導入については、以下の手順をスキップできます。
+
 * <<Download the Astra Data Store preview bundle and extract the images>>
 * <<Copy the binary and push images to your local registry>>
+* <<OCP only: Create a namespace to deploy Astra Data Store preview>>
+* <<OCP only: Create a custom SCC>>
+* <<OCP only: Create the roles and role bindings>>
+* <<OCP only: Prepare the worker nodes>>
 * <<Install the Astra Data Store preview operator>>
 * <<Deploy the Astra Data Store preview version YAML>>
 * <<Apply the Astra Data Store preview license>>
@@ -100,6 +104,204 @@ done
 sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./manifests/*.yaml
 ----
 
+
+
+
+== OCP のみ： Astra データストアプレビューを導入するネームスペースを作成
+
+すべての Astra Data Store プレビューコンポーネントをインストールする名前空間「 astras -system 」を作成します。
+
+. ネームスペースを作成します。
++
+[listing]
+----
+kubectl create -f ads_namespace.yaml
+----
++
+例： ads_namespac.yaml
+
++
+[listing]
+----
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    control-plane: operator
+  name: astrads-system
+----
+
+
+
+
+== OCP のみ：カスタム SCC を作成します
+
+OpenShift では、セキュリティコンテキスト制約（ SCC ）を使用して、ポッドで実行できるアクションを制御します。デフォルトでは、任意のコンテナの実行には制限付き SCC が付与され、その SCC で定義された機能のみが付与されます。
+
+制限付き SCC では、 Astra Data Store プレビュークラスタポッドで必要な権限が提供されません。この手順を使用して、 Astra データストアのプレビュー版に必要な権限（サンプルに記載）を付与します。
+
+カスタム SCC を Astra Data Store Preview ネームスペースのデフォルトのサービスアカウントに割り当てます。
+
+.手順
+. カスタム SCC を作成します。
++
+[listing]
+----
+kubectl create -f ads_privileged_scc.yaml
+----
++
+サンプル： ads_privileged_ssc.yaml
+
++
+[listing]
+----
+allowHostDirVolumePlugin: true
+allowHostIPC: true
+allowHostNetwork: true
+allowHostPID: true
+allowHostPorts: true
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: true
+allowedCapabilities:
+- '*'
+allowedUnsafeSysctls:
+- '*'
+apiVersion: security.openshift.io/v1
+defaultAddCapabilities: null
+fsGroup:
+  type: RunAsAny
+groups: []
+kind: SecurityContextConstraints
+metadata:
+  annotations:
+    kubernetes.io/description: 'ADS privileged. Grant with caution.'
+    release.openshift.io/create-only: "true"
+  name: ads-privileged
+priority: null
+readOnlyRootFilesystem: false
+requiredDropCapabilities: null
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: RunAsAny
+seccompProfiles:
+- '*'
+supplementalGroups:
+  type: RunAsAny
+users:
+- system:serviceaccount:astrads-system:default
+volumes:
+- '*'
+----
+. 「 OC get SCC 」コマンドを使用して、新たに追加された SCC を表示します。
++
+[listing]
+----
+# oc get scc/ads-privileged
+NAME             PRIV   CAPS    SELINUX    RUNASUSER   FSGROUP    SUPGROUP   PRIORITY     READONLYROOTFS   VOLUMES
+ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   <no value>   false            ["*"]
+#
+----
+
+
+
+
+== OCP のみ：ロールとロールのバインドを作成します
+
+Astra Data Store プレビューのデフォルトのサービスアカウントで使用する必要なロールとロールのバインドを作成します。
+
+次の YAML 定義は '`astrads.netapp.io` API グループの Astra Data Store プレビューリソースで必要なさまざまな役割 ( 役割のバインドを使用 ) を割り当てます
+
+. 定義されたロールとロールのバインドを作成します。
++
+[listing]
+----
+kubectl create -f oc_role_bindings.yaml
+----
++
+例： OC_ROLE_bindings. yaml
+
++
+[listing]
+----
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: privcrole
+rules:
+- apiGroups:
+  - security.openshift.io
+  resourceNames:
+  - ads-privileged
+  resources:
+  - securitycontextconstraints
+  verbs:
+  - use
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: default-scc-rolebinding
+  namespace: astrads-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: privcrole
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: astrads-system
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ownerref
+  namespace: astrads-system
+rules:
+- apiGroups:
+  - astrads.netapp.io
+  resources:
+  - '*/finalizers'
+  verbs:
+  - update
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: or-rb
+  namespace: astrads-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ownerref
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: astrads-system
+----
+
+
+
+
+== OCP のみ：ワーカーノードを準備します
+
+Astra データストアのワーカーノードでクラスタのプレビュー導入を準備この手順は、 Astra データストアプレビュークラスタで使用されているすべてのワーカーノードで実行します。
+
+OpenShift では、 kubelet 構成ファイル（ /var/lib/kubebelet/config.json ）に JSON 形式を使用します。Astra Data Store プレビュークラスタは 'kubelet config' ファイルの YAML 形式を検索します
+
+.手順
+. クラスタのインストールを開始する前に ' 各ワーカー・ノードに /var/lib/kubelet/config.yaml ファイルを作成します
++
+[listing]
+----
+sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml`
+----
+. クラスタ YAML が適用される前に、すべての Kubernetes ワーカーノードでこの手順 を完了します。
+
+
+
+NOTE: この操作を行わないと、 Astra データストアプレビュークラスタのインストールが失敗します。
 
 
 
@@ -357,6 +559,21 @@ kind: AstraDSCluster
 ----
 kubectl apply -f ./manifests/astradscluster.yaml
 ----
+. （ OCP のみ） SELinux が有効になっている場合は、 Astra Data Store プレビュークラスタ内のノードで次のディレクトリの「 SELinux 」コンテキストにラベルを付け直します。
++
+[listing]
+----
+sudo chcon -R -t container_file_t /var/opt/netapp/firetap/rootfs/var/asup/notification/firetap/
+----
++
+[listing]
+----
+sudo chcon -R -t container_file_t /var/netapp/firetap/firegen/persist/
+----
++
+
+NOTE: これは 'SELinux がこれらのディレクトリの書き込みを禁止し ' サポートポッドが CrashLoopBackoff 状態になるためですこの手順は、 Astra データストアプレビュークラスタ内のすべてのノードで実行する必要があります。
+
 . クラスタ作成処理が完了するまで数分待ってから、ポッドが実行されていることを確認します。
 +
 [listing]
