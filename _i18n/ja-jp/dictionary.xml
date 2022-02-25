@@ -1053,4 +1053,5 @@
   <block id="d886a832387eaadb4f847ec48c2582f4" category="section-title">OCP のみ：ワーカーノードを準備します</block>
   <block id="3af1f7efc94ad5db8224730d535bf721" category="list-text">クラスタ YAML が適用される前に、すべての Kubernetes ワーカーノードでこの手順 を完了します。</block>
   <block id="0b7d1f8b8805a1c587689821bca47324" category="list-text">（ OCP のみ） SELinux が有効になっている場合は、 Astra Data Store プレビュークラスタ内のノードで次のディレクトリの「 SELinux 」コンテキストにラベルを付け直します。</block>
+  <block id="f15043967dbb0640e4d4c31a6e7a6ac0" category="admonition">名前空間の応答は、標準インストールと OCP インストールのどちらを実行したかによって異なります。</block>
 </blocks>
