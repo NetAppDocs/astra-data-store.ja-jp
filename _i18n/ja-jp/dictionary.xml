@@ -892,9 +892,7 @@
   <block id="b9d6af3a248ddac19c1574ec0ea3368f" category="list-text">Astra データストアのプレビュー監視を設定</block>
   <block id="68ae8bfef44263c7568e9225825a9511" category="list-text">Red Hat OpenShift を使用する場合は、 Red Hat OpenShift Container Platform （ OCP ）に Astra データストアプレビューをインストールします。</block>
   <block id="e1e135fb56845d917b3148da7cfeb1ee" category="list-text">* ベアメタル環境 * ：ハイパーバイザーを使用せずに Linux クラスタ上の Kubernetes クラスタに Astra データストアプレビューを直接インストール</block>
-  <block id="844d33654c81fc2a271afbc6e6e2be29" category="list-text">NVMe TLC SSD</block>
   <block id="9b457c92683a310dc6efb6123d814fa6" category="list-text">* VM ベースの導入 * ： ESXi クラスタでホストされた Linux VM 上の Kubernetes クラスタに Astra データストアプレビューをインストール</block>
-  <block id="9f79eec1648f781d94bc7ca1e42c3417" category="list-text">SAS または NVMe TLC SSD ベースのデータストア</block>
   <block id="09195210bb32cb68478488870fe3d637" category="list-text">仮想ディスクまたはパススルードライブとして提供されるドライブ</block>
   <block id="5a880b8c445a800acadf32c4ad7af071" category="list-text"><block ref="a71874fb50b79b81cbba98e9c1dfefdf" category="inline-xref-macro-rx"></block></block>
   <block id="d123277e1fd8558573c3d0919aa684f3" category="paragraph">Astra Data Store のプレビューをインストールし、環境に関するいくつかの前提条件に対処したら、 Astra Trident をインストールし、 Kubernetes のスナップショット機能を設定し、ストレージバックエンドをセットアップして、デフォルトのストレージクラスを作成します。</block>
@@ -1054,4 +1052,6 @@
   <block id="3af1f7efc94ad5db8224730d535bf721" category="list-text">クラスタ YAML が適用される前に、すべての Kubernetes ワーカーノードでこの手順 を完了します。</block>
   <block id="0b7d1f8b8805a1c587689821bca47324" category="list-text">（ OCP のみ） SELinux が有効になっている場合は、 Astra Data Store プレビュークラスタ内のノードで次のディレクトリの「 SELinux 」コンテキストにラベルを付け直します。</block>
   <block id="f15043967dbb0640e4d4c31a6e7a6ac0" category="admonition">名前空間の応答は、標準インストールと OCP インストールのどちらを実行したかによって異なります。</block>
+  <block id="1caa3cf5a72fc35e939157dc1f96280a" category="list-text">SATA または NVMe TLC SSD</block>
+  <block id="e90425f62a91773b5d2173b487308075" category="list-text">SATA 、 SAS 、または NVMe TLC SSD ベースのデータストア</block>
 </blocks>
