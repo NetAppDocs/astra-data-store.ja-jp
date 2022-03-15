@@ -1046,4 +1046,5 @@
   <block id="9f6ec430b518fa5326fa28dc6b4aa003" category="paragraph">次の手順 は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。この手順 は、 OCP 以外の Kubernetes クラスタへの導入にはスキップできます。</block>
   <block id="3ec365dd533ddb7ef3d1c111186ce872" category="example-title">詳細</block>
   <block id="9d596ac4d3d28a6c2a6f2d976a322372" category="paragraph">以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。</block>
+  <block id="d53320adbca5e8d343a11ce083d101a7" category="list-text">にログインします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra Data Store プレビューバンドル (`2021.12.01_ads.tar') をダウンロードします。</block>
 </blocks>
