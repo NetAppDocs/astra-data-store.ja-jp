@@ -24,14 +24,9 @@ video::jz6EuryqYps[youtube, ]
 
 Astra Data Store プレビューインストールプロセスでは、次の手順を実行できます。
 
-一部の手順は、 Red Hat OpenShift Container Platform （ OCP ）への導入にのみ必要であり、 OCP としてのみ指定されています。OCP 以外の Kubernetes クラスタへの導入については、以下の手順をスキップできます。
-
 * <<Download the Astra Data Store preview bundle and extract the images>>
 * <<Copy the binary and push images to your local registry>>
-* <<OCP only: Create a namespace to deploy Astra Data Store preview>>
-* <<OCP only: Create a custom SCC>>
-* <<OCP only: Create the roles and role bindings>>
-* <<OCP only: Prepare the worker nodes>>
+* <<OpenShift procedure>>
 * <<Install the Astra Data Store preview operator>>
 * <<Deploy the Astra Data Store preview version YAML>>
 * <<Apply the Astra Data Store preview license>>
@@ -107,9 +102,15 @@ sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./manifests/*.yaml
 
 
 
-== OCP のみ： Astra データストアプレビューを導入するネームスペースを作成
+== OpenShift 手順 の略
 
+次の手順 は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。この手順 は、 OCP 以外の Kubernetes クラスタへの導入にはスキップできます。
+
+.詳細
+====
 すべての Astra Data Store プレビューコンポーネントをインストールする名前空間「 astras -system 」を作成します。
+
+以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。
 
 . ネームスペースを作成します。
 +
@@ -132,17 +133,14 @@ metadata:
 ----
 
 
-
-
-== OCP のみ：カスタム SCC を作成します
-
 OpenShift では、セキュリティコンテキスト制約（ SCC ）を使用して、ポッドで実行できるアクションを制御します。デフォルトでは、任意のコンテナの実行には制限付き SCC が付与され、その SCC で定義された機能のみが付与されます。
 
 制限付き SCC では、 Astra Data Store プレビュークラスタポッドで必要な権限が提供されません。この手順を使用して、 Astra データストアのプレビュー版に必要な権限（サンプルに記載）を付与します。
 
 カスタム SCC を Astra Data Store Preview ネームスペースのデフォルトのサービスアカウントに割り当てます。
 
-.手順
+以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。
+
 . カスタム SCC を作成します。
 +
 [listing]
@@ -204,13 +202,11 @@ ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   <no
 ----
 
 
-
-
-== OCP のみ：ロールとロールのバインドを作成します
-
 Astra Data Store プレビューのデフォルトのサービスアカウントで使用する必要なロールとロールのバインドを作成します。
 
 次の YAML 定義は '`astrads.netapp.io` API グループの Astra Data Store プレビューリソースで必要なさまざまな役割 ( 役割のバインドを使用 ) を割り当てます
+
+以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。
 
 . 定義されたロールとロールのバインドを作成します。
 +
@@ -282,15 +278,12 @@ subjects:
 ----
 
 
-
-
-== OCP のみ：ワーカーノードを準備します
-
 Astra データストアのワーカーノードでクラスタのプレビュー導入を準備この手順は、 Astra データストアプレビュークラスタで使用されているすべてのワーカーノードで実行します。
 
 OpenShift では、 kubelet 構成ファイル（ /var/lib/kubebelet/config.json ）に JSON 形式を使用します。Astra Data Store プレビュークラスタは 'kubelet config' ファイルの YAML 形式を検索します
 
-.手順
+以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。
+
 . クラスタのインストールを開始する前に ' 各ワーカー・ノードに /var/lib/kubelet/config.yaml ファイルを作成します
 +
 [listing]
@@ -303,6 +296,7 @@ sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml
 
 NOTE: この操作を行わないと、 Astra データストアプレビュークラスタのインストールが失敗します。
 
+====
 
 
 == Astra Data Store プレビューオペレータをインストール

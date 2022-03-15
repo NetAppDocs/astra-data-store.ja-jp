@@ -1035,19 +1035,15 @@
   <block id="7f5cabaf7d28d34dc4ab3be67d9c8237" category="summary">環境に関するいくつかの前提条件に対処した後に Astra データストアをインストールするには、バンドルをダウンロードし、次の手順に従ってインストールします。OpenShift に Astra データストアをインストールする方法</block>
   <block id="f54f0a86dc809f7ec97575af6fbc8b84" category="paragraph">Astra データストアプレビューをインストールするには、からインストールバンドルをダウンロードします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> およびこの手順 に記載されているインストール手順を実行します。</block>
   <block id="0aa47503f31feab060eaf884a45cd2d6" category="paragraph">Astra Data Store プレビューインストールプロセスでは、次の手順を実行できます。</block>
-  <block id="48b85b5d24f1050cddd92b2569a3d7d6" category="paragraph">一部の手順は、 Red Hat OpenShift Container Platform （ OCP ）への導入にのみ必要であり、 OCP としてのみ指定されています。OCP 以外の Kubernetes クラスタへの導入については、以下の手順をスキップできます。</block>
-  <block id="06511bd701b1be04064c0b42e9cab089" category="list-text"><block ref="60600013397dfec6ca46381b39ae39f3" category="inline-xref-macro-rx"></block></block>
-  <block id="6b304521db7471f07f8ff21ab6379311" category="list-text"><block ref="5184f3b4b84888db746c615b831fbfa7" category="inline-xref-macro-rx"></block></block>
-  <block id="175212d41d3aa10559d2124b6221c6a9" category="list-text"><block ref="6af5fc26efcf86593457394860cec4f6" category="inline-xref-macro-rx"></block></block>
-  <block id="b7c4e1d462c1474c0f853e5f7398ac52" category="list-text"><block ref="b4bf96f1d944d36dbf8b7aa8a7932243" category="inline-xref-macro-rx"></block></block>
-  <block id="a2fc1f9c02730bbe98a8674816fe470e" category="section-title">OCP のみ： Astra データストアプレビューを導入するネームスペースを作成</block>
-  <block id="78e10172f6f4b75a10617e31c10c3d5b" category="section-title">OCP のみ：カスタム SCC を作成します</block>
-  <block id="2df285027c0d59c311ecb70dd41834c7" category="section-title">OCP のみ：ロールとロールのバインドを作成します</block>
-  <block id="d886a832387eaadb4f847ec48c2582f4" category="section-title">OCP のみ：ワーカーノードを準備します</block>
   <block id="3af1f7efc94ad5db8224730d535bf721" category="list-text">クラスタ YAML が適用される前に、すべての Kubernetes ワーカーノードでこの手順 を完了します。</block>
   <block id="0b7d1f8b8805a1c587689821bca47324" category="list-text">（ OCP のみ） SELinux が有効になっている場合は、 Astra Data Store プレビュークラスタ内のノードで次のディレクトリの「 SELinux 」コンテキストにラベルを付け直します。</block>
   <block id="f15043967dbb0640e4d4c31a6e7a6ac0" category="admonition">名前空間の応答は、標準インストールと OCP インストールのどちらを実行したかによって異なります。</block>
   <block id="1caa3cf5a72fc35e939157dc1f96280a" category="list-text">SATA または NVMe TLC SSD</block>
   <block id="e90425f62a91773b5d2173b487308075" category="list-text">SATA 、 SAS 、または NVMe TLC SSD ベースのデータストア</block>
   <block id="d3d7772cf5833ab8ee28fbbe73cec01b" category="paragraph">各アストラデータストアプレビュークラスタでは、永続ボリュームを使用して、そのクラスタにインストールされているアプリケーションのストレージニーズに対応できます。Kubernetes アプリケーションは、 NFSv4.1 で共有されている永続的ボリュームを使用してファイルにアクセスします。 NFSv4.1 では、 AUTH_SYS の認証方法が必要です。</block>
+  <block id="85ae37cc7f15413a66f075500ab9bb21" category="list-text"><block ref="c971d40cbaa6eb788778a2dba59a7d25" category="inline-xref-macro-rx"></block></block>
+  <block id="2747c0766e2771ab043a0800e63b80a7" category="section-title">OpenShift 手順 の略</block>
+  <block id="9f6ec430b518fa5326fa28dc6b4aa003" category="paragraph">次の手順 は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。この手順 は、 OCP 以外の Kubernetes クラスタへの導入にはスキップできます。</block>
+  <block id="3ec365dd533ddb7ef3d1c111186ce872" category="example-title">詳細</block>
+  <block id="9d596ac4d3d28a6c2a6f2d976a322372" category="paragraph">以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。</block>
 </blocks>
