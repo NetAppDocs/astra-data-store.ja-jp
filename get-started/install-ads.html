@@ -678,7 +678,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-15 16:15:48 +0000">03/15/2022</time>
+    <time datetime="2022-03-15 16:31:27 +0000">03/15/2022</time>
     
   
 
@@ -790,13 +790,13 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>にログインします <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"ネットアップサポートサイト"</a> Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします</p>
+<p>にログインします <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"ネットアップサポートサイト"</a> Astra Data Store プレビューバンドル (`2021.12.01_ads.tar') をダウンロードします。</p>
 </li>
 <li>
 <p>（任意）次のコマンドを使用して、バンドルのシグニチャを確認します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>openssl dgst -sha256 -verify 2021.12_astradatastore.pub -signature 2021.12_astradatastore.sig 2021.12_astradatastore.tar</pre>
+<pre>openssl dgst -sha256 -verify 2021.12_ads.pub -signature 2021.12_ads.sig 2021.12.01_ads.tar</pre>
 </div>
 </div>
 </li>
@@ -804,7 +804,7 @@
 <p>画像を抽出します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>tar -xvf 2021.12_astradatastore.tar</pre>
+<pre>tar -xvf 2021.12.01_ads.tar</pre>
 </div>
 </div>
 </li>
@@ -1622,7 +1622,7 @@ astrads-example-cluster   created   2021.10.0   p100000006       10.x.x.x   10m<
 <p>Astra Control Center によるモニタリングのための Astra データストアプレビューの構成：</p>
 <div class="listingblock">
 <div class="content">
-<pre>kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup</pre>
+<pre>kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup</pre>
 </div>
 </div>
 </li>
@@ -1648,7 +1648,7 @@ astrads-example-cluster   created   2021.10.0   p100000006       10.x.x.x   10m<
 <p>Astra データストアプレビューで監視を設定：</p>
 <div class="listingblock">
 <div class="content">
-<pre>kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup</pre>
+<pre>kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup</pre>
 </div>
 </div>
 </li>
