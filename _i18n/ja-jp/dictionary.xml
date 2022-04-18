@@ -319,8 +319,6 @@
   <block id="3962691e8a7c8b7a00673c9035950515" category="list-text">コマンドの詳細については 'astrads [command]--help' を使用してください</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="summary">著作権に関する声明、商標、特許などにアクセスできます。</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法的通知</block>
-  <block id="c59ae8d7beeb519a23478ab048af482c" category="paragraph"><block ref="c59ae8d7beeb519a23478ab048af482c" category="inline-link-macro-rx"></block></block>
-  <block id="6f2ac1cf1da8ec34232c651d4bba0149" category="paragraph"><block ref="6f2ac1cf1da8ec34232c651d4bba0149" category="inline-link-macro-rx"></block></block>
   <block id="bd9a92025f272fdbcf82dbe7c6751b8e" category="inline-link-macro">Astra Data Store 21.12 リリースの注意事項</block>
   <block id="1f6cc7061c99b2f46c25473fe9b7ea3a" category="paragraph"><block ref="1f6cc7061c99b2f46c25473fe9b7ea3a" category="inline-link-macro-rx"></block></block>
   <block id="6929f0cedcea1d6e056ea216f0388b3a" category="summary">Astra データストアクラスタは拡張が可能です。</block>
@@ -493,7 +491,6 @@
   <block id="bef0c0a82c5520f237b380213d0b07d6" category="inline-link-macro">ロールと権限</block>
   <block id="806b5637c063705c8d625e758efc64b6" category="list-text">の理解 <block ref="dee7c80cda852bd179a0b8a64dc2d187" category="inline-link-macro-rx"></block> Astra データストアプレビュー版で使用</block>
   <block id="1e822a9286ce82521a4c839250498223" category="list-text">インターネット接続：Astra データストアプレビューは、エアギャップのある環境には対応していません。直接またはプロキシ経由で support.netapp.com にアクセスするには、インターネット接続が必要です。</block>
-  <block id="59d5f0097f4998113fed5d843c64f82e" category="paragraph">Astra Data Store プレビューインストールプロセスでは、次の手順を実行できます。</block>
   <block id="a556f5398142ae7011d0de50dc8b6c5b" category="list-text"><block ref="8d9993295d6b271ce4d01f645185155b" category="inline-xref-macro-rx"></block></block>
   <block id="6d0f824f6a186eea3583d29e3aed365a" category="list-text"><block ref="28f9f989c873aca847e12e3f56387e81" category="inline-xref-macro-rx"></block></block>
   <block id="b70c468b8ef55be96953554233f196f8" category="list-text"><block ref="038e87b146a54831da5266e118724b0a" category="inline-xref-macro-rx"></block></block>
@@ -693,57 +690,27 @@
   <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">よく寄せられる質問</block>
   <block id="9242577a835539354b36df9d5785b04f" category="paragraph">Astra Data Store プレビューリリースには、次のリソース制限があります。</block>
   <block id="fb3d937ada0889a18943f9e221637388" category="admonition">Astra データストアのプレビューはパフォーマンスを調整したものであり、パフォーマンスの特性評価には使用しないでください。</block>
-  <block id="f384e304ce8ad1baf968d76cbb4f75e3" category="summary">次のいずれかの Astra データストアインストール手順を選択します</block>
-  <block id="aae3f331fbdab3d560f2829b3edb6b42" category="doc">Astra データストアのインストールの概要</block>
-  <block id="c3a5e0d3ee4046f7f704d4058047eb20" category="paragraph">次の Astra Data Store インストール手順のいずれかを選択して実行します。</block>
-  <block id="d99bdf0294b88b88ebeb7c5a3dd478d0" category="inline-link-macro">標準のプロセスを使用して Astra データストアをインストールします</block>
-  <block id="473248c5259367a46bb162931f7c51ef" category="list-text"><block ref="e2426583e3d976b64c068eb029ece1a2" category="inline-link-macro-rx"></block>。</block>
-  <block id="f70c6700d280b2af512dec2815cebb4a" category="inline-link-macro">Red Hat OpenShift を使用する場合は、 OpenShift を使用して Astra データストアをインストールします</block>
-  <block id="702096ecdc14aab30475ed7a1a2893c1" category="list-text"><block ref="9c6e2269ed85995d4b7b0fb33aa8fd3b" category="inline-link-macro-rx"></block>。</block>
   <block id="a425a235822edd430a58eacccd757806" category="paragraph">Astra Data Store のプレビューは、次の NNI で検証済みです。</block>
   <block id="66f992fd154333db12979224b40bb01d" category="list-text">バニラ Kubernetes クラスタ用 Calico および Weave Net CNII</block>
   <block id="1c6ba40a804a7b27053cbc1e9b881a53" category="list-text">Red Hat OpenShift Container Platform （ OCP ）向け OpenShift SDN</block>
   <block id="5d12f25a06af3175aac5ead4076ccaa5" category="list-text">Google Anthos 向け Cilium</block>
-  <block id="477f44d2fd5557c2e0c1483136673d2f" category="summary">OpenShift を使用して Astra データストアをインストールする方法</block>
-  <block id="b42c39c7d62ef43f96e18ab1143c5fdd" category="doc">Red Hat OpenShift Container Platform に Astra データストアプレビューをインストールします</block>
-  <block id="18e412f69270053d6fbd006203726f31" category="inline-link-macro">Astra データストア環境の準備</block>
-  <block id="9afe9329533b4d46b804c6dce265f011" category="list-text">インストールを開始する前に、 <block ref="1339fb1bdf2e0eaea9baf01fd47337cd" category="inline-link-macro-rx"></block>。</block>
-  <block id="6896d0b08ffa51cd7dc1e431bca01038" category="inline-link-macro">ネットアップライセンスファイル</block>
-  <block id="5e33d62267635f1264e9a158679068f0" category="list-text">A <block ref="137bea87b1ed38b6b747ca593fab05eb" category="inline-link-macro-rx"></block> （ NLF ） for Astra Data Store のプレビュー。ライセンスのダウンロード手順は、サインアップ後に送信されます。</block>
-  <block id="fb124d22233366c281eae5c20e8f50a5" category="inline-link-macro">ロールと権限</block>
-  <block id="3fbcff5931f9df10a12c3e41b3b6e99c" category="list-text">の理解 <block ref="05c77a29e62e6b5374baaf8c208c49d9" category="inline-link-macro-rx"></block> Astra データストアプレビュー版で使用</block>
-  <block id="0b5bf43f901bdaa6ab67ba6ba2b415f0" category="list-text">インターネット接続：Astra データストアプレビューは、エアギャップ環境には対応していません。直接またはプロキシ経由で support.netapp.com にアクセスするには、インターネット接続が必要です。</block>
-  <block id="bbe48fb854ea022537208eeeff822f91" category="section-title">このタスクについて</block>
-  <block id="66a4210255768fa7ce150f406e4d2de3" category="list-text"><block ref="8aad3752e2094aac1115c216d64491e4" category="inline-xref-macro-rx"></block></block>
-  <block id="33479e9fa2f705061f6d568f2a579e42" category="list-text"><block ref="2726811d07a06cce3b8a8fe537309a8e" category="inline-xref-macro-rx"></block></block>
-  <block id="3b0adcdb7a1d7bd146376dcfc6accd6c" category="list-text"><block ref="0af761fa812dc9e1ab2a2b67718089d0" category="inline-xref-macro-rx"></block></block>
-  <block id="80fd50d2c29afdea09a446ffc7bb6b15" category="list-text"><block ref="96f517c99ba407f5b231283daa5c1544" category="inline-xref-macro-rx"></block></block>
-  <block id="17ed07ff15b5d43d3eca288ae4a093bd" category="list-text">（任意）バンドルのシグニチャを確認します。</block>
-  <block id="3590e28b9b85fc9dc8f47946a6a81c5b" category="section-title">Astra データストアプレビューを導入するためのネームスペースを作成します</block>
   <block id="1d05061aec39922b91b02b045d31d674" category="paragraph">すべての Astra Data Store プレビューコンポーネントをインストールする名前空間「 astras -system 」を作成します。</block>
   <block id="7baf7b8d385cfa43e2ebd4decbe383e8" category="list-text">ネームスペースを作成します。</block>
   <block id="9484da3843b6d29183c961f5805374c0" category="paragraph">例： ads_namespac.yaml</block>
-  <block id="7a981942788d33c4001730188b89e6db" category="section-title">カスタム SCC を作成します</block>
   <block id="9279e1a9a6dc21e00ad8bfe646d12d80" category="paragraph">OpenShift では、セキュリティコンテキスト制約（ SCC ）を使用して、ポッドで実行できるアクションを制御します。デフォルトでは、任意のコンテナの実行には制限付き SCC が付与され、その SCC で定義された機能のみが付与されます。</block>
   <block id="d84d14dd008a483ff803734de04a9be6" category="paragraph">制限付き SCC では、 Astra Data Store プレビュークラスタポッドで必要な権限が提供されません。この手順を使用して、 Astra データストアのプレビュー版に必要な権限（サンプルに記載）を付与します。</block>
   <block id="2593c56a647b16e5b609f03e09ff7e38" category="paragraph">カスタム SCC を Astra Data Store Preview ネームスペースのデフォルトのサービスアカウントに割り当てます。</block>
   <block id="a404b42248dc15fc7c9f96beb39ce0bf" category="list-text">カスタム SCC を作成します。</block>
   <block id="675d6759427bcd3ef0478a3576c113b4" category="paragraph">サンプル： ads_privileged_ssc.yaml</block>
   <block id="44988a3cdc9c8d194b4f0791b2fd559e" category="list-text">「 OC get SCC 」コマンドを使用して、新たに追加された SCC を表示します。</block>
-  <block id="1ff7f0ad4e23e88d48bae4f9be6bf1d6" category="section-title">ロールとロールのバインドを作成します</block>
   <block id="fc67753b692b97bd691fc9ce7e3373f7" category="paragraph">Astra Data Store プレビューのデフォルトのサービスアカウントで使用する必要なロールとロールのバインドを作成します。</block>
   <block id="217623d6cc04d74a7e1c0c99da77531c" category="paragraph">次の YAML 定義は '`astrads.netapp.io` API グループの Astra Data Store プレビューリソースで必要なさまざまな役割 ( 役割のバインドを使用 ) を割り当てます</block>
   <block id="c8679407d1ef279caad76d123b67c3cf" category="list-text">定義されたロールとロールのバインドを作成します。</block>
   <block id="241dbe54decdb2543808cb04b50976c5" category="paragraph">例： OC_ROLE_bindings. yaml</block>
-  <block id="d7dde07915bbe8056e6854c2b5e50480" category="section-title">ワーカーノードを準備します</block>
   <block id="4d75e8aa0d18f88ccca8348318fd0374" category="paragraph">Astra データストアのワーカーノードでクラスタのプレビュー導入を準備この手順は、 Astra データストアプレビュークラスタで使用されているすべてのワーカーノードで実行します。</block>
   <block id="90ae8d3116b0e0639d8b6bab1fb94a83" category="paragraph">OpenShift では、 kubelet 構成ファイル（ /var/lib/kubebelet/config.json ）に JSON 形式を使用します。Astra Data Store プレビュークラスタは 'kubelet config' ファイルの YAML 形式を検索します</block>
   <block id="619b377b67311492e2301f498fa6a192" category="list-text">クラスタのインストールを開始する前に ' 各ワーカー・ノードに /var/lib/kubelet/config.yaml ファイルを作成します</block>
-  <block id="8116c401bbe8d3e819e7fbeab37dfd9c" category="list-text">クラスタ YAML が適用される前に、すべての Kubernetes ノードでこの手順を完了します。</block>
   <block id="e75a81ccddd342b222755829558870b4" category="admonition">この操作を行わないと、 Astra データストアプレビュークラスタのインストールが失敗します。</block>
-  <block id="ab99eb629243e2831288d50f19591112" category="list-text">kubectl apply コマンドを使用して ' オペレータを配備します</block>
-  <block id="a0043c0af3acf54941321b091a08c953" category="list-text">kubectl apply コマンドを使用して配備します</block>
-  <block id="9a18f1a51db98667d766563e48ba7225" category="list-text">SELinux が有効になっている場合は、 Astra Data Store プレビュークラスタ内のノードで、次のディレクトリの「 SELinux 」コンテキストにラベルを付け直します。</block>
   <block id="f22b8fb6dcc9aa31e0b2d9e9e84205c7" category="admonition">これは 'SELinux がこれらのディレクトリの書き込みを禁止し ' サポートポッドが CrashLoopBackoff 状態になるためですこの手順は、 Astra データストアプレビュークラスタ内のすべてのノードで実行する必要があります。</block>
   <block id="e53566a3d4b03bb3bb38c32ee32acedb" category="summary">ネットアップでは、 Astra データストアのプレビュー版をさまざまな方法で提供しています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra Data Store プレビューアカウントには、 Web でチケットを発行するリモートテクニカルサポートが含まれています。</block>
   <block id="d3002c3c5bd6594f90c9f3ba7b8c6c09" category="paragraph">AutoSupport は、 Astra データストアプレビューシステムのランタイムおよび情報を監視し、ネットアップサポートにメッセージを送信します。構成に応じて、次のシステムコンポーネントを監視できます。</block>
@@ -786,9 +753,7 @@
   <block id="6087aa1a980e9fb03c3d42ed429d3090" category="list-text">をダウンロードします <block ref="424f4872df67a1a5528184cc2ca8dc8c" category="inline-link-macro-rx"></block>：</block>
   <block id="74bc6e591c8afde1756c60343fc6adb7" category="list-text">にアクセスします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block>。<block ref="a14d2f1983300ed8731dcf11dfa18e8a" category="inline-link-rx"></block> フルアクセスのネットアップサポートサイトアカウントをまだお持ちでない場合は、プレビュー版をお持ちください。</block>
   <block id="3f18a8915118a57279458e475c19506d" category="list-text">A <block ref="01e924afc9d6eb5b6b87b95944c8b962" category="inline-link-macro-rx"></block> Astra データストアプレビュー版ライセンスのダウンロード手順がお客様に送信されます<block ref="ef54037861aa5e9e926253483ef1a002" category="inline-link-rx"></block>。</block>
-  <block id="06e707c9bfaad1d590b948f0c4975ea0" category="list-text">にログインします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra データストアプレビューバンドル (`2021.12_Astrundsstore.tar') をダウンロードします</block>
   <block id="99fe05ab680c40d38239fb7349931f94" category="paragraph">Astra データストアのプレビュー機能をフル活用するには、 Astra データストアのプレビューライセンスが必要です。<block ref="757d0023964aa1a63172c6b6c4a3c459" category="inline-link-rx"></block> から Astra データストアプレビューライセンスを取得できます。ライセンスのダウンロード手順は、サインアップ後に送信されます。</block>
-  <block id="d7bf95d6f9f4a327892f5cc8792f238b" category="paragraph">Red Hat OpenShift Container Platform （ OCP ）に Astra データストアプレビューをインストールするには、からインストールバンドルをダウンロードします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> およびこの手順に記載されているインストール手順を実行します。</block>
   <block id="b2d8407a2a6a35cada2688cd35c7c330" category="paragraph"><block ref="0bcb35f051e8c1238923547e4a123c09" category="inline-link-rx"></block> から Astra データストアプレビューライセンスを取得できます。</block>
   <block id="d6de7af55cd34df4b1343663f9fa47a7" category="inline-link">Astra Control Center で管理するクラスタの要件</block>
   <block id="9cca478435cbf9a301f081bd39778626" category="admonition">Astra Control Center から Astra データストアプレビュークラスタを管理する場合は、 Astra データストアプレビュークラスタがを満たしていることを確認します<block ref="83b31cb7736faa6a9df5c1f9a84caa88" category="inline-link-rx"></block> ここに記載されている要件に加えて、</block>
@@ -989,9 +954,7 @@
   <block id="7b132651c6be946cb45ebbc5729d0fae" category="paragraph">Prometheus と Grafana を使用して、 Astra データストアのプレビュー指標を監視できます。Prometheus で Astra Data Store プレビュー Kubernetes クラスタ指標エンドポイントから指標を収集するように設定でき、 Grafana を使用して指標データを表示できます。</block>
   <block id="90895f68c3d61650306b9827ff7c6324" category="list-text">Prometheus パッケージと Grafana パッケージを Astra Data Store プレビュークラスタ、または Astra Data Store プレビュークラスタと通信可能な別のクラスタでダウンロードしてインストールしておく必要があります。公式ドキュメントの指示に従って、各ツールをインストールします。</block>
   <block id="88b8613d339947a37e41b1f514dcc42c" category="inline-link">Prometheus をインストールする</block>
-  <block id="763383a68e405097875c37e8ab57d401" category="list-text"><block ref="763383a68e405097875c37e8ab57d401" category="inline-link-rx"></block></block>
   <block id="3de41522a35f102d48905bc53fd5c383" category="inline-link">Grafana をインストールします</block>
-  <block id="a557323906eaeb845274f1275674df7a" category="list-text"><block ref="a557323906eaeb845274f1275674df7a" category="inline-link-rx"></block></block>
   <block id="a78f5549cd86895c64aa29975a576b48" category="list-text">Prometheus と Grafana が Astra データストアプレビュー Kubernetes クラスタと通信できる必要があります。Prometheus と Grafana が Astra Data Store プレビュークラスタにインストールされていない場合は、 Astra Data Store プレビュークラスタで実行されている指標サービスと通信できることを確認する必要があります。</block>
   <block id="7119175e2ec3286002664b430cbc1c19" category="section-title">Prometheus を設定する</block>
   <block id="cd93c151a525dff780b53bdf1dee4c20" category="paragraph">Astra Data Store プレビューでは、 Kubernetes クラスタの TCP ポート 9341 で指標サービスが公開されます。このサービスから指標を収集するには、 Prometheus を設定する必要があります。</block>
@@ -1047,4 +1010,18 @@
   <block id="3ec365dd533ddb7ef3d1c111186ce872" category="example-title">詳細</block>
   <block id="9d596ac4d3d28a6c2a6f2d976a322372" category="paragraph">以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。</block>
   <block id="d53320adbca5e8d343a11ce083d101a7" category="list-text">にログインします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra Data Store プレビューバンドル (`2021.12.01_ads.tar') をダウンロードします。</block>
+  <block id="9f656569b5b0db7993b62a5b0072ded3" category="list-text"><block ref="9f656569b5b0db7993b62a5b0072ded3" category="inline-link-rx"></block></block>
+  <block id="0e21520e616fa6a17ae2ececc6c27419" category="list-text"><block ref="0e21520e616fa6a17ae2ececc6c27419" category="inline-link-rx"></block></block>
+  <block id="6016a2b341113bf496b719905398ecd2" category="section-title">著作権</block>
+  <block id="09e95b77ffe81fe465a83ba99efad5c8" category="paragraph"><block ref="09e95b77ffe81fe465a83ba99efad5c8" category="inline-link-rx"></block></block>
+  <block id="126a02652da6de02962cf1b654fd6376" category="section-title">商標</block>
+  <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NetApp 、 NetApp のロゴ、および NetApp の商標ページに記載されているマークは、 NetApp, Inc. の商標です。その他の会社名および製品名は、それぞれの所有者の商標である場合があります。</block>
+  <block id="7aa531e9acfe2b98e34d2c92fe9846ff" category="paragraph"><block ref="7aa531e9acfe2b98e34d2c92fe9846ff" category="inline-link-rx"></block></block>
+  <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">特許</block>
+  <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">ネットアップが所有する特許の最新リストは、次のサイトで入手できます。</block>
+  <block id="d7f1fbcf9ce4e42f705add574d262b2c" category="paragraph"><block ref="d7f1fbcf9ce4e42f705add574d262b2c" category="inline-link-rx"></block></block>
+  <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">プライバシーポリシー</block>
+  <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
+  <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">オープンソース</block>
+  <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知ファイルには、ネットアップソフトウェアで使用されるサードパーティの著作権およびライセンスに関する情報が記載されています。</block>
 </blocks>

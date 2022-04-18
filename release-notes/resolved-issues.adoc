@@ -6,6 +6,7 @@ summary: このリリースの解決済みの問題で、製品の使用を妨�
 ---
 = 解決済みの問題
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 

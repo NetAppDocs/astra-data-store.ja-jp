@@ -6,6 +6,7 @@ summary: Astra Data Store では、シンプロビジョニング、ゼロブロ
 ---
 = Astra データストアプレビュー版の Storage Efficiency
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

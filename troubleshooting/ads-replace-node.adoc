@@ -6,6 +6,7 @@ summary: kubectl コマンドを Astra データストアとともに使用し�
 ---
 = ノードを交換
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/troubleshooting/
 

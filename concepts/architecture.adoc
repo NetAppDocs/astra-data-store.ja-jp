@@ -6,6 +6,7 @@ summary: アストラデータストアは、スタンドアロンの Kubernetes
 ---
 = Astra データストアプレビュー導入モデル
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

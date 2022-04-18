@@ -6,6 +6,7 @@ summary: Astra データストアを導入するには、いくつかの手順�
 ---
 = Astra データストアプレビューのクイックスタート
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

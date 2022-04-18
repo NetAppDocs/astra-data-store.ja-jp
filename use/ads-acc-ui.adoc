@@ -6,6 +6,7 @@ summary: Astra Control Center のユーザーインタフェース（ UI ）を�
 ---
 = Astra Control Center with Astra のデータストアプレビューを使用
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

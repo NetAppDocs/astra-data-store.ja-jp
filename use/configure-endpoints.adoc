@@ -6,6 +6,7 @@ summary: Kubectl コマンドを Astra データストアとともに使用し�
 ---
 = イベントログを設定して監視する
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

@@ -6,6 +6,7 @@ summary: Astra データストアをインストールし、環境に関する�
 ---
 = Astra Data Store のプレビューコンポーネントをセットアップする
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

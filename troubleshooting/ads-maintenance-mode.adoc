@@ -6,6 +6,7 @@ summary: ホストのメンテナンスやパッケージのアップグレー�
 ---
 = ノードをメンテナンスモードにします
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/troubleshooting/
 

@@ -6,6 +6,7 @@ summary: Astra Control には REST API が搭載されており、 Curl など�
 ---
 = Astra Control REST API による自動化
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/rest-api/
 

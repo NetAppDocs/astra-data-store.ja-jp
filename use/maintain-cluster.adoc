@@ -6,6 +6,7 @@ summary: Astra データストアで kubectl コマンドを使用すると、�
 ---
 = クラスタを管理
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

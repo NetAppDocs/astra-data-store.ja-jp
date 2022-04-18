@@ -6,6 +6,7 @@ summary: Cloud Insights 指標を使用して、 Astra データストアアセ�
 ---
 = Cloud Insights で指標を監視
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

@@ -6,6 +6,7 @@ summary: 既知の問題は、このリリースの製品を正常に使用で�
 ---
 = 既知の問題
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 
@@ -24,7 +25,7 @@ summary: 既知の問題は、このリリースの製品を正常に使用で�
 
 Kubernetes v1.20 の Astra データストアプレビューアンインストールプロセスでは、原因 ポッドが終了状態のまま残ることがあります。
 
-を参照してください link:../use/uninstall-ads-manual.html["スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする"] または。
+を参照してください link:../use/uninstall-ads-manual.html["スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする"] またはlink:../use/uninstall-ads.html["Astra データストアプレビューをスクリプトで自動的にアンインストールします"]。
 
 
 

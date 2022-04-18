@@ -6,6 +6,7 @@ summary: ネットアップは Astra データストアを定期的に更新し�
 ---
 = リリースノート
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 

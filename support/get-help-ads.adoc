@@ -6,6 +6,7 @@ summary: ネットアップでは、 Astra データストアのサポートを�
 ---
 = ヘルプを表示します
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/support/
 

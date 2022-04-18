@@ -6,6 +6,7 @@ summary: ネットアップでは、 Astra データストアのプレビュー�
 ---
 = サポートの自動監視
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/support/
 

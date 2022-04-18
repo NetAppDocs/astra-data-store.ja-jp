@@ -6,6 +6,7 @@ summary: Astra データストアでは、クライアントと管理者がス�
 ---
 = Astra データストアのセキュリティプレビュー版
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

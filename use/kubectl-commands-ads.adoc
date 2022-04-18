@@ -6,6 +6,7 @@ summary: kubectl コマンドは Astra データストアで直接使用でき�
 ---
 = kubectl コマンドを使用して Astra データストアのプレビューアセットを管理
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

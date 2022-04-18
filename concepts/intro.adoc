@@ -6,6 +6,7 @@ summary: Astra データストアは、コンテナワークロードと VM ワ�
 ---
 = Astra データストアの概要プレビュー
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

@@ -6,6 +6,7 @@ summary: Astra データストアをアンインストールするには、ワ�
 ---
 = Astra データストアプレビューを自動スクリプトでアンインストールします
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

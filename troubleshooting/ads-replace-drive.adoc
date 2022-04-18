@@ -6,6 +6,7 @@ summary: kubectl コマンドを Astra データストアで使用して、ド�
 ---
 = ドライブを交換します
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/troubleshooting/
 

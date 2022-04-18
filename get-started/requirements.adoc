@@ -6,6 +6,7 @@ summary: まずは、環境のサポート状況を確認します。
 ---
 = Astra データストアのプレビュー要件
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

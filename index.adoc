@@ -7,6 +7,7 @@ summary: Astra Data Store が提供する永続的ストレージサービスと
 ---
 = Astra データストアプレビュー版のドキュメント
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

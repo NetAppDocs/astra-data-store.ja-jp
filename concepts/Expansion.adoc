@@ -6,6 +6,7 @@ summary: Astra データストアクラスタは拡張が可能です。
 ---
 = クラスタの拡張
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 
