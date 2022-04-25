@@ -717,7 +717,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 21:54:39 +0000">04/18/2022</time>
+    <time datetime="2022-04-25 21:52:36 +0000">04/25/2022</time>
     
   
 
@@ -1091,42 +1091,6 @@ subjects:
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>Astra データストアのワーカーノードでクラスタのプレビュー導入を準備この手順は、 Astra データストアプレビュークラスタで使用されているすべてのワーカーノードで実行します。</p>
-</div>
-<div class="paragraph">
-<p>OpenShift では、 kubelet 構成ファイル（ /var/lib/kubebelet/config.json ）に JSON 形式を使用します。Astra Data Store プレビュークラスタは 'kubelet config' ファイルの YAML 形式を検索します</p>
-</div>
-<div class="paragraph">
-<p>以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>クラスタのインストールを開始する前に ' 各ワーカー・ノードに /var/lib/kubelet/config.yaml ファイルを作成します</p>
-<div class="listingblock">
-<div class="content">
-<pre>sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml</pre>
-</div>
-</div>
-</li>
-<li>
-<p>クラスタ YAML が適用される前に、すべての Kubernetes ワーカーノードでこの手順 を完了します。</p>
-</li>
-</ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
-</td>
-<td class="content">
-この操作を行わないと、 Astra データストアプレビュークラスタのインストールが失敗します。
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
