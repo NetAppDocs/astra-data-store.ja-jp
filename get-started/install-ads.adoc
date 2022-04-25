@@ -279,24 +279,6 @@ subjects:
 ----
 
 
-Astra データストアのワーカーノードでクラスタのプレビュー導入を準備この手順は、 Astra データストアプレビュークラスタで使用されているすべてのワーカーノードで実行します。
-
-OpenShift では、 kubelet 構成ファイル（ /var/lib/kubebelet/config.json ）に JSON 形式を使用します。Astra Data Store プレビュークラスタは 'kubelet config' ファイルの YAML 形式を検索します
-
-以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。
-
-. クラスタのインストールを開始する前に ' 各ワーカー・ノードに /var/lib/kubelet/config.yaml ファイルを作成します
-+
-[listing]
-----
-sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml
-----
-. クラスタ YAML が適用される前に、すべての Kubernetes ワーカーノードでこの手順 を完了します。
-
-
-
-NOTE: この操作を行わないと、 Astra データストアプレビュークラスタのインストールが失敗します。
-
 ====
 
 
