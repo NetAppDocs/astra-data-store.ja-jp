@@ -649,6 +649,8 @@ kubectl logs -n astrads-system <astrads cluster controller pod name>
 
 Astra データストアプレビューは、 Astra Control Center の監視用、または別のテレメトリサービスによる監視用に設定できます。
 
+監視を設定する前に'astras-system'名前空間にアクティブなAstraデータストアクラスタが必要です
+
 
 
 === Astra Control Center プレビューの監視を設定します

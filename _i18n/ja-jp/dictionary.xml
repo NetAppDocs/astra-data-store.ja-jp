@@ -707,10 +707,6 @@
   <block id="217623d6cc04d74a7e1c0c99da77531c" category="paragraph">次の YAML 定義は '`astrads.netapp.io` API グループの Astra Data Store プレビューリソースで必要なさまざまな役割 ( 役割のバインドを使用 ) を割り当てます</block>
   <block id="c8679407d1ef279caad76d123b67c3cf" category="list-text">定義されたロールとロールのバインドを作成します。</block>
   <block id="241dbe54decdb2543808cb04b50976c5" category="paragraph">例： OC_ROLE_bindings. yaml</block>
-  <block id="4d75e8aa0d18f88ccca8348318fd0374" category="paragraph">Astra データストアのワーカーノードでクラスタのプレビュー導入を準備この手順は、 Astra データストアプレビュークラスタで使用されているすべてのワーカーノードで実行します。</block>
-  <block id="90ae8d3116b0e0639d8b6bab1fb94a83" category="paragraph">OpenShift では、 kubelet 構成ファイル（ /var/lib/kubebelet/config.json ）に JSON 形式を使用します。Astra Data Store プレビュークラスタは 'kubelet config' ファイルの YAML 形式を検索します</block>
-  <block id="619b377b67311492e2301f498fa6a192" category="list-text">クラスタのインストールを開始する前に ' 各ワーカー・ノードに /var/lib/kubelet/config.yaml ファイルを作成します</block>
-  <block id="e75a81ccddd342b222755829558870b4" category="admonition">この操作を行わないと、 Astra データストアプレビュークラスタのインストールが失敗します。</block>
   <block id="f22b8fb6dcc9aa31e0b2d9e9e84205c7" category="admonition">これは 'SELinux がこれらのディレクトリの書き込みを禁止し ' サポートポッドが CrashLoopBackoff 状態になるためですこの手順は、 Astra データストアプレビュークラスタ内のすべてのノードで実行する必要があります。</block>
   <block id="e53566a3d4b03bb3bb38c32ee32acedb" category="summary">ネットアップでは、 Astra データストアのプレビュー版をさまざまな方法で提供しています。ナレッジベース（ KB ）記事や Slack チャンネルなど、幅広いセルフサポートオプションを 24 時間 365 日ご利用いただけます。Astra Data Store プレビューアカウントには、 Web でチケットを発行するリモートテクニカルサポートが含まれています。</block>
   <block id="d3002c3c5bd6594f90c9f3ba7b8c6c09" category="paragraph">AutoSupport は、 Astra データストアプレビューシステムのランタイムおよび情報を監視し、ネットアップサポートにメッセージを送信します。構成に応じて、次のシステムコンポーネントを監視できます。</block>
@@ -998,7 +994,6 @@
   <block id="7f5cabaf7d28d34dc4ab3be67d9c8237" category="summary">環境に関するいくつかの前提条件に対処した後に Astra データストアをインストールするには、バンドルをダウンロードし、次の手順に従ってインストールします。OpenShift に Astra データストアをインストールする方法</block>
   <block id="f54f0a86dc809f7ec97575af6fbc8b84" category="paragraph">Astra データストアプレビューをインストールするには、からインストールバンドルをダウンロードします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> およびこの手順 に記載されているインストール手順を実行します。</block>
   <block id="0aa47503f31feab060eaf884a45cd2d6" category="paragraph">Astra Data Store プレビューインストールプロセスでは、次の手順を実行できます。</block>
-  <block id="3af1f7efc94ad5db8224730d535bf721" category="list-text">クラスタ YAML が適用される前に、すべての Kubernetes ワーカーノードでこの手順 を完了します。</block>
   <block id="0b7d1f8b8805a1c587689821bca47324" category="list-text">（ OCP のみ） SELinux が有効になっている場合は、 Astra Data Store プレビュークラスタ内のノードで次のディレクトリの「 SELinux 」コンテキストにラベルを付け直します。</block>
   <block id="f15043967dbb0640e4d4c31a6e7a6ac0" category="admonition">名前空間の応答は、標準インストールと OCP インストールのどちらを実行したかによって異なります。</block>
   <block id="1caa3cf5a72fc35e939157dc1f96280a" category="list-text">SATA または NVMe TLC SSD</block>
@@ -1024,4 +1019,5 @@
   <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
   <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">オープンソース</block>
   <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知ファイルには、ネットアップソフトウェアで使用されるサードパーティの著作権およびライセンスに関する情報が記載されています。</block>
+  <block id="a44aabf523591d454f3c29d4f0b04192" category="paragraph">監視を設定する前に'astras-system'名前空間にアクティブなAstraデータストアクラスタが必要です</block>
 </blocks>
