@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>Astra Control Center with Astra のデータストアプレビューを使用</title>
+  <title>Astraデータストアをアップグレード</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Astra Control Center with Astra のデータストアプレビューを使用" />
+  <meta property="og:title" content="Astraデータストアをアップグレード" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/use/ads-acc-ui.html" />
-	<meta property="og:description" content="Astra Control Center のユーザーインタフェース（ UI ）を使用して、 Astra データストアのタスクを実行できます。" />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/use/upgrade-ads.html" />
+	<meta property="og:description" content="Astraデータストアを最新バージョンにアップグレードできます。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Astra Control Center のユーザーインタフェース（ UI ）を使用して、 Astra データストアのタスクを実行できます。">
-  <meta name="keywords" content=" astra, astra data store, astra control center"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Astraデータストアを最新バージョンにアップグレードできます。">
+  <meta name="keywords" content=" astra, astra data store, kubectl, upgrade"><!-- Icons -->
   <link rel="icon" href="/ja-jp/astra-data-store/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astra Control Center with Astra のデータストアプレビューを使用](https://docs.netapp.com/ja-jp/astra-data-store/use/ads-acc-ui.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/ads-acc-ui.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astraデータストアをアップグレード](https://docs.netapp.com/ja-jp/astra-data-store/use/upgrade-ads.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/upgrade-ads.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -292,15 +292,15 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/ads-acc-ui.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/upgrade-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/ads-acc-ui.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/upgrade-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/ads-acc-ui.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/upgrade-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/ads-acc-ui.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/upgrade-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use/ads-acc-ui.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use/upgrade-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -358,7 +358,7 @@
         
         
         
-        <a target="_blank" href="/ja-jp/astra-data-store/pdfs/fullsite-sidebar/Astra_データストアプレビュー版のドキュメント.pdf" >
+        <a target="_blank" href="/ja-jp/astra-data-store/pdfs/fullsite-sidebar/Astra_データストアのドキュメント.pdf" >
           <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
 
 
@@ -488,13 +488,69 @@
 
 
 
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/Astraデータストアを監視.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            Astraデータストアを監視
+          </a>
+          
 
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/Secure_Astraデータストア.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            Secure Astraデータストア
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
 
 
 
 
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/use/ads-acc-ui.pdf" >
+  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/use/upgrade-ads.pdf" >
     <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
     PDF of this page
   </a>
@@ -502,6 +558,41 @@
 
 </ul>
   
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/VMwareでAstraデータストアを使用.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            VMwareでAstraデータストアを使用
+          </a>
+          
+
+
+
+
+
+
 
 
 
@@ -546,6 +637,8 @@
     
 
   
+
+
 
 
 
@@ -602,7 +695,7 @@
         <div class="na-navbar-padding"> 概念</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/intro.html">
-        Astra データストアの概要
+        Astra データストアの詳細
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/architecture.html">
         導入モデル
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/expansion.html">
@@ -615,38 +708,63 @@
         <div class="na-navbar-padding"> はじめに</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/requirements.html">
-        Astra データストアのプレビュー要件
+        Astra データストアの要件
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/quick-start.html">
-        Astra データストアプレビューのクイックスタート
+        Astra データストアのクイックスタート
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/install-ads.html">
-        Astra データストアプレビューをインストールします
+        Astra データストアをインストール
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/setup-ads.html">
-        Astra Data Store のプレビューコンポーネントをセットアップする
+        Astraデータストアのコンポーネントをセットアップする
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/capabilities.html">
-        Astra データストアのプレビュー制限
+        Astraデータストアの制限
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/faq-ads.html">
         よく寄せられる質問
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> Astra データストアを使用</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/kubectl-commands-ads.html">
-        Astra データストア資産の管理
+        Astraデータストアのリソースを管理
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/deploy-apps.html">
         テストアプリケーションを展開します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/maintain-cluster.html">
         クラスタを管理
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-cloud-insights.html">
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Astraデータストアを監視</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-cloud-insights.html">
         Cloud Insights で指標を監視
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-prometheus-grafana.html">
         Prometheus と Grafana で指標を監視します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/configure-endpoints.html">
         イベントログを設定して監視する
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/ads-acc-ui.html">
-        Astra Control Center の統合
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Secure Astraデータストア</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/manage-certificates.html">
+        セキュリティ証明書を管理する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/manage-keys.html">
+        外部キーを管理します
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/update-ads-license.html">
+        Astraデータストアライセンスを更新
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/upgrade-ads.html">
+        Astraデータストアをアップグレード
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads.html">
-        Astra データストアプレビューをスクリプトで自動的にアンインストールします
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads-manual.html">
-        スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする
+        Astraデータストアをアンインストールします
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> VMwareでAstraデータストアを使用</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/use-ads-vmware-overview.html">
+        VMwareを使用したAstraデータストアの詳細をご確認ください
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/ads-vmware-requirements.html">
+        VMwareの要件を満たすAstraデータストア
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/setup-ads-vmware.html">
+        VMwareを使用してAstraデータストアをセットアップする
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/monitor-ads-vmware.html">
+        VMware環境のコンポーネントを監視する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/manage-ads-vmware.html">
+        VMware環境のAstra Data Storeコンポーネントを管理します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/uninstall-ads-vmware.html">
+        VMware統合環境からAstraデータストアをアンインストールします
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知識とサポート</div>
       </a>
@@ -656,7 +774,9 @@
         ヘルプを表示します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/support/autosupport.html">
         サポートの自動監視
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/legal-notices.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/ads-earlier-versions.html">
+        以前のバージョン
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/legal-notices.html">
         法的通知
       </a></li></ul>
 </div>
@@ -716,14 +836,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Astra Control Center with Astra のデータストアプレビューを使用</h1>
+  <h1 class="n-doc__component-detail-heading">Astraデータストアをアップグレード</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 21:54:39 +0000">04/18/2022</time>
+    <time datetime="2022-06-01 01:05:35 +0000">06/01/2022</time>
     
   
 
@@ -733,23 +853,48 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra Control Center のユーザーインタフェース（ UI ）を使用して、 Astra データストアのプレビュータスクを実行できます。</p>
+<p>Astraデータストアをアップグレードすると、最新の機能や修正を利用できます。Astra Data Storeの拡張機能を使用して&#8217;Astra Data Storeをアップグレードできます</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="astra-control-center-for-astra-のデータストアプレビューのセットアップ">Astra Control Center for Astra のデータストアプレビューのセットアップ</h2>
+<h2 id="kubectlを使用してastraデータストアをアップグレード">kubectlを使用してAstraデータストアをアップグレード</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra Data Store プレビュー用の Astra Control Center UI を使用するには、次のタスクを実行する必要があります。</p>
+<p>Astra Data Storeの「kubectl」拡張機能を使用して、Astraデータストアをアップグレードできます。</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="sect2">
+<h3 id="astra-data-storeバンドルをダウンロードしてイメージを展開">Astra Data Storeバンドルをダウンロードしてイメージを展開</h3>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-cluster">"Astra データストアを実行している、基盤となる Kubernetes クラスタを Astra Control Center に追加します"</a>。</p>
+<p>にログインします <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"ネットアップサポートサイト"</a> Astra Data Storeバンドルをダウンロードします(`Astra_Data-Store_22.05.tar')</p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-a-storage-backend">"Astra データストアのプレビューをストレージバックエンドとして Astra Control Center に追加"</a>。</p>
+<p>（任意）次のコマンドを使用して、バンドルのシグニチャを確認します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>openssl dgst -sha256 -verify Astra_Data_Store_2022.05.pub -signature Astra_Data_Store_2022.05.sig 2022.12.01_ads.tar</pre>
+</div>
+</div>
+</li>
+<li>
+<p>ディレクトリを作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>mkdir Astra_Data_Store_2022.05
+cd Astra_Data_Store_2022.05</pre>
+</div>
+</div>
+</li>
+<li>
+<p>画像を抽出します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>tar -vxzf &lt;path to tar file&gt;/Astra_Data_Store_2022.05.tar</pre>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -757,52 +902,126 @@
 <img src="/us-en/astra-data-store/images/note.svg" alt="注記">
 </td>
 <td class="content">
-ストレージバックエンドを追加し、 Astra データストアプレビューを含む Kubernetes クラスタがない場合は、最初にクラスタを追加する必要があります。
+画像は、作業ディレクトリ内に作成された「astrs/images」ディレクトリに抽出されます。
 </td>
 </tr>
 </table>
 </div>
 </li>
-</ul>
+</ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="バイナリをコピーしローカルレジストリにイメージをプッシュします">バイナリをコピーし、ローカルレジストリにイメージをプッシュします</h3>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>イメージを抽出するために使用したディレクトリからkubectl-astrasバイナリをKubernetes kubectlバイナリがインストールされている標準パスにコピーします(/usr/bin/は下の例のパスとして使用されます)。kubectl-astrasは、Astraデータストアクラスタをインストールおよび管理するカスタムのkubectl拡張機能です。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/tip.svg" alt="ヒント">
+</td>
+<td class="content">
+kubectlバイナリがインストールされているパスを検索するには&#8217;which kubectl&#8217;コマンドを使用します
+</td>
+</tr>
+</table>
 </div>
-<div class="sect1">
-<h2 id="astra-control-center-でできること">Astra Control Center でできること</h2>
-<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>cp -p .astrads/bin/kubectl-astrads /usr/bin/.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Astra Data Storeイメージディレクトリ内のファイルをローカルレジストリに追加します。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+以下の画像の自動ロードについては、サンプルスクリプトを参照してください。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>レジストリにログインします。</p>
+<div class="listingblock">
+<div class="content">
+<pre>docker login [your_registry_path]</pre>
+</div>
+</div>
+</li>
+<li>
+<p>環境変数を、Astraデータストアイメージをプッシュするレジストリパス（例：repo.company.com`）に設定します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>export REGISTRY=repo.company.com/astrads</pre>
+</div>
+</div>
+</li>
+<li>
+<p>次のスクリプトを実行して、Dockerにイメージをロードし、イメージにタグを付け、ローカルレジストリにイメージをプッシュします。</p>
+<div class="listingblock">
+<div class="content">
+<pre>for astraImageFile in $(ls astrads/images/*.tar) ; do
+   astraImage=$(docker load --input ${astraImageFile} | sed 's~Loaded image(s): ~~')
+   astraImageShort=`echo $astraImage | sed 's~.*/~~'`
+   docker tag ${astraImage} ${REGISTRY}/${astraImageShort}
+   docker push ${REGISTRY}/${astraImageShort}
+done
+sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./astrads/manifests/*.yaml</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="アップグレードを実行する">アップグレードを実行する</h3>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>'astraadsoperator.yaml 'ファイルをローカルディレクトリにコピーします</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sh" data-lang="sh">cp /PATH/TO/FILE/astradsoperator.yaml ./</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>オペレータをアップグレードします。大文字の引数を環境に適した情報に置き換えます。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kubectl" data-lang="kubectl">kubectl-astrads upgrade ads-operator --repository-url REPOSITORY_URL --operator-yaml astradsoperator.yaml</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Astraデータストアのアップグレードを開始大文字の引数を環境に適した情報に置き換えます。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kubectl" data-lang="kubectl">kubectl-astrads upgrade ads-version --repository-url REPOSITORY_URL --ads-version-yaml ./astrads/manifests/astradsversion.yaml</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>Astra Control Center for Astra Data Store プレビューをセットアップしたら、 Astra Control Center UI を使用して次のタスクを実行できます。</p>
+<p>アップグレードが開始されたことを示すメッセージが表示され、完了までに数分かかります。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/use/monitor-protect.html" target="_blank" rel="noopener">"Astra Control Center を使用して、 Astra データストアのプレビュー資産の健常性を監視"</a>。</p>
 </li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/use/manage-backend.html" target="_blank" rel="noopener">"Astra データストアのプレビューバックエンドストレージを管理"</a>。</p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/use/view-dashboard.html" target="_blank" rel="noopener">"ノード、ディスク、永続的ボリューム要求（ PVC ）を監視"</a>。</p>
-</li>
-</ul>
+</ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="を参照してください">を参照してください。</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra ファミリーの紹介"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/" target="_blank" rel="noopener">"Astra Control Center のドキュメント"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-automation/index.html" target="_blank" rel="noopener">"Astra Control API の略"</a></p>
-</li>
-</ul>
 </div>
 </div>
 </div>

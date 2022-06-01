@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>スクリプトを使用せずに Astra データストアプレビューをアンインストールする</title>
+  <title>Astraデータストアライセンスを更新</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="スクリプトを使用せずに Astra データストアプレビューをアンインストールする" />
+  <meta property="og:title" content="Astraデータストアライセンスを更新" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/use/uninstall-ads-manual.html" />
-	<meta property="og:description" content="Astra データストアをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、クラスタ、 ライセンス、導入環境、ネームスペース：" />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/use/update-ads-license.html" />
+	<meta property="og:description" content="コマンドラインを使用して、Astraデータストア用のインストール済みライセンスを更新できます。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Astra データストアをアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、クラスタ、 ライセンス、導入環境、ネームスペース：">
-  <meta name="keywords" content=" astra, astra data store, astra datastore, uninstall"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="コマンドラインを使用して、Astraデータストア用のインストール済みライセンスを更新できます。">
+  <meta name="keywords" content=" astra, astra data store, kubectl"><!-- Icons -->
   <link rel="icon" href="/ja-jp/astra-data-store/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[スクリプトを使用せずに Astra データストアプレビューをアンインストールする](https://docs.netapp.com/ja-jp/astra-data-store/use/uninstall-ads-manual.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/uninstall-ads-manual.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astraデータストアライセンスを更新](https://docs.netapp.com/ja-jp/astra-data-store/use/update-ads-license.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/update-ads-license.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -292,15 +292,15 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/update-ads-license.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/update-ads-license.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/update-ads-license.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/update-ads-license.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use/update-ads-license.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -358,7 +358,7 @@
         
         
         
-        <a target="_blank" href="/ja-jp/astra-data-store/pdfs/fullsite-sidebar/Astra_データストアプレビュー版のドキュメント.pdf" >
+        <a target="_blank" href="/ja-jp/astra-data-store/pdfs/fullsite-sidebar/Astra_データストアのドキュメント.pdf" >
           <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
 
 
@@ -488,6 +488,21 @@
 
 
 
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/Astraデータストアを監視.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            Astraデータストアを監視
+          </a>
+          
 
 
 
@@ -495,10 +510,45 @@
 
 
 
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/Secure_Astraデータストア.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            Secure Astraデータストア
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
 
 
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/use/uninstall-ads-manual.pdf" >
+  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/use/update-ads-license.pdf" >
     <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
     PDF of this page
   </a>
@@ -506,6 +556,47 @@
 
 </ul>
   
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/VMwareでAstraデータストアを使用.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            VMwareでAstraデータストアを使用
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -546,6 +637,8 @@
     
 
   
+
+
 
 
 
@@ -602,7 +695,7 @@
         <div class="na-navbar-padding"> 概念</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/intro.html">
-        Astra データストアの概要
+        Astra データストアの詳細
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/architecture.html">
         導入モデル
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/expansion.html">
@@ -615,38 +708,63 @@
         <div class="na-navbar-padding"> はじめに</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/requirements.html">
-        Astra データストアのプレビュー要件
+        Astra データストアの要件
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/quick-start.html">
-        Astra データストアプレビューのクイックスタート
+        Astra データストアのクイックスタート
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/install-ads.html">
-        Astra データストアプレビューをインストールします
+        Astra データストアをインストール
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/setup-ads.html">
-        Astra Data Store のプレビューコンポーネントをセットアップする
+        Astraデータストアのコンポーネントをセットアップする
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/capabilities.html">
-        Astra データストアのプレビュー制限
+        Astraデータストアの制限
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/faq-ads.html">
         よく寄せられる質問
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> Astra データストアを使用</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/kubectl-commands-ads.html">
-        Astra データストア資産の管理
+        Astraデータストアのリソースを管理
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/deploy-apps.html">
         テストアプリケーションを展開します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/maintain-cluster.html">
         クラスタを管理
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-cloud-insights.html">
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Astraデータストアを監視</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-cloud-insights.html">
         Cloud Insights で指標を監視
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-prometheus-grafana.html">
         Prometheus と Grafana で指標を監視します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/configure-endpoints.html">
         イベントログを設定して監視する
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/ads-acc-ui.html">
-        Astra Control Center の統合
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Secure Astraデータストア</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/manage-certificates.html">
+        セキュリティ証明書を管理する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/manage-keys.html">
+        外部キーを管理します
+      </a></li></ul></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/update-ads-license.html">
+        Astraデータストアライセンスを更新
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/upgrade-ads.html">
+        Astraデータストアをアップグレード
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads.html">
-        Astra データストアプレビューをスクリプトで自動的にアンインストールします
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads-manual.html">
-        スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする
+        Astraデータストアをアンインストールします
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> VMwareでAstraデータストアを使用</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/use-ads-vmware-overview.html">
+        VMwareを使用したAstraデータストアの詳細をご確認ください
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/ads-vmware-requirements.html">
+        VMwareの要件を満たすAstraデータストア
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/setup-ads-vmware.html">
+        VMwareを使用してAstraデータストアをセットアップする
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/monitor-ads-vmware.html">
+        VMware環境のコンポーネントを監視する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/manage-ads-vmware.html">
+        VMware環境のAstra Data Storeコンポーネントを管理します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/uninstall-ads-vmware.html">
+        VMware統合環境からAstraデータストアをアンインストールします
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知識とサポート</div>
       </a>
@@ -656,7 +774,9 @@
         ヘルプを表示します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/support/autosupport.html">
         サポートの自動監視
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/legal-notices.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/ads-earlier-versions.html">
+        以前のバージョン
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/legal-notices.html">
         法的通知
       </a></li></ul>
 </div>
@@ -716,14 +836,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">スクリプトを使用せずに Astra データストアプレビューをアンインストールする</h1>
+  <h1 class="n-doc__component-detail-heading">Astraデータストアライセンスを更新</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 21:54:39 +0000">04/18/2022</time>
+    <time datetime="2022-06-01 01:05:35 +0000">06/01/2022</time>
     
   
 
@@ -733,399 +853,58 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>自動スクリプトを使用せずに Astra Data Store プレビューを手動でアンインストールするには、ワークロード、バインド、ボリューム、エクスポートポリシー、クラスタ、 ライセンス、導入環境、 Astra データストアプレビューネームスペース。</p>
-</div>
-<div class="paragraph">
-<p>または、を使用することもできます <a href="../use/uninstall-ads.html">"Astra データストアプレビューをスクリプトでアンインストールします"</a>。</p>
-</div>
-<div class="ulist">
-<div class="title">必要なもの</div>
-<ul>
-<li>
-<p>root 管理権限</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Astra Data Store プレビューアンインストールプロセスでは、次の手順が簡単に実行できます。</p>
+<p>Astraデータストアにインストールされた評価用ライセンスを更新して、評価期間を延長できます。ライセンスは、次の3つの方法のいずれかを使用して更新できます。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Remove existing workloads and bindings">[Remove existing workloads and bindings]</a></p>
+<p>Astra Control Centerを使用してAstraデータストアライセンスを更新するには、を参照してください <a href="https://docs.netapp.com/us-en/astra-control-center/use/manage-backend.html#update-a-storage-backend-license">"ストレージバックエンドライセンスを更新する"</a>。</p>
 </li>
 <li>
-<p><a href="#Uninstall the Astra Data Store preview cluster and control plane">[Uninstall the Astra Data Store preview cluster and control plane]</a></p>
+<p>Astra VMwareプラグインを使用してAstraデータストアライセンスを更新するには、を参照してください <a href="../use-vmware/manage-ads-vmware.html">"VMwareでAstraデータストアを管理"</a>。</p>
 </li>
 <li>
-<p><a href="#Delete the license">[Delete the license]</a></p>
-</li>
-<li>
-<p><a href="#Delete the Astra Data Store preview installation">[Delete the Astra Data Store preview installation]</a></p>
-</li>
-<li>
-<p><a href="#Validate the removal of the astrads-system namespace">[Validate the removal of the astrads-system namespace]</a></p>
-</li>
-<li>
-<p><a href="#Ensure containers are not running on worker nodes">[Ensure containers are not running on worker nodes]</a></p>
-</li>
-<li>
-<p><a href="#Delete OpenShift Container Platform resources">[Delete OpenShift Container Platform resources]</a></p>
-</li>
-<li>
-<p><a href="#Troubleshoot the Astra Data Store preview uninstall process">[Troubleshoot the Astra Data Store preview uninstall process]</a></p>
+<p>コマンドラインを使用してAstraデータストアライセンスを更新するには、を参照してください <a href="#Update the Astra Data Store license using the command line">[Update the Astra Data Store license using the command line]</a>。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="既存のワークロードとバインドを削除します">既存のワークロードとバインドを削除します</h2>
+<h2 id="コマンドラインを使用してastraデータストアライセンスを更新">コマンドラインを使用してAstraデータストアライセンスを更新</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra データストアプレビューをアンインストールする前に、次の項目を削除する必要があります</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>ストレージバックエンドとして Astra データストアプレビューを使用するすべてのアプリケーションワークロード</p>
-</li>
-<li>
-<p>バックエンドとして Astra データストアプレビューを使用する Trident バインディング</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>これにより、 Kubernetes 環境をクリーンな状態のまま維持できます。これは、を再インストールする場合に重要です。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="astra-データストアプレビュークラスタとコントロールプレーンをアンインストールします">Astra データストアプレビュークラスタとコントロールプレーンをアンインストールします</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Astra Data Store プレビューを手動でアンインストールするには、次の手順に従います。</p>
-</div>
-<div class="sect2">
-<h3 id="ボリュームとエクスポートポリシーを削除します">ボリュームとエクスポートポリシーを削除します</h3>
-<div class="paragraph">
-<p>クラスタを削除する前に、 Astra データストアプレビューボリュームとエクスポートポリシーを削除する必要があります。</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/tip.svg" alt="ヒント">
-</td>
-<td class="content">
-ボリュームとエクスポートポリシーを最初に削除しないと、 Astra Data Store のプレビューボリュームオブジェクトが削除されるまで、クラスタの削除プロセスは一時停止します。クラスタの削除を開始する前に、それらの項目を削除する方が効率的です。
-</td>
-</tr>
-</table>
+<p>'kubectl&#8217;ユーティリティを使用して&#8217;Astra Data Storeライセンスを更新できます</p>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>ボリュームを削除します。</p>
+<p>ネットアップから入手した交換用ネットアップライセンスファイル（NLF）を適用します。コマンドを実行する前に、クラスタの名前（「&lt;AstrA-Data-Store-cluster-name&gt;`」）とライセンスファイルのパス（「&lt;file_path/file.txt」）を入力します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl delete astradsvolumes --all -A
-~% kubectl get astradsvolumes -A</pre>
+<pre>kubectl astrads license add --license-file-path &lt;file_path/file.txt&gt; --ads-cluster-name &lt;Astra-Data-Store-cluster-name&gt; -n astrads-system</pre>
 </div>
 </div>
 </li>
 <li>
-<p>エクスポートポリシーを削除します。</p>
+<p>ライセンスが追加されたことを確認します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl delete astradsexportpolicies --all -A
-~% kubectl get astradsexportpolicies -A</pre>
+<pre>kubectl astrads license list</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>次のような応答が表示されます。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME        ADSCLUSTER                 VALID   PRODUCT             EVALUATION  ENDDATE     VALIDATED
+p100000006  astrads-example-cluster    true    Astra Data Store    true        2023-01-23  2022-04-04T14:38:54Z</pre>
 </div>
 </div>
 </li>
 </ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="astra-データストアプレビュークラスタを削除">Astra データストアプレビュークラスタを削除</h3>
-<div class="paragraph">
-<p>クラスタを削除すると、 Astra Data Store preview cluster object custom resource （ CR ）とクラスタを対象としたリソースのみが削除される。</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
-</td>
-<td class="content">
-オペレータ、 nodeinfo ポッド、およびクラスタコントローラ（ Kubernetes を対象としたリソース）は、クラスタを削除しても削除されません。
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>クラスタを削除すると ' 基盤となるオペレーティング・システムもノードからアンインストールされ 'FIRETAAP' および netwd' サービスが停止します</p>
-</div>
-<div class="paragraph">
-<p>アンインストーラが完了するまでに約 1 分かかります。次に、 Astra データストアのプレビュー用リソースの削除が、クラスタを対象として開始します。</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>クラスタを削除します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete astradsclusters --all -A
-~% kubectl get astradsclusters -A</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="ライセンスを削除します">ライセンスを削除します</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>クラスタ内の各ワーカー・ノードに SSH 接続し ' ワーカー・ノードで 'FIRETAAP' または 'netwd' が実行されていないことを確認します</p>
-</li>
-<li>
-<p>Astra データストアプレビューライセンスを削除します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete astradslicenses --all -A
-~% kubectl get astradslicenses -A</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="astra-データストアプレビューインストールを削除します">Astra データストアプレビューインストールを削除します</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>クラスタ内のコントローラ、演算子、ネームスペース、およびサポートポッドを削除します。</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Astra Data Store プレビューインストールオブジェクトを削除します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete astradsversion astradsversion -n astrads-system
-~% kubectl get astradsversion -n astrads-system</pre>
-</div>
-</div>
-</li>
-<li>
-<p>DemonSets データストアと Astra データストアのすべてのプレビューコントローラリソースを削除します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete ds --all -n astrads-system
-~% kubectl get ds -n astrads-system
-
-~% kubectl delete deployments --all -n astrads-system
-~% kubectl get deployments -n astrads-system</pre>
-</div>
-</div>
-</li>
-<li>
-<p>残りのアーティファクトと演算子 YAML ファイルを削除します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete -f ./manifests/astradsoperator.yaml
-~% kubectl get pods -n astrads-system</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="astrs-system-名前空間の削除を検証します">astrs-system 名前空間の削除を検証します</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>次のコマンドで結果が返されないことを確認します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl get ns | grep astrads-system</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="ワーカーノードでコンテナが実行されていないことを確認します">ワーカーノードでコンテナが実行されていないことを確認します</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>'FIRETAAP' や 'netwd' などのコンテナがワーカー・ノードで実行されていないことを確認します各ノードで次のコマンドを実行します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>ssh &lt;mynode1&gt;
-# runc list</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="openshift-container-platform-リソースを削除します">OpenShift Container Platform リソースを削除します</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Red Hat OpenShift Container Platform （ OCP ）に Astra Data Store preview をインストールした場合は、 OCP セキュリティコンテキスト制約（ SCC ）と役割バインディングリソースをアンインストールできます。</p>
-</div>
-<div class="paragraph">
-<p>OpenShift では、セキュリティコンテキスト制約（ SCC ）を使用して、ポッドで実行できるアクションを制御します。</p>
-</div>
-<div class="paragraph">
-<p>標準のアンインストールプロセスが完了したら、次の手順を実行します。</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>SCC リソースを削除します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>oc delete -f ads_privileged_scc.yaml</pre>
-</div>
-</div>
-</li>
-<li>
-<p>ロールバインドリソースを削除します</p>
-<div class="listingblock">
-<div class="content">
-<pre>oc delete -f oc_role_bindings.yaml</pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
-</td>
-<td class="content">
-これらの手順で「 resources not found errors 」を無視します。 
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>すべての Kubernetes ノードから /var/lib/kubebelet/config.yaml を削除します </p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="手動削除のサンプル">手動削除のサンプル</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>次に、手動アンインストールスクリプトの実行例を示します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ kubectl delete astradsvolumes --all -A
-No resources found
-$ kubectl delete astradsexportpolicies --all -A
-No resources found
-$ kubectl delete astradsclusters --all -A
-astradscluster.astrads.netapp.io "astrads-sti-c6220-09-10-11-12" deleted
-
-$ kubectl delete astradslicenses --all -A
-astradslicense.astrads.netapp.io "e900000005" deleted
-
-$ kubectl delete astradsdeployment astradsdeployment -n astrads-system
-astradsdeployment.astrads.netapp.io "astradsdeployment" deleted
-
-$ kubectl delete ds --all -n astrads-system
-daemonset.apps "astrads-ds-astrads-sti-c6220-09-10-11-12" deleted
-daemonset.apps "astrads-ds-nodeinfo-astradsdeployment" deleted
-daemonset.apps "astrads-ds-support" deleted
-
-$ kubectl delete deployments --all -n astrads-system
-deployment.apps "astrads-cluster-controller" deleted
-deployment.apps "astrads-deployment-support" deleted
-deployment.apps "astrads-license-controller" deleted
-deployment.apps "astrads-operator" deleted
-
-$ kubectl delete -f /.../firetap/sds/manifests/netappsdsoperator.yaml
-namespace "astrads-system" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsautosupports.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradscloudsnapshots.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsclusters.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsdeployments.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsexportpolicies.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsfaileddrives.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradslicenses.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsnfsoptions.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsnodeinfoes.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsqospolicies.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsvolumefiles.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsvolumes.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsvolumesnapshots.astrads.netapp.io" deleted
-role.rbac.authorization.k8s.io "astrads-leader-election-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-autosupport-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-autosupport-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-manager-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-metrics-reader" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappexportpolicy-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappexportpolicy-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsdeployment-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsdeployment-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnfsoption-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnfsoption-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnodeinfo-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnodeinfo-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-proxy-role" deleted
-rolebinding.rbac.authorization.k8s.io "astrads-leader-election-rolebinding" deleted
-clusterrolebinding.rbac.authorization.k8s.io "astrads-manager-rolebinding" deleted
-clusterrolebinding.rbac.authorization.k8s.io "astrads-proxy-rolebinding" deleted
-configmap "astrads-autosupport-cm" deleted
-configmap "astrads-firetap-cm" deleted
-configmap "astrads-fluent-bit-cm" deleted
-configmap "astrads-kevents-asup" deleted
-configmap "astrads-metrics-cm" deleted
-service "astrads-operator-metrics-service" deleted
- Error from server (NotFound): error when deleting "/.../export/firetap/sds/manifests/netappsdsoperator.yaml": deployments.apps "astrads-operator" not found
-
-$ kubectl get ns | grep astrads-system
-
-[root@sti-rx2540-535c ~]# runc list
-ID      PID     STATUS    BUNDLE       CREATED    OWNER</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="astra-データストアプレビューアンインストールプロセスのトラブルシューティングを行う">Astra データストアプレビューアンインストールプロセスのトラブルシューティングを行う</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Kubernetes v1.20 の Astra データストアプレビューアンインストールプロセスでは、原因 ポッドが終了状態のまま残ることがあります。</p>
-</div>
-<div class="paragraph">
-<p>この問題 が発生した場合は、次のコマンドを実行して、 'astrs-system' 名前空間内のすべてのポッドを強制的に削除します。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>kubectl delete pods --all  -n astrads-system   --force --grace-period 0</pre>
-</div>
 </div>
 </div>
 </div>

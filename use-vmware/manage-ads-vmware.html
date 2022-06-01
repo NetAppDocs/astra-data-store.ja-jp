@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>Astra データストア導入モデル</title>
+  <title>VMware環境のAstra Data Storeコンポーネントを管理します</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Astra データストア導入モデル" />
+  <meta property="og:title" content="VMware環境のAstra Data Storeコンポーネントを管理します" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/concepts/architecture.html" />
-	<meta property="og:description" content="アストラデータストアは、スタンドアロンの Kubernetes クラスタに導入できます。スタンドアロンの Kubernetes クラスタは、別のクラスタで実行されている Kubernetes アプリケーションに永続的ボリュームを提供します。 Kubernetes クラスタは、同じノードプールで他のアプリケーション..." />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/use-vmware/manage-ads-vmware.html" />
+	<meta property="og:description" content="VMwareアプリケーションを使用して、Astraデータストアを管理できます。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="アストラデータストアは、スタンドアロンの Kubernetes クラスタに導入できます。スタンドアロンの Kubernetes クラスタは、別のクラスタで実行されている Kubernetes アプリケーションに永続的ボリュームを提供します。 Kubernetes クラスタは、同じノードプールで他のアプリケーション...">
-  <meta name="keywords" content=" astra, astra datastore, architecture, deployment, astra data store, kubernetes, netapp, clusters, trident"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="VMwareアプリケーションを使用して、Astraデータストアを管理できます。">
+  <meta name="keywords" content=" astra data store, vm, vcenter, datastore, manage"><!-- Icons -->
   <link rel="icon" href="/ja-jp/astra-data-store/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astra データストア導入モデル](https://docs.netapp.com/ja-jp/astra-data-store/concepts/architecture.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/concepts/architecture.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[VMware環境のAstra Data Storeコンポーネントを管理します](https://docs.netapp.com/ja-jp/astra-data-store/use-vmware/manage-ads-vmware.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use-vmware/manage-ads-vmware.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -292,15 +292,15 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use-vmware/manage-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use-vmware/manage-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use-vmware/manage-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use-vmware/manage-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use-vmware/manage-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -411,15 +411,6 @@
           
 
 
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/concepts/architecture.pdf" >
-    <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
 
 
 
@@ -595,6 +586,15 @@
 
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/use-vmware/manage-ads-vmware.pdf" >
+    <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -696,7 +696,7 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/intro.html">
         Astra データストアの詳細
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/architecture.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/architecture.html">
         導入モデル
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/expansion.html">
         クラスタの拡張
@@ -761,7 +761,7 @@
         VMwareを使用してAstraデータストアをセットアップする
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/monitor-ads-vmware.html">
         VMware環境のコンポーネントを監視する
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/manage-ads-vmware.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/manage-ads-vmware.html">
         VMware環境のAstra Data Storeコンポーネントを管理します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/uninstall-ads-vmware.html">
         VMware統合環境からAstraデータストアをアンインストールします
@@ -836,7 +836,7 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Astra データストア導入モデル</h1>
+  <h1 class="n-doc__component-detail-heading">VMware環境のAstra Data Storeコンポーネントを管理します</h1>
 </div>
 
 
@@ -853,86 +853,357 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astraデータストアは、Kubernetesと連携して導入およびオーケストレーションされたアプリケーションを使用して、ホスト上でストレージドライブを直接管理します。</p>
-</div>
-<div class="paragraph">
-<p>次のいずれかの方法で、ベアメタルサーバまたは仮想サーバにAstraデータストアをインストールできます。</p>
+<p>次のAstra Data StoreコンポーネントをvSphere環境とAstra Control Centerから管理できます。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>スタンドアロンの専用 Kubernetes クラスタに導入して、別のクラスタ（スタンドアロンクラスタ）で実行されている Kubernetes アプリケーションに永続ボリュームを提供します。</p>
+<p><a href="#Work with managed vCenters">[Work with managed vCenters]</a></p>
 </li>
 <li>
-<p>Kubernetes クラスタに導入し、同じノードプール（コンバージドクラスタ）で他のワークロードアプリケーションをホストすることもできます。</p>
+<p><a href="#Manage VMs from vSphere">[Manage VMs from vSphere]</a></p>
 </li>
 <li>
-<p>Kubernetes クラスタに導入すると、他のワークロードアプリケーションも別のノードプール（分離型クラスタ）にホストできます。</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a href="../get-started/requirements.html">"Astra Data Storeのハードウェア要件の詳細"</a>。</p>
-</div>
-<div class="paragraph">
-<p>Astraデータストアは、Astra製品ファミリーの一部です。アストラファミリー全体の展望については、を参照してください <a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra ファミリーの紹介"</a>。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="astra-データストアエコシステム">Astra データストアエコシステム</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Astraデータストアは次の機能を備えています。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>* Astra Control Center * ：オンプレミス環境で Kubernetes クラスタをアプリケーション対応で管理するために、 Astra Control Center ソフトウェアを使用。Kubernetes アプリケーションを簡単にバックアップし、データを別のクラスタに移行して、作業用アプリケーションのクローンを瞬時に作成できます。</p>
-<div class="paragraph">
-<p>Astra Control Centerは、ONTAP またはAstraデータストアストレージバックエンドを備えたAstra TridentストレージバックエンドでKubernetesクラスタをサポートします。</p>
-</div>
+<p><a href="#Manage the storage backend">[Manage the storage backend]</a></p>
 </li>
 <li>
-<p>* Trident * ：ネットアップが管理する、完全にサポートされているオープンソースのストレージプロビジョニングおよびオーケストレーションツールである Astra Trident を使用すると、 Docker と Kubernetes で管理されるコンテナ化アプリケーション用のストレージボリュームを作成できます。</p>
-<div class="paragraph">
-<p>Astra Tridentを使用して、Astraデータストアにボリュームを作成する。</p>
-</div>
-</li>
-<li>
-<p>* Cloud Insights * ：ネットアップのクラウドインフラ監視ツールである Cloud Insights を使用すると、 Astra Control で管理された Kubernetes クラスタのパフォーマンスと利用率を監視できます。Cloud Insights ：ストレージ使用率とワークロードの相関関係を示します。</p>
-<div class="paragraph">
-<p>Cloud Insights 接続を Astra Control で有効にすると、 Astra Control の UI ページにテレメトリ情報が表示されます。Cloud Insights は、Astraデータストアで管理されているリソースに関する情報を表示します。</p>
-</div>
+<p><a href="#Manage datastores">[Manage datastores]</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="astra-データストアインターフェイス">Astra データストアインターフェイス</h2>
+<h2 id="管理されたvcenterと連携する">管理されたvCenterと連携する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>さまざまなインターフェイスを使用してタスクを完了できます。</p>
+<p>管理対象のvCenterと次の方法で連携できます。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>* Web ユーザーインターフェイス (UI) * ： Astra Control Service と Astra Control Center は、同じ Web ベースの UI を使用して、アプリケーションの管理、移行、保護を行うことができます。また、Astraデータストアボリュームに関する情報も表示されます。</p>
+<p><a href="#View vCenter details in Astra Control Center">[View vCenter details in Astra Control Center]</a></p>
 </li>
 <li>
-<p>* API* ： Astra Control Service と Astra Control Center は、同じ Astra Control API を使用します。API を使用するタスクは、 UI を使用するタスクと同じです。Astra Control APIを使用して、Astraデータストアに関する情報を取得することもできます。</p>
+<p><a href="#View vCenter details in Astra Control Center">[View vCenter details in Astra Control Center]</a></p>
 </li>
 <li>
-<p><strong>kubectlコマンド</strong>: Astraデータストアを操作するには&#8217;kubectlコマンドを直接使用できます</p>
-</li>
-<li>
-<p>* Kubernetes拡張機能*：さらに、Astra Data Store Kubernetes API拡張機能を使用できます。</p>
-<div class="paragraph">
-<p>カスタムリソース定義（CRD）はKubernetes REST APIの拡張機能で、Astra Data Storeオペレータが導入されたときに作成されます。外部エンティティは、 Kubernetes API サーバを呼び出して SSD とやり取りします。Astraデータストアは、特定のSSDに対する更新を監視してから、内部のREST APIを呼び出します。</p>
-</div>
+<p><a href="#Unmanage a vCenter in Astra Control Center">[Unmanage a vCenter in Astra Control Center]</a></p>
 </li>
 </ul>
+</div>
+<div class="sect2">
+<h3 id="vcenterの詳細をastra-control-centerで表示">vCenterの詳細をAstra Control Centerで表示</h3>
+<div class="paragraph">
+<p>クラスタに関連付けられているすべてのvCenterを確認できます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Astra Control Centerの左ナビゲーションから、[* Clusters]を選択します。</p>
+</li>
+<li>
+<p>vCenterのリストを表示します。</p>
+</li>
+<li>
+<p>[ 保存（ Save ） ] を選択します。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="vcenterの詳細をastra-control-centerで表示-2">vCenterの詳細をAstra Control Centerで表示</h3>
+<div class="paragraph">
+<p>システムやクラスタの健常性の確認が必要になることがあります。管理対象のクラスタ数は、Astra Control Center Dashboardで確認できます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Astra Control Centerの左ナビゲーションから、[* Clusters]を選択します。</p>
+</li>
+<li>
+<p>vCenterを選択します。</p>
+</li>
+<li>
+<p>情報を表示します。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="astra-control-centerでvcenterの管理を解除します">Astra Control CenterでvCenterの管理を解除します</h3>
+<div class="paragraph">
+<p>Astra Control CenterでvCenterを管理する必要がなくなった場合は、管理を解除できます。これにより、vCenterがAstra Control Centerから削除され、登録解除されます。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+最初に、このvCenterに関連付けられているクラスタ、ストレージバックエンド、およびVMをAstra Plugin for VMware vSphereから削除する必要があります。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Astra Control Centerの左ナビゲーションから、[* Clusters]を選択します。</p>
+</li>
+<li>
+<p>クラスタページでvCenterを選択します。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/tip.svg" alt="ヒント">
+</td>
+<td class="content">
+または、複数のvCenterを選択し、*すべてを管理解除*を選択します。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>[アクション*（Actions <strong>）]メニューを右クリックし、[*管理解除</strong>（Unmanage *）]を選択します。</p>
+</li>
+<li>
+<p>vCenterの管理解除ページで「unmanage」と入力します。</p>
+</li>
+<li>
+<p>「* Yes, unmanage vCenter*」を選択します。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="vsphereからvmを管理します">vSphereからVMを管理します</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ネットアップのvSphere標準の処理を使用して、Astraデータストアに関連付けられたVMを管理できます。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-358BF9C1-333E-4AB4-A1CB-62BEA1C94878.html?hWord=N4IghgNiBcICYFMIIC4IAQDcC2IC+QA" target="_blank" rel="noopener">"VMを削除します"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-76E73C62-A973-4839-BB67-AC1817908E6D.html" target="_blank" rel="noopener">"VM名を変更します"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-E1D541D1-DF96-467A-89B7-E84F83B2563D.html?hWord=N4IghgNiBcIMYAswDsDmBTABAZwJYC8sA3AWxAF8g" target="_blank" rel="noopener">"VMのサイズ変更"</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+このリリースでは、一度に1つのVMディスクのサイズのみを変更できます。複数のディスクのサイズを変更しようとしても失敗します。
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-450AF515-09D4-44B6-85B2-EE848B371E58.html?hWord=N4IghgNiBcIAoHsDuBTATgAgMoBcw5QGcMEAzDMDANQEs0cBXSDAWTAGMALGgOxQ14YcnflRZIwafgAkEhHBgDCEGih44QAXyA" target="_blank" rel="noopener">"VMの電源をオンまたはオフにします"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-879FA851-2B24-49E6-B58F-F25D0E923D17.html?hWord=N4IghgNiBcIM4Fc4AcCmA7AJgAgGoFkQBfIA" target="_blank" rel="noopener">"VMを一時停止"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-450AF515-09D4-44B6-85B2-EE848B371E58.html?hWord=N4IghgNiBcIAoHsDuBTATgAgMoBcw5QGcMEAzDMDANQEs0cBXSDAWTAGMALGgOxQ14YcnflRZIwafgAkEhHBgDCEGih44QAXyA" target="_blank" rel="noopener">"VMをリセットします"</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>vCenterの標準の処理を使用して、Astraデータストアで次のスナップショットワークフローを利用できます。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-9720B104-9875-4C2C-A878-F1C351A4F3D8.html" target="_blank" rel="noopener">"Astraデータストアのスナップショットを作成"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-3E1BB630-9223-45E8-A64B-DCB90D450673.html" target="_blank" rel="noopener">"Snapshotをリバートする"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-542CF191-B8DE-42F1-9CCC-D9030491AE25.html" target="_blank" rel="noopener">"Snapshot を削除します"</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+Snapshotの処理が失敗してVVolのランタイムエラーが表示されることがあります。この場合は、処理を再試行してください。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ストレージバックエンドを管理します">ストレージバックエンドを管理します</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ストレージバックエンドを削除できます。ストレージバックエンドを削除しても破棄されるわけではなく、Astraデータストア製品自体は削除されません。VASA ProviderがVMwareから登録解除され、そのvCenterのストレージバックエンドのリンクが解除されるだけです。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+VASA Providerが有効になっていてvCenterの外部に導入されている場合は、Astraデータストアのみを削除できます。ストレージバックエンドがデータストアのプロビジョニングプロセスの一環として使用されている場合、ストレージバックエンドを削除できません。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Astraデータストアが複数のvCenterにリンクされていない場合は、削除するとVASA Providerの登録が解除され、アンインストールされます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Astra Plugin for VMware vSphereにアクセスします。 </p>
+</li>
+<li>
+<p>左側のナビゲーションから、「* Storage Backends *」を選択します。 </p>
+</li>
+<li>
+<p>Storage Backendsページで、Storage Backend Actionsメニューをクリックし、* Remove *を選択します。</p>
+</li>
+<li>
+<p>VASA Providerのユーザ名とパスワードを入力します。 </p>
+</li>
+<li>
+<p>「 * 削除」を選択します。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="データストアを管理します">データストアを管理します</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>vSphere環境でAstraデータストアを管理するには、vCenterの標準の処理を使用して、VMとAstraプラグインの拡張機能を管理し、データストアを管理します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../use-vmware/setup-ads-vmware.html">"データストアを作成"</a> </p>
+</li>
+<li>
+<p><a href="#Mount a datastore">[Mount a datastore]</a></p>
+</li>
+<li>
+<p><a href="#Delete a datastore">[Delete a datastore]</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="データストアをマウント">データストアをマウント</h3>
+<div class="paragraph">
+<p>Astra Plugin for VMware vSphereを使用すると、データストアを追加の1つ以上のホストにマウントできます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>vCenterのデータセンターインベントリから、Astraデータストア用のデータストアを選択します。</p>
+</li>
+<li>
+<p>データストアを右クリックし、* Astra Plugin for VMware vSphere <strong>&gt;</strong> Mount Datastore *を選択します。</p>
+</li>
+<li>
+<p>ホストにデータストアをマウントページで、データストアをマウントするホストを選択します。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/tip.svg" alt="ヒント">
+</td>
+<td class="content">
+データストアをすべてのホストにマウントする場合は、すべてのホストに*マウントをオンにします。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>[*Mount]を選択します。</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>操作を開始した後は、vSphere Clientの[最近のタスク]パネルで進行状況を確認できます。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+スキャンの失敗または一般的なシステムエラーに関連するエラーが発生した場合は、 <a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-E8EA857E-268C-41AE-BBD9-08092B9A905D.html">"vCenterでストレージプロバイダを再スキャン/同期します"</a> 次に、データストアの作成をもう一度実行してください。
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="データストアを削除する">データストアを削除する</h3>
+<div class="paragraph">
+<p>Astra Plugin for VMware vSphereを使用して、データストアを削除できます。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/tip.svg" alt="ヒント">
+</td>
+<td class="content">
+データストアを削除するには、データストア上のすべてのVMを削除しておく必要があります。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>vCenterで、データセンターのインベントリからデータストアを選択します。</p>
+</li>
+<li>
+<p>データストアを右クリックし、* Astra Plugin <strong>&gt;</strong> Delete Datastore *を選択します。</p>
+</li>
+<li>
+<p>データストアの削除ページで、情報を確認するか、データストアを削除するための推奨される追加の操作を実行します。</p>
+</li>
+<li>
+<p>「*削除」を選択します。</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
@@ -942,25 +1213,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra ファミリーの紹介"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra/index.html" target="_blank" rel="noopener">"Astra Control Service のマニュアル"</a></p>
-</li>
-<li>
 <p><a href="https://docs.netapp.com/us-en/astra-control-center/" target="_blank" rel="noopener">"Astra Control Center のドキュメント"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/trident/index.html" target="_blank" rel="noopener">"Astra Trident のドキュメント"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-automation/index.html" target="_blank" rel="noopener">"Astra Control API を使用"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloudinsights/" target="_blank" rel="noopener">"Cloud Insights のドキュメント"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/ontap/index.html" target="_blank" rel="noopener">"ONTAP のドキュメント"</a></p>
+<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra ファミリーの紹介"</a></p>
 </li>
 </ul>
 </div>

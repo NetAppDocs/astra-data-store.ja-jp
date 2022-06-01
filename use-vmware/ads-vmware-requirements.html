@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>Astra データストア導入モデル</title>
+  <title>VMwareの要件を満たすAstraデータストア</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Astra データストア導入モデル" />
+  <meta property="og:title" content="VMwareの要件を満たすAstraデータストア" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/concepts/architecture.html" />
-	<meta property="og:description" content="アストラデータストアは、スタンドアロンの Kubernetes クラスタに導入できます。スタンドアロンの Kubernetes クラスタは、別のクラスタで実行されている Kubernetes アプリケーションに永続的ボリュームを提供します。 Kubernetes クラスタは、同じノードプールで他のアプリケーション..." />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/use-vmware/ads-vmware-requirements.html" />
+	<meta property="og:description" content="VMwareコンポーネントでAstraデータストアを使用するには、環境が最小要件を満たしていることを確認する必要があります。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="アストラデータストアは、スタンドアロンの Kubernetes クラスタに導入できます。スタンドアロンの Kubernetes クラスタは、別のクラスタで実行されている Kubernetes アプリケーションに永続的ボリュームを提供します。 Kubernetes クラスタは、同じノードプールで他のアプリケーション...">
-  <meta name="keywords" content=" astra, astra datastore, architecture, deployment, astra data store, kubernetes, netapp, clusters, trident"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="VMwareコンポーネントでAstraデータストアを使用するには、環境が最小要件を満たしていることを確認する必要があります。">
+  <meta name="keywords" content=" astra, astra data store, requirements, vmware, vcenter, esxi"><!-- Icons -->
   <link rel="icon" href="/ja-jp/astra-data-store/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astra データストア導入モデル](https://docs.netapp.com/ja-jp/astra-data-store/concepts/architecture.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/concepts/architecture.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[VMwareの要件を満たすAstraデータストア](https://docs.netapp.com/ja-jp/astra-data-store/use-vmware/ads-vmware-requirements.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use-vmware/ads-vmware-requirements.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -292,15 +292,15 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use-vmware/ads-vmware-requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use-vmware/ads-vmware-requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use-vmware/ads-vmware-requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use-vmware/ads-vmware-requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use-vmware/ads-vmware-requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -411,15 +411,6 @@
           
 
 
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/concepts/architecture.pdf" >
-    <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
 
 
 
@@ -589,6 +580,15 @@
           
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/use-vmware/ads-vmware-requirements.pdf" >
+    <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -696,7 +696,7 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/intro.html">
         Astra データストアの詳細
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/architecture.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/architecture.html">
         導入モデル
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/expansion.html">
         クラスタの拡張
@@ -755,7 +755,7 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/use-ads-vmware-overview.html">
         VMwareを使用したAstraデータストアの詳細をご確認ください
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/ads-vmware-requirements.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/ads-vmware-requirements.html">
         VMwareの要件を満たすAstraデータストア
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/setup-ads-vmware.html">
         VMwareを使用してAstraデータストアをセットアップする
@@ -836,7 +836,7 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Astra データストア導入モデル</h1>
+  <h1 class="n-doc__component-detail-heading">VMwareの要件を満たすAstraデータストア</h1>
 </div>
 
 
@@ -853,86 +853,86 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astraデータストアは、Kubernetesと連携して導入およびオーケストレーションされたアプリケーションを使用して、ホスト上でストレージドライブを直接管理します。</p>
-</div>
-<div class="paragraph">
-<p>次のいずれかの方法で、ベアメタルサーバまたは仮想サーバにAstraデータストアをインストールできます。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>スタンドアロンの専用 Kubernetes クラスタに導入して、別のクラスタ（スタンドアロンクラスタ）で実行されている Kubernetes アプリケーションに永続ボリュームを提供します。</p>
-</li>
-<li>
-<p>Kubernetes クラスタに導入し、同じノードプール（コンバージドクラスタ）で他のワークロードアプリケーションをホストすることもできます。</p>
-</li>
-<li>
-<p>Kubernetes クラスタに導入すると、他のワークロードアプリケーションも別のノードプール（分離型クラスタ）にホストできます。</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a href="../get-started/requirements.html">"Astra Data Storeのハードウェア要件の詳細"</a>。</p>
-</div>
-<div class="paragraph">
-<p>Astraデータストアは、Astra製品ファミリーの一部です。アストラファミリー全体の展望については、を参照してください <a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra ファミリーの紹介"</a>。</p>
+<p>環境が全般的な要件を満たしていることを確認したら <a href="../get-started/requirements.html">"Astra データストアの要件"</a>を使用している環境が、VMware VASAプロバイダやNetApp Astra Plugin for VMware vSphereなどのVMwareコンポーネントの最小要件を満たしていることを確認してください。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="astra-データストアエコシステム">Astra データストアエコシステム</h2>
+<h2 id="vmware-vsphereの要件">VMware vSphereの要件</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astraデータストアは次の機能を備えています。</p>
+<p>Astraデータストアは、VMware VASA Providerをストレージと通信するためのAPIインターフェイスとして使用します。環境が基本的な要件を満たしていることを確認します <a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-BB4207DB-2DED-4E08-BC6D-DEF6D7357C63.html?hWord=N4IghgNiBcIG5gM5hAXyA" target="_blank" rel="noopener">"VASA Providerの要件"</a> さらに、次の追加要件があります。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>* Astra Control Center * ：オンプレミス環境で Kubernetes クラスタをアプリケーション対応で管理するために、 Astra Control Center ソフトウェアを使用。Kubernetes アプリケーションを簡単にバックアップし、データを別のクラスタに移行して、作業用アプリケーションのクローンを瞬時に作成できます。</p>
-<div class="paragraph">
-<p>Astra Control Centerは、ONTAP またはAstraデータストアストレージバックエンドを備えたAstra TridentストレージバックエンドでKubernetesクラスタをサポートします。</p>
-</div>
+<p>VMware vSphere 7.0（Update 1～Update 3をサポート）</p>
 </li>
 <li>
-<p>* Trident * ：ネットアップが管理する、完全にサポートされているオープンソースのストレージプロビジョニングおよびオーケストレーションツールである Astra Trident を使用すると、 Docker と Kubernetes で管理されるコンテナ化アプリケーション用のストレージボリュームを作成できます。</p>
-<div class="paragraph">
-<p>Astra Tridentを使用して、Astraデータストアにボリュームを作成する。</p>
-</div>
-</li>
-<li>
-<p>* Cloud Insights * ：ネットアップのクラウドインフラ監視ツールである Cloud Insights を使用すると、 Astra Control で管理された Kubernetes クラスタのパフォーマンスと利用率を監視できます。Cloud Insights ：ストレージ使用率とワークロードの相関関係を示します。</p>
-<div class="paragraph">
-<p>Cloud Insights 接続を Astra Control で有効にすると、 Astra Control の UI ページにテレメトリ情報が表示されます。Cloud Insights は、Astraデータストアで管理されているリソースに関する情報を表示します。</p>
-</div>
+<p>入力トラフィックに割り当てられていないIPアドレスが1つあります</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>NetApp Astra Plugin for VMware vSphereはvSphere 7.0 Update 3cをサポートしません。代わりにvSphere 7.0 Update 3Dを使用してください。</p>
+</li>
+<li>
+<p>NetApp Astra Plugin for VMware vSphereは、リンクモードのvCenter Serverをサポートしていません。</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="astra-データストアインターフェイス">Astra データストアインターフェイス</h2>
+<h2 id="netapp-astra-plugin-for-vmware-vsphereの要件">NetApp Astra Plugin for VMware vSphereの要件</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>さまざまなインターフェイスを使用してタスクを完了できます。</p>
+<p>NetApp Astra Plugin for VMware vSphereの要件は次のとおりです。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>* Web ユーザーインターフェイス (UI) * ： Astra Control Service と Astra Control Center は、同じ Web ベースの UI を使用して、アプリケーションの管理、移行、保護を行うことができます。また、Astraデータストアボリュームに関する情報も表示されます。</p>
+<p>Kubernetesクラスタで実行されるAstra Control Centerインスタンス</p>
 </li>
 <li>
-<p>* API* ： Astra Control Service と Astra Control Center は、同じ Astra Control API を使用します。API を使用するタスクは、 UI を使用するタスクと同じです。Astra Control APIを使用して、Astraデータストアに関する情報を取得することもできます。</p>
+<p>Kubernetesクラスタ上で実行される、ライセンス供与されたAstraデータストアインスタンス</p>
 </li>
 <li>
-<p><strong>kubectlコマンド</strong>: Astraデータストアを操作するには&#8217;kubectlコマンドを直接使用できます</p>
-</li>
-<li>
-<p>* Kubernetes拡張機能*：さらに、Astra Data Store Kubernetes API拡張機能を使用できます。</p>
-<div class="paragraph">
-<p>カスタムリソース定義（CRD）はKubernetes REST APIの拡張機能で、Astra Data Storeオペレータが導入されたときに作成されます。外部エンティティは、 Kubernetes API サーバを呼び出して SSD とやり取りします。Astraデータストアは、特定のSSDに対する更新を監視してから、内部のREST APIを呼び出します。</p>
-</div>
+<p>AstraデータストアクラスタでNFSv3を有効化</p>
 </li>
 </ul>
+</div>
+<div class="sect2">
+<h3 id="サポートされている-web-ブラウザ">サポートされている Web ブラウザ</h3>
+<div class="paragraph">
+<p>NetApp Astra Plugin for VMware vSphereは、次のWebブラウザの最新バージョンをサポートします。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Mozilla Firefox</p>
+</li>
+<li>
+<p>Microsoft Edge（クロムベース）</p>
+</li>
+<li>
+<p>Google Chrome</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -942,25 +942,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra ファミリーの紹介"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra/index.html" target="_blank" rel="noopener">"Astra Control Service のマニュアル"</a></p>
-</li>
-<li>
 <p><a href="https://docs.netapp.com/us-en/astra-control-center/" target="_blank" rel="noopener">"Astra Control Center のドキュメント"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/trident/index.html" target="_blank" rel="noopener">"Astra Trident のドキュメント"</a></p>
+<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra ファミリーの紹介"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra-automation/index.html" target="_blank" rel="noopener">"Astra Control API を使用"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloudinsights/" target="_blank" rel="noopener">"Cloud Insights のドキュメント"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/ontap/index.html" target="_blank" rel="noopener">"ONTAP のドキュメント"</a></p>
+<p><a href="../get-started/requirements.html">"Astra データストアの要件"</a></p>
 </li>
 </ul>
 </div>

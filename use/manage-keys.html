@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>Astra データストア導入モデル</title>
+  <title>外部キーを管理します</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Astra データストア導入モデル" />
+  <meta property="og:title" content="外部キーを管理します" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/concepts/architecture.html" />
-	<meta property="og:description" content="アストラデータストアは、スタンドアロンの Kubernetes クラスタに導入できます。スタンドアロンの Kubernetes クラスタは、別のクラスタで実行されている Kubernetes アプリケーションに永続的ボリュームを提供します。 Kubernetes クラスタは、同じノードプールで他のアプリケーション..." />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/use/manage-keys.html" />
+	<meta property="og:description" content="1 つ以上の外部キー管理サーバを使用して、暗号化されたデータにアクセスする際にクラスタで使用するキーを安全に保管できます。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="アストラデータストアは、スタンドアロンの Kubernetes クラスタに導入できます。スタンドアロンの Kubernetes クラスタは、別のクラスタで実行されている Kubernetes アプリケーションに永続的ボリュームを提供します。 Kubernetes クラスタは、同じノードプールで他のアプリケーション...">
-  <meta name="keywords" content=" astra, astra datastore, architecture, deployment, astra data store, kubernetes, netapp, clusters, trident"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="1 つ以上の外部キー管理サーバを使用して、暗号化されたデータにアクセスする際にクラスタで使用するキーを安全に保管できます。">
+  <meta name="keywords" content=" astra, astra data store, kubectl, security, secure, expired, key, ekm, encryption, sear"><!-- Icons -->
   <link rel="icon" href="/ja-jp/astra-data-store/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astra データストア導入モデル](https://docs.netapp.com/ja-jp/astra-data-store/concepts/architecture.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/concepts/architecture.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[外部キーを管理します](https://docs.netapp.com/ja-jp/astra-data-store/use/manage-keys.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/manage-keys.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -292,15 +292,15 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/manage-keys.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/manage-keys.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/manage-keys.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/manage-keys.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/concepts/architecture.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use/manage-keys.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -411,15 +411,6 @@
           
 
 
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/concepts/architecture.pdf" >
-    <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
 
 
 
@@ -545,6 +536,15 @@
           
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ja-jp/astra-data-store/pdfs/pages/use/manage-keys.pdf" >
+    <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -696,7 +696,7 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/intro.html">
         Astra データストアの詳細
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/architecture.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/architecture.html">
         導入モデル
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/expansion.html">
         クラスタの拡張
@@ -742,7 +742,7 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/manage-certificates.html">
         セキュリティ証明書を管理する
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/manage-keys.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/manage-keys.html">
         外部キーを管理します
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/update-ads-license.html">
         Astraデータストアライセンスを更新
@@ -836,7 +836,7 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Astra データストア導入モデル</h1>
+  <h1 class="n-doc__component-detail-heading">外部キーを管理します</h1>
 </div>
 
 
@@ -853,116 +853,265 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astraデータストアは、Kubernetesと連携して導入およびオーケストレーションされたアプリケーションを使用して、ホスト上でストレージドライブを直接管理します。</p>
+<p>1 つ以上の外部キー管理サーバを使用して、暗号化されたデータにアクセスする際にクラスタで使用するキーを安全に保管できます。外部キー管理サーバはストレージ環境に配置されたサードパーティのシステムで、 Key Management Interoperability Protocol （ KMIP ）を使用してノードにキーを提供します。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+Astraデータストアでは、Astraデータストアクラスタを作成すると、デフォルトで内部キープロバイダを使用して保存データの暗号化（sear）が有効になります。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>次のいずれかの方法で、ベアメタルサーバまたは仮想サーバにAstraデータストアをインストールできます。</p>
+<p>キーの管理には、次のカスタムリソース定義（CRD）が含まれます。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>スタンドアロンの専用 Kubernetes クラスタに導入して、別のクラスタ（スタンドアロンクラスタ）で実行されている Kubernetes アプリケーションに永続ボリュームを提供します。</p>
+<p>* AstraDSKeyProvider*：外部KMIPサーバを設定します。このサーバはサーバのクラスタの場合があります。</p>
 </li>
 <li>
-<p>Kubernetes クラスタに導入し、同じノードプール（コンバージドクラスタ）で他のワークロードアプリケーションをホストすることもできます。</p>
-</li>
-<li>
-<p>Kubernetes クラスタに導入すると、他のワークロードアプリケーションも別のノードプール（分離型クラスタ）にホストできます。</p>
+<p>* AstraDSSEARKeyRotate *：キープロバイダから新しいキー暗号化キーを取得し、Astraデータストアに提供します。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><a href="../get-started/requirements.html">"Astra Data Storeのハードウェア要件の詳細"</a>。</p>
-</div>
-<div class="paragraph">
-<p>Astraデータストアは、Astra製品ファミリーの一部です。アストラファミリー全体の展望については、を参照してください <a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra ファミリーの紹介"</a>。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="astra-データストアエコシステム">Astra データストアエコシステム</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Astraデータストアは次の機能を備えています。</p>
+<p>外部キー管理に関連して次のタスクを実行できます。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>* Astra Control Center * ：オンプレミス環境で Kubernetes クラスタをアプリケーション対応で管理するために、 Astra Control Center ソフトウェアを使用。Kubernetes アプリケーションを簡単にバックアップし、データを別のクラスタに移行して、作業用アプリケーションのクローンを瞬時に作成できます。</p>
-<div class="paragraph">
-<p>Astra Control Centerは、ONTAP またはAstraデータストアストレージバックエンドを備えたAstra TridentストレージバックエンドでKubernetesクラスタをサポートします。</p>
-</div>
+<p><a href="#Set up external key management">[Set up external key management]</a></p>
 </li>
 <li>
-<p>* Trident * ：ネットアップが管理する、完全にサポートされているオープンソースのストレージプロビジョニングおよびオーケストレーションツールである Astra Trident を使用すると、 Docker と Kubernetes で管理されるコンテナ化アプリケーション用のストレージボリュームを作成できます。</p>
-<div class="paragraph">
-<p>Astra Tridentを使用して、Astraデータストアにボリュームを作成する。</p>
-</div>
+<p><a href="#Check the software encryption at rest status">[Check the software encryption at rest status]</a></p>
 </li>
 <li>
-<p>* Cloud Insights * ：ネットアップのクラウドインフラ監視ツールである Cloud Insights を使用すると、 Astra Control で管理された Kubernetes クラスタのパフォーマンスと利用率を監視できます。Cloud Insights ：ストレージ使用率とワークロードの相関関係を示します。</p>
-<div class="paragraph">
-<p>Cloud Insights 接続を Astra Control で有効にすると、 Astra Control の UI ページにテレメトリ情報が表示されます。Cloud Insights は、Astraデータストアで管理されているリソースに関する情報を表示します。</p>
-</div>
+<p><a href="#Change external to internal key management">[Change external to internal key management]</a></p>
+</li>
+<li>
+<p><a href="#Rotate keys for security">[Rotate keys for security]</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="astra-データストアインターフェイス">Astra データストアインターフェイス</h2>
+<h2 id="外部キー管理をセットアップする">外部キー管理をセットアップする</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>さまざまなインターフェイスを使用してタスクを完了できます。</p>
+<p>Astra Data Storeで外部キー管理を設定するには&#8217;kubectl astrs&#8217;コマンドを使用します</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>* Web ユーザーインターフェイス (UI) * ： Astra Control Service と Astra Control Center は、同じ Web ベースの UI を使用して、アプリケーションの管理、移行、保護を行うことができます。また、Astraデータストアボリュームに関する情報も表示されます。</p>
-</li>
-<li>
-<p>* API* ： Astra Control Service と Astra Control Center は、同じ Astra Control API を使用します。API を使用するタスクは、 UI を使用するタスクと同じです。Astra Control APIを使用して、Astraデータストアに関する情報を取得することもできます。</p>
-</li>
-<li>
-<p><strong>kubectlコマンド</strong>: Astraデータストアを操作するには&#8217;kubectlコマンドを直接使用できます</p>
-</li>
-<li>
-<p>* Kubernetes拡張機能*：さらに、Astra Data Store Kubernetes API拡張機能を使用できます。</p>
 <div class="paragraph">
-<p>カスタムリソース定義（CRD）はKubernetes REST APIの拡張機能で、Astra Data Storeオペレータが導入されたときに作成されます。外部エンティティは、 Kubernetes API サーバを呼び出して SSD とやり取りします。Astraデータストアは、特定のSSDに対する更新を監視してから、内部のREST APIを呼び出します。</p>
+<p>クラスタまたはKMIPサーバにSSL証明書が必要です。これにより、OpenSSLなどを使用した外部キーの設定などが可能になります。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>キープロバイダクライアントの証明書を準備します。クライアント証明書、クライアント秘密鍵、および信頼CAバンドルが含まれます。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+クラスタまたはKMIPサーバで、OpenSSLなどを使用した外部キーの設定を可能にするSSL証明書を準備します。
+</td>
+</tr>
+</table>
 </div>
 </li>
-</ul>
+<li>
+<p>Astraデータストアクラスタのいずれかのノードにログインします。</p>
+</li>
+<li>
+<p>次のkubectl拡張コマンドを入力して、Astraデータストアクラスタのキープロバイダを設定します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl-astrads key-provider certs --key key.pem
+--client-cert client_cert.pem --ca-cert server_ca.pem
+--hostnames=&lt;kmip_server_ip&gt; &lt;key_provider_cr_name&gt;
+--namespace astrads-system --cluster &lt;ads_cluster_name&gt;</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>次の例では、ADSクラスタ「astrs-cluster-f23d158」に対して「hashicorp」という名前の外部キープロバイダを設定します。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl-astrads key-provider certs --key key.pem
+--client-cert client_cert.pem --ca-cert server_ca.pem
+--hostnames=10.235.nnn.nnn hashicorp
+--namespace astrads-system --cluster astrads-cluster-f23d158</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Astra Data StoreクラスタをAstraDSCluster CR経由で、外部キーマネージャを使用するように設定します。ヘルプを表示します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl-astrads clusters sears -h</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>対応：</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Configure SEARS in AstraDS cluster
+
+Usage:
+  astrads clusters sears [flags]
+
+Flags:
+  -d, --duration string   Duration for key rotation (default "2160h")
+  -h, --help              help for sears
+
+
+Global Flags:
+      --ads-cluster-name string        Name of the ADS Cluster
+      --ads-cluster-namespace string   Namespace of the ADS Cluster
+      ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>次のコマンドは&#8217;Astra Data Storeクラスタを&#8217;AstraDSKeyProvider hashicor&#8217;をsearのキー管理ツールとして使用するように設定しますまた、キーのローテーション時間も使用されます。この時間のデフォルト値は90日（2160時間）です。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl-astrads clusters sears -d 500h hashicorp
+--ads-cluster-name=astrads-cluster-f23d158
+--ads-cluster-namespace=astrads-system</pre>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="を参照してください">を参照してください。</h2>
+<h2 id="ソフトウェアの保存データの暗号化ステータスを確認します">ソフトウェアの保存データの暗号化ステータスを確認します</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
+<div class="paragraph">
+<p>保存データのソフトウェア暗号化の設定を確認できます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">ステップ</div>
+<ol class="arabic">
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra ファミリーの紹介"</a></p>
+<p>AstraDSCluster CRを確認します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>Name:         astrads-cluster-f23d158
+Namespace:    astrads-system
+Labels:       &lt;none&gt;
+Annotations:  &lt;none&gt;
+API Version:  astrads.netapp.io/v1beta1
+Kind:         AstraDSCluster
+...
+Spec:
+...
+  Software Encryption At Rest:
+    Ads Key Provider:     hashicorp
+    Key Rotation Period:  500h0m0s
+...
+Status:
+...
+  Software Encryption At Rest Status:
+    Key Active Time:       2022-05-16T15:53:47Z
+    Key Provider Name:     hashicorp
+    Key Provider UUID:     ccfc2b0b-dd98-5ca4-b778-99debef83550
+    Key UUID:              nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="外部キー管理を内部キー管理に変更します">外部キー管理を内部キー管理に変更します</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>現在外部キー管理ツールを使用している場合は、内部キー管理ツールに変更できます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>SoftwareEncryptionAtRest設定を削除してAstraDSCluster CRを変更します。</p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra/index.html" target="_blank" rel="noopener">"Astra Control Service のマニュアル"</a></p>
+<p>（オプション）前のAstraeDSKeyProviderと関連付けられている秘密を削除します。</p>
 </li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+以前のキープロバイダとシークレットは自動的に削除されません。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="キーをローテーションしてセキュリティを確保します">キーをローテーションしてセキュリティを確保します</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>キーのローテーションにより、セキュリティが向上します。デフォルトでは、Astraデータストアはキーを90日ごとに自動的にローテーションします。デフォルト設定を変更できます。また、必要に応じてキーをオンデマンドでローテーションすることもできます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">自動キーローテーションを設定する</div>
+<ol class="arabic">
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/" target="_blank" rel="noopener">"Astra Control Center のドキュメント"</a></p>
+<p>CRDのAstraeSSEARKeyRotateパラメータを更新します。 </p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl patch astradscluster astrads-cluster-f23d158
+-n astrads-system
+--type=merge -p '{"spec": {"softwareEncryptionAtRest": { "keyRotationPeriod": "3000h"}}}'</pre>
+</div>
+</div>
 </li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">オンデマンドのキーローテーションを設定する</div>
+<ol class="arabic">
 <li>
-<p><a href="https://docs.netapp.com/us-en/trident/index.html" target="_blank" rel="noopener">"Astra Trident のドキュメント"</a></p>
+<p>AstraatDSSEARKeyRotateRequest CRを作成してキーを回転します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>cat &lt;&lt; EOF | kubectl apply -f  -
+apiVersion: astrads.netapp.io/v1beta1
+kind: AstraDSSEARKeyRotateRequest
+metadata:
+  name: manual
+  namespace: astrads-system
+spec:
+  cluster: astrads-cluster-f23d158
+EOF</pre>
+</div>
+</div>
 </li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-automation/index.html" target="_blank" rel="noopener">"Astra Control API を使用"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloudinsights/" target="_blank" rel="noopener">"Cloud Insights のドキュメント"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/ontap/index.html" target="_blank" rel="noopener">"ONTAP のドキュメント"</a></p>
-</li>
-</ul>
+</ol>
 </div>
 </div>
 </div>

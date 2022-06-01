@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>Astra データストアプレビューをインストールします</title>
+  <title>Astra データストアをインストール</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Astra データストアプレビューをインストールします" />
+  <meta property="og:title" content="Astra データストアをインストール" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/ja-jp/astra-data-store/get-started/install-ads.html" />
-	<meta property="og:description" content="環境に関するいくつかの前提条件に対処した後に Astra データストアをインストールするには、バンドルをダウンロードし、次の手順に従ってインストールします。OpenShift に Astra データストアをインストールする方法" />
+	<meta property="og:description" content="Kubernetesネイティブコマンドを使用するか、Astra Control CenterのUIを使用して、Astraデータストアをインストールできます。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="環境に関するいくつかの前提条件に対処した後に Astra データストアをインストールするには、バンドルをダウンロードし、次の手順に従ってインストールします。OpenShift に Astra データストアをインストールする方法">
-  <meta name="keywords" content=" astra, astra data store, install, deploy, download, openshift, red hat, ocp"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Kubernetesネイティブコマンドを使用するか、Astra Control CenterのUIを使用して、Astraデータストアをインストールできます。">
+  <meta name="keywords" content=" astra data store, install, deploy, openshift, astra control center, rancher, anthos"><!-- Icons -->
   <link rel="icon" href="/ja-jp/astra-data-store/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astra データストアプレビューをインストールします](https://docs.netapp.com/ja-jp/astra-data-store/get-started/install-ads.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/get-started/install-ads.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astra データストアをインストール](https://docs.netapp.com/ja-jp/astra-data-store/get-started/install-ads.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/get-started/install-ads.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/astra-data-store/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/astra-data-store/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -358,7 +358,7 @@
         
         
         
-        <a target="_blank" href="/ja-jp/astra-data-store/pdfs/fullsite-sidebar/Astra_データストアプレビュー版のドキュメント.pdf" >
+        <a target="_blank" href="/ja-jp/astra-data-store/pdfs/fullsite-sidebar/Astra_データストアのドキュメント.pdf" >
           <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
 
 
@@ -497,6 +497,97 @@
 
 
 
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/Astraデータストアを監視.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            Astraデータストアを監視
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/Secure_Astraデータストア.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            Secure Astraデータストア
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/astra-data-store/pdfs/sidebar/VMwareでAstraデータストアを使用.pdf" 
+            
+          >
+            <img src="/ja-jp/astra-data-store/images/pdf.png" width="16" height="16"/>
+            VMwareでAstraデータストアを使用
+          </a>
+          
+
 
 
 
@@ -546,6 +637,8 @@
     
 
   
+
+
 
 
 
@@ -602,7 +695,7 @@
         <div class="na-navbar-padding"> 概念</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/intro.html">
-        Astra データストアの概要
+        Astra データストアの詳細
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/architecture.html">
         導入モデル
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/concepts/expansion.html">
@@ -615,38 +708,63 @@
         <div class="na-navbar-padding"> はじめに</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/requirements.html">
-        Astra データストアのプレビュー要件
+        Astra データストアの要件
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/quick-start.html">
-        Astra データストアプレビューのクイックスタート
+        Astra データストアのクイックスタート
       </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/install-ads.html">
-        Astra データストアプレビューをインストールします
+        Astra データストアをインストール
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/setup-ads.html">
-        Astra Data Store のプレビューコンポーネントをセットアップする
+        Astraデータストアのコンポーネントをセットアップする
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/capabilities.html">
-        Astra データストアのプレビュー制限
+        Astraデータストアの制限
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/get-started/faq-ads.html">
         よく寄せられる質問
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> Astra データストアを使用</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/kubectl-commands-ads.html">
-        Astra データストア資産の管理
+        Astraデータストアのリソースを管理
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/deploy-apps.html">
         テストアプリケーションを展開します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/maintain-cluster.html">
         クラスタを管理
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-cloud-insights.html">
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Astraデータストアを監視</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-cloud-insights.html">
         Cloud Insights で指標を監視
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/monitor-with-prometheus-grafana.html">
         Prometheus と Grafana で指標を監視します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/configure-endpoints.html">
         イベントログを設定して監視する
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/ads-acc-ui.html">
-        Astra Control Center の統合
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Secure Astraデータストア</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/manage-certificates.html">
+        セキュリティ証明書を管理する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/manage-keys.html">
+        外部キーを管理します
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/update-ads-license.html">
+        Astraデータストアライセンスを更新
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/upgrade-ads.html">
+        Astraデータストアをアップグレード
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads.html">
-        Astra データストアプレビューをスクリプトで自動的にアンインストールします
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use/uninstall-ads-manual.html">
-        スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする
+        Astraデータストアをアンインストールします
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> VMwareでAstraデータストアを使用</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/use-ads-vmware-overview.html">
+        VMwareを使用したAstraデータストアの詳細をご確認ください
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/ads-vmware-requirements.html">
+        VMwareの要件を満たすAstraデータストア
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/setup-ads-vmware.html">
+        VMwareを使用してAstraデータストアをセットアップする
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/monitor-ads-vmware.html">
+        VMware環境のコンポーネントを監視する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/manage-ads-vmware.html">
+        VMware環境のAstra Data Storeコンポーネントを管理します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/use-vmware/uninstall-ads-vmware.html">
+        VMware統合環境からAstraデータストアをアンインストールします
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知識とサポート</div>
       </a>
@@ -656,7 +774,9 @@
         ヘルプを表示します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/support/autosupport.html">
         サポートの自動監視
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/legal-notices.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/ads-earlier-versions.html">
+        以前のバージョン
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/astra-data-store/legal-notices.html">
         法的通知
       </a></li></ul>
 </div>
@@ -716,14 +836,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Astra データストアプレビューをインストールします</h1>
+  <h1 class="n-doc__component-detail-heading">Astra データストアをインストール</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-05-03 23:10:31 +0000">05/03/2022</time>
+    <time datetime="2022-06-01 01:05:35 +0000">06/01/2022</time>
     
   
 
@@ -733,43 +853,59 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra データストアプレビューをインストールするには、からインストールバンドルをダウンロードします <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"ネットアップサポートサイト"</a> およびこの手順 に記載されているインストール手順を実行します。</p>
-</div>
-<div class="videoblock">
-<div class="content">
-<iframe src="https://www.youtube.com/embed/jz6EuryqYps?rel=0" frameborder="0" allowfullscreen></iframe>
+<p>Kubernetesネイティブコマンドを使用するか、Astra Control CenterのUIを使用して、Astraデータストアをインストールできます。</p>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="インストールオプション">インストールオプション</h2>
+<div class="sectionbody">
 <div class="ulist">
-<div class="title">必要なもの</div>
 <ul>
 <li>
-<p><a href="requirements.html">"インストールを開始する前に、 Astra データストアプレビュー環境を準備します"</a>。</p>
+<p>* Kubernetesネイティブコマンド*：Kubernetesネイティブコマンドを使用してAstraデータストアをインストールするには、で説明するインストール手順を実行します <a href="#Install Astra Data Store">この手順</a>。</p>
 </li>
 <li>
-<p>にアクセスします <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"ネットアップサポートサイト"</a>。 <a href="https://www.netapp.com/cloud-services/astra/data-store-form/" target="_blank" rel="noopener">"登録"</a> フルアクセスのネットアップサポートサイトアカウントをまだお持ちでない場合は、プレビュー版をお持ちください。</p>
+<p>* Astra Control Centerを使用している場合*：Astra Control Centerを使用してAstraデータストアをインストールするには、に記載されているインストール手順を実行します <a href="#Install Astra Data Store using Astra Control Center">この手順</a>。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="必要なもの">必要なもの</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="requirements.html">"インストールを開始する前に、Astra Data Store環境を準備します"</a>。</p>
 </li>
 <li>
-<p>A <a href="../get-started/requirements.html#licensing">"ネットアップライセンスファイル（ NLF ）"</a> Astra データストアプレビュー版ライセンスのダウンロード手順がお客様に送信されます <a href="https://www.netapp.com/cloud-services/astra/data-store-form" target="_blank" rel="noopener">"サインアップ"</a>。</p>
+<p>にアクセスします <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"ネットアップサポートサイト"</a>。 <a href="https://www.netapp.com/cloud-services/astra/data-store-form/" target="_blank" rel="noopener">"登録"</a> フルアクセスのネットアップサポートサイトアカウントがない場合は、評価版をダウンロードしてください。</p>
+</li>
+<li>
+<p>A <a href="../get-started/requirements.html#licensing">"ネットアップライセンスファイル（ NLF ）"</a> Astraデータストア向け。ライセンスのダウンロード手順がお客様に送信されます <a href="https://www.netapp.com/cloud-services/astra/data-store-form" target="_blank" rel="noopener">"サインアップ"</a>。</p>
 </li>
 <li>
 <p>アクティブなコンテキストのクラスタ管理者権限があるアクティブな kubeconfig です。</p>
 </li>
 <li>
-<p>の理解 <a href="../get-started/faq-ads.html#installation-and-use-of-astra-data-store-preview-on-a-kubernetes-cluster">"ロールと権限"</a> Astra データストアプレビュー版で使用</p>
-</li>
-<li>
-<p>インターネット接続：Astra データストアプレビューは、エアギャップのある環境には対応していません。直接またはプロキシ経由で support.netapp.com にアクセスするには、インターネット接続が必要です。</p>
+<p>の理解 <a href="../get-started/faq-ads.html#installation-and-use-of-astra-data-store-on-a-kubernetes-cluster">"ロールと権限"</a> Astraデータストアで使用。</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="astra-データストアをインストール">Astra データストアをインストール</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Astra Data Store プレビューインストールプロセスでは、次の手順を実行できます。</p>
+<p>標準のKubernetesクラスタを使用するAstraデータストアのインストールプロセスでは、以下の手順を大まかに実行できます。また、Red Hat OpenShift Container Platform（OCP）環境用の追加のインストール手順についても説明します。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Download the Astra Data Store preview bundle and extract the images">[Download the Astra Data Store preview bundle and extract the images]</a></p>
+<p><a href="#Download the Astra Data Store bundle and extract the images">[Download the Astra Data Store bundle and extract the images]</a></p>
 </li>
 <li>
 <p><a href="#Copy the binary and push images to your local registry">[Copy the binary and push images to your local registry]</a></p>
@@ -778,43 +914,79 @@
 <p><a href="#OpenShift procedure">[OpenShift procedure]</a></p>
 </li>
 <li>
-<p><a href="#Install the Astra Data Store preview operator">[Install the Astra Data Store preview operator]</a></p>
+<p><a href="#Install the Astra Data Store operator">[Install the Astra Data Store operator]</a></p>
 </li>
 <li>
-<p><a href="#Deploy the Astra Data Store preview version YAML">[Deploy the Astra Data Store preview version YAML]</a></p>
+<p><a href="#Deploy the Astra Data Store version YAML">[Deploy the Astra Data Store version YAML]</a></p>
 </li>
 <li>
-<p><a href="#Apply the Astra Data Store preview license">[Apply the Astra Data Store preview license]</a></p>
+<p><a href="#Apply the Astra Data Store license">[Apply the Astra Data Store license]</a></p>
 </li>
 <li>
-<p><a href="#Install the Astra Data Store preview cluster">[Install the Astra Data Store preview cluster]</a></p>
+<p><a href="#Install the Astra Data Store cluster">[Install the Astra Data Store cluster]</a></p>
 </li>
 <li>
 <p><a href="#Understand deployment-related events">[Understand deployment-related events]</a></p>
 </li>
-<li>
-<p><a href="#Configure Astra Data Store preview monitoring">[Configure Astra Data Store preview monitoring]</a></p>
-</li>
 </ul>
 </div>
-<div class="paragraph">
-<p>画像レジストリをシークレットで操作できるように Astra データストアプレビューを有効にする場合は、を参照してください <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_enable_Astra_Data_Store_preview_to_work_with_image_registries_with_secret">"こちらの技術情報"</a>。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+Google AnthosでAstraデータストアを使用するには、以下のインストール手順を実行し、AstraデータストアクラスタをAnthos環境に追加します。
+</td>
+</tr>
+</table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+Rancher RKE環境でAstra Data Storeをインストールするには、次のインストール手順を実行し、kubectlコマンドのrancherコマンドを置き換えます。
+</td>
+</tr>
+</table>
 </div>
-</div>
-<div class="sect1">
-<h2 id="astra-data-store-プレビューバンドルをダウンロードしてイメージを展開">Astra Data Store プレビューバンドルをダウンロードして、イメージを展開</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="astra-data-storeバンドルをダウンロードしてイメージを展開">Astra Data Storeバンドルをダウンロードしてイメージを展開</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>にログインします <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"ネットアップサポートサイト"</a> Astra Data Store プレビューバンドル (`2021.12.01_ads.tar') をダウンロードします。</p>
+<p>にログインします <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"ネットアップサポートサイト"</a> Astra Data Storeバンドルをダウンロードします(`Astra_Data-Store_22.05.tar')</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+以前のバージョンのバンドルに関する手順については、を参照してください <a href="../acc-earlier-versions.html">"該当するバージョンのドキュメント"</a>。
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>（任意）次のコマンドを使用して、バンドルのシグニチャを確認します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>openssl dgst -sha256 -verify 2021.12_ads.pub -signature 2021.12_ads.sig 2021.12.01_ads.tar</pre>
+<pre>openssl dgst -sha256 -verify Astra_Data_Store_2022.05.pub -signature Astra_Data_Store_2022.05.sig 2022.12.01_ads.tar</pre>
+</div>
+</div>
+</li>
+<li>
+<p>ディレクトリを作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>mkdir Astra_Data_Store_2022.05
+cd Astra_Data_Store_2022.05</pre>
 </div>
 </div>
 </li>
@@ -822,29 +994,51 @@
 <p>画像を抽出します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>tar -xvf 2021.12.01_ads.tar</pre>
+<pre>tar -xvf &lt;path to tar file&gt;/Astra_Data_Store_2022.05.tar</pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+画像は、作業ディレクトリ内に作成された「astrs/images」ディレクトリに抽出されます。
+</td>
+</tr>
+</table>
 </div>
 </li>
 </ol>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="バイナリをコピーしローカルレジストリにイメージをプッシュします">バイナリをコピーし、ローカルレジストリにイメージをプッシュします</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="バイナリをコピーしローカルレジストリにイメージをプッシュします">バイナリをコピーし、ローカルレジストリにイメージをプッシュします</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>kubectl-astras バイナリを ' イメージを抽出するために使用したディレクトリから 'k8s kubectl バイナリがインストールされている標準パス (/usr/bin/ など ) にコピーしますkubectl-astras は、 Astra データストアプレビュークラスタをインストールおよび管理するカスタムの kubectl 拡張機能です。</p>
+<p>k8s kubectlバイナリがインストールされている標準パスに&#8217;イメージを抽出するために使用したディレクトリからkubectl-astrasバイナリをコピーします(以下の例では'/usr/bin/がパスとして使用されます)kubectl-astrasは、Astraデータストアクラスタをインストールおよび管理するカスタムのkubectl拡張機能です。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/tip.svg" alt="ヒント">
+</td>
+<td class="content">
+kubectlバイナリがインストールされているパスを検索するには&#8217;which kubectl&#8217;コマンドを使用します
+</td>
+</tr>
+</table>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre>cp -p ./bin/kubectl-astrads /usr/bin/.</pre>
+<pre>cp -p ./astrads/bin/kubectl-astrads /usr/bin/.</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Astra Data Store プレビューイメージディレクトリ内のファイルをローカルレジストリに追加します。</p>
+<p>Astra Data Storeイメージディレクトリ内のファイルをローカルレジストリに追加します。</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -868,7 +1062,7 @@
 </div>
 </li>
 <li>
-<p>環境変数を 'Astra Data Store プレビューイメージをプッシュするレジストリパスに設定しますたとえば 'repo.company.com` です</p>
+<p>環境変数を、Astraデータストアイメージをプッシュするレジストリパス（例：repo.company.com`）に設定します。</p>
 <div class="listingblock">
 <div class="content">
 <pre>export REGISTRY=repo.company.com/astrads</pre>
@@ -877,36 +1071,34 @@
 </li>
 <li>
 <p>スクリプトを実行して Docker にイメージをロードし、イメージにタグを付けます。 [[[&lt;/Z1&gt;[&lt;/Z1&gt;[&lt;/Z1&gt;_image_local_registry_push]] ローカルレジストリにイメージをプッシュします。 &lt;/Z2&gt;</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
-<pre>for astraImageFile in $(ls images/*.tar) ; do
+<pre>for astraImageFile in $(ls astrads/images/*.tar) ; do
    astraImage=$(docker load --input ${astraImageFile} | sed 's~Loaded image: ~~')
    astraImageShort=`echo $astraImage | sed 's~.*/~~'`
    docker tag ${astraImage} ${REGISTRY}/${astraImageShort}
    docker push ${REGISTRY}/${astraImageShort}
 done
-sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./manifests/*.yaml</pre>
+sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./astrads/manifests/*.yaml</pre>
 </div>
 </div>
 </li>
 </ol>
 </div>
+</li>
+</ol>
 </div>
 </div>
-<div class="sect1">
-<h2 id="openshift-手順-の略">OpenShift 手順 の略</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="openshift-手順-の略">OpenShift 手順 の略</h3>
 <div class="paragraph">
-<p>次の手順 は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。この手順 は、 OCP 以外の Kubernetes クラスタへの導入にはスキップできます。</p>
+<p>以下の手順 は、Red Hat OpenShift Container Platform（OCP）への導入にのみ使用してください。OCP以外のKubernetesクラスタへの導入については、この手順 をスキップしてください。</p>
 </div>
 <div class="exampleblock">
 <div class="title">例 1. 詳細</div>
 <div class="content">
 <div class="paragraph">
-<p>すべての Astra Data Store プレビューコンポーネントをインストールする名前空間「 astras -system 」を作成します。</p>
+<p>すべてのAstraデータストアコンポーネントをインストールする名前空間「astrs-system」を作成します。</p>
 </div>
 <div class="paragraph">
 <p>以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。</p>
@@ -940,10 +1132,10 @@ metadata:
 <p>OpenShift では、セキュリティコンテキスト制約（ SCC ）を使用して、ポッドで実行できるアクションを制御します。デフォルトでは、任意のコンテナの実行には制限付き SCC が付与され、その SCC で定義された機能のみが付与されます。</p>
 </div>
 <div class="paragraph">
-<p>制限付き SCC では、 Astra Data Store プレビュークラスタポッドで必要な権限が提供されません。この手順を使用して、 Astra データストアのプレビュー版に必要な権限（サンプルに記載）を付与します。</p>
+<p>制限付きSCCでは、Astra Data Storeクラスタポッドで必要な権限は提供されません。この手順 を使用して、Astraデータストアに対して必要な権限（サンプルに記載）を付与します。</p>
 </div>
 <div class="paragraph">
-<p>カスタム SCC を Astra Data Store Preview ネームスペースのデフォルトのサービスアカウントに割り当てます。</p>
+<p>カスタムSCCをAstra Data Storeネームスペースのデフォルトのサービスアカウントに割り当てます。</p>
 </div>
 <div class="paragraph">
 <p>以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。</p>
@@ -1016,10 +1208,10 @@ ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   &lt
 </ol>
 </div>
 <div class="paragraph">
-<p>Astra Data Store プレビューのデフォルトのサービスアカウントで使用する必要なロールとロールのバインドを作成します。</p>
+<p>Astraデータストアのデフォルトのサービスアカウントで使用する、必要なロールとロールのバインドを作成します。</p>
 </div>
 <div class="paragraph">
-<p>次の YAML 定義は '`astrads.netapp.io` API グループの Astra Data Store プレビューリソースで必要なさまざまな役割 ( 役割のバインドを使用 ) を割り当てます</p>
+<p>次のYAML定義では&#8217;Astraデータストアのリソースがastrads.netapp.io` APIグループに必要とするさまざまな役割を割り当てます(役割のバインドを使用)</p>
 </div>
 <div class="paragraph">
 <p>以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。</p>
@@ -1101,17 +1293,61 @@ subjects:
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="プライベートイメージレジストリを設定します">プライベートイメージレジストリを設定します</h3>
+<div class="paragraph">
+<p>特定の環境では、オプションとして設定を変更して、シークレットを使用するプライベートレジストリからイメージをプルできます。</p>
 </div>
-<div class="sect1">
-<h2 id="astra-data-store-プレビューオペレータをインストール">Astra Data Store プレビューオペレータをインストール</h2>
-<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Astra データストアのプレビューマニフェストを表示する：</p>
+<p>前の手順に進んでいない限り&#8217;astrs-system&#8217;名前空間を作成します</p>
 <div class="listingblock">
 <div class="content">
-<pre>ls manifests/*yaml</pre>
+<pre>kubectl create namespace astrads-system</pre>
+</div>
+</div>
+</li>
+<li>
+<p>シークレットを作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl create secret docker-registry &lt;secret-name&gt; -n astrads-system --docker-server=&lt;registry name&gt; --docker-username= &lt;registry username&gt; --docker-password=&lt;registry user password&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>サービスアカウントにシークレット設定情報を追加します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "&lt;secret-name&gt;"}]}' -n astrads-system</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
+</td>
+<td class="content">
+これらの変更は、のときに適用されます <a href="#Install the Astra Data Store operator">Astra Data Storeオペレータをインストール</a>。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="astra-data-storeオペレータをインストール">Astra Data Storeオペレータをインストール</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Astraデータストアマニフェストの一覧を表示します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>ls astrads/manifests/*yaml</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1119,10 +1355,13 @@ subjects:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>manifests/astradscluster.yaml
-manifests/astradsoperator.yaml
-manifests/astradsversion.yaml
-manifests/monitoring_operator.yaml</pre>
+<pre>astrads/manifests/monitoring_operator.yaml
+astrads/manifests/astradscluster.yaml
+astrads/manifests/astradsversion.yaml
+astrads/manifests/astradsoperator.yaml
+astrads/manifests/vasa_asup_certs.yaml
+astrads/manifests/manifest.yaml
+astrads/manifests/configuration.yaml</pre>
 </div>
 </div>
 </li>
@@ -1130,7 +1369,7 @@ manifests/monitoring_operator.yaml</pre>
 <p>kubectl apply を使用してオペレータを配備します。</p>
 <div class="listingblock">
 <div class="content">
-<pre>kubectl apply -f ./manifests/astradsoperator.yaml</pre>
+<pre>kubectl apply -f ./astrads/manifests/astradsoperator.yaml</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1143,7 +1382,7 @@ manifests/monitoring_operator.yaml</pre>
 <img src="/us-en/astra-data-store/images/note.svg" alt="注記">
 </td>
 <td class="content">
-名前空間の応答は、標準インストールと OCP インストールのどちらを実行したかによって異なります。
+ネームスペースの応答は、標準インストールとのどちらを実行したかによって異なる場合があります <a href="../get-started/install-ads.html#openshift-procedure">"OCPのインストール"</a>。
 </td>
 </tr>
 </table>
@@ -1151,50 +1390,75 @@ manifests/monitoring_operator.yaml</pre>
 <div class="listingblock">
 <div class="content">
 <pre>namespace/astrads-system created
+customresourcedefinition.apiextensions.k8s.io/astradsadddrives.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsautosupports.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradscloudsnapshots.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsclusters.astrads.netapp.io created
-customresourcedefinition.apiextensions.k8s.io/astradsdeployments.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsexportpolicies.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsfaileddrives.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradskeyproviders.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradslicenses.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsnfsoptions.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsnodeinfoes.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsnodemanagements.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsqospolicies.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradssearkeyrotaterequests.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsversions.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsvolumefiles.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsvolumes.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsvolumesnapshots.astrads.netapp.io created
+role.rbac.authorization.k8s.io/astrads-astrads-system-admin-role created
+role.rbac.authorization.k8s.io/astrads-astrads-system-reader-role created
+role.rbac.authorization.k8s.io/astrads-astrads-system-writer-role created
 role.rbac.authorization.k8s.io/astrads-leader-election-role created
+role.rbac.authorization.k8s.io/astrads-manager-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astrads-admin-clusterrole created
+clusterrole.rbac.authorization.k8s.io/astrads-astrads-reader-clusterrole created
+clusterrole.rbac.authorization.k8s.io/astrads-astrads-writer-clusterrole created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsautosupport-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsautosupport-viewer-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradscloudsnapshot-editor-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradscloudsnapshot-viewer-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradscluster-editor-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradscluster-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsexportpolicy-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsexportpolicy-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsfaileddrive-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsfaileddrive-viewer-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradslicense-editor-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradslicense-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsnfsoption-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsnfsoption-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsnodeinfo-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsnodeinfo-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsnodemanagement-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsnodemanagement-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsqospolicy-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsversion-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsversion-viewer-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradsvolume-editor-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradsvolume-viewer-role created
-clusterrole.rbac.authorization.k8s.io/astrads-autosupport-editor-role created
-clusterrole.rbac.authorization.k8s.io/astrads-autosupport-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsvolumefile-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsvolumefile-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsvolumesnapshot-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsvolumesnapshot-viewer-role created
 clusterrole.rbac.authorization.k8s.io/astrads-manager-role created
-clusterrole.rbac.authorization.k8s.io/astrads-metrics-reader created
-clusterrole.rbac.authorization.k8s.io/astrads-netappexportpolicy-editor-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappexportpolicy-viewer-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappsdsdeployment-editor-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappsdsdeployment-viewer-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappsdsnfsoption-editor-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappsdsnfsoption-viewer-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappsdsnodeinfo-editor-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappsdsnodeinfo-viewer-role created
-clusterrole.rbac.authorization.k8s.io/astrads-proxy-role created
+rolebinding.rbac.authorization.k8s.io/astrads-astrads-admin-rolebinding created
+rolebinding.rbac.authorization.k8s.io/astrads-astrads-reader-rolebinding created
+rolebinding.rbac.authorization.k8s.io/astrads-astrads-writer-rolebinding created
 rolebinding.rbac.authorization.k8s.io/astrads-leader-election-rolebinding created
+rolebinding.rbac.authorization.k8s.io/astrads-manager-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/astrads-astrads-admin-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/astrads-astrads-reader-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/astrads-astrads-writer-rolebinding created
 clusterrolebinding.rbac.authorization.k8s.io/astrads-manager-rolebinding created
-clusterrolebinding.rbac.authorization.k8s.io/astrads-proxy-rolebinding created
 configmap/astrads-autosupport-cm created
 configmap/astrads-firetap-cm created
-configmap/astrads-fluent-bit-cm created
 configmap/astrads-kevents-asup created
 configmap/astrads-metrics-cm created
-service/astrads-operator-metrics-service created
+secret/astrads-autosupport-certs created
+secret/astrads-webhook-server-cert created
+service/astrads-webhook-service created
 deployment.apps/astrads-operator created</pre>
 </div>
 </div>
@@ -1219,17 +1483,15 @@ astrads-operator-5ffb94fbf-7ln4h    1/1     Running   0          17m</pre>
 </ol>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="astra-data-store-プレビュー版-yaml-を導入します">Astra Data Store プレビュー版 YAML を導入します</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="astra-data-storeバージョンyamlを導入します">Astra Data StoreバージョンYAMLを導入します</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>kubectl apply を使用した導入：</p>
 <div class="listingblock">
 <div class="content">
-<pre>kubectl apply -f ./manifests/astradsversion.yaml</pre>
+<pre>kubectl apply -f ./astrads/manifests/astradsversion.yaml</pre>
 </div>
 </div>
 </li>
@@ -1247,10 +1509,10 @@ astrads-operator-5ffb94fbf-7ln4h    1/1     Running   0          17m</pre>
 <div class="content">
 <pre>NAME                                          READY   STATUS    RESTARTS   AGE
 astrads-cluster-controller-7f6f884645-xxf2n   1/1     Running   0          117s
-astrads-ds-nodeinfo-astradsversion-2jqnk      1/1     Running   0          2m7s
-astrads-ds-nodeinfo-astradsversion-dbk7v      1/1     Running   0          2m7s
-astrads-ds-nodeinfo-astradsversion-rn9tt      1/1     Running   0          2m7s
-astrads-ds-nodeinfo-astradsversion-vsmhv      1/1     Running   0          2m7s
+astrads-ds-nodeinfo-2jqnk                     1/1     Running   0          2m7s
+astrads-ds-nodeinfo-dbk7v                     1/1     Running   0          2m7s
+astrads-ds-nodeinfo-rn9tt                     1/1     Running   0          2m7s
+astrads-ds-nodeinfo-vsmhv                     1/1     Running   0          2m7s
 astrads-license-controller-fb8fd56bc-bxq7j    1/1     Running   0          2m2s
 astrads-operator-5ffb94fbf-7ln4h              1/1     Running   0          2m10s</pre>
 </div>
@@ -1259,14 +1521,12 @@ astrads-operator-5ffb94fbf-7ln4h              1/1     Running   0          2m10s
 </ol>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="astra-データストアプレビューライセンスを適用">Astra データストアプレビューライセンスを適用</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="astraデータストアライセンスを適用します">Astraデータストアライセンスを適用します</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>プレビュー版への登録時に入手したネットアップライセンスファイル（ NLF ）を適用します。コマンドを実行する前に、使用しているクラスタの名前（「 &lt;AstrA-Data-Store-cluster-name&gt;` ）を入力します <a href="#Install the Astra Data Store preview cluster">導入に進みます</a> または ' すでに配備されているか ' ライセンス・ファイルへのパス (<code>&lt;file_path/file.txt&gt;</code>) があります</p>
+<p>ネットアップから入手したネットアップライセンスファイル（NLF）を適用します。コマンドを実行する前に、使用しているクラスタの名前（「 &lt;AstrA-Data-Store-cluster-name&gt;` ）を入力します <a href="#Install the Astra Data Store cluster">導入に進みます</a> または ' すでに配備されているか ' ライセンス・ファイルへのパス (<code>&lt;file_path/file.txt&gt;</code>) があります</p>
 <div class="listingblock">
 <div class="content">
 <pre>kubectl astrads license add --license-file-path &lt;file_path/file.txt&gt; --ads-cluster-name &lt;Astra-Data-Store-cluster-name&gt; -n astrads-system</pre>
@@ -1285,25 +1545,23 @@ astrads-operator-5ffb94fbf-7ln4h              1/1     Running   0          2m10s
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>NAME        ADSCLUSTER                 VALID   PRODUCT                     EVALUATION  ENDDATE     VALIDATED
-p100000006  astrads-example-cluster    true    Astra Data Store Preview    true        2022-01-23  2021-11-04T14:38:54Z</pre>
+<pre>NAME                     ADSCLUSTER                 VALID   PRODUCT             EVALUATION  ENDDATE     VALIDATED
+e100000006-ads-capacity  astrads-example-cluster    true    Astra Data Store    true        2023-01-23  2022-04-04T14:38:54Z</pre>
 </div>
 </div>
 </li>
 </ol>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="astra-データストアプレビュークラスタをインストール">Astra データストアプレビュークラスタをインストール</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="astraデータストアクラスタをインストール">Astraデータストアクラスタをインストール</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>YAML ファイルを開きます。</p>
 <div class="listingblock">
 <div class="content">
-<pre>vim ./manifests/astradscluster.yaml</pre>
+<pre>vim ./astrads/manifests/astradscluster.yaml</pre>
 </div>
 </div>
 </li>
@@ -1324,23 +1582,42 @@ YAML ファイルの簡単な例は、次の手順を実行します。
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>（必須） * Metadata* ：「 metadata 」で、「 name 」の文字列をクラスタの名前に変更します。このクラスタ名は、ときと同じである必要があります <a href="#Apply the Astra Data Store preview license">ライセンスを適用します</a>。</p>
+<p>（必須） * Metadata* ：「 metadata 」で、「 name 」の文字列をクラスタの名前に変更します。このクラスタ名は、ときと同じである必要があります <a href="#Apply the Astra Data Store license">ライセンスを適用します</a>。</p>
 </li>
 <li>
 <p>( 必須 )<strong>Spec</strong>:'spec' の次の必須値を変更します</p>
 <div class="ulist">
 <ul>
 <li>
+<p>ライセンスとAstra Data Storeのインストール・サイズに応じて&#8217;adsNodeConfig&#8217;の値をインストールに必要な値に変更します</p>
+<div class="ulist">
+<ul>
+<li>
+<p>小：CPU 9個とメモリ38個</p>
+</li>
+<li>
+<p>中：CPU 23基、メモリ94基</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(オプション)「adsNodeSelector`」セクションに関するコメントを削除します。選択したワーカーノードのプールにのみインストールするようにAstraデータストアを制限する場合は、この設定を行います。</p>
+</li>
+<li>
+<p>（オプション）Astra Data Storeクラスタで使用するノードの数を4-16の範囲で指定します。</p>
+</li>
+<li>
 <p>「 mvip 」文字列を、クラスタ内の任意のワーカーノードからルーティング可能なフローティング管理 IP の IP アドレスに変更します。</p>
 </li>
 <li>
-<p>「 adsDataNetworks 」に、 NetApp ボリュームをマウントするホストからルーティング可能なフローティング IP アドレス（「アドレス」）をカンマで区切って追加します。ノードごとに 1 つのフローティング IP アドレスを使用します。データネットワーク IP アドレスは、 Astra Data Store のプレビューノードと同じ数以上必要です。Astra データストアプレビューの場合、少なくとも 4 つのアドレスを意味します。あとで 5 つのノードにクラスタを拡張する予定の場合は、 5 つのアドレスを意味します。</p>
+<p>「 adsDataNetworks 」に、 NetApp ボリュームをマウントするホストからルーティング可能なフローティング IP アドレス（「アドレス」）をカンマで区切って追加します。ノードごとに 1 つのフローティング IP アドレスを使用します。データネットワークIPアドレスは、Astraデータストアノードと同じ数以上にする必要があります。Astraデータストアの場合、この方法は、あとでクラスタを拡張する場合は少なくとも4つのアドレス、または最大16個を意味します。</p>
 </li>
 <li>
 <p>「 adsDataNetworks 」で、データネットワークが使用するネットマスクを指定します。</p>
 </li>
 <li>
-<p>「 adsNetworkInterfaces 」で、「 &lt;mgmt_interface_name&gt; 」および「 &lt;cluster_and _storage_interface_name&gt; 」の値を、管理、クラスタ、およびストレージに使用するネットワークインターフェイス名に置き換えます。名前を指定しない場合、ノードのプライマリインターフェイスが管理、クラスタ、ストレージのネットワークに使用されます。</p>
+<p>「 adsNetworkInterfaces 」で、「 &lt;mgmt_interface_name&gt; 」および「 &lt;cluster_and _storage_interface_name&gt; 」の値を、管理、クラスタ、およびストレージに使用するネットワークインターフェイス名に置き換えます。名前を指定しない場合、ノードのプライマリインターフェイスが管理、クラスタ、ストレージのネットワークに使用されます。「adsNetworkInterfaces」セクションのコメントも削除してください。</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1348,7 +1625,7 @@ YAML ファイルの簡単な例は、次の手順を実行します。
 <img src="/us-en/astra-data-store/images/note.svg" alt="注記">
 </td>
 <td class="content">
-クラスタとストレージのネットワークのインターフェイスが同じである必要があります。Astra Data Store プレビュー管理インターフェイスは、 Kubernetes ノードの管理インターフェイスと同じである必要があります。
+クラスタとストレージのネットワークのインターフェイスが同じである必要があります。Astraデータストア管理インターフェイスは、Kubernetesノードの管理インターフェイスと同じである必要があります。
 </td>
 </tr>
 </table>
@@ -1376,7 +1653,7 @@ YAML ファイルの簡単な例は、次の手順を実行します。
 <img src="/us-en/astra-data-store/images/note.svg" alt="注記">
 </td>
 <td class="content">
-ほとんどのコメントは YAML サンプルから削除されています。
+簡潔にするために、以下のYAMLサンプルからコメントが削除されています。
 </td>
 </tr>
 </table>
@@ -1386,15 +1663,19 @@ YAML ファイルの簡単な例は、次の手順を実行します。
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>apiVersion: astrads.netapp.io/v1alpha1
+<pre>apiVersion: astrads.netapp.io/v1beta1
 kind: AstraDSCluster
 <strong>metadata:</strong>
   <strong>name: astrads-cluster-name</strong>
   namespace: astrads-system
 <strong>spec:</strong>
-  adsNodeConfig:
-    cpu: 9
-    memory: 34
+  <strong>adsNodeConfig:</strong>
+    <strong>cpu: 9</strong>
+    <strong>memory: 38</strong>
+  # [Optional] Specify node selector labels to select the nodes for creating ADS cluster
+  # adsNodeSelector:
+  #   matchLabels:
+  #     customLabelKey: customLabelValue
   adsNodeCount: 4
   <strong>mvip: ""</strong>
   <strong>adsDataNetworks:</strong>
@@ -1408,8 +1689,6 @@ kind: AstraDSCluster
     <strong>managementInterface: "&lt;mgmt_interface_name&gt;"</strong>
     <strong>clusterInterface: "&lt;cluster_and_storage_interface_name&gt;"</strong>
     <strong>storageInterface: "&lt;cluster_and_storage_interface_name&gt;"</strong>
-  # [Optional] Provide a k8s label key that defines which protection domain a node belongs to.
-    # adsProtectionDomainKey: ""
   # [Optional] Provide a monitoring config to be used to setup/configure a monitoring agent.
  <strong># monitoringConfig:</strong>
    <strong># namespace: "netapp-monitoring"</strong>
@@ -1441,33 +1720,8 @@ kind: AstraDSCluster
 <p>kubectl apply を使用してクラスタを導入します</p>
 <div class="listingblock">
 <div class="content">
-<pre>kubectl apply -f ./manifests/astradscluster.yaml</pre>
+<pre>kubectl apply -f ./astrads/manifests/astradscluster.yaml</pre>
 </div>
-</div>
-</li>
-<li>
-<p>（ OCP のみ） SELinux が有効になっている場合は、 Astra Data Store プレビュークラスタ内のノードで次のディレクトリの「 SELinux 」コンテキストにラベルを付け直します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>sudo chcon -R -t container_file_t /var/opt/netapp/firetap/rootfs/var/asup/notification/firetap/</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>sudo chcon -R -t container_file_t /var/netapp/firetap/firegen/persist/</pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注記">
-</td>
-<td class="content">
-これは 'SELinux がこれらのディレクトリの書き込みを禁止し ' サポートポッドが CrashLoopBackoff 状態になるためですこの手順は、 Astra データストアプレビュークラスタ内のすべてのノードで実行する必要があります。
-</td>
-</tr>
-</table>
 </div>
 </li>
 <li>
@@ -1482,23 +1736,23 @@ kind: AstraDSCluster
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>NAME                     READY     STATUS    RESTARTS    AGE
-astrads-cluster-controller-7c67cc7f7b-2jww2 1/1 Running 0 7h31m
-astrads-deployment-support-788b859c65-2qjkn 3/3 Running 19 12d
-astrads-ds-astrads-cluster-1ab0dbc-j9jzc 1/1 Running 0 5d2h
-astrads-ds-astrads-cluster-1ab0dbc-k9wp8 1/1 Running 0 5d1h
-astrads-ds-astrads-cluster-1ab0dbc-pwk42 1/1 Running 0 5d2h
-astrads-ds-astrads-cluster-1ab0dbc-qhvc6 1/1 Running 0 8h
-astrads-ds-nodeinfo-astradsversion-gcmj8 1/1 Running 1 12d
-astrads-ds-nodeinfo-astradsversion-j826x 1/1 Running 3 12d
-astrads-ds-nodeinfo-astradsversion-vdthh 1/1 Running 3 12d
-astrads-ds-nodeinfo-astradsversion-xwgsf 1/1 Running 0 12d
-astrads-ds-support-828vw 2/2 Running 2 5d2h
-astrads-ds-support-cfzts 2/2 Running 0 8h
-astrads-ds-support-nzkkr 2/2 Running 15 7h49m
-astrads-ds-support-xxbnp 2/2 Running 1 5d2h
-astrads-license-controller-86c69f76bb-s6fb7 1/1 Running 0 8h
-astrads-operator-79ff8fbb6d-vpz9m 1/1 Running 0 8h</pre>
+<pre>NAME                                              READY     STATUS    RESTARTS    AGE
+astrads-cluster-controller-7c67cc7f7b-2jww2       1/1       Running   0           7h31m
+astrads-deployment-support-788b859c65-2qjkn       3/3       Running   19          12d
+astrads-ds-astrads-cluster-1ab0dbc-j9jzc          1/1       Running   0           5d2h
+astrads-ds-astrads-cluster-1ab0dbc-k9wp8          1/1       Running   0           5d1h
+astrads-ds-astrads-cluster-1ab0dbc-pwk42          1/1       Running   0           5d2h
+astrads-ds-astrads-cluster-1ab0dbc-qhvc6          1/1       Running   0           8h
+astrads-ds-nodeinfo-gcmj8                         1/1       Running   1           12d
+astrads-ds-nodeinfo-j826x                         1/1       Running   3           12d
+astrads-ds-nodeinfo-vdthh                         1/1       Running   3           12d
+astrads-ds-nodeinfo-xwgsf                         1/1       Running   0           12d
+astrads-ds-support-828vw                          2/2       Running   2           5d2h
+astrads-ds-support-astrads-example-cluster-cfzts  2/2       Running   0           8h
+astrads-ds-support-astrads-example-cluster-nzkkr  2/2       Running   15          7h49m
+astrads-ds-support-astrads-example-cluster-xxbnp  2/2       Running   1           5d2h
+astrads-license-controller-86c69f76bb-s6fb7       1/1       Running   0           8h
+astrads-operator-79ff8fbb6d-vpz9m                 1/1       Running   0           8h</pre>
 </div>
 </div>
 </li>
@@ -1514,19 +1768,17 @@ astrads-operator-79ff8fbb6d-vpz9m 1/1 Running 0 8h</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>NAME                        STATUS    VERSION    SERIAL NUMBER    MVIP       AGE
+<pre>NAME                        STATUS    VERSION      SERIAL NUMBER    MVIP       AGE
 
-astrads-example-cluster   created   2021.10.0   p100000006       10.x.x.x   10m</pre>
+astrads-example-cluster     created   2022.05.0-X  e100000006       10.x.x.x   13m</pre>
 </div>
 </div>
 </li>
 </ol>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="導入に関連するイベントを把握">導入に関連するイベントを把握</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="導入に関連するイベントを把握">導入に関連するイベントを把握</h3>
 <div class="paragraph">
 <p>クラスタの導入中に ' オペレーション・ステータスは ' ブランクから ' 進行中 ' から作成済みに変更する必要がありますクラスタの導入には約 8~10 分かかります。導入中にクラスタイベントを監視するには、次のいずれかのコマンドを実行します。</p>
 </div>
@@ -1550,21 +1802,21 @@ astrads-example-cluster   created   2021.10.0   p100000006       10.x.x.x   10m<
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">イベントメッセージ</th>
-<th class="tableblock halign-left valign-top">意味</th>
+<th class="tableblock halign-left valign-top">イベント</th>
+<th class="tableblock halign-left valign-top">メッセージと重要性</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ADS クラスタに参加するコントロールプレーンノードを 4 つ選択しました</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Astra Data Store プレビューオペレータは、 Astra データストアプレビュークラスタを構築するために、 CPU 、メモリ、ストレージ、ネットワークを備えた十分なノードを特定しました。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ControlPlaneNoDesSelected」を選択します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADSクラスタに参加するための[number]コントロールプレーンノードが正常に選択されました。Astra Data Storeオペレータは、Astraデータストアクラスタを構築するために、CPU、メモリ、ストレージ、ネットワークを備えた十分なノードを特定しました。</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ADS クラスタが作成中です</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Astra データストアプレビュークラスタコントローラが、クラスタ作成処理を開始しました。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADSClusterCreateInProgress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Astraデータストアクラスタコントローラが、クラスタ作成処理を開始しました。</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ADS クラスタが作成されました</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADSClusterCreateSuccess</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">クラスタが作成されました。</p></td>
 </tr>
 </tbody>
@@ -1578,7 +1830,7 @@ astrads-example-cluster   created   2021.10.0   p100000006       10.x.x.x   10m<
 </div>
 </div>
 <div class="paragraph">
-<p>クラスタのステータスが「処理中」のままである場合は、クラスタコントローラのログを確認します。</p>
+<p>クラスタのステータスが「in progress」のままになっている場合は、クラスタコントローラのログを確認します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1587,66 +1839,59 @@ astrads-example-cluster   created   2021.10.0   p100000006       10.x.x.x   10m<
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="astra-データストアのプレビュー監視を設定">Astra データストアのプレビュー監視を設定</h2>
+<h2 id="astra-control-centerを使用してastraデータストアをインストールします">Astra Control Centerを使用してAstraデータストアをインストールします</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra データストアプレビューは、 Astra Control Center の監視用、または別のテレメトリサービスによる監視用に設定できます。</p>
+<p>Astra Control Centerを使用してAstraデータストアを導入および使用するには、次の手順を実行します。</p>
 </div>
-<div class="paragraph">
-<p>監視を設定する前に&#8217;astras-system&#8217;名前空間にアクティブなAstraデータストアクラスタが必要です</p>
-</div>
-<div class="sect2">
-<h3 id="astra-control-center-プレビューの監視を設定します">Astra Control Center プレビューの監視を設定します</h3>
-<div class="paragraph">
-<p>次の手順は、 Astra データストアのプレビューが Astra Control Center のバックエンドとして管理された後にのみ実行します。</p>
+<div class="ulist">
+<div class="title">必要なもの</div>
+<ul>
+<li>
+<p>確認が完了しました <a href="What you&.html#8217;ll need">一般的なAstraデータストアの前提条件</a>。</p>
+</li>
+<li>
+<p>Astra Control Centerをインストールしておきます。</p>
+</li>
+</ul>
 </div>
 <div class="olist arabic">
+<div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>Astra Control Center によるモニタリングのための Astra データストアプレビューの構成：</p>
-<div class="listingblock">
-<div class="content">
-<pre>kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup</pre>
-</div>
-</div>
+<p><a href="https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-a-storage-backend" target="_blank" rel="noopener">"Astra Control Centerを使用してAstraデータストアを導入"</a>。</p>
 </li>
 </ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="監視オペレータをインストールします">監視オペレータをインストールします</h3>
-<div class="paragraph">
-<p>（オプション） Astra Data Store プレビューを Astra Control Center にインポートしない場合は、監視オペレータをお勧めします。モニタリングオペレータは、アストラデータストアプレビューインスタンスがスタンドアロン環境である場合、 Cloud Insights を使用してテレメトリを監視する場合、または Elastic などのサードパーティのエンドポイントにログをストリーミングする場合にインストールできます。</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>次のインストールコマンドを実行します。</p>
-<div class="listingblock">
-<div class="content">
-<pre>kubectl apply -f ./manifests/monitoring_operator.yaml</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Astra データストアプレビューで監視を設定：</p>
-<div class="listingblock">
-<div class="content">
-<pre>kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="次の手順">次の手順</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>を実行して導入を完了します <a href="setup-ads.html">"セットアップのタスク"</a>。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>* Kubernetesネイティブな導入環境とサードパーティのディストリビューション*：Astra Data Storeの導入を完了するには、追加の作業を実行します <a href="setup-ads.html">"セットアップのタスク"</a>。</p>
+</li>
+<li>
+<p>* Astra Control Center *：Astra Control Centerを使用してAstraデータストアを導入したことがある場合、これらの手順に従う必要はありません <a href="../get-started/setup-ads.html#configure-astra-data-store-monitoring">"セットアップのタスク"</a> その他の監視オプションを設定する場合を除きます。Astraデータストアの導入後、Astra Control Center UIを使用して次の作業を実行できます。</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/astra-control-center/use/monitor-protect.html" target="_blank" rel="noopener">"Astraデータストア資産の健常性を監視"</a>。</p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/astra-control-center/use/manage-backend.html" target="_blank" rel="noopener">"Astraデータストアのバックエンドストレージを管理"</a>。</p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/astra-control-center/use/view-dashboard.html" target="_blank" rel="noopener">"ノード、ディスク、永続的ボリューム要求（ PVC ）を監視"</a>。</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
