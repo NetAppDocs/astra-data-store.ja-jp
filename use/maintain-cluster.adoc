@@ -4,23 +4,24 @@ permalink: use/maintain-cluster.html
 keywords: astra, astra data store, kubectl 
 summary: Astra データストアで kubectl コマンドを使用すると、クラスタを管理できます。 
 ---
-= クラスタを管理
+= Astraデータストアクラスタを管理
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 
 
-クラスタを管理するには、 kubectl コマンドを Astra データストアプレビューで使用します。
+クラスタを管理するには、Astraデータストアでkubectlコマンドを使用します。
 
 * <<Add a node>>
+* <<Remove a node>>
 * <<Place a node in maintenance mode>>
-* <<Replace a node>>
+* <<Add drives to a node>>
 * <<Replace a drive>>
 
 
 .必要なもの
-* kubectl および kubectl-astras プラグインがインストールされたシステム。を参照してください link:../get-started/install-ads.html["Astra データストアプレビューをインストールします"]。
+* kubectl および kubectl-astras プラグインがインストールされたシステム。を参照してください link:../get-started/install-ads.html["Astra データストアをインストール"]。
 
 
 
@@ -29,14 +30,17 @@ summary: Astra データストアで kubectl コマンドを使用すると、�
 
 追加するノードは Kubernetes クラスタに含まれ、クラスタ内の他のノードと同様の設定である必要があります。
 
+
+NOTE: Astra Control Centerを使用してノードを追加するには、を参照してください https://docs.netapp.com/us-en/astra-control-center/use/manage-backend.html["ストレージバックエンドクラスタにノードを追加します"^]。
+
 .手順
-. 新しいノードの dataIP がまだ ADSCluster CR に含まれていない場合は、次の手順を実行します。
+. 新しいノードのdataIPがまだAstra Data StoreクラスタCRに含まれていない場合は、次の手順を実行します。
 +
-.. astadscluster CR を編集し、 ADS Data Networks Addresses フィールドに追加の dataIP を追加します。
+.. クラスタCRを編集し、「adsDataNetworks*Addresses *」フィールドにデータIPを追加します。大文字の情報を環境に適した値に置き換えます。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl edit astradscluster <cluster-name> -n astrads-system
+kubectl edit astradscluster CLUSTER_NAME -n astrads-system
 ----
 +
 対応：
@@ -45,30 +49,107 @@ summary: Astra データストアで kubectl コマンドを使用すると、�
 [listing]
 ----
 adsDataNetworks:
-    -addresses:  dataIP1,dataIP2,dataIP3,dataIP4,*newdataIP*
+    -addresses:  dataIP1,dataIP2,dataIP3,dataIP4,NEW_DATA_IP
 ----
 .. CR を保存します。
-.. Astra データストアプレビュークラスタにノードを追加します。
+.. アストラデータストアクラスタにノードを追加します。大文字の情報を環境に適した値に置き換えます。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads nodes add --cluster <cluster-name>
+kubectl astrads nodes add --cluster CLUSTER_NAME
 ----
 
 
-. それ以外の場合は、ノードを追加するだけで済みます。
+. それ以外の場合はノードを追加します。大文字の情報を環境に適した値に置き換えます。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads nodes add --cluster <cluster-name>
+kubectl astrads nodes add --cluster CLUSTER_NAME
 ----
 . ノードが追加されたことを確認します。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads nodes list
+kubectl astrads nodes list
 ----
 
+
+
+
+== ノードを削除します
+
+クラスタ内のノードを削除するには、kubectlコマンドをAstraデータストアとともに使用します。
+
+.手順
+. すべてのノードを一覧表示します。
++
+[source, kubectl]
+----
+kubectl astrads nodes list
+----
++
+対応：
+
++
+[listing]
+----
+NODE NAME           NODE STATUS    CLUSTER NAME
+sti-rx2540-534d...  Added       cluster-multinodes-21209
+sti-rx2540-535d...  Added       cluster-multinodes-21209
+...
+----
+. ノードを削除対象としてマークします。大文字の情報を環境に適した値に置き換えます。
++
+[source, kubectl]
+----
+kubectl astrads nodes remove NODE_NAME
+----
++
+対応：
+
++
+[listing]
+----
+Removal label set on node sti-rx2540-534d.lab.org
+Successfully updated ADS cluster cluster-multinodes-21209 desired node count from 4 to 3
+----
++
+ノードを削除対象としてマークすると'ノードのステータスはアクティブから現在の状態に変わります
+
+. 削除したノードの現在のステータスを確認します
++
+[source, kubectl]
+----
+kubectl get nodes --show-labels
+----
++
+対応：
+
++
+[listing]
+----
+NAME                                            STATUS   ROLES                  AGE     VERSION   LABELS
+sti-astramaster-050.lab.org   Ready    control-plane,master   3h39m   v1.20.0   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=sti-astramaster-050.lab.org,kubernetes.io/os=linux,node-role.kubernetes.io/control-plane=,node-role.kubernetes.io/master=
+sti-rx2540-556a.lab.org       Ready    worker                 3h38m   v1.20.0   astrads.netapp.io/cluster=astrads-cluster-890c32c,astrads.netapp.io/storage-cluster-status=active,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=sti-rx2540-556a.lab.org,kubernetes.io/os=linux,node-role.kubernetes.io/worker=true
+sti-rx2540-556b.lab.org       Ready    worker                 3h38m   v1.20.0   astrads.netapp.io/cluster=astrads-cluster-890c32c,astrads.netapp.io/storage-cluster-status=active,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=sti-rx2540-556b.lab.org,kubernetes.io/os=linux,node-role.kubernetes.io/worker=true
+sti-rx2540-534d.lab.org       Ready    worker                 3h38m   v1.20.0   astrads.netapp.io/storage-cluster-status=present,astrads.netapp.io/storage-node-removal=,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=sti-rx2540-557a.lab.org,kubernetes.io/os=linux,node-role.kubernetes.io/worker=true
+sti-rx2540-557b.lab.org       Ready    worker                 3h38m   v1.20.0   astrads.netapp.io/cluster=astrads-cluster-890c32c,astrads.netapp.io/storage-cluster-status=active,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=sti-rx2540-557b.lab.org,kubernetes.io/os=linux,node-role.kubernetes.io/worker=true
+----
+. ノードからAstraデータストアをアンインストールします。大文字の情報を環境に適した値に置き換えます。
++
+[source, kubectl]
+----
+kubectl astrads nodes uninstall NODE_NAME
+----
+. ノードがクラスタから削除されたことを確認します。
++
+[source, kubectl]
+----
+kubectl astrads nodes list
+----
+
+
+ノードがAstraデータストアから削除される。
 
 
 
@@ -77,16 +158,16 @@ adsDataNetworks:
 ホストのメンテナンスやパッケージのアップグレードが必要な場合は、ノードをメンテナンスモードにする必要があります。
 
 
-NOTE: ノードは、 Astra データストアプレビュークラスタにすでに含まれている必要があります。
+NOTE: ノードがAstraデータストアクラスタにすでに含まれている必要があります。
 
-ノードが保守モードのときは、クラスタにノードを追加できません。この例では、ノード「 nhcitj1525 」をメンテナンスモードにします。
+ノードが保守モードのときは、クラスタにノードを追加できません。この例では、ノード「nhcitj1525」をメンテナンスモードにします。
 
 .手順
 . ノードの詳細を表示します。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl get nodes
+kubectl get nodes
 ----
 +
 対応：
@@ -103,9 +184,9 @@ NOTE: ノードは、 Astra データストアプレビュークラスタにす�
 ----
 . ノードがまだメンテナンスモードになっていないことを確認します。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads maintenance list
+kubectl astrads maintenance list
 ----
 +
 応答（メンテナンスモードのノードがありません）：
@@ -115,26 +196,33 @@ NOTE: ノードは、 Astra データストアプレビュークラスタにす�
 ----
 NAME    NODE NAME  IN MAINTENANCE  MAINTENANCE STATE       MAINTENANCE VARIANT
 ----
-. メンテナンスモードを有効にします。
+. メンテナンスモードを有効にします。大文字の情報を環境に適した値に置き換えます。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads maintenance create <cr-name> --node-name=<<node-name>> --variant=Node
+kubectl astrads maintenance create CR_NAME --node-name=NODE_NAME --variant=Node
 ----
 +
-サンプル：
+例：
+
++
+[source, kubectl]
+----
+kubectl astrads maintenance create maint1 --node-name="nhcitjj1525" --variant=Node
+----
++
+対応：
 
 +
 [listing]
 ----
-~% kubectl astrads maintenance create maint1 --node-name="nhcitjj1525" --variant=Node
 Maintenance mode astrads-system/maint1 created
 ----
-. ノードをリストします。
+. ノードを一覧表示します。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads nodes list
+kubectl astrads nodes list
 ----
 +
 対応：
@@ -148,9 +236,9 @@ nhcitjj1525     Added           ftap-astra-012
 ----
 . メンテナンスモードのステータスを確認します。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads maintenance list
+kubectl astrads maintenance list
 ----
 +
 対応：
@@ -166,311 +254,45 @@ node4   nhcitjj1525     true            ReadyForMaintenance     Node
 
 . ノードのメンテナンスが完了したら、メンテナンスモードを無効にします。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads maintenance update maint1 --node-name="nhcitjj1525" --variant=None
+kubectl astrads maintenance update maint1 --node-name="nhcitjj1525" --variant=None
 ----
 . ノードが保守モードでなくなったことを確認します。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads maintenance list
+kubectl astrads maintenance list
 ----
 
 
 
 
-== ノードを交換
+== ノードにドライブを追加
 
-クラスタ内の障害が発生したノードを交換するには、 kubectl コマンドを Astra Data Store preview とともに使用します。
+Astraデータストアでkubectlコマンドを使用して、Astraデータストアクラスタ内のノードに物理ドライブまたは仮想ドライブを追加。
+
+.必要なもの
+* 次の条件を満たす1つ以上のドライブ：
++
+** ノードに設置済み（物理ドライブ）またはノードVMに追加済み（仮想ドライブ）
+** ドライブにパーティションがありません
+** ドライブがクラスタで使用されていません
+** クラスタ内のドライブの物理容量がライセンスで許可されている物理容量を超えない（たとえば、CPUコアあたり2TBのストレージをライセンスで付与すると、10ノードのクラスタの最大物理ドライブ容量は20TBになります）
+** ドライブには、ノード内の他のアクティブドライブのサイズ以上が含まれています
+
+
+
+
+
+NOTE: Astraデータストアのノードあたりのドライブ数は16本以下17台目のドライブを追加しようとすると、ドライブ追加要求は拒否されます。
 
 .手順
-. すべてのノードを一覧表示します。
-+
-[listing]
-----
-~% kubectl astrads nodes list
-----
-+
-対応：
-
-+
-[listing]
-----
-NODE NAME           NODE STATUS    CLUSTER NAME
-sti-rx2540-534d..   Added       cluster-multinodes-21209
-sti-rx2540-535d...  Added       cluster-multinodes-21209
-...
-----
 . クラスタについて説明します。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads clusters list
-----
-+
-対応：
-
-+
-[listing]
-----
-CLUSTER NAME               CLUSTER STATUS  NODE COUNT
-cluster-multinodes-21209   created         4
-----
-. 障害が発生したノードで 'Node HA' が 'false' としてマークされていることを確認します
-+
-[listing]
-----
-~% kubectl describe astradscluster -n astrads-system
-----
-+
-対応：
-
-+
-[listing]
-----
-Name:         cluster-multinodes-21209
-Namespace:    astrads-system
-Labels:       <none>
-Annotations:  kubectl.kubernetes.io/last-applied-configuration:
-                {"apiVersion":"astrads.netapp.io/v1alpha1","kind":"AstraDSCluster","metadata":{"annotations":{},"name":"cluster-multinodes-21209","namespa...
-API Version:  astrads.netapp.io/v1alpha1
-Kind:         AstraDSCluster
-
-State:               Disabled
-Variant:             None
-Node HA:             false
-Node ID:             4
-Node Is Reachable:   false
-Node Management IP:  172.21.192.192
-Node Name:           sti-rx2540-532d.ctl.gdl.englab.netapp.com
-Node Role:           Storage
-Node UUID:           6f6b88f3-8411-56e5-b1f0-a8e8d0c946db
-Node Version:        12.75.0.6167444
-Status:              Added
-----
-. 「 AdsNode Count 」の値を 3 に減らして、障害が発生したノードを削除するように astradscluster CR を変更します。
-+
-[listing]
-----
-cat manifests/astradscluster.yaml
-----
-+
-対応：
-
-+
-[listing]
-----
-apiVersion: astrads.netapp.io/v1alpha1
-kind: AstraDSCluster
-metadata:
-  name: cluster-multinodes-21209
-  namespace: astrads-system
-spec:
-  # ADS Node Configuration per node settings
-  adsNodeConfig:
-    # Specify CPU limit for ADS components
-    # Supported value: 9
-    cpu: 9
-    # Specify Memory Limit in GiB for ADS Components.
-    # Your kubernetes worker nodes need to have at least this much RAM free
-    # for ADS to function correctly
-    # Supported value: 34
-    memory: 34
-    # [Optional] Specify raw storage consumption limit. The operator will only select drives for a node up to this limit
-    capacity: 600
-    # [Optional] Set a cache device if you do not want auto detection e.g. /dev/sdb
-    # cacheDevice: ""
-    # Set this regex filter to select drives for ADS cluster
-    # drivesFilter: ".*"
-
-  # [Optional] Specify node selector labels to select the nodes for creating ADS cluster
-  # adsNodeSelector:
-  #   matchLabels:
-  #     customLabelKey: customLabelValue
-
-  # Specify the number of nodes that should be used for creating ADS cluster
-  adsNodeCount: 3
-
-  # Specify the IP address of a floating management IP routable from any worker node in the cluster
-  mvip: "172..."
-
-  # Comma separated list of floating IP addresses routable from any host where you intend to mount a NetApp Volume
-  # at least one per node must be specified
-  # addresses: 10.0.0.1,10.0.0.2,10.0.0.3,10.0.0.4,10.0.0.5
-  # netmask: 255.255.255.0
-  adsDataNetworks:
-    - addresses: "172..."
-      netmask: 255.255.252.0
-
-
-  # [Optional] Provide a k8s label key that defines which protection domain a node belongs to
-  # adsProtectionDomainKey: ""
-
-  # [Optional] Provide a monitoring config to be used to setup/configure a monitoring agent.
-  monitoringConfig:
-   namespace: "netapp-monitoring"
-   repo: "docker.repo.eng.netapp.com/global/astra"
-
-  autoSupportConfig:
-    # AutoUpload defines the flag to enable or disable AutoSupport upload in the cluster (true/false)
-    autoUpload: true
-    # Enabled defines the flag to enable or disable automatic AutoSupport collection.
-    # When set to false, periodic and event driven AutoSupport collection would be disabled.
-    # It is still possible to trigger an AutoSupport manually while AutoSupport is disabled
-    # enabled: true
-    # CoredumpUpload defines the flag to enable or disable the upload of coredumps for this ADS Cluster
-    # coredumpUpload: false
-    # HistoryRetentionCount defines the number of local (not uploaded) AutoSupport Custom Resources to retain in the cluster before deletion
-    historyRetentionCount: 25
-    # DestinationURL defines the endpoint to transfer the AutoSupport bundle collection
-    destinationURL: "https://testbed.netapp.com/put/AsupPut"
-    # ProxyURL defines the URL of the proxy with port to be used for AutoSupport bundle transfer
-    # proxyURL:
-    # Periodic defines the config for periodic/scheduled AutoSupport objects
-    periodic:
-      # Schedule defines the Kubernetes Cronjob schedule
-      - schedule: "0 0 * * *"
-        # PeriodicConfig defines the fields needed to create the Periodic AutoSupports
-        periodicconfig:
-        - component:
-            name: storage
-            event: dailyMonitoring
-          userMessage: Daily Monitoring Storage AutoSupport bundle
-          nodes: all
-        - component:
-            name: controlplane
-            event: daily
-          userMessage: Daily Control Plane AutoSupport bundle
-----
-. ノードがクラスタから削除されたことを確認します。
-+
-[listing]
-----
-~% kubectl get nodes --show-labels
-
-----
-+
-対応：
-
-+
-[listing]
-----
-
-NAME                  STATUS   ROLES               AGE   VERSION   LABELS
-sti-astramaster-237   Ready control-plane,master   24h   v1.20.0
-sti-rx2540-532d       Ready  <none>                24h   v1.20.0
-sti-rx2540-533d       Ready  <none>                24h
-----
-+
-[listing]
-----
-~% kubectl astrads nodes list
-----
-+
-対応：
-
-+
-[listing]
-----
-NODE NAME         NODE STATUS     CLUSTER NAME
-sti-rx2540-534d   Added           cluster-multinodes-21209
-sti-rx2540-535d   Added           cluster-multinodes-21209
-sti-rx2540-536d   Added           cluster-multinodes-21209
-----
-+
-[listing]
-----
-~% kubectl get nodes --show-labels
-----
-+
-対応：
-
-+
-[listing]
-----
-NAME                STATUS   ROLES                  AGE   VERSION   LABELS
-sti-astramaster-237 Ready    control-plane,master   24h   v1.20.0   beta.kubernetes.io/arch=amd64,
-sti-rx2540-532d     Ready    <none>                 24h   v1.20.0   astrads.netapp.io/node-removal
-----
-+
-[listing]
-----
-~% kubectl describe astradscluster -n astrads-system
-----
-+
-対応：
-
-+
-[listing]
-----
-Name:         cluster-multinodes-21209
-Namespace:    astrads-system
-Labels:       <none>
-Kind:         AstraDSCluster
-Metadata:
-...
-----
-. クラスタ CR を変更して、交換用のノードをクラスタに追加します。ノード数は 4 に増えます。新しいノードが追加対象として選択されていることを確認します。
-+
-[listing]
-----
-rvi manifests/astradscluster.yaml
-cat manifests/astradscluster.yaml
-apiVersion: astrads.netapp.io/v1alpha1
-kind: AstraDSCluster
-metadata:
-  name: cluster-multinodes-21209
-  namespace: astrads-system
-----
-+
-[listing]
-----
-~% kubectl apply -f manifests/astradscluster.yaml
-----
-+
-対応：
-
-+
-[listing]
-----
-astradscluster.astrads.netapp.io/cluster-multinodes-21209 configured
-----
-+
-[listing]
-----
-~% kubectl get pods -n astrads-system
-----
-+
-対応：
-
-+
-[listing]
-----
-NAME                                READY   STATUS    RESTARTS   AGE
-astrads-cluster-controller...       1/1     Running   1          24h
-astrads-deployment-support...       3/3     Running   0          24h
-astrads-ds-cluster-multinodes-21209 1/1     Running
-----
-+
-[listing]
-----
-~% kubectl astrads nodes list
-----
-+
-対応：
-
-+
-[listing]
-----
-NODE NAME                NODE STATUS     CLUSTER NAME
-sti-rx2540-534d...       Added           cluster-multinodes-21209
-sti-rx2540-535d...       Added           cluster-multinodes-21209
-----
-+
-[listing]
-----
-~% kubectl astrads clusters list
+kubectl astrads clusters list
 ----
 +
 対応：
@@ -481,10 +303,12 @@ sti-rx2540-535d...       Added           cluster-multinodes-21209
 CLUSTER NAME                    CLUSTER STATUS  NODE COUNT
 cluster-multinodes-21209        created         4
 ----
+. クラスタ名をメモします。
+. クラスタ内のすべてのノードに追加できるドライブを表示します。cluster_nameをクラスタの名前に置き換えます。
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads drives list
+kubectl astrads drives adddrive show-available --cluster=CLUSTER_NAME
 ----
 +
 対応：
@@ -492,21 +316,60 @@ cluster-multinodes-21209        created         4
 +
 [listing]
 ----
-DRIVE NAME    DRIVE ID    DRIVE STATUS   NODE NAME     CLUSTER NAME
-scsi-36000..  c3e197f2... Active         sti-rx2540... cluster-multinodes-21209
+Node: node1.name
+Add drive maximum size: 100.0 GiB
+Add drive minimum size: 100.0 GiB
+NAME IDPATH SERIAL PARTITIONCOUNT SIZE ALREADYINCLUSTER
+sdg /dev/disk/by-id/scsi-3c290e16d52479a9af5eac c290e16d52479a9af5eac 0 100 GiB false
+sdh /dev/disk/by-id/scsi-3c2935798df68355dee0be c2935798df68355dee0be 0 100 GiB false
+
+Node: node2.name
+Add drive maximum size: 66.7 GiB
+Add drive minimum size: 100.0 GiB
+No suitable drives to add exist.
+
+Node: node3.name
+Add drive maximum size: 100.0 GiB
+Add drive minimum size: 100.0 GiB
+NAME IDPATH SERIAL PARTITIONCOUNT SIZE ALREADYINCLUSTER
+sdg /dev/disk/by-id/scsi-3c29ee82992ed7a36fc942 c29ee82992ed7a36fc942 0 100 GiB false
+sdh /dev/disk/by-id/scsi-3c29312aa362469fb3da9c c29312aa362469fb3da9c 0 100 GiB false
+
+Node: node4.name
+Add drive maximum size: 66.7 GiB
+Add drive minimum size: 100.0 GiB
+No suitable drives to add exist.
+----
+. 次のいずれかを実行します。
++
+** 使用可能なすべてのドライブの名前が同じ場合は、それらのドライブをそれぞれのノードに同時に追加できます。大文字の情報を環境に適した値に置き換えます。
++
+[source, kubectl]
+----
+kubectl astrads drives adddrive create --cluster=CLUSTER_NAME --name REQUEST_NAME --drivesbyname all=DRIVE_NAME
+----
+** ドライブの名前が異なる場合は、各ノードにドライブを1つずつ追加できます（追加する必要があるドライブごとにこの手順を繰り返す必要があります）。大文字の情報を環境に適した値に置き換えます。
++
+[source, kubectl]
+----
+kubectl astrads drives adddrive create --cluster=CLUSTER_NAME --name REQUEST_NAME --drivesbyname NODE_NAME=DRIVE_NAME
 ----
 
+
+
+
+Astraデータストアがドライブの追加要求を作成し、要求の結果を含むメッセージが表示される。
 
 
 
 == ドライブを交換します
 
-クラスタ内のドライブで障害が発生した場合は、データの整合性を確保するために、できるだけ早くドライブを交換する必要があります。ドライブで障害が発生すると、クラスタの CR ノードステータス、クラスタの健全性状態情報、および指標エンドポイントに、障害が発生したドライブの情報が表示されます。
+クラスタ内のドライブで障害が発生した場合は、データの整合性を確保するために、できるだけ早くドライブを交換する必要があります。ドライブで障害が発生した場合は、クラスタのCRノードステータス、クラスタの健全性状態、および指標エンドポイントにある、障害が発生したドライブに関する情報を確認できます。障害が発生したドライブの情報を表示するには、次のコマンドを使用します。
 
 .nodeStatus.driveStatuses で障害が発生したドライブを示すクラスタの例
-[listing]
+[source, kubectl]
 ----
-$ kubectl get adscl -A -o yaml
+kubectl get adscl -A -o yaml
 ----
 対応：
 
@@ -529,11 +392,11 @@ nodeStatuses:
       drivesStatus: Active
 ...
 ----
-障害が発生したドライブ CR は、障害が発生したドライブの UUID に対応する名前でクラスタ内に自動的に作成されます。
+障害が発生したドライブCRは、障害が発生したドライブのUUIDに対応する名前でクラスタ内に自動的に作成されます。
 
-[listing]
+[source, kubectl]
 ----
-$ kubectl get adsfd -A -o yaml
+kubectl get adsfd -A -o yaml
 ----
 対応：
 
@@ -557,12 +420,12 @@ spec:
      path: /dev/disk/by-id/scsi-36000c290ace209465271ed6b8589b494
      present: true
      serial: 6000c290ace209465271ed6b8589b494
-     node: sti-rx2540-300b.ctl.gdl.englab.netapp.com
+     node: sti-rx2540-300b.lab.org
    state: ReadyToReplace
 ----
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads faileddrive list --cluster arda-6e4b4af
+kubectl astrads faileddrive list --cluster arda-6e4b4af
 ----
 対応：
 
@@ -572,14 +435,14 @@ NAME       NODE                             CLUSTER        STATE                
 6000c290   sti-rx2540-300b.lab.netapp.com   ard-6e4b4af    ReadyToReplace       13m
 ----
 .手順
-. 交換可能なドライブを 'kubectl astras show-replacements' コマンドで一覧表示しますこのコマンドは ' 交換の制限に適合するドライブをフィルタリングします（クラスタ内では未使用 ' マウントなし ' パーティションなし ' または障害が発生したドライブ以上）
+. 交換可能なドライブを'kubectl strads faileddrive show -replacions'コマンドで一覧表示しますこのコマンドは'交換の制限に適合するドライブをフィルタリングします（クラスタでは未使用'マウントなし'パーティションなし'または障害が発生したドライブ以上）
 +
 可能な交換用ドライブをフィルタリングせずにすべてのドライブを一覧表示するには '--all' を 'show-replacements' コマンドに追加します
 
 +
-[listing]
+[source, kubectl]
 ----
-~%  kubectl astrads faileddrive show-replacements --cluster ard-6e4b4af --name 6000c290
+kubectl astrads faileddrive show-replacements --cluster ard-6e4b4af --name 6000c290
 ----
 +
 対応：
@@ -592,9 +455,9 @@ sdh   /scsi-36000c29417  45000c  0                false     100GB
 ----
 . パスしたシリアル番号でドライブを交換するには 'replace' コマンドを使用しますコマンドは置換を完了するか '--wait' 時間が経過すると失敗します
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads faileddrive replace --cluster arda-6e4b4af --name 6000c290 --replaceWith 45000c --wait
+kubectl astrads faileddrive replace --cluster arda-6e4b4af --name 6000c290 --replaceWith 45000c --wait
 Drive replacement completed successfully
 ----
 +
@@ -602,9 +465,9 @@ Drive replacement completed successfully
 NOTE: kubectl の astrads faileddrive replace' が不適切なシリアル番号を使用して実行された場合 ' 次のようなエラーが表示されます
 
 +
-[listing]
+[source, kubectl]
 ----
-~% kubectl astrads replacedrive replace --cluster astrads-cluster-f51b10a --name 6000c2927 --replaceWith BAD_SERIAL_NUMBER
+kubectl astrads replacedrive replace --cluster astrads-cluster-f51b10a --name 6000c2927 --replaceWith BAD_SERIAL_NUMBER
 Drive 6000c2927 replacement started
 Failed drive 6000c2927 has been set to use BAD_SERIAL_NUMBER as a replacement
 ...
@@ -613,9 +476,9 @@ Current status: {FailedDriveInfo:{InUse:false Present:true Name:scsi-36000c2 Fir
 ----
 . ドライブ交換を再実行するには ' 前のコマンドで --force' を使用します
 +
-[listing]
+[source, kubectl]
 ----
-~%  kubectl astrads replacedrive replace --cluster astrads-cluster-f51b10a --name 6000c2927 --replaceWith VALID_SERIAL_NUMBER --force
+kubectl astrads replacedrive replace --cluster astrads-cluster-f51b10a --name 6000c2927 --replaceWith VALID_SERIAL_NUMBER --force
 ----
 
 
@@ -623,5 +486,5 @@ Current status: {FailedDriveInfo:{InUse:false Present:true Name:scsi-36000c2 Fir
 
 == を参照してください。
 
-* link:../use/kubectl-commands-ads.html["kubectl コマンドを使用して Astra データストアのプレビューアセットを管理"]
+* link:../use/kubectl-commands-ads.html["kubectlコマンドを使用してAstraデータストアのリソースを管理"]
 

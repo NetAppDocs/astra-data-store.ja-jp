@@ -1,0 +1,365 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/setup-ads-vmware.html 
+keywords: astra, vmware, vcenter, astra data store 
+summary: Astra vCenter Plug-inとVMware vSphere標準の機能を使用して、Astraデータストアを導入および管理できます。 
+---
+= VMwareを使用してAstraデータストアをセットアップする
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use-vmware/
+
+
+Astraデータストアをストレージバックエンドとしてセットアップし、NetApp Astra Plugin for VMware vSphereを使用して管理できます。
+
+VMwareでAstraデータストアをセットアップするには、次のタスクを実行します。
+
+* <<Activate VMware vSphere services using Astra Control Center>>。
+* <<Add a vCenter using Astra Control Center>>。
+* <<Create a custom SCC (if using OpenShift)>>
+* <<Use an existing storage backend in the Astra Plugin for VMware vSphere>>。
+* <<Create a datastore using the Astra Plugin for VMware vSphere>>。
+* <<Generate VM storage policies>>。
+
+
+VMwareを使用してAstraデータストアをセットアップする前に、次のことを確認する必要があります。
+
+* Astra Control Centerは https://docs.netapp.com/us-en/astra-control-center/get-started/install_overview.html["インストール済み"] セットアップも完了しています。
+* Astraデータストアのライセンスを取得し、導入している。を参照してください link:../get-started/install-ads.html["Astra データストアをインストール"]。
+
+
+
+NOTE: Astra Data Store Early Access Program（EAP）リリースの場合、Astra Control CenterとAstra Data Storeを2つの異なるKubernetesクラスタに導入する必要があります。
+
+* Astra Control CenterとAstraデータストアの導入に使用したKubernetesクラスタは、Astra Control Centerで管理しておく必要があります。
+* NFSv3が有効になります。
+* vCenterを追加する前に、Astra Control CenterとVASA Providerのパッケージをアップロードしておきます。 https://docs.netapp.com/us-en/astra-control-center/use/manage-packages-acc.html["ソフトウェアパッケージの管理を参照してください"^]。
+
+
+
+
+== Astra Control Centerを使用してVMware vSphereサービスをアクティブ化します
+
+Astra Control CenterでvSphereサービスをアクティブにして、VMwareでAstraデータストアのセットアップを開始します。
+
+
+NOTE: Astra Control CenterのVMware vSphereサービスは、デフォルトでは有効になっていません。
+
+. Astra Control Center にログインします。
+. 左側のナビゲーションから、*クラスタ*を選択します。
++
+バナーには、VMware vSphereサービスがまだ有効になっていないことを示すメッセージが表示されます。
+
+. 「* VMware vSphereサービスを有効にする*」を選択します。
++
+この処理には時間がかかることがあります。サービスを有効にすると、* vCenterの追加*ボタンが有効になります。
+
+
+
+
+
+== Astra Control Centerを使用してvCenterを追加します
+
+最初のvCenterを追加してAstra Plugin for VMware vSphereを登録します。
+
+vCenterをAstra Control Centerに追加するには、管理者権限が必要です。
+
+
+TIP: プラグインをVMware vSphereに登録すると、VMwareのショートカットページにAstra Plugin for VMware vSphereアイコンが表示されます。
+
+. Astra Control Center にログインします。
+. 左側のナビゲーションから、*クラスタ*を選択します。
+. 「* vCenterの追加*」を選択します。
+. vCenter Serverの詳細、vCenterポート、および管理ユーザ名とパスワードを入力してAstra Control Centerに提供します。
++
+
+TIP: これにより、このvCenter用のAstraプラグインをVMware vSphere Clientに導入できるようになります。
+
+. 「 * 追加」を選択します。
++
+vCenterがクラスタページに表示され、Astra Control Dashboardで管理対象vCenterの総数が更新されます。これにより、Astra Plugin for VMware vSphereの導入も開始されます。
+
+
+
+
+
+=== vCenterの追加を確認
+
+新しく追加したvCenterがクラスタページおよびダッシュボードに表示されます。
+
+
+TIP: vCenterとKubernetesクラスタの両方がAstra Control Center Dashboardに表示される。
+
+. Astra Control Centerにアクセスします。
+. 左側のナビゲーションから、*クラスタ*を選択します。
+. 新しく管理されたvCenterがクラスタページに表示されていることを確認します。
+. 左側のナビゲーションから、 * ダッシュボード * を選択します。
+. Astra Control Center Dashboardから、管理対象の*クラスタ数の一部として新しい管理対象vCenterクラスタをメモします。
++
+
+TIP: 管理対象クラスタの数には、vCenterとKubernetesクラスタの両方が含まれます。
+
+. クラスタの詳細を表示するには、* Managed * countをクリックします。
++
+クラスタページが表示されます。
+
+
+
+
+
+== カスタムSCCを作成する（OpenShiftを使用する場合）
+
+OpenShiftを使用している場合は、必要に応じてセキュリティコンテキスト制約（SCC）を割り当てて、ポッドが実行できるアクションを制御したり、ポッドがアクセスできるアクションを制御したりできます。
+
+デフォルトでは、任意のコンテナの実行には制限付き SCC が付与され、その SCC で定義された機能のみが付与されます。制限付きSCCでは、VASA Providerのポッドで必要な権限が提供されません。この手順 を使用して、VASA Providerの導入で使用するサービスアカウントに、必要な上位の権限（サンプルに記載）を付与します。
+
+カスタムSCCを、特権およびノードエクスポータSCCのハイブリッドであるAstra Data Store 'NTV-system'ネームスペースのさまざまなデフォルトサービスアカウントに割り当てます。
+
+以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。
+
+. 「VP_backend_privileged_ssc.yaml」というカスタムSCCを作成します。
++
+[listing]
+----
+kubectl create -f vp_backend_privileged_scc.yaml
+----
++
+例：VP_backend_Privileged _SCC.YAML
+
++
+[listing]
+----
+allowHostDirVolumePlugin: true
+allowHostIPC: false
+allowHostNetwork: true
+allowHostPID: false
+allowHostPorts: true
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: true
+allowedCapabilities:
+  - '*'
+allowedUnsafeSysctls:
+  - '*'
+apiVersion: security.openshift.io/v1
+defaultAddCapabilities: null
+fsGroup:
+  type: RunAsAny
+groups: []
+kind: SecurityContextConstraints
+metadata:
+  name: vpbackend-privileged
+priority: null
+readOnlyRootFilesystem: false
+requiredDropCapabilities: null
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: RunAsAny
+seccompProfiles:
+  - '*'
+supplementalGroups:
+  type: RunAsAny
+users:
+  - system:serviceaccount:ntv-system:default
+  - system:serviceaccount:ntv-system:ntv-auth-svc
+  - system:serviceaccount:ntv-system:ntv-autosupport
+  - system:serviceaccount:ntv-system:ntv-compliance-svc
+  - system:serviceaccount:ntv-system:ntv-datastore-svc
+  - system:serviceaccount:ntv-system:ntv-metallb-controller
+  - system:serviceaccount:ntv-system:ntv-metallb-speaker
+  - system:serviceaccount:ntv-system:ntv-mongodb
+  - system:serviceaccount:ntv-system:ntv-nfs-svc
+  - system:serviceaccount:ntv-system:ntv-rabbitmq-svc
+  - system:serviceaccount:ntv-system:ntv-storage-svc
+  - system:serviceaccount:ntv-system:ntv-vault
+  - system:serviceaccount:ntv-system:ntv-vault-admin
+  - system:serviceaccount:ntv-system:ntv-vault-agent-injector
+  - system:serviceaccount:ntv-system:ntv-vault-controller
+  - system:serviceaccount:ntv-system:ntv-vault-initializer
+  - system:serviceaccount:ntv-system:ntv-vcenter-svc
+  - system:serviceaccount:ntv-system:ntv-vm-management-svc
+  - system:serviceaccount:ntv-system:ntv-watcher-svc
+  - system:serviceaccount:ntv-system:ntv-vault-sa-vault-tls
+  - system:serviceaccount:ntv-system:ntv-gateway-svc
+  - system:serviceaccount:ntv-system:ntv-jobmanager-svc
+  - system:serviceaccount:ntv-system:ntv-vasa-svc
+volumes:
+  - '*'
+----
+. 「 OC get SCC 」コマンドを使用して、新たに追加された SCC を表示します。
++
+[listing]
+----
+oc get scc vpbackend-privileged
+----
++
+対応：
+
++
+[listing]
+----
+NAME                 PRIV  CAPS  SELINUX  RUNASUSER FSGROUP  SUPGROUP PRIORITY   READONLYROOTFS VOLUMES
+vpbackend-privileged true ["*"]  RunAsAny RunAsAny  RunAsAny RunAsAny <no value> false          ["*"]
+----
+
+
+
+
+== Astra Plugin for VMware vSphereで既存のストレージバックエンドを使用します
+
+Astra Control Center UIを使用してvCenterを追加したあと、Astra Data StoreストレージバックエンドをAstra Plugin for VMware vSphereを使用して追加します。
+
+このプロセスで完了する操作は次のとおりです。
+
+* 選択したvCenterに既存のストレージバックエンドを追加します。
+* 選択したvCenterにVASA Providerを登録します。VASAプロバイダは、VMwareとAstraデータストアの間の通信を提供します。
+* VASA Providerの自己署名証明書をストレージバックエンドに追加します。
+
+
+
+NOTE: 追加したvCenterがストレージバックエンドウィザードに表示されるまでに10分かかることがあります。
+
+
+NOTE: Astraデータストアを複数のvCenterと共有しない。
+
+.手順
+. NetApp Astra Plugin for VMware vSphereにアクセスします。
+. 左側のナビゲーションから、「* Astra Plugin for VMware vSphere *」を選択するか、ショートカットページから「* Astra Plugin for VMware vSphere *」アイコンを選択します。
+. Astra Plugin for VMware vSphereの概要ページで、*既存のストレージバックエンドを使用する*を選択します。または、左のナビゲーションから* Storage Backends *>* Add *を選択し、* Use existing storage backend *を選択します。
+. ストレージバックエンドとして既存のAstraデータストアを選択し、「*次へ*」を選択します。
+. VASA Providerのページで、VASA Providerの名前、IPアドレス（ロードバランサを使用している場合）、ユーザ名、パスワードを入力します。
++
+
+TIP: ユーザ名には、英数字とアンダースコアを使用できます。特殊文字は入力しないでください。ユーザ名の先頭の文字はアルファベットにする必要があります。
+
+. ロードバランサを導入してIPアドレスを入力するかどうかを指定します。このIPアドレスを使用してVASA Providerにアクセスします。ノードIPとは別の、ルーティング可能な追加のフリーIPであることが必要です。ロードバランサを有効にすると、KubernetesクラスタAstraにMetallbが導入され、空いているIPを割り当てるように設定されます。
++
+
+NOTE: Google Anthosクラスタを導入する場合、Anthosではすでにメタリがロードバランサとして実行されているため、ロードバランサを導入しないように選択します。VASA Provider CRでmetallb deployフラグをfalseに設定します（v1beta1_vasaprovider.yaml）。
+
++
+ロードバランサを導入しない場合は、ロードバランサがすでに導入され、タイプ*ロードバランサ*のKubernetesサービスにIPを割り当てるように設定されているとみなされます。
+
++
+
+TIP: この時点では、VASA Providerは導入されていません。
+
+. 「 * 次へ * 」を選択します。
+. [証明書]ページで、自己署名証明書の証明書情報を確認します。
+. 「 * 次へ * 」を選択します。
+. 概要情報を確認します。
+. 「 * 追加」を選択します。
++
+VASA Providerが導入されます。
+
+
+
+
+
+=== Astra Plugin for VMware vSphereでストレージバックエンドを確認します
+
+Astra Data Storeストレージバックエンドが登録されると、Astra Plugin for VMware vSphereストレージバックエンドのリストに表示されます。
+
+ストレージのバックエンドステータスとVASA Providerのステータスを確認できます。各ストレージバックエンドの使用済み容量も確認できます。
+
+ストレージバックエンドを選択すると、使用済み容量と使用可能容量、データ削減率、および内部ネットワーク管理IPアドレスも表示されます。
+
+.手順
+. NetApp Astra Plugin for VMware vSphereの左側のナビゲーションから、「* Storage Backends」を選択します。
+. Astra Data Storeストレージバックエンドを選択すると、[Summary]タブが表示されます。
+. VASA Providerの使用済み容量と使用可能容量、データ削減比率、およびステータスを確認します。
+. その他のタブを選択して、VM、データストア、ホスト、およびストレージノードに関する情報を表示します。
+
+
+
+
+== Astra Plugin for VMware vSphereを使用してデータストアを作成します
+
+ストレージバックエンドを追加してAstra Plugin for VMware vSphereを登録したら、VMwareでデータストアを作成できます。
+
+データストアは、データセンター、コンピューティング、またはホストクラスタに追加できます。
+
+
+NOTE: 同じストレージバックエンドを使用して、同じデータセンターに複数のデータストアを作成することはできません。
+
+NFSプロトコルを使用して、VVOLデータストアタイプを追加できます。
+
+.手順
+. Astra Plugin for VMware vSphereにアクセスします。
+. プラグインメニューから、*データストアの作成*を選択します。
+. 新しいデータストアの名前、タイプ（VVol）、プロトコル（NFS）を入力します。
+. 「 * 次へ * 」を選択します。
+. Storage（ストレージ）ページで、作成したAstra Data Storeストレージバックエンドを選択します。
++
+
+TIP: 既存のデータストアがあるストレージバックエンドは使用できません。
+
+. 「 * 次へ * 」を選択します。
+. 概要ページで、情報を確認します。
+. 「 * Create * 」を選択します。
++
+
+NOTE: スキャンの失敗または一般的なシステムエラーに関連するエラーが発生した場合は、 https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-E8EA857E-268C-41AE-BBD9-08092B9A905D.html["vCenterでストレージプロバイダを再スキャン/同期します"] 次に、データストアの作成をもう一度実行してください。
+
+
+
+
+
+== VMストレージポリシーを生成する
+
+データストアを作成したあと、VMを作成する前に、REST API UIで「/virtualization/v1/v1/vCenters /vm-storage-policies」を使用して、事前設計済みのVMストレージポリシーを生成する必要があります。
+
+.手順
+. 「https://<ads_gateway_ip>:8443`」にアクセスして、REST API UIページにアクセスします。
+. APIの「POST/virtualization/api/auth/login」に移動し、ユーザ名、パスワード、およびvCenterホスト名を入力します。
++
+対応：
+
++
+[listing]
+----
+{
+  "vmware-api-session-id": "212f4d6447b05586ab1509a76c6e7da56d29cc5b",
+  "vcenter-guid": "8e475060-b3c8-4267-bf0f-9d472d592d39"
+}
+----
+. APIのget /virtualization/api/auth/validate-sessionに移動し'次の手順を実行します
++
+.. 上記で生成された「vmware-api-session-id」と「vcenter-guid」をヘッダーとして使用します。
+.. [*今すぐ試す*]を選択します。
++
+応答：（以下の認証は省略されています）：
+
++
+[listing]
+----
+authorization: eyJhbGciOiJSUzI1NiIsInR...9h15DYYvClT3oA  connection: keep-alive  content-type: application/json  date: Wed,18 May 2022 13:31:18 GMT  server: nginx  transfer-encoding: chunked
+----
+
+
+. 前の応答で生成されたベアラートークンを'authorization/api/v1/vCenters /vm-storagepolicies'に移動して'authorization'として追加します。
++
+「200」と表示され、3つのVMストレージポリシーが生成されます。
+
+. vCenter Storage Policyページで、新しいVMストレージポリシー（Bronze、Silver、Gold）を確認します。
+. VMを作成して続行します。
+
+
+
+
+== 次の手順
+
+次に、次のタスクを実行します。
+
+* VMを作成する
+* データストアをマウントを参照してください link:../use-vmware/manage-ads-vmware.html#mount-a-datastore["データストアをマウント"]。
+
+
+
+
+== を参照してください。
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]
+

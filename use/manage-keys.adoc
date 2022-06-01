@@ -1,0 +1,181 @@
+---
+sidebar: sidebar 
+permalink: use/manage-keys.html 
+keywords: astra, astra data store, kubectl, security, secure, expired, key, ekm, encryption, sear 
+summary: 1 つ以上の外部キー管理サーバを使用して、暗号化されたデータにアクセスする際にクラスタで使用するキーを安全に保管できます。 
+---
+= 外部キーを管理します
+:allow-uri-read: 
+
+
+1 つ以上の外部キー管理サーバを使用して、暗号化されたデータにアクセスする際にクラスタで使用するキーを安全に保管できます。外部キー管理サーバはストレージ環境に配置されたサードパーティのシステムで、 Key Management Interoperability Protocol （ KMIP ）を使用してノードにキーを提供します。
+
+
+NOTE: Astraデータストアでは、Astraデータストアクラスタを作成すると、デフォルトで内部キープロバイダを使用して保存データの暗号化（sear）が有効になります。
+
+キーの管理には、次のカスタムリソース定義（CRD）が含まれます。
+
+* * AstraDSKeyProvider*：外部KMIPサーバを設定します。このサーバはサーバのクラスタの場合があります。
+* * AstraDSSEARKeyRotate *：キープロバイダから新しいキー暗号化キーを取得し、Astraデータストアに提供します。
+
+
+外部キー管理に関連して次のタスクを実行できます。
+
+* <<Set up external key management>>
+* <<Check the software encryption at rest status>>
+* <<Change external to internal key management>>
+* <<Rotate keys for security>>
+
+
+
+
+== 外部キー管理をセットアップする
+
+Astra Data Storeで外部キー管理を設定するには'kubectl astrs'コマンドを使用します
+
+クラスタまたはKMIPサーバにSSL証明書が必要です。これにより、OpenSSLなどを使用した外部キーの設定などが可能になります。
+
+.手順
+. キープロバイダクライアントの証明書を準備します。クライアント証明書、クライアント秘密鍵、および信頼CAバンドルが含まれます。
++
+
+NOTE: クラスタまたはKMIPサーバで、OpenSSLなどを使用した外部キーの設定を可能にするSSL証明書を準備します。
+
+. Astraデータストアクラスタのいずれかのノードにログインします。
+. 次のkubectl拡張コマンドを入力して、Astraデータストアクラスタのキープロバイダを設定します。
++
+[listing]
+----
+kubectl-astrads key-provider certs --key key.pem
+--client-cert client_cert.pem --ca-cert server_ca.pem
+--hostnames=<kmip_server_ip> <key_provider_cr_name>
+--namespace astrads-system --cluster <ads_cluster_name>
+----
+
+
+次の例では、ADSクラスタ「astrs-cluster-f23d158」に対して「hashicorp」という名前の外部キープロバイダを設定します。
+
+[listing]
+----
+kubectl-astrads key-provider certs --key key.pem
+--client-cert client_cert.pem --ca-cert server_ca.pem
+--hostnames=10.235.nnn.nnn hashicorp
+--namespace astrads-system --cluster astrads-cluster-f23d158
+----
+. Astra Data StoreクラスタをAstraDSCluster CR経由で、外部キーマネージャを使用するように設定します。ヘルプを表示します。
++
+[listing]
+----
+kubectl-astrads clusters sears -h
+----
++
+対応：
+
+
+
+[listing]
+----
+Configure SEARS in AstraDS cluster
+
+Usage:
+  astrads clusters sears [flags]
+
+Flags:
+  -d, --duration string   Duration for key rotation (default "2160h")
+  -h, --help              help for sears
+
+
+Global Flags:
+      --ads-cluster-name string        Name of the ADS Cluster
+      --ads-cluster-namespace string   Namespace of the ADS Cluster
+      ...
+----
+次のコマンドは'Astra Data Storeクラスタを'AstraDSKeyProvider hashicor'をsearのキー管理ツールとして使用するように設定しますまた、キーのローテーション時間も使用されます。この時間のデフォルト値は90日（2160時間）です。
+
+[listing]
+----
+kubectl-astrads clusters sears -d 500h hashicorp
+--ads-cluster-name=astrads-cluster-f23d158
+--ads-cluster-namespace=astrads-system
+----
+
+
+== ソフトウェアの保存データの暗号化ステータスを確認します
+
+保存データのソフトウェア暗号化の設定を確認できます。
+
+.ステップ
+. AstraDSCluster CRを確認します。
++
+[listing]
+----
+Name:         astrads-cluster-f23d158
+Namespace:    astrads-system
+Labels:       <none>
+Annotations:  <none>
+API Version:  astrads.netapp.io/v1beta1
+Kind:         AstraDSCluster
+...
+Spec:
+...
+  Software Encryption At Rest:
+    Ads Key Provider:     hashicorp
+    Key Rotation Period:  500h0m0s
+...
+Status:
+...
+  Software Encryption At Rest Status:
+    Key Active Time:       2022-05-16T15:53:47Z
+    Key Provider Name:     hashicorp
+    Key Provider UUID:     ccfc2b0b-dd98-5ca4-b778-99debef83550
+    Key UUID:              nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn
+----
+
+
+
+
+== 外部キー管理を内部キー管理に変更します
+
+現在外部キー管理ツールを使用している場合は、内部キー管理ツールに変更できます。
+
+.手順
+. SoftwareEncryptionAtRest設定を削除してAstraDSCluster CRを変更します。
+. （オプション）前のAstraeDSKeyProviderと関連付けられている秘密を削除します。
+
+
+
+NOTE: 以前のキープロバイダとシークレットは自動的に削除されません。
+
+
+
+== キーをローテーションしてセキュリティを確保します
+
+キーのローテーションにより、セキュリティが向上します。デフォルトでは、Astraデータストアはキーを90日ごとに自動的にローテーションします。デフォルト設定を変更できます。また、必要に応じてキーをオンデマンドでローテーションすることもできます。
+
+.自動キーローテーションを設定する
+. CRDのAstraeSSEARKeyRotateパラメータを更新します。 
++
+[listing]
+----
+kubectl patch astradscluster astrads-cluster-f23d158
+-n astrads-system
+--type=merge -p '{"spec": {"softwareEncryptionAtRest": { "keyRotationPeriod": "3000h"}}}'
+----
+
+
+.オンデマンドのキーローテーションを設定する
+. AstraatDSSEARKeyRotateRequest CRを作成してキーを回転します。
++
+[listing]
+----
+cat << EOF | kubectl apply -f  -
+apiVersion: astrads.netapp.io/v1beta1
+kind: AstraDSSEARKeyRotateRequest
+metadata:
+  name: manual
+  namespace: astrads-system
+spec:
+  cluster: astrads-cluster-f23d158
+EOF
+----
+

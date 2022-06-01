@@ -1,0 +1,181 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/manage-ads-vmware.html 
+keywords: astra data store, vm, vcenter, datastore, manage 
+summary: VMwareアプリケーションを使用して、Astraデータストアを管理できます。 
+---
+= VMware環境のAstra Data Storeコンポーネントを管理します
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+次のAstra Data StoreコンポーネントをvSphere環境とAstra Control Centerから管理できます。
+
+* <<Work with managed vCenters>>
+* <<Manage VMs from vSphere>>
+* <<Manage the storage backend>>
+* <<Manage datastores>>
+
+
+
+
+== 管理されたvCenterと連携する
+
+管理対象のvCenterと次の方法で連携できます。
+
+* <<View vCenter details in Astra Control Center>>
+* <<View vCenter details in Astra Control Center>>
+* <<Unmanage a vCenter in Astra Control Center>>
+
+
+
+
+=== vCenterの詳細をAstra Control Centerで表示
+
+クラスタに関連付けられているすべてのvCenterを確認できます。
+
+.手順
+. Astra Control Centerの左ナビゲーションから、[* Clusters]を選択します。
+. vCenterのリストを表示します。
+. [ 保存（ Save ） ] を選択します。
+
+
+
+
+=== vCenterの詳細をAstra Control Centerで表示
+
+システムやクラスタの健常性の確認が必要になることがあります。管理対象のクラスタ数は、Astra Control Center Dashboardで確認できます。
+
+.手順
+. Astra Control Centerの左ナビゲーションから、[* Clusters]を選択します。
+. vCenterを選択します。
+. 情報を表示します。
+
+
+
+
+=== Astra Control CenterでvCenterの管理を解除します
+
+Astra Control CenterでvCenterを管理する必要がなくなった場合は、管理を解除できます。これにより、vCenterがAstra Control Centerから削除され、登録解除されます。
+
+
+NOTE: 最初に、このvCenterに関連付けられているクラスタ、ストレージバックエンド、およびVMをAstra Plugin for VMware vSphereから削除する必要があります。
+
+.手順
+. Astra Control Centerの左ナビゲーションから、[* Clusters]を選択します。
+. クラスタページでvCenterを選択します。
++
+
+TIP: または、複数のvCenterを選択し、*すべてを管理解除*を選択します。
+
+. [アクション*（Actions *）]メニューを右クリックし、[*管理解除*（Unmanage *）]を選択します。
+. vCenterの管理解除ページで「unmanage」と入力します。
+. 「* Yes, unmanage vCenter*」を選択します。
+
+
+
+
+== vSphereからVMを管理します
+
+ネットアップのvSphere標準の処理を使用して、Astraデータストアに関連付けられたVMを管理できます。
+
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-358BF9C1-333E-4AB4-A1CB-62BEA1C94878.html?hWord=N4IghgNiBcICYFMIIC4IAQDcC2IC+QA["VMを削除します"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-76E73C62-A973-4839-BB67-AC1817908E6D.html["VM名を変更します"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-E1D541D1-DF96-467A-89B7-E84F83B2563D.html?hWord=N4IghgNiBcIMYAswDsDmBTABAZwJYC8sA3AWxAF8g["VMのサイズ変更"^]
+
+
+
+NOTE: このリリースでは、一度に1つのVMディスクのサイズのみを変更できます。複数のディスクのサイズを変更しようとしても失敗します。
+
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-450AF515-09D4-44B6-85B2-EE848B371E58.html?hWord=N4IghgNiBcIAoHsDuBTATgAgMoBcw5QGcMEAzDMDANQEs0cBXSDAWTAGMALGgOxQ14YcnflRZIwafgAkEhHBgDCEGih44QAXyA["VMの電源をオンまたはオフにします"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-879FA851-2B24-49E6-B58F-F25D0E923D17.html?hWord=N4IghgNiBcIM4Fc4AcCmA7AJgAgGoFkQBfIA["VMを一時停止"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-450AF515-09D4-44B6-85B2-EE848B371E58.html?hWord=N4IghgNiBcIAoHsDuBTATgAgMoBcw5QGcMEAzDMDANQEs0cBXSDAWTAGMALGgOxQ14YcnflRZIwafgAkEhHBgDCEGih44QAXyA["VMをリセットします"^]
+
+
+vCenterの標準の処理を使用して、Astraデータストアで次のスナップショットワークフローを利用できます。
+
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-9720B104-9875-4C2C-A878-F1C351A4F3D8.html["Astraデータストアのスナップショットを作成"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-3E1BB630-9223-45E8-A64B-DCB90D450673.html["Snapshotをリバートする"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-542CF191-B8DE-42F1-9CCC-D9030491AE25.html["Snapshot を削除します"^]
+
+
+
+NOTE: Snapshotの処理が失敗してVVolのランタイムエラーが表示されることがあります。この場合は、処理を再試行してください。
+
+
+
+== ストレージバックエンドを管理します
+
+ストレージバックエンドを削除できます。ストレージバックエンドを削除しても破棄されるわけではなく、Astraデータストア製品自体は削除されません。VASA ProviderがVMwareから登録解除され、そのvCenterのストレージバックエンドのリンクが解除されるだけです。
+
+
+NOTE: VASA Providerが有効になっていてvCenterの外部に導入されている場合は、Astraデータストアのみを削除できます。ストレージバックエンドがデータストアのプロビジョニングプロセスの一環として使用されている場合、ストレージバックエンドを削除できません。
+
+Astraデータストアが複数のvCenterにリンクされていない場合は、削除するとVASA Providerの登録が解除され、アンインストールされます。
+
+.手順
+. Astra Plugin for VMware vSphereにアクセスします。 
+. 左側のナビゲーションから、「* Storage Backends *」を選択します。 
+. Storage Backendsページで、Storage Backend Actionsメニューをクリックし、* Remove *を選択します。
+. VASA Providerのユーザ名とパスワードを入力します。 
+. 「 * 削除」を選択します。
+
+
+
+
+== データストアを管理します
+
+vSphere環境でAstraデータストアを管理するには、vCenterの標準の処理を使用して、VMとAstraプラグインの拡張機能を管理し、データストアを管理します。
+
+* link:../use-vmware/setup-ads-vmware.html["データストアを作成"] 
+* <<Mount a datastore>>
+* <<Delete a datastore>>
+
+
+
+
+=== データストアをマウント
+
+Astra Plugin for VMware vSphereを使用すると、データストアを追加の1つ以上のホストにマウントできます。
+
+.手順
+. vCenterのデータセンターインベントリから、Astraデータストア用のデータストアを選択します。
+. データストアを右クリックし、* Astra Plugin for VMware vSphere *>* Mount Datastore *を選択します。
+. ホストにデータストアをマウントページで、データストアをマウントするホストを選択します。
++
+
+TIP: データストアをすべてのホストにマウントする場合は、すべてのホストに*マウントをオンにします。
+
+. [*Mount]を選択します。
+
+
+操作を開始した後は、vSphere Clientの[最近のタスク]パネルで進行状況を確認できます。
+
+
+NOTE: スキャンの失敗または一般的なシステムエラーに関連するエラーが発生した場合は、 https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-E8EA857E-268C-41AE-BBD9-08092B9A905D.html["vCenterでストレージプロバイダを再スキャン/同期します"] 次に、データストアの作成をもう一度実行してください。
+
+
+
+=== データストアを削除する
+
+Astra Plugin for VMware vSphereを使用して、データストアを削除できます。
+
+
+TIP: データストアを削除するには、データストア上のすべてのVMを削除しておく必要があります。
+
+.手順
+. vCenterで、データセンターのインベントリからデータストアを選択します。
+. データストアを右クリックし、* Astra Plugin *>* Delete Datastore *を選択します。
+. データストアの削除ページで、情報を確認するか、データストアを削除するための推奨される追加の操作を実行します。
+. 「*削除」を選択します。
+
+
+
+
+== を参照してください。
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]
+

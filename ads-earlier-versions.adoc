@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: ads-earlier-versions.html 
+keywords: astra data store, version, ads, astra 
+summary: 以前のバージョンのドキュメントはAstra Data Storeから入手できます。 
+---
+= 旧バージョンのAstraデータストア
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+以前のリリースのドキュメントを参照できます。
+
+* https://docs.netapp.com/us-en/astra-data-store-2112/index.html["Astra Data Store 21.12ドキュメント"^]
+

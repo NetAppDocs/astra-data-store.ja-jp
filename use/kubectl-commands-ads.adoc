@@ -4,40 +4,34 @@ permalink: use/kubectl-commands-ads.html
 keywords: astra, astra data store, astra datastore, kubectl 
 summary: kubectl コマンドは Astra データストアで直接使用できます。 
 ---
-= kubectl コマンドを使用して Astra データストアのプレビューアセットを管理
+= kubectlコマンドを使用してAstraデータストアのリソースを管理
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-kubectl コマンドを使用し、 Kubernetes API 拡張機能を使用して、 Astra データストアのプレビューアセットを管理できます。
+kubectlコマンドを使用し、Kubernetes API拡張機能を使用して、Astraデータストアのリソースを管理できます。
 
 サンプルアプリの展開方法については、を参照してください link:../use/deploy-apps.html["テストアプリケーションを展開します"]。
 
-次のクラスタのメンテナンス情報については、を参照してください link:../use/maintain-cluster.html["クラスタを管理"]：
-
-* ノードをメンテナンスモードにします
-* ドライブを交換します
-* ノードを追加します
-* ノードを交換
-
+クラスタのメンテナンスについては、を参照してください link:../use/maintain-cluster.html["クラスタを管理"]。
 
 .必要なもの
-* にインストールした Astra データストアプレビュー用 kubectl プラグイン link:../get-started/install-ads.html["Astra データストアプレビューをインストールします"]
+* にインストールしたAstra Data Store kubectlプラグイン link:../get-started/install-ads.html["Astra データストアをインストール"]
 
 
 
 
-== Astra データストアプレビュー用の Kubernetes カスタム API リソースを列挙
+== Astraデータストア用のKubernetesカスタムAPIリソースを列挙
 
-Kubernetes の内部で kubectl コマンドを使用して、 Astra データストアプレビュークラスタとやり取りし、状態を確認できます。
+Kubernetes内でkubectlコマンドを使用して、Astraデータストアクラスタとやり取りし、状態を確認することができます。
 
-「 api-resources 」コマンドにリストされている各項目は、 Kubernetes カスタムリソース定義（ CRD ）を表しています。 CRD は、アストラデータストアプレビューがクラスタを内部的に管理するために使用します。
+「api-resources」コマンドにリストされた各項目は、Astraデータストアがクラスタの管理に内部的に使用するKubernetesカスタムリソース定義（CRD）を表します。
 
-このリストは、後で示すように、各 Astra Data Store プレビューオブジェクトの短い名前を取得して入力を減らすのに特に役立ちます。
+このリストは、後で示すように、各Astra Data Storeオブジェクトの簡単な名前を取得して入力を減らすのに特に役立ちます。
 
-. Kubernetes のカスタム API リソースである Astra データストアプレビュー版のリストを表示します。
+. Astraデータストア用のKubernetesカスタムAPIリソースのリストを表示します。
 +
 [listing]
 ----
@@ -49,21 +43,23 @@ kubectl api-resources --api-group astrads.netapp.io
 +
 [listing]
 ----
-NAME                   SHORTNAMES  APIGROUP           NAMESPACED  KIND
-astradsversions         adsve      astrads.netapp.io  true        AstraDSVersion
-astradsclusters         adscl      astrads.netapp.io  true        AstraDSCluster
-astradslicenses         adsli      astrads.netapp.io  true        AstraDSLicense
-astradsnodeinfoes       adsni      astrads.netapp.io  true        AstraDSNodeInfo
-astradsvolumes          adsvo      astrads.netapp.io  true        AstraDSVolume
-astradsqospolicies      adsqp      astrads.netapp.io  true        AstraDSQosPolicy
-astradsexportpolicies   adsep      astrads.netapp.io  true        AstraDSExportPolicy
-astradsvolumesnapshots  adsvs      astrads.netapp.io  true        AstraDSVolumeSnapshot
-astradsvolumefiles      adsvf      astrads.netapp.io  true        AstraDSVolumeFiles
-astradsautosupports     adsas      astrads.netapp.io  true        AstraDSAutoSupport
-astradsfaileddrives     adsfd      astrads.netapp.io  true        AstraDSFailedDrive
-astradsnodemanagements  adsnm      astrads.netapp.io  true        AstraDSNodeManagement
+NAME                   SHORTNAMES  APIGROUP            NAMESPACED  KIND
+astradsautosupports    adsas   astrads.netapp.io/v1alpha1 true   AstraDSAutoSupport
+astradscloudsnapshots  adscs   astrads.netapp.io/v1alpha1 true   AstraDSCloudSnapshot
+astradsclusters        adscl   astrads.netapp.io/v1alpha1 true   AstraDSCluster
+astradsexportpolicies  adsep   astrads.netapp.io/v1alpha1 true   AstraDSExportPolicy
+astradsfaileddrives    adsfd   astrads.netapp.io/v1alpha1 true   AstraDSFailedDrive
+astradslicenses        adsli   astrads.netapp.io/v1alpha1 true   AstraDSLicense
+astradsnfsoptions      adsnf   astrads.netapp.io/v1alpha1 true   AstraDSNfsOption
+astradsnodeinfoes      adsni   astrads.netapp.io/v1alpha1 true   AstraDSNodeInfo
+astradsnodemanagements adsnm   astrads.netapp.io/v1alpha1 true   AstraDSNodeManagement
+astradsqospolicies     adsqp   astrads.netapp.io/v1alpha1 true   AstraDSQosPolicy
+astradsversions        adsve   astrads.netapp.io/v1alpha1 true   AstraDSVersion
+astradsvolumefiles     adsvf   astrads.netapp.io/v1alpha1 true   AstraDSVolumeFiles
+astradsvolumes         adsvo   astrads.netapp.io/v1alpha1 true   AstraDSVolume
+astradsvolumesnapshots adsvs   astrads.netapp.io/v1alpha1 true   AstraDSVolumeSnapshot
 ----
-. Kubernetes クラスタ内の現在の Astra データストアプレビューオブジェクトをすべて取得するには、「 kubectl get ads-a 」コマンドを使用します。
+. Kubernetesクラスタ内の現在のAstraデータストアオブジェクトをすべて取得するには、「kubectl get ads-a」コマンドを使用します。
 +
 [listing]
 ----
@@ -134,7 +130,7 @@ astrads-system   test2345   21Gi   172.25.138.111   astrads-cluster-9f1c99f   tr
 
 'kubectl astras コマンドには '-h' スイッチが含まれており ' 便利な使用法とフラグ・ドキュメントが提供されています
 
-. Astra Data Store preview kubectl 拡張機能のすべてのコマンドのヘルプを表示します。
+. Astra Data Store kubectl拡張機能のすべてのコマンドのヘルプを表示します。
 +
 [listing]
 ----

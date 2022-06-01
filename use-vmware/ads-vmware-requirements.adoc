@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/ads-vmware-requirements.html 
+keywords: astra, astra data store, requirements, vmware, vcenter, esxi 
+summary: VMwareコンポーネントでAstraデータストアを使用するには、環境が最小要件を満たしていることを確認する必要があります。 
+---
+= VMwareの要件を満たすAstraデータストア
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+環境が全般的な要件を満たしていることを確認したら link:../get-started/requirements.html["Astra データストアの要件"]を使用している環境が、VMware VASAプロバイダやNetApp Astra Plugin for VMware vSphereなどのVMwareコンポーネントの最小要件を満たしていることを確認してください。
+
+
+
+== VMware vSphereの要件
+
+Astraデータストアは、VMware VASA Providerをストレージと通信するためのAPIインターフェイスとして使用します。環境が基本的な要件を満たしていることを確認します https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-BB4207DB-2DED-4E08-BC6D-DEF6D7357C63.html?hWord=N4IghgNiBcIG5gM5hAXyA["VASA Providerの要件"^] さらに、次の追加要件があります。
+
+* VMware vSphere 7.0（Update 1～Update 3をサポート）
+* 入力トラフィックに割り当てられていないIPアドレスが1つあります
+
+
+[NOTE]
+====
+* NetApp Astra Plugin for VMware vSphereはvSphere 7.0 Update 3cをサポートしません。代わりにvSphere 7.0 Update 3Dを使用してください。
+* NetApp Astra Plugin for VMware vSphereは、リンクモードのvCenter Serverをサポートしていません。
+
+
+====
+
+
+== NetApp Astra Plugin for VMware vSphereの要件
+
+NetApp Astra Plugin for VMware vSphereの要件は次のとおりです。
+
+* Kubernetesクラスタで実行されるAstra Control Centerインスタンス
+* Kubernetesクラスタ上で実行される、ライセンス供与されたAstraデータストアインスタンス
+* AstraデータストアクラスタでNFSv3を有効化
+
+
+
+
+=== サポートされている Web ブラウザ
+
+NetApp Astra Plugin for VMware vSphereは、次のWebブラウザの最新バージョンをサポートします。
+
+* Mozilla Firefox
+* Microsoft Edge（クロムベース）
+* Google Chrome
+
+
+
+
+== を参照してください。
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]
+* link:../get-started/requirements.html["Astra データストアの要件"]
+

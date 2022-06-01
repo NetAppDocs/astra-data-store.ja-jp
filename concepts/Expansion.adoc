@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concepts/expansion.html 
-keywords: how astra works, how Astra expansion works, what Astra is, astra data store, kubernetes 
+keywords: how astra works, how astra expansion works, what Astra is, astra data store, kubernetes 
 summary: Astra データストアクラスタは拡張が可能です。 
 ---
 = クラスタの拡張
@@ -11,7 +11,7 @@ summary: Astra データストアクラスタは拡張が可能です。
 :imagesdir: ../media/concepts/
 
 
-Astra データストアプレビュー：クラスタ内でさまざまなタイプや機能のノードをサポートクラスタを拡張する場合は、パフォーマンス機能がクラスタ内のパフォーマンスが最も低いノードよりも低いノード以外のノードを追加することを Astra データストアプレビューでサポートしています。新しいノードのストレージ容量は既存のノードと同じである必要があります。拡張時の新しいノードを含むすべてのノードは、に示した最小要件を満たしている必要があります link:../get-started/requirements.html["Astra データストアのプレビュー要件"]。
+Astraデータストアは、クラスタ内でさまざまなタイプや機能のノードをサポートします。クラスタを拡張する場合、Astraデータストアでは、パフォーマンス機能を持つノードの追加をサポートしています。ただし、クラスタ内のパフォーマンスが最も低いノードよりも少ないノードだけでは可能です。新しいノードのストレージ容量は既存のノードと同じである必要があります。拡張時の新しいノードを含むすべてのノードは、に示した最小要件を満たしている必要があります link:../get-started/requirements.html["Astra データストアの要件"]。
 
 
 

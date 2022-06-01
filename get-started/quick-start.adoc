@@ -4,56 +4,54 @@ permalink: get-started/quick-start.html
 keywords: get started, quick start, astra, astra data store, deploy, deployment, kubernetes 
 summary: Astra データストアを導入するには、いくつかの手順を踏む必要があります。 
 ---
-= Astra データストアプレビューのクイックスタート
+= Astra データストアのクイックスタート
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-このページでは、 Astra データストアのプレビューを開始するために必要な手順の概要を説明します。各ステップ内のリンクから、詳細が記載されたページに移動できます。
+このページでは、Astraデータストアの導入に必要な手順の概要を説明します。各ステップ内のリンクから、詳細が記載されたページに移動できます。
 
-ぜひお試しください。Astra Data Store のプレビューを試す場合は、 90 日間のプレビューライセンスを使用できます。
-
-https://www.netapp.com/cloud-services/astra/data-store-form/["こちらから登録してください"^] から Astra データストアプレビューライセンスを取得できます。
+ぜひお試しください。Astraデータストアを試用する場合は、90日間の評価版ライセンスを使用できます。 https://www.netapp.com/cloud-services/astra/data-store-form/["こちらから登録してください"^] Astraデータストアライセンスを取得する方法
 
 .<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="One"></span> Kubernetes クラスタの要件を確認します
 * クラスタが正常な状態で稼働し、少なくとも 4 つのワーカーノードがある必要があります。
-* Astra データストアプレビュー環境を構成する各 Kubernetes ワーカーノードには、同じインターフェイスタイプ（ SATA 、 SAS 、 NVMe ）の SSD と、 Astra データストアプレビュークラスタに割り当てられているドライブの数が同じである必要があります。
+* Astraデータストア環境の一部であるKubernetesワーカーノードには、いずれも同じインターフェイスタイプ（SATA、SAS、NVMe）のSSDと、Astraデータストアクラスタに割り当てられているドライブ数が必要です。
 * SSD のシリアル番号はそれぞれ一意である必要があります。
 
 
 [role="quick-margin-para"]
-の詳細を確認してください link:../get-started/requirements.html["Astra データストアのプレビュー要件"]。
+の詳細を確認してください link:../get-started/requirements.html["Astra データストアの要件"]。
 
-.<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] alt="2"></span> Astra データストアプレビューをダウンロードしてインストールします
-* から Astra データストアプレビューをダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^]。
-* Astra データストアプレビューをローカル環境にインストールします。
-* Astra データストアプレビューライセンスを適用
-* Astra データストアプレビュークラスタをインストール
-* Astra データストアのプレビュー監視を設定
-* Red Hat OpenShift を使用する場合は、 Red Hat OpenShift Container Platform （ OCP ）に Astra データストアプレビューをインストールします。
+.<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt="2"></span> Astraデータストアをダウンロードしてインストールします
+* からAstraデータストアをダウンロードします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^]。
+* Astraデータストアをローカル環境にインストール
+* Astraデータストアライセンスを適用します。
+* Astraデータストアクラスタをインストール
 
 
 [role="quick-margin-para"]
-の詳細を確認してください link:../get-started/install-ads.html["Astra データストアプレビューをインストールしています"]。
+の詳細を確認してください link:../get-started/install-ads.html["Astraデータストアのインストール"]。
 
 .<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png"[] Alt="3"></span> 初期設定タスクをいくつか実行します
 * Astra Trident をインストール
 * Kubernetes スナップショットカスタムリソース定義（ CRD ）とコントローラをインストールする。
-* Astra データストアプレビューをストレージバックエンドとしてセットアップする。
-* デフォルトの Astra データストアプレビューストレージクラスを作成
+* Astraデータストアをストレージバックエンドとしてセットアップする。
+* Default Astra Data Storeストレージクラスを作成
+* 遠隔測定サービス用のAstraデータストアを構成する。
 
 
 [role="quick-margin-para"]
 の詳細については、を参照してください link:../get-started/setup-ads.html["初期セットアッププロセス"]。
 
 [role="quick-margin-para"]
-Astra データストアプレビューのセットアップが完了したら、次の手順を実行します。
+Astraデータストアのセットアップが完了したら、次のことを行うことができます。
 
-* kubectl コマンドと kubectl ファイルシステム拡張機能を使用して、ノードの保守モードへの切り替え、ドライブの交換、ノードの交換などのタスクを含む、クラスタを管理します。の詳細を確認してください link:../use/kubectl-commands-ads.html["kubectl コマンドを Astra データストアプレビューで使用する方法"]。
+* kubectl コマンドと kubectl ファイルシステム拡張機能を使用して、ノードの保守モードへの切り替え、ドライブの交換、ノードの交換などのタスクを含む、クラスタを管理します。の詳細を確認してください link:../use/kubectl-commands-ads.html["kubectlコマンドをAstraデータストアで使用する方法"]。
 * 監視エンドポイントを設定する。の詳細を確認してください link:../use/configure-endpoints.html["監視エンドポイントの設定"]。
+* link:../use-vmware/use-ads-vmware-overview.html["VMwareでAstraデータストアを使用"]。
 
 
 [role="quick-margin-para"]
-link:../get-started/install-ads.html["Astra データストアプレビューをインストールします"]。
+link:../get-started/install-ads.html["Astra データストアをインストール"]。

@@ -2,21 +2,29 @@
 section: use
 title: Astra データストアを使用
 entries:
-- title: Astra データストア資産の管理
+- title: Astraデータストアのリソースを管理
   url: "/use/kubectl-commands-ads.html"
 - title: テストアプリケーションを展開します
   url: "/use/deploy-apps.html"
 - title: クラスタを管理
   url: "/use/maintain-cluster.html"
-- title: Cloud Insights で指標を監視
-  url: "/use/monitor-with-cloud-insights.html"
-- title: Prometheus と Grafana で指標を監視します
-  url: "/use/monitor-with-prometheus-grafana.html"
-- title: イベントログを設定して監視する
-  url: "/use/configure-endpoints.html"
-- title: Astra Control Center の統合
-  url: "/use/ads-acc-ui.html"
-- title: Astra データストアプレビューをスクリプトで自動的にアンインストールします
+- title: Astraデータストアを監視
+  entries:
+  - title: Cloud Insights で指標を監視
+    url: "/use/monitor-with-cloud-insights.html"
+  - title: Prometheus と Grafana で指標を監視します
+    url: "/use/monitor-with-prometheus-grafana.html"
+  - title: イベントログを設定して監視する
+    url: "/use/configure-endpoints.html"
+- title: Secure Astraデータストア
+  entries:
+  - title: セキュリティ証明書を管理する
+    url: "/use/manage-certificates.html"
+  - title: 外部キーを管理します
+    url: "/use/manage-keys.html"
+- title: Astraデータストアライセンスを更新
+  url: "/use/update-ads-license.html"
+- title: Astraデータストアをアップグレード
+  url: "/use/upgrade-ads.html"
+- title: Astraデータストアをアンインストールします
   url: "/use/uninstall-ads.html"
-- title: スクリプトを使用せずに Astra Data Store のプレビューを手動でアンインストールする
-  url: "/use/uninstall-ads-manual.html"

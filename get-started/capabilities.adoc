@@ -4,40 +4,33 @@ permalink: get-started/capabilities.html
 keywords: kubernetes cluster, cluster requirements, version requirements, supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking 
 summary: まずは、環境のサポート状況を確認します。 
 ---
-= Astra データストアのプレビュー制限
+= Astra Data Store Early Access Program（EAP；早期アクセスプログラム）の制限
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-Astra データストアは、クラウドネイティブアプリケーションの管理を支援する、 Kubernetes ネイティブのオンプレミスデータセンター向け共有ファイル Software-Defined Storage （ SDS ）解決策です。
-
-Astra Data Store プレビューリリースには、次のリソース制限があります。
+Astraデータストアには、Early Access Programにおける次のリソース制限があります。
 
 |===
 | リソース | 最小（ Minimum ） | 最大 
 
 
-| Astra データストアプレビュークラスタに含まれるノード数 | 4. | 5. 
+| Astraデータストアクラスタのノード数 | 4. | 16 
 
 
-| ノードあたりの永続ボリュームの数 | 該当なし | 10. 
+| ノードあたりの永続ボリュームの数 | 該当なし | 50 
 
 
-| ノードあたりの永続ボリュームのプロビジョニング済み容量の合計 | 該当なし | 1TiB 
+| ボリュームサイズ | 20MiB | 2TiB 
 
 
-| ボリュームサイズ | 20MiB | 1TiB 
-
-
-| ボリュームあたりの Snapshot 数 | 0 | 256 
+| ボリュームあたりの Snapshot 数 | 0 | 1、023 
 
 
 | ボリュームあたりのクローン数 | 0 | 9. 
+
+
+| ノードあたりのVM数 | 0 | 50 
 |===
-
-NOTE: Astra データストアプレビュー版は、 VM ワークロードをサポートしていない。VMware VVOL ワークロードは今後のリリースでサポートする予定です。
-
-
-NOTE: Astra データストアのプレビューはパフォーマンスを調整したものであり、パフォーマンスの特性評価には使用しないでください。

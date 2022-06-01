@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/use-ads-vmware-overview.html 
+keywords: astra, astra data store, astra vcenter plug-in, vmware, vcenter, esxi 
+summary: Astra vCenter Plug-inのユーザインターフェイスを使用して、Astraデータストアのタスクを実行できます。 
+---
+= VMwareを使用したAstraデータストアの詳細をご確認ください
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Astraデータストアは、コンテナ化ワークロードと仮想化ワークロードの両方をサポートします。VVolおよびストレージポリシーベースの管理と統合することで、vSphere管理者はストレージQoSを適用できます。NetApp Astra Plugin for VMware vSphereは、管理と監視に使い慣れたプラグインで、煩雑なストレージタスクを排除します。
+
+Astra Plugin for VMware vSphereには、次のようなメリットがあります。
+
+* VVOLとVASAの完全な統合による、VM単位のストレージプロビジョニング
+* ストレージポリシーベースの管理統合
+* vSphereネイティブ管理用のvCenterプラグイン
+
+
+次の図は、VMwareを使用したAstraファミリーエコシステムを示しています。image:astra-ads-architecture-diagram-v4-vmware.png["Astra のアーキテクチャ図とコンポーネント"]
+
+
+
+== を参照してください。
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]
+

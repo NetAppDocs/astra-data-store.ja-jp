@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: use/manage-certificates.html 
+keywords: astra, astra data store, kubectl, certs, cert, certificate, certificates, revoke, security, secure, expired, compromised, regenerate, generate 
+summary: Astra Data Storeでは、侵害された証明書や期限切れの証明書を手動で取り消すことができます。 
+---
+= セキュリティ証明書を管理する
+:allow-uri-read: 
+
+
+Astraデータストアでは、クラスタのソフトウェアコンポーネント間でMTLS（Mutual Transport Layer Security）暗号化を使用しています。各Astra Data Storeクラスタには、自己署名ルートCA証明書（「astrs-cert-root」）と中間CA証明書（「astrs-cert-<cluster_name>」）があります。この証明書はAstra Data Storeオペレータによって管理され、有効期限の7日前にオペレータが証明書を自動的に更新します。証明書を手動で取り消すこともできます。
+
+
+
+== 証明書を取り消します
+
+Astraデータストアコントローラ、ノード、またはCA証明書が侵害された場合、MTLSシークレットを削除することでCA証明書を取り消すことができます。これを行うと、Astra Data Storeオペレータは自動的に新しい証明書を発行します。Astraデータストア証明書はいつでも取り消すことができます。
+
+
+NOTE: CA証明書を取り消すと、そのCAによって署名された証明書がすべて取り消されます。
+
+.手順
+. Astra Data Storeクラスタのコントローラノードにログインします。
+. システム上の既存の証明書の一覧を表示します。例：
++
+[listing]
+----
+kubectl get secrets -n astrads-system | grep astrads-cert
+----
++
+次のような出力が表示されます。
+
++
+[listing]
+----
+astrads-cert-astrads-cluster-controller                   kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-cluster-f23d158                      kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-ds-dms-astrads-cluster-f23d158       kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-ds-support-astrads-cluster-f23d158   kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-support-astrads-cluster-f23d158      kubernetes.io/tls     4      6d6h
+astrads-cert-root                                         kubernetes.io/tls     4      6d6h
+astrads-cert-sti-net-com                                  kubernetes.io/tls     5      6d6h
+----
+. 出力には、取り消す必要がある証明書の名前が表示されます。
+. 'kubectl'ユーティリティを使用して'証明書を取り消しますこれは'certificate_name'を証明書の名前に置き換えます例：
++
+[listing]
+----
+kubectl delete secret CERTIFICATE_NAME -n astrads-system
+----
+
+
+既存の証明書が失効し、代わりに新しい証明書が自動的に生成されます。

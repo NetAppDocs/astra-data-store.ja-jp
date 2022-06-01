@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: use/update-ads-license.html 
+keywords: astra, astra data store, kubectl 
+summary: コマンドラインを使用して、Astraデータストア用のインストール済みライセンスを更新できます。 
+---
+= Astraデータストアライセンスを更新
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Astraデータストアにインストールされた評価用ライセンスを更新して、評価期間を延長できます。ライセンスは、次の3つの方法のいずれかを使用して更新できます。
+
+* Astra Control Centerを使用してAstraデータストアライセンスを更新するには、を参照してください https://docs.netapp.com/us-en/astra-control-center/use/manage-backend.html#update-a-storage-backend-license["ストレージバックエンドライセンスを更新する"]。
+* Astra VMwareプラグインを使用してAstraデータストアライセンスを更新するには、を参照してください link:../use-vmware/manage-ads-vmware.html["VMwareでAstraデータストアを管理"]。
+* コマンドラインを使用してAstraデータストアライセンスを更新するには、を参照してください <<Update the Astra Data Store license using the command line>>。
+
+
+
+
+== コマンドラインを使用してAstraデータストアライセンスを更新
+
+'kubectl'ユーティリティを使用して'Astra Data Storeライセンスを更新できます
+
+.手順
+. ネットアップから入手した交換用ネットアップライセンスファイル（NLF）を適用します。コマンドを実行する前に、クラスタの名前（「<AstrA-Data-Store-cluster-name>`」）とライセンスファイルのパス（「<file_path/file.txt」）を入力します。
++
+[listing]
+----
+kubectl astrads license add --license-file-path <file_path/file.txt> --ads-cluster-name <Astra-Data-Store-cluster-name> -n astrads-system
+----
+. ライセンスが追加されたことを確認します。
++
+[listing]
+----
+kubectl astrads license list
+----
++
+次のような応答が表示されます。
+
++
+[listing]
+----
+NAME        ADSCLUSTER                 VALID   PRODUCT             EVALUATION  ENDDATE     VALIDATED
+p100000006  astrads-example-cluster    true    Astra Data Store    true        2023-01-23  2022-04-04T14:38:54Z
+----
+

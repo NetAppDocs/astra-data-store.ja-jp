@@ -2,7 +2,7 @@
 section: concepts
 title: 概念
 entries:
-- title: Astra データストアの概要
+- title: Astra データストアの詳細
   url: "/concepts/intro.html"
 - title: 導入モデル
   url: "/concepts/architecture.html"

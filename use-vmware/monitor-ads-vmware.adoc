@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/monitor-ads-vmware.html 
+keywords: astra, astra data store, vmware, vcenter, esxi 
+summary: vCenterプラグインを使用して、Astraデータストアのパフォーマンスを監視できます。 
+---
+= VMware環境のコンポーネントを監視する
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+NetApp Astra Plugin for VMware vSphereを使用すると、Astraデータストアインストール環境のコンポーネントを監視できます。ストレージバックエンド、VASAプロバイダ、VM、VVolなど、システムの健全性を監視できます。容量やvCenterの情報を表示することもできます。
+
+
+
+== Astra Plugin for VMware vSphere Dashboardを使用して、システムのヘルスを監視します
+
+VMware環境でAstraデータストアを管理するには、ストレージバックエンドとVASAプロバイダの全体的な健常性を監視する必要があります。
+
+NetApp Astra Plugin for VMware vSphere Dashboardを使用すると、次の情報を確認できます。
+
+* このvCenter内のすべてのストレージバックエンドの使用済み物理容量と使用可能容量。情報にカーソルを合わせると、詳細を確認できます。
+* 健全で正常でないストレージバックエンドとVASAプロバイダ
+* 上位10個のVMのレイテンシ、IOPS、スループット、容量利用率。
+
+
+ダッシュボードでは、さらにいくつかのタスクを実行できます。
+
+* 容量を監視
+* 既存のストレージバックエンドを使用する。を参照してください link:../use-vmware/setup-ads-vmware.html["ストレージバックエンドをセットアップ"]。
+* 製品ドキュメントにアクセスする
+
+
+.ダッシュボードを確認する手順
+. Astra Plugin for VMware vSphereにアクセスします。
+. 概要ページで、次のセクションを確認します。
++
+.. *ストレージバックエンド*セクション：ストレージバックエンドとVASAプロバイダの両方の状態をクリックすると、その状態の詳細を確認できます。をクリックして、すべてのストレージバックエンドを表示することもできます。
+.. * Storage Backend Capacity *セクション：選択したvCenterのストレージバックエンドの使用済み物理容量と使用可能な容量の合計を確認します。vCenterサーバを変更するには、右上のvCenter Serverオプションをクリックします。
+.. *仮想マシン*セクション：容量使用率が上位10個の仮想マシンを確認します。
+
+
+
+
+
+TIP: その代わりに、テーブルの見出しをクリックすると、レイテンシが高い上位10個のVMなどの目的を表示できます。
+
+.Astraデータストアを他のビューで監視する手順
+. Astraデータストアのコンポーネントを監視するには、次のビューにアクセスします。
++
+** * Virtual Machines *タブ：Astraデータストアで管理されているすべてのVMをダッシュボードと比較して表示。このダッシュボードには、上位10個のVMのみが表示されます。
+** * Storage * drill down：ストレージ・システムに関連づけられているホスト、仮想マシン、データストアを表示します。
+** * VM Storage *ビュー：VASA Providerで作成されたVVOLの詳細情報が表示されます。
+
+
+
+
+
+
+== ストレージバックエンドのしきい値設定を確認します
+
+ストレージバックエンドの容量のしきい値設定によって、ストレージバックエンド内のすべてのデータストアにアラート通知が表示されるタイミングが決まります。
+
+Astra Plugin for VMware vSphereを使用してストレージバックエンドを導入または追加する場合、デフォルトのしきい値は次のとおりです。
+
+* 90%使用されると、赤のアラートが生成されます
+* 80%フルの場合、黄色のアラートが生成されます
+
+
+VMwareでアラートが生成されるレベルを確認できます。
+
+
+NOTE: Astra Data Store Early Access Programでは、同じストレージコンテナが複数のデータセンターで使用されている場合、データストアに対して誤ったアラームが表示されることがあります。
+
+.手順
+. NetApp Astra Plugin for VMware vSphereにアクセスします。
+. 左側のナビゲーションから、「* Settings（*設定）」*を選択します。
+. 設定しきい値を確認します。
+
+
+
+
+== を参照してください。
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center のドキュメント"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]
+

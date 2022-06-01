@@ -1,0 +1,16 @@
+---
+section: use-vmware
+title: VMwareでAstraデータストアを使用
+entries:
+- title: VMwareを使用したAstraデータストアの詳細をご確認ください
+  url: "/use-vmware/use-ads-vmware-overview.html"
+- title: VMwareの要件を満たすAstraデータストア
+  url: "/use-vmware/ads-vmware-requirements.html"
+- title: VMwareを使用してAstraデータストアをセットアップする
+  url: "/use-vmware/setup-ads-vmware.html"
+- title: VMware環境のコンポーネントを監視する
+  url: "/use-vmware/monitor-ads-vmware.html"
+- title: VMware環境のAstra Data Storeコンポーネントを管理します
+  url: "/use-vmware/manage-ads-vmware.html"
+- title: VMware統合環境からAstraデータストアをアンインストールします
+  url: "/use-vmware/uninstall-ads-vmware.html"

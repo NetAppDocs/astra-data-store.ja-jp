@@ -4,48 +4,28 @@ permalink: concepts/intro.html
 keywords: introduction, how astra works, how Astra works, what Astra is, astra data store, datastore, kubernetes 
 summary: Astra データストアは、コンテナワークロードと VM ワークロードの両方に対応する Kubernetes ネイティブの共有ファイルサービスで、エンタープライズデータ管理を実現します。 
 ---
-= Astra データストアの概要プレビュー
+= Astra データストアの詳細
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 
 
-Astra データストアプレビュー：クラウドネイティブアプリケーションの管理を支援する、 Kubernetes ネイティブのオンプレミスデータセンター向け共有ファイル Software-Defined Storage （ SDS ）解決策です。Astra データストアは、コンテナと VM の両方のワークロードに対して、ネットアップのエンタープライズデータ管理とネイティブの共有ファイルサービスを提供します。
+Astra データストアは、クラウドネイティブアプリケーションの管理を支援する、 Kubernetes ネイティブのオンプレミスデータセンター向け共有ファイル Software-Defined Storage （ SDS ）解決策です。Astra データストアは、コンテナと VM の両方のワークロードに対して、ネットアップのエンタープライズデータ管理とネイティブの共有ファイルサービスを提供します。
 
-Astra Data Store プレビューでは、次のことが可能です。
+Astra データストアでは、次のことが可能です。
 
 * * Kubernetes のコンテナ化されたワークロード * をサポート：使用するエンタープライズデータ管理サービスとツールを利用できます。
 * * DevOps 向けの Kubernetes 「アプリケーションサービス」プラットフォームを使用 * ：柔軟性に優れたソフトウェア定義のセルフサービス型プラットフォームを構築して、自動化された反復可能なサービスを提供し、開発者が必要とする複雑さを解消します。
 
 
-
-
-== Astra 製品ファミリー
-
-Astra 製品ファミリーは、 Kubernetes アプリケーションデータのライフサイクル管理を提供し、ステートフルアプリケーションの運用を簡易化します。Kubernetes ワークロードの保護、バックアップ、移行を簡易化し、作業用アプリケーションのクローンを瞬時に作成できます。
-
-Astra には次のサービスがあります。
-
-* * Astra Control * ：パブリッククラウドとオンプレミスの両方で Kubernetes ワークロードを管理、保護、移動する、アプリケーション対応のデータ管理ツールを使用。 3 つの制約が発生
-+
-** * Astra Control Service * ：ネットアップが管理するサービスを使用して、パブリッククラウドの Kubernetes ワークロードをデータ管理
-** * Astra Control Center * ：オンプレミスの Kubernetes ワークロードのデータ管理に、自己管理ソフトウェアを使用
-
-
-* * Astra Data Store のプレビュー * ： Kubernetes ネイティブの共有ファイルサービスをコンテナや VM のワークロードに使用して、エンタープライズデータを管理
-* * Astra Trident * ： Container Storage Interface （ CSI ）に準拠したストレージプロビジョニングと管理を、ネットアップのストレージプロバイダとともに使用します。
-
-
-を参照してください https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra ファミリーの紹介"^]。
-
-image:astra-product-family.png["Astra 製品ファミリー"]
+Astraデータストアは、Astra製品ファミリーの一部です。の詳細を確認してください https://docs.netapp.com/us-en/astra-family/intro-family.html["アストラファミリー"^]。
 
 
 
-== Astra データストアのプレビュー機能
+== Astra データストアの機能
 
-Astra データストアプレビューでは、 Kubernetes ネイティブのエンドツーエンドのストレージとデータ管理機能がクラウドネイティブアプリケーションに適用されます。以下の機能が必要になります。
+Astra データストアは、 Kubernetes ネイティブのエンドツーエンドのストレージとデータ管理機能をクラウドネイティブアプリケーションに提供します。以下の機能が必要です。
 
 * * Kubernetes ネイティブの共有ファイルサービス * ：標準の NFS クライアントをコンテナと VM の統合データストアとして使用し、 Kubernetes にネイティブな共有ファイルサービスを提供します。 .esk.esub.us
 * * クラウド規模 * ： Kubernetes ネイティブの複数の並列ファイルシステムを同じリソースプール上に提供し、クラウドレベルの拡張性と利用率を実現します。これにより、ストレージをクラスタとは別に管理する必要がなくなります。
@@ -63,7 +43,7 @@ Astra データストアプレビューでは、 Kubernetes ネイティブの�
 
 
 
-== Astra データストアのプレビュー版を入手しましょう
+== Astra データストアの利用を開始しましょう
 
 最初に、 link:../get-started/requirements.html["Astra データストアの要件をご確認ください"]。
 

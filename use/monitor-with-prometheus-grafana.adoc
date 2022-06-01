@@ -11,27 +11,27 @@ summary: Prometheus と Grafana を使用して、 Astra データストアの�
 :imagesdir: ../media/use/
 
 
-Prometheus と Grafana を使用して、 Astra データストアのプレビュー指標を監視できます。Prometheus で Astra Data Store プレビュー Kubernetes クラスタ指標エンドポイントから指標を収集するように設定でき、 Grafana を使用して指標データを表示できます。
+PrometheusとGrafanaを使用して、Astraデータストアの指標を監視できます。PrometheusでAstra Data Store Kubernetesクラスタ指標エンドポイントから指標を収集するように設定でき、Grafanaを使用して指標データを表示できます。
 
 .必要なもの
-* Prometheus パッケージと Grafana パッケージを Astra Data Store プレビュークラスタ、または Astra Data Store プレビュークラスタと通信可能な別のクラスタでダウンロードしてインストールしておく必要があります。公式ドキュメントの指示に従って、各ツールをインストールします。
+* PrometheusパッケージとGrafanaパッケージをAstra Data Storeクラスタ、またはAstra Data Storeクラスタと通信可能な別のクラスタでダウンロードしてインストールしておく必要があります。公式ドキュメントの指示に従って、各ツールをインストールします。
 +
 ** https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_deploy_Prometheus_with_Astra_Data_Store["Prometheus をインストールする"^]
 ** https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_set_up_Grafana_for_monitoring_Astra_Data_Store_cluster["Grafana をインストールします"^]
 
 
-* Prometheus と Grafana が Astra データストアプレビュー Kubernetes クラスタと通信できる必要があります。Prometheus と Grafana が Astra Data Store プレビュークラスタにインストールされていない場合は、 Astra Data Store プレビュークラスタで実行されている指標サービスと通信できることを確認する必要があります。
+* PrometheusとGrafanaがAstra Data Store Kubernetesクラスタと通信できる必要があります。PrometheusとGrafanaがAstra Data Storeクラスタにインストールされていない場合は、Astra Data Storeクラスタで実行されている指標サービスと通信できることを確認する必要があります。
 
 
 
 
 == Prometheus を設定する
 
-Astra Data Store プレビューでは、 Kubernetes クラスタの TCP ポート 9341 で指標サービスが公開されます。このサービスから指標を収集するには、 Prometheus を設定する必要があります。
+Astraデータストアは、KubernetesクラスタのTCPポート9341で指標サービスを公開します。このサービスから指標を収集するには、 Prometheus を設定する必要があります。
 
 .手順
 . Prometheus インストール用の「 prometheus.yml 」構成ファイルを編集します。
-. Astra Data Store プレビューサービス名とそのポートを指すサービス目標を追加します。例：
+. Astra Data Storeサービス名とそのポートを指すサービスターゲットを追加します。例：
 +
 [listing]
 ----
@@ -72,10 +72,10 @@ datasources:
 
 == Grafana ダッシュボードテンプレートをインポートします
 
-Astra Data Store Preview をインストールするためにダウンロードしたバンドルファイルには、 Grafana からインポートできる Grafana ダッシュボードテンプレートファイルが含まれています。このダッシュボードテンプレートを使用すると、 Astra データストアのプレビューで確認できる指標の種類とその表示方法を確認できます。
+Astra Data Storeをインストールするためにダウンロードしたバンドルファイルには、Grafana内からインポートできるGrafanaダッシュボードテンプレートファイルが含まれています。このダッシュボードテンプレートを使用すると、Astraデータストアから取得できる指標の種類とその表示方法を確認できます。
 
 .手順
-. Astra Data Store プレビューの tar.gz' バンドルを開きます
+. Astra Data Storeの.tar.gzバンドルを開きます。
 . 'マニフェスト ' ディレクトリを開きます
 . 「 graafana _cluster.json 」ファイルと「 graafana _volume.json 」ファイルを展開します。
 . Grafana Web UI の使用、 https://grafana.com/docs/grafana/latest/dashboards/export-import/["でのダッシュボードテンプレートファイルを Grafana にインポートします"^]。

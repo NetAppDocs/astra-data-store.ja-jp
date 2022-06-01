@@ -4,26 +4,30 @@ permalink: get-started/setup-ads.html
 keywords: astra, astra data store, setup, trident, backend 
 summary: Astra データストアをインストールし、環境に関する前提条件をいくつか取り上げたら、 Astra Trident のインストールまたは更新、 Kubernetes のスナップショット機能の設定、ストレージバックエンドのセットアップ、およびデフォルトのストレージクラスの作成を行います。 
 ---
-= Astra Data Store のプレビューコンポーネントをセットアップする
+= Astraデータストアのコンポーネントをセットアップする
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-Astra Data Store のプレビューをインストールし、環境に関するいくつかの前提条件に対処したら、 Astra Trident をインストールし、 Kubernetes のスナップショット機能を設定し、ストレージバックエンドをセットアップして、デフォルトのストレージクラスを作成します。
+お先にどうぞ link:../get-started/install-ads.html#install-a-standalone-astra-data-store["スタンドアロンのAstraデータストアをインストール"] とで、いくつかの対処方法を link:../get-started/requirements.html["環境に関する前提条件"]Tridentをインストールし、Kubernetesのスナップショット機能を設定し、ストレージバックエンドをセットアップして、デフォルトのストレージクラスを作成します。
+
+
+NOTE: Astra Control Centerを使用してAstraデータストアを導入している場合は、セットアップする予定がない限り、これらの手順に従う必要はありません <<Configure Astra Data Store monitoring,その他の監視オプション>>。
 
 * <<Install Astra Trident>>
 * <<Install Kubernetes snapshot CRDs and Controller>>
 * <<Set up Astra Data Store as storage backend>>
 * <<Create a default Astra Data Store storage class>>
+* <<Configure Astra Data Store monitoring>>
 
 
 
 
 == Astra Trident をインストール
 
-Astra データストアプレビュー版を利用するには、 Astra Trident 21.10.1 をインストールする必要があります。Trident は次のいずれかの方法でインストールできます。
+Astraデータストアの場合、Astra Trident 21.10.1以降をインストールする必要があります。Trident は次のいずれかの方法でインストールできます。
 
 * https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html["tridentctl を使用して Astra Trident をインストールします"^]。
 * https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html["Trident オペレータを使用して Astra Trident をインストール"^]。
@@ -43,7 +47,7 @@ NOTE: Trident オペレータは、手動または Helm を使用して導入で
 NOTE: 次のコマンド例では ' ディレクトリとして /trident` を想定していますが ' 使用するディレクトリは 'YAML ファイルのダウンロードに使用した任意のディレクトリにすることができます
 
 .必要なもの
-* link:requirements.html["インストールを開始する前に、 Astra データストアプレビュー環境を準備します"]。
+* link:requirements.html["インストールを開始する前に、Astra Data Store環境を準備します"]。
 * をダウンロードします link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/deploy/kubernetes/snapshot-controller["Kubernetes snapshot controller yaml ファイル"^]：
 +
 ** setup-snapshot-controller.yaml
@@ -183,6 +187,10 @@ vi ads_backend.json
 ----
 . JSON ファイルを設定します。
 +
+
+NOTE: JSONの例を次に示します。
+
++
 .. 「 cluster 」の値を Astra Data Store クラスタのクラスタ名に変更します。
 .. 「 namespace 」の値を、ボリュームの作成に使用するネームスペースに変更します。
 .. バックエンドではなく 'exportpolicy-CR を設定している場合を除き 'autoExportPolicy' の値を true に変更します
@@ -226,7 +234,7 @@ cat kubeconf.json | base64 | tr -d '\n'
     "debugTraceFlags": {"method": true, "api": true},
     "labels": {"cloud": "on-prem", "creator": "trident-dev"},
     "defaults": {
-        "qosPolicy": "bronze"
+        "qosPolicy": "silver"
     },
     "storage": [
         {
@@ -234,7 +242,7 @@ cat kubeconf.json | base64 | tr -d '\n'
                 "performance": "extreme"
             },
             "defaults": {
-                "qosPolicy": "bronze"
+                "qosPolicy": "gold"
             }
         },
         {
@@ -242,7 +250,7 @@ cat kubeconf.json | base64 | tr -d '\n'
                 "performance": "premium"
             },
             "defaults": {
-                "qosPolicy": "bronze"
+                "qosPolicy": "silver"
             }
         },
         {
@@ -303,16 +311,22 @@ vi ads_sc_example.yaml
 +
 [listing]
 ----
+allowVolumeExpansion: true
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: trident-csi
+  creationTimestamp: "2022-05-09T18:05:21Z"
+  name: ads-silver
+  resourceVersion: "3361772"
+  uid: lo023456-da4b-51e3-b430-3aa1e3bg111a
+mountOptions:
+- vers=4
+parameters:
+  backendType: astrads-nas
+  selector: performance=premium
 provisioner: csi.trident.netapp.io
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
-allowVolumeExpansion: true
-mountOptions:
-  - vers=4.1
 ----
 .. trident-csi の作成：
 +
@@ -334,7 +348,7 @@ storageclass.storage.k8s.io/trident-csi created
 +
 [listing]
 ----
-kubectl get storageclass -A
+kubectl get storageclass
 ----
 +
 対応：
@@ -343,7 +357,7 @@ kubectl get storageclass -A
 [listing]
 ----
 NAME          PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
-trident-csi   csi.trident.netapp.io   Delete          Immediate           true                   6h29m
+ads-silver    csi.trident.netapp.io   Delete          Immediate           true                   6h29m
 ----
 . Trident インストーラをダウンロードしたディレクトリに移動します。
 +
@@ -395,7 +409,7 @@ items:
     storage:
     - defaults:
         exportPolicy: ""
-        qosPolicy: bronze
+        qosPolicy: gold
         size: ""
         snapshotDir: ""
         snapshotPolicy: ""
@@ -406,7 +420,7 @@ items:
       zone: ""
     - defaults:
         exportPolicy: ""
-        qosPolicy: bronze
+        qosPolicy: silver
         size: ""
         snapshotDir: ""
         snapshotPolicy: ""
@@ -495,8 +509,42 @@ items:
         snapshots:
           offer: true
       storageClasses:
-      *- trident-csi*
+      *- ads-silver*
       supportedTopologies: null
   volumes: []
+----
+
+
+
+
+== Astraデータストアの監視を設定
+
+（オプション）別のテレメトリサービスによる監視用にAstraデータストアを設定できます。この手順 は、Astraデータストア監視用のAstra Control Centerを使用していない場合や、監視を追加のエンドポイントに拡張する場合にお勧めします。
+
+モニタリングオペレータは、アストラデータストアインスタンスがスタンドアロン環境である場合、Cloud Insights を使用してテレメトリを監視する場合、またはElasticなどのサードパーティのエンドポイントにログをストリーミングする場合にインストールできます。
+
+
+NOTE: Astra Control Centerの導入では、モニタリングオペレータが自動的に設定されます。次の手順 の最初の2つのコマンドはスキップできます。
+
+監視を設定する前に'astras-system'名前空間にアクティブなAstraデータストアクラスタが必要です
+
+.手順
+. 次のインストールコマンドを実行します。
++
+[listing]
+----
+kubectl apply -f ./manifests/monitoring_operator.yaml
+----
+. Astraデータストアを監視用に設定します。
++
+[listing]
+----
+kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup
+----
+. ElasticエンドポイントにEMSログをストリーミングするようにAstraデータストアを設定します。
++
+[listing]
+----
+kubectl astrads monitoring es --port <portname> --host <hostname>
 ----
 

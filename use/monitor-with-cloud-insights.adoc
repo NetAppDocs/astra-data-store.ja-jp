@@ -11,7 +11,13 @@ summary: Cloud Insights 指標を使用して、 Astra データストアアセ�
 :imagesdir: ../media/use/
 
 
-Cloud Insights を使用して、 Astra データストアのプレビュー指標を監視できます。
+Cloud Insights を使用して、Astraデータストアの指標を監視できます。
+
+Cloud Insights に表示されるAstraデータストアの指標の例を次に示します。image:ci_ui_metrics.png["Cloud Insights が Astra データストアの指標を示している"]
+
+を使用して、Astraデータストアで生成された指標のリストを表示することもできます <<Open Metrics API help>>。
+
+次のタスクを実行できます。
 
 * <<Complete Cloud Insights connection prerequisite tasks>>
 * <<Acquisition Unit storage>>
@@ -20,18 +26,14 @@ Cloud Insights を使用して、 Astra データストアのプレビュー指�
 * <<Disconnect from Cloud Insights>>
 
 
-Cloud Insights に表示される Astra データストアプレビュー指標の例を次に示します。image:ci_ui_metrics.png["Cloud Insights が Astra データストアの指標を示している"]
-
-を使用して、 Astra データストアのプレビューで生成された指標のリストを表示することもできます <<Open Metrics API help>>。
-
 
 
 == Cloud Insights 接続の前提条件となる作業を完了する
 
 Cloud Insights を使用して Astra データストアに接続する前に、次の作業を完了する必要があります。
 
-* link:../get-started/install-ads.html#install-the-monitoring-operator["Astra Data Store Monitoring Operator をインストールします"] これは、 Astra Data Store プレビューインストール手順の一部です。
-* link:../get-started/install-ads.html["kubectl-astras バイナリをインストールします"] これは、 Astra Data Store プレビューインストール手順の一部です。
+* link:../get-started/install-ads.html#install-the-monitoring-operator["Astra Data Store Monitoring Operator をインストールします"] これは、Astra Data Storeのインストール手順の一部です。
+* link:../get-started/install-ads.html["kubectl-astras バイナリをインストールします"] これは、Astra Data Storeのインストール手順の一部です。
 * https://docs.netapp.com/us-en/cloudinsights/task_cloud_insights_onboarding_1.html["Cloud Insights アカウントを作成します"^]。
 * 'awk 、 curl 、 grep ' および 'jq' の各コマンドが使用可能であることを確認します
 
@@ -39,7 +41,7 @@ Cloud Insights を使用して Astra データストアに接続する前に、�
 次の情報を収集します。
 
 * * Cloud Insights API アクセストークン * 。各カテゴリに対する読み取り / 書き込み権限： Acquisition Unit 、 Data Collection 、 Data Ingestion 、 Log Ingestionこれは、読み取り / 書き込み処理、 Acquisition Unit のセットアップ、およびデータの取り込みプロセスのセットアップに使用されます。
-* * Kubernetes API サーバの IP アドレスとポート * 。Astra データストアプレビュークラスタを監視するために使用します。
+* * Kubernetes API サーバの IP アドレスとポート * 。これは、Astraデータストアクラスタを監視するために使用されます。
 * * Kubernetes API トークン * 。これは Kubernetes API を呼び出すために使用されます。
 * * 永続ボリューム構成 * 。永続ボリュームのプロビジョニング方法に関する情報。
 
@@ -56,13 +58,13 @@ Kubernetes クラスタにストレージプロビジョニングツール（ Ne
 
 == インストールスクリプトをダウンロードして実行します
 
-Cloud Insights では、 Bash スクリプトを使用して Astra データストアのプレビュー監視を監視オペレータから有効にすることができます。インストールスクリプトは、 Astra Data Store コレクタ、 Telegraf エージェント、および Fluent ビットエージェントを備えた Acquisition Unit をインストールします。
+Cloud Insights では、モニタリングオペレータによるアストラデータストアのモニタリングを有効にするためのBashスクリプトを提供しています。インストールスクリプトは、Astra Data StoreコレクタとFluentビットエージェントを備えたAcquisition Unitをインストールします。
 
 Cloud Insights テナントのドメイン名と選択した Cloud Insights API アクセストークンは、ダウンロード時にインストーラスクリプトに組み込まれます。
 
 その後、次のように指標が送信されます。
 
-* Telegraf は指標を Cloud Insights データレイクに送信します。
+* Cloud Insights Acquisition UnitからCloud Insights データレイクに指標が送信されます。
 * FLUENT ビットは、ログ取り込みサービスにログを送信します。
 
 
@@ -134,7 +136,6 @@ Configuring Cloud Insights monitoring for Astra Data Store . . .
 Configuring monitoring namespace
 ...
 Configuring output sink and Fluent Bit plugins
-Configuring Telegraf plugins
 Configuring Acquisition Unit
 ...
 Acquisition Unit has been installed successfully.
@@ -189,23 +190,6 @@ Configuration done!
     domain-name: bzl9ngz.gst-adsdemo.ci-dev.netapp.com
     name: CI
   serviceAccount: sa-netapp-monitoring
-  telegraf:
-  - name: ads-open-metric
-    outputs:
-    - sink: CI
-    run-mode:
-    - ReplicaSet
-    substitutions:
-    - key: URLS
-      values:
-      - http://astrads-metrics-service.astrads-system.svc.cluster.local:9341
-    - key: METRIC_TYPE
-      value: ads-metric
-    - key: ADS_CATEGORY
-      value: netapp_ads
-    - key: ADS_CLUSTER_NAME
-      value: meg-ads-21-22-28-29-30
-  - name: agent
 status:
   au-pod-status: UP
   au-uuid: eddeccc6-3aa3-4dd2-a98c-220085fae6a9
@@ -260,17 +244,17 @@ kubectl --namespace netapp-monitoring edit agent agent-monitoring-netapp
 . エディタウィンドウを保存して終了します。
 
 
-モニタリングオペレータは、 Tegraf ビットと Fluent ビットを更新して、新しい Cloud Insights API アクセストークンを使用します。
+モニタリングオペレータは、新しいCloud Insights APIアクセストークンを使用するようにFluentビットを更新します。
 
 
 
 == Cloud Insights から切断します
 
-Cloud Insights から切断するには、最初に Cloud Insights UI から Astra データストアコレクタを削除する必要があります。これが完了したら、モニタリングオペレータから Acquisition Unit 、 Telegraf 、および Fluent の各ビット設定を削除できます。
+Cloud Insights から切断するには、最初に Cloud Insights UI から Astra データストアコレクタを削除する必要があります。これが完了したら、モニタリングオペレータからAcquisition Unit、Telegraf（設定されている場合）、およびFluentビットの設定を削除できます。
 
 
 
-=== Astra Data Store プレビューコレクタを削除
+=== Astra Data Store コレクタを削除
 
 . Cloud Insights にログインします。
 . [*Admin*>] > [* Data Collectors] を選択して、 [Data Collectors] ページにアクセスします。
@@ -281,7 +265,7 @@ Cloud Insights から切断するには、最初に Cloud Insights UI から Ast
 
 
 
-=== Acquisition Unit 、 Telegraf 、および Fluent ビットを削除します
+=== Acquisition Unit、Telegraf（設定されている場合）、およびFluentビットを取り外します
 
 . エージェント CR を編集します。
 +
@@ -291,11 +275,11 @@ kubectl --namespace netapp-monitoring edit agent agent-monitoring-netapp
 ----
 . 「 au 」セクションを探し、「 IsEnabled 」を「 false 」に設定します
 . 「 FLUENT ビット」セクションを探し、「 ADS テール CI 」という名前のプラグインを削除します。プラグインがない場合は、「 FLUENT - BIT 」セクションを削除できます。
-. 「テレグラム」セクションを探し、「 ads - オープンメトリック」という名前のプラグインを削除します。プラグインがない場合は、「テレグラム」セクションを削除できます。
+. Telegrafが設定されている場合は、「テレグラム」セクションを探し、「ADSオープンメトリック」という名前のプラグインを削除します。プラグインがない場合は、「テレグラム」セクションを削除できます。
 . 「 output-sink 」セクションを探し、「 ci 」という名前のシンクを取り外します。
 . エディタウィンドウを保存して終了します。
 +
-モニタリングオペレータが Telegraf および Fluent ビット設定を更新し、 Acquisition Unit ポッドを削除します。
+モニタリングオペレータがTelegraf（設定されている場合）およびFluentビット設定を更新し、Acquisition Unitポッドを削除します。
 
 . ストレージプロビジョニング担当者ではなく Acquisition Unit PVS にローカルディレクトリを使用した場合は、 PVS を削除します。
 +
@@ -316,13 +300,13 @@ kubectl delete pv au-lib au-log au-pv
 
 
 
-Monitoring Operator は、 Telegraf および Fluent ビットの設定を更新し、 Acquisition Unit を削除します。
+モニタリングオペレータは、Telegraf（設定されている場合）およびFluentビットの設定を更新し、Acquisition Unitを削除します。
 
 
 
 == Open Metrics API のヘルプを参照してください
 
-Astra データストアプレビューから指標を収集するために使用できる API のリストを次に示します。
+Astraデータストアから指標を収集するために使用できるAPIのリストを次に示します。
 
 * 「 help 」行は指標を表します。
 * 「 type 」行は、メトリックがゲージかカウンタかを示します。
