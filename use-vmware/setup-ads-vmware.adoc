@@ -33,7 +33,6 @@ VMwareを使用してAstraデータストアをセットアップする前に、
 NOTE: Astra Data Store Early Access Program（EAP）リリースの場合、Astra Control CenterとAstra Data Storeを2つの異なるKubernetesクラスタに導入する必要があります。
 
 * Astra Control CenterとAstraデータストアの導入に使用したKubernetesクラスタは、Astra Control Centerで管理しておく必要があります。
-* NFSv3が有効になります。
 * vCenterを追加する前に、Astra Control CenterとVASA Providerのパッケージをアップロードしておきます。 https://docs.netapp.com/us-en/astra-control-center/use/manage-packages-acc.html["ソフトウェアパッケージの管理を参照してください"^]。
 
 

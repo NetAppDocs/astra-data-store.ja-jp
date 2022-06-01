@@ -38,7 +38,6 @@ NetApp Astra Plugin for VMware vSphereの要件は次のとおりです。
 
 * Kubernetesクラスタで実行されるAstra Control Centerインスタンス
 * Kubernetesクラスタ上で実行される、ライセンス供与されたAstraデータストアインスタンス
-* AstraデータストアクラスタでNFSv3を有効化
 
 
 
