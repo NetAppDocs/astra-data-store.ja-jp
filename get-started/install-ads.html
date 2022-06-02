@@ -843,7 +843,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-01 01:05:35 +0000">06/01/2022</time>
+    <time datetime="2022-06-02 16:25:45 +0000">06/02/2022</time>
     
   
 
@@ -967,7 +967,7 @@ Rancher RKE環境でAstra Data Storeをインストールするには、次の�
 <img src="/us-en/astra-data-store/images/note.svg" alt="注記">
 </td>
 <td class="content">
-以前のバージョンのバンドルに関する手順については、を参照してください <a href="../acc-earlier-versions.html">"該当するバージョンのドキュメント"</a>。
+以前のバージョンのバンドルに関する手順については、を参照してください <a href="../ads-earlier-versions.html">"該当バージョンのドキュメントを参照してください"</a>。
 </td>
 </tr>
 </table>
@@ -1094,6 +1094,19 @@ sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./astrads/manifests/*.yaml</pre>
 <div class="paragraph">
 <p>以下の手順 は、Red Hat OpenShift Container Platform（OCP）への導入にのみ使用してください。OCP以外のKubernetesクラスタへの導入については、この手順 をスキップしてください。</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>Astraデータストアを導入するためのネームスペースを作成</p>
+</li>
+<li>
+<p>カスタム SCC を作成します</p>
+</li>
+<li>
+<p>ロールとロールのバインドを作成します</p>
+</li>
+</ul>
+</div>
 <div class="exampleblock">
 <div class="title">例 1. 詳細</div>
 <div class="content">
@@ -1101,7 +1114,7 @@ sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./astrads/manifests/*.yaml</pre>
 <p>すべてのAstraデータストアコンポーネントをインストールする名前空間「astrs-system」を作成します。</p>
 </div>
 <div class="paragraph">
-<p>以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。</p>
+<p>次の手順は、Red Hat OpenShift Container Platform（OCP）に導入する場合にのみ必要です。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1199,8 +1212,8 @@ volumes:
 <div class="listingblock">
 <div class="content">
 <pre># oc get scc/ads-privileged
-NAME             PRIV   CAPS    SELINUX    RUNASUSER   FSGROUP    SUPGROUP   PRIORITY     READONLYROOTFS   VOLUMES
-ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   &lt;no value&gt;   false            ["*"]
+NAME           PRIV  CAPS  SELINUX  RUNASUSER FSGROUP   SUPGROUP  PRIORITY   READONLYROOTFS  VOLUMES
+ads-privileged true  ["*"] RunAsAny RunAsAny  RunAsAny  RunAsAny  &lt;no value&gt; false           ["*"]
 #</pre>
 </div>
 </div>
@@ -1296,7 +1309,7 @@ subjects:
 <div class="sect2">
 <h3 id="プライベートイメージレジストリを設定します">プライベートイメージレジストリを設定します</h3>
 <div class="paragraph">
-<p>特定の環境では、オプションとして設定を変更して、シークレットを使用するプライベートレジストリからイメージをプルできます。</p>
+<p>環境によっては、シークレットを使用するプライベートレジストリからイメージをプルするように設定を変更することもできます。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1366,7 +1379,7 @@ astrads/manifests/configuration.yaml</pre>
 </div>
 </li>
 <li>
-<p>kubectl apply を使用してオペレータを配備します。</p>
+<p>「kubectl apply」を使用してオペレータを配備します。</p>
 <div class="listingblock">
 <div class="content">
 <pre>kubectl apply -f ./astrads/manifests/astradsoperator.yaml</pre>
@@ -1382,7 +1395,7 @@ astrads/manifests/configuration.yaml</pre>
 <img src="/us-en/astra-data-store/images/note.svg" alt="注記">
 </td>
 <td class="content">
-ネームスペースの応答は、標準インストールとのどちらを実行したかによって異なる場合があります <a href="../get-started/install-ads.html#openshift-procedure">"OCPのインストール"</a>。
+ネームスペースの応答は、標準インストールとのどちらを実行したかによって異なる場合があります <a href="../get-started/install-ads.html#openshift-procedure">"OpenShift Container Platformのインストール"</a>。
 </td>
 </tr>
 </table>
@@ -1488,7 +1501,7 @@ astrads-operator-5ffb94fbf-7ln4h    1/1     Running   0          17m</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>kubectl apply を使用した導入：</p>
+<p>kubectl applyを使用した配備:</p>
 <div class="listingblock">
 <div class="content">
 <pre>kubectl apply -f ./astrads/manifests/astradsversion.yaml</pre>
@@ -1545,8 +1558,8 @@ astrads-operator-5ffb94fbf-7ln4h              1/1     Running   0          2m10s
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>NAME                     ADSCLUSTER                 VALID   PRODUCT             EVALUATION  ENDDATE     VALIDATED
-e100000006-ads-capacity  astrads-example-cluster    true    Astra Data Store    true        2023-01-23  2022-04-04T14:38:54Z</pre>
+<pre>NAME                    ADSCLUSTER               VALID PRODUCT          EVALUATION  ENDDATE     VALIDATED
+e100000006-ads-capacity astrads-example-cluster  true  Astra Data Store true        2023-01-23  2022-04-04T14:38:54Z</pre>
 </div>
 </div>
 </li>
