@@ -61,7 +61,7 @@ NOTE: Rancher RKE環境でAstra Data Storeをインストールするには、�
 . にログインします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^] Astra Data Storeバンドルをダウンロードします(`Astra_Data-Store_22.05.tar')
 +
 
-NOTE: 以前のバージョンのバンドルに関する手順については、を参照してください link:../acc-earlier-versions.html["該当するバージョンのドキュメント"]。
+NOTE: 以前のバージョンのバンドルに関する手順については、を参照してください link:../ads-earlier-versions.html["該当バージョンのドキュメントを参照してください"]。
 
 . （任意）次のコマンドを使用して、バンドルのシグニチャを確認します。
 +
@@ -142,11 +142,16 @@ sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./astrads/manifests/*.yaml
 
 以下の手順 は、Red Hat OpenShift Container Platform（OCP）への導入にのみ使用してください。OCP以外のKubernetesクラスタへの導入については、この手順 をスキップしてください。
 
+* Astraデータストアを導入するためのネームスペースを作成
+* カスタム SCC を作成します
+* ロールとロールのバインドを作成します
+
+
 .詳細
 ====
 すべてのAstraデータストアコンポーネントをインストールする名前空間「astrs-system」を作成します。
 
-以下の手順は、 Red Hat OpenShift Container Platform （ OCP ）に導入する場合にのみ必要です。
+次の手順は、Red Hat OpenShift Container Platform（OCP）に導入する場合にのみ必要です。
 
 . ネームスペースを作成します。
 +
@@ -232,8 +237,8 @@ volumes:
 [listing]
 ----
 # oc get scc/ads-privileged
-NAME             PRIV   CAPS    SELINUX    RUNASUSER   FSGROUP    SUPGROUP   PRIORITY     READONLYROOTFS   VOLUMES
-ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   <no value>   false            ["*"]
+NAME           PRIV  CAPS  SELINUX  RUNASUSER FSGROUP   SUPGROUP  PRIORITY   READONLYROOTFS  VOLUMES
+ads-privileged true  ["*"] RunAsAny RunAsAny  RunAsAny  RunAsAny  <no value> false           ["*"]
 #
 ----
 
@@ -319,7 +324,7 @@ subjects:
 
 === プライベートイメージレジストリを設定します
 
-特定の環境では、オプションとして設定を変更して、シークレットを使用するプライベートレジストリからイメージをプルできます。
+環境によっては、シークレットを使用するプライベートレジストリからイメージをプルするように設定を変更することもできます。
 
 . 前の手順に進んでいない限り'astrs-system'名前空間を作成します
 +
@@ -369,7 +374,7 @@ astrads/manifests/vasa_asup_certs.yaml
 astrads/manifests/manifest.yaml
 astrads/manifests/configuration.yaml
 ----
-. kubectl apply を使用してオペレータを配備します。
+. 「kubectl apply」を使用してオペレータを配備します。
 +
 [listing]
 ----
@@ -380,7 +385,7 @@ kubectl apply -f ./astrads/manifests/astradsoperator.yaml
 
 +
 
-NOTE: ネームスペースの応答は、標準インストールとのどちらを実行したかによって異なる場合があります link:../get-started/install-ads.html#openshift-procedure["OCPのインストール"]。
+NOTE: ネームスペースの応答は、標準インストールとのどちらを実行したかによって異なる場合があります link:../get-started/install-ads.html#openshift-procedure["OpenShift Container Platformのインストール"]。
 
 +
 [listing]
@@ -478,7 +483,7 @@ astrads-operator-5ffb94fbf-7ln4h    1/1     Running   0          17m
 
 === Astra Data StoreバージョンYAMLを導入します
 
-. kubectl apply を使用した導入：
+. kubectl applyを使用した配備:
 +
 [listing]
 ----
@@ -529,8 +534,8 @@ kubectl astrads license list
 +
 [listing]
 ----
-NAME                     ADSCLUSTER                 VALID   PRODUCT             EVALUATION  ENDDATE     VALIDATED
-e100000006-ads-capacity  astrads-example-cluster    true    Astra Data Store    true        2023-01-23  2022-04-04T14:38:54Z
+NAME                    ADSCLUSTER               VALID PRODUCT          EVALUATION  ENDDATE     VALIDATED
+e100000006-ads-capacity astrads-example-cluster  true  Astra Data Store true        2023-01-23  2022-04-04T14:38:54Z
 ----
 
 
