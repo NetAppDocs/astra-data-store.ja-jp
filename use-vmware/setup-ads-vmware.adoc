@@ -26,6 +26,10 @@ VMwareでAstraデータストアをセットアップするには、次のタス
 VMwareを使用してAstraデータストアをセットアップする前に、次のことを確認する必要があります。
 
 * Astra Control Centerは https://docs.netapp.com/us-en/astra-control-center/get-started/install_overview.html["インストール済み"] セットアップも完了しています。
++
+
+NOTE: Astra Data Store Early Access Program (EAP)リリースでは、Astra Control Centerを使用してAstraデータストアを管理し、VMwareワークフローを有効にする場合、Astra Control Centerは"pcloud"名前空間にのみ導入します。
+
 * Astraデータストアのライセンスを取得し、導入している。を参照してください link:../get-started/install-ads.html["Astra データストアをインストール"]。
 
 
