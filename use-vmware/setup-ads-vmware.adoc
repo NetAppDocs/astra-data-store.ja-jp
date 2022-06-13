@@ -69,7 +69,7 @@ NOTE: Astra Control CenterのVMware vSphereサービスは、デフォルトで�
 vCenterをAstra Control Centerに追加するには、管理者権限が必要です。
 
 
-TIP: プラグインをVMware vSphereに登録すると、VMwareのショートカットページにAstra Plugin for VMware vSphereアイコンが表示されます。
+TIP: プラグインをVMware vSphereに登録すると、VMwareのショートカットページにAstra Plugin for VMware vSphereアイコンが表示されます。Astra Plugin for VMware vSphereを登録しても、プラグインがすぐに表示されない場合があります。この場合は、数秒待ってからブラウザを更新してください。
 
 . Astra Control Center にログインします。
 . 左側のナビゲーションから、*クラスタ*を選択します。
