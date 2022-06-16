@@ -645,3 +645,33 @@ kubectl delete astradskeyprovider <key-provider-cr-name> -n astrads-system
 
 
 ====
+
+
+=== Astra Control Center Web UIからAstraデータストアをアンインストールできない
+
+Astraデータストアのアンインストールプロセスは、Astra Control Center Web UIから起動した場合に失敗することがあります。
+
+この問題 が発生した場合は、次の手順を実行します。
+
+.手順
+. にログインします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^] Astra Data Storeバンドル(`Astra_Data-Store_22.05.tar')を'Astra Data Storeが存在するKubernetesクラスタにアクセスできるマシンにダウンロードします
+. Astra Data Storeバンドルをダウンロードしたマシンにログインします。
+. バンドルの内容を展開します。
++
+[listing]
+----
+tar -xvf <path to tar file>/Astra_Data_Store_2022.05.tar
+----
+. アンインストールスクリプトが格納されているマニフェストディレクトリに変更します。
++
+[listing]
+----
+cd astrads/manifests/
+----
+. Astraデータストアを手動で削除：
++
+[listing]
+----
+./uninstall all
+----
+

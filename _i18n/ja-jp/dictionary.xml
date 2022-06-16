@@ -1463,4 +1463,12 @@
   <block id="a013c4206bb1d6d5c2ec96679a9ea56d" category="admonition">プラグインをVMware vSphereに登録すると、VMwareのショートカットページにAstra Plugin for VMware vSphereアイコンが表示されます。Astra Plugin for VMware vSphereを登録しても、プラグインがすぐに表示されない場合があります。この場合は、数秒待ってからブラウザを更新してください。</block>
   <block id="7d8019149f75b25a53d2461a1eb477f2" category="inline-link">Astra Control Centerのストレージバックエンドクラスタにノードを追加します</block>
   <block id="27a8ed330fb0e757a7fd3ce6f78a92d1" category="list-text"><block ref="27a8ed330fb0e757a7fd3ce6f78a92d1" category="inline-link-rx"></block></block>
+  <block id="de93102ec4b436fc99e2d5c4f2461e28" category="section-title">Astra Control Center Web UIからAstraデータストアをアンインストールできない</block>
+  <block id="b7865115c7c6bc24a8349abcbc4bb445" category="paragraph">Astraデータストアのアンインストールプロセスは、Astra Control Center Web UIから起動した場合に失敗することがあります。</block>
+  <block id="ce9e26154d02db4cb2b8782df2d32138" category="paragraph">この問題 が発生した場合は、次の手順を実行します。</block>
+  <block id="0562e69710e3b4fd2b95653650194299" category="list-text">にログインします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra Data Storeバンドル(`Astra_Data-Store_22.05.tar')を'Astra Data Storeが存在するKubernetesクラスタにアクセスできるマシンにダウンロードします</block>
+  <block id="7dc32dcac8a46d2290bd5cd5f198681a" category="list-text">Astra Data Storeバンドルをダウンロードしたマシンにログインします。</block>
+  <block id="cd111719eb2a51044ba027133eadbca4" category="list-text">バンドルの内容を展開します。</block>
+  <block id="59f54f26ac5b828c04c0feead1cda5dc" category="list-text">アンインストールスクリプトが格納されているマニフェストディレクトリに変更します。</block>
+  <block id="9a73786dc4f684fddd37eafd0ce31132" category="list-text">Astraデータストアを手動で削除：</block>
 </blocks>
