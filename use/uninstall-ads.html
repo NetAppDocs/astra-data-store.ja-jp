@@ -835,7 +835,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-01 01:05:35 +0000">06/01/2022</time>
+    <time datetime="2022-06-16 18:35:12 +0000">06/16/2022</time>
     
   
 
@@ -1665,6 +1665,50 @@ status:
 </ol>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="astra-control-center-web-uiからastraデータストアをアンインストールできない">Astra Control Center Web UIからAstraデータストアをアンインストールできない</h3>
+<div class="paragraph">
+<p>Astraデータストアのアンインストールプロセスは、Astra Control Center Web UIから起動した場合に失敗することがあります。</p>
+</div>
+<div class="paragraph">
+<p>この問題 が発生した場合は、次の手順を実行します。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>にログインします <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"ネットアップサポートサイト"</a> Astra Data Storeバンドル(`Astra_Data-Store_22.05.tar')を&#8217;Astra Data Storeが存在するKubernetesクラスタにアクセスできるマシンにダウンロードします</p>
+</li>
+<li>
+<p>Astra Data Storeバンドルをダウンロードしたマシンにログインします。</p>
+</li>
+<li>
+<p>バンドルの内容を展開します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>tar -xvf &lt;path to tar file&gt;/Astra_Data_Store_2022.05.tar</pre>
+</div>
+</div>
+</li>
+<li>
+<p>アンインストールスクリプトが格納されているマニフェストディレクトリに変更します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>cd astrads/manifests/</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Astraデータストアを手動で削除：</p>
+<div class="listingblock">
+<div class="content">
+<pre>./uninstall all</pre>
+</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
