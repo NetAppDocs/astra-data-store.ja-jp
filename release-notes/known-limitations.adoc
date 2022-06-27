@@ -15,7 +15,7 @@ summary: 既知の制限事項は、このリリースの製品でサポート�
 
 
 
-== Astra Data Store 2022.05 Early Access Program (EAP)リリース
+== Astra Data Store 2022.05.01 Early Access Program (EAP)リリース
 
 このリリースには、次の既知の制限事項があります。これらの既知の制限事項をよく確認してください。
 
@@ -32,7 +32,6 @@ summary: 既知の制限事項は、このリリースの製品でサポート�
 
 
 * VVolレプリケーション
-* VVolデータストアを削除します
 * ファーストクラスディスク（FC）
 * VMware vMotion
 * リンクモードのvCenter Server

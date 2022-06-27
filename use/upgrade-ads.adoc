@@ -24,25 +24,25 @@ Astra Data Storeの「kubectl」拡張機能を使用して、Astraデータス�
 === Astra Data Storeバンドルをダウンロードしてイメージを展開
 
 .手順
-. にログインします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^] Astra Data Storeバンドルをダウンロードします(`Astra_Data-Store_22.05.tar')
+. にログインします https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["ネットアップサポートサイト"^] Astra Data Storeバンドル(`Astra _Data-Store_2022.05.01.tar')をダウンロードします。
 . （任意）次のコマンドを使用して、バンドルのシグニチャを確認します。
 +
 [listing]
 ----
-openssl dgst -sha256 -verify Astra_Data_Store_2022.05.pub -signature Astra_Data_Store_2022.05.sig 2022.12.01_ads.tar
+openssl dgst -sha256 -verify Astra_Data_Store_2022.05.01.pub -signature Astra_Data_Store_2022.05.01.sig 2022.12.01_ads.tar
 ----
 . ディレクトリを作成します。
 +
 [listing]
 ----
-mkdir Astra_Data_Store_2022.05
-cd Astra_Data_Store_2022.05
+mkdir Astra_Data_Store_2022.05.01
+cd Astra_Data_Store_2022.05.01
 ----
 . 画像を抽出します。
 +
 [listing]
 ----
-tar -vxzf <path to tar file>/Astra_Data_Store_2022.05.tar
+tar -vxzf <path to tar file>/Astra_Data_Store_2022.05.01.tar
 ----
 +
 

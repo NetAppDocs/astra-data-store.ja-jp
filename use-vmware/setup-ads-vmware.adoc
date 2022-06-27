@@ -31,11 +31,6 @@ VMwareを使用してAstraデータストアをセットアップする前に、
 NOTE: Astra Data Store Early Access Program (EAP)リリースでは、Astra Control Centerを使用してAstraデータストアを管理し、VMwareワークフローを有効にする場合、Astra Control Centerは"pcloud"名前空間にのみ導入します。
 
 * Astraデータストアのライセンスを取得し、導入している。を参照してください link:../get-started/install-ads.html["Astra データストアをインストール"]。
-
-
-
-NOTE: Astra Data Store Early Access Program（EAP）リリースの場合、Astra Control CenterとAstra Data Storeを2つの異なるKubernetesクラスタに導入する必要があります。
-
 * Astra Control CenterとAstraデータストアの導入に使用したKubernetesクラスタは、Astra Control Centerで管理しておく必要があります。
 * vCenterを追加する前に、Astra Control CenterとVASA Providerのパッケージをアップロードしておきます。 https://docs.netapp.com/us-en/astra-control-center/use/manage-packages-acc.html["ソフトウェアパッケージの管理を参照してください"^]。
 
@@ -221,7 +216,7 @@ Astra Control Center UIを使用してvCenterを追加したあと、Astra Data 
 
 
 
-NOTE: 追加したvCenterがストレージバックエンドウィザードに表示されるまでに10分かかることがあります。
+NOTE: 追加したストレージバックエンドがストレージバックエンドウィザードに表示されるまでに数分かかることがあります。
 
 
 NOTE: Astraデータストアを複数のvCenterと共有しない。

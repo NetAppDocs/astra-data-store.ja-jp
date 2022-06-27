@@ -645,7 +645,6 @@
   <block id="17d6fb8ac6af8dbaeeb6a6b132b87546" category="paragraph">以前のリリースのドキュメントを参照できます。</block>
   <block id="a68d5fd5578b1ccf876faffbf7c2b6b2" category="inline-link">Astra Data Store 21.12ドキュメント</block>
   <block id="7ac58243fcf95610c6a5ad215c63ba59" category="list-text"><block ref="7ac58243fcf95610c6a5ad215c63ba59" category="inline-link-rx"></block></block>
-  <block id="62e72931f7852895f263c1d84a9880fe" category="paragraph">この度、アストラデータストアの2022.05 Early Access Program (EAP)リリースを発表いたしました。</block>
   <block id="ac4b2c717b7b0e251e30e60b6b737e01" category="section-title">2022年5月31日（2022.05 EAP Release）</block>
   <block id="a6a56368455ad5b9eba90e9f90e038b0" category="paragraph">Astra Data Store 2022.05リリースには次の機能が含まれています。</block>
   <block id="4d3b896dfa64696e99997f98fa331878" category="list-text">VMware環境の統合：</block>
@@ -677,7 +676,6 @@
   <block id="ccfbdfd1b2af5208a055a71ed33cc478" category="list-text">このIPアドレスは、Astraデータストアクラスタに割り当てられたクラスタ/データIPアドレスと同じサブネット内にあります。</block>
   <block id="b4906e06634c0db2a2ea89b7657231be" category="list-text"><block ref="b4906e06634c0db2a2ea89b7657231be" category="inline-link-macro-rx"></block></block>
   <block id="e06796f5edcbff9ec7a6b060c96e304a" category="paragraph">既知の制限事項は、製品のこのEarly Access Program（EAP；早期アクセスプログラム）リリースでサポートされていないプラットフォーム、デバイス、または機能、またはそれと正常に相互運用できない機能を示しています。</block>
-  <block id="4e6b30aaac636ff7e9473868abb3bd28" category="section-title">Astra Data Store 2022.05 Early Access Program (EAP)リリース</block>
   <block id="1b5c6e7907cf9c46f5edaff42bd11410" category="paragraph">このリリースには、次の既知の制限事項があります。これらの既知の制限事項をよく確認してください。</block>
   <block id="c2a27caa6052749bd9639e9099deaa24" category="section-title">VMwareとの統合に関する制限事項</block>
   <block id="b7b42132f8e93917eac40b208d22bece" category="paragraph">次の機能はサポートされません。</block>
@@ -685,7 +683,6 @@
   <block id="87b56c556cb4ea3c4e3cb8ed83104abd" category="list-text">テンプレートからのクローン作成を含めて、VMをクローニングします</block>
   <block id="6a776555e801e78b60b64313ae7f49ea" category="list-text">以前にVMディスクを取り外したあとでVMディスクを接続する</block>
   <block id="7ae1684f637daf6b4d5eee857fd95c23" category="list-text">VVolレプリケーション</block>
-  <block id="778e60f63232bef57ef209fa59253415" category="list-text">VVolデータストアを削除します</block>
   <block id="24f1bc28ac1357d77fb82fad5469c402" category="list-text">ファーストクラスディスク（FC）</block>
   <block id="d86030abdf90a0e463f815e6366bf38e" category="list-text">VMware vMotion</block>
   <block id="fc8417a1a9c240603c6ea7ed80dfce1f" category="list-text">リンクモードのvCenter Server</block>
@@ -739,7 +736,6 @@
   <block id="2f3aed0a9846bf51daa98694af299373" category="list-text">Astra Control Centerは<block ref="1b027c268f1a7b02c2d20e35deb0e665" category="inline-link-rx"></block> セットアップも完了しています。</block>
   <block id="cc41262b7d4f903b7e21bdf37c1621f9" category="inline-link-macro">Astra データストアをインストール</block>
   <block id="be85c0739cb66db5730a127fc4eeca0b" category="list-text">Astraデータストアのライセンスを取得し、導入している。を参照してください <block ref="14497a94943dc819ca2bc8999e1f8acf" category="inline-link-macro-rx"></block>。</block>
-  <block id="bcbfdb4e0453703e1cacd04a44fcf331" category="admonition">Astra Data Store Early Access Program（EAP）リリースの場合、Astra Control CenterとAstra Data Storeを2つの異なるKubernetesクラスタに導入する必要があります。</block>
   <block id="0dfd76a1e74c0c1c369c6c72f51214c5" category="list-text">Astra Control CenterとAstraデータストアの導入に使用したKubernetesクラスタは、Astra Control Centerで管理しておく必要があります。</block>
   <block id="6ce81e904046a779dc90e25023f4c1fb" category="inline-link">ソフトウェアパッケージの管理を参照してください</block>
   <block id="943cdfda279a36415463cde698fbed02" category="list-text">vCenterを追加する前に、Astra Control CenterとVASA Providerのパッケージをアップロードしておきます。<block ref="72710cc45af0accb224cb54ac4340dda" category="inline-link-rx"></block>。</block>
@@ -781,7 +777,6 @@
   <block id="16f74d858b39be1bcbf559502f3c45cb" category="list-text">選択したvCenterに既存のストレージバックエンドを追加します。</block>
   <block id="bf6158455b90408eeed049516045305c" category="list-text">選択したvCenterにVASA Providerを登録します。VASAプロバイダは、VMwareとAstraデータストアの間の通信を提供します。</block>
   <block id="5f217a62c0901005d1459081ec1ec864" category="list-text">VASA Providerの自己署名証明書をストレージバックエンドに追加します。</block>
-  <block id="2fcdf56e9820af40c4076985811b5041" category="admonition">追加したvCenterがストレージバックエンドウィザードに表示されるまでに10分かかることがあります。</block>
   <block id="7765d8b6344ab1b3c9515185491be6b2" category="admonition">Astraデータストアを複数のvCenterと共有しない。</block>
   <block id="afb52bd4ad10674bfac7c825c61edd25" category="list-text">NetApp Astra Plugin for VMware vSphereにアクセスします。</block>
   <block id="f1383a5412284a8236d8b2ec9c6c3f68" category="list-text">左側のナビゲーションから、「* Astra Plugin for VMware vSphere *」を選択するか、ショートカットページから「* Astra Plugin for VMware vSphere *」アイコンを選択します。</block>
@@ -1051,7 +1046,6 @@
   <block id="795aa22c96e8d729c55ba7303fa7e009" category="section-title">kubectlを使用してAstraデータストアをアップグレード</block>
   <block id="d833fef079ebe2baa7496e1b45577aab" category="paragraph">Astra Data Storeの「kubectl」拡張機能を使用して、Astraデータストアをアップグレードできます。</block>
   <block id="cff845c73924c3a40205fc396d36a2fe" category="section-title">Astra Data Storeバンドルをダウンロードしてイメージを展開</block>
-  <block id="f35cbb5775f17e10040fc2b8cbf4f5b4" category="list-text">にログインします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra Data Storeバンドルをダウンロードします(`Astra_Data-Store_22.05.tar')</block>
   <block id="8c93a35342633c66859b2546d31b54c3" category="list-text">ディレクトリを作成します。</block>
   <block id="acf4107a11f6cc11e8352b3d6bbcb10d" category="admonition">画像は、作業ディレクトリ内に作成された「astrs/images」ディレクトリに抽出されます。</block>
   <block id="3864427ab96992f87c91866fcf100c4b" category="list-text">イメージを抽出するために使用したディレクトリからkubectl-astrasバイナリをKubernetes kubectlバイナリがインストールされている標準パスにコピーします(/usr/bin/は下の例のパスとして使用されます)。kubectl-astrasは、Astraデータストアクラスタをインストールおよび管理するカスタムのkubectl拡張機能です。</block>
@@ -1466,9 +1460,18 @@
   <block id="de93102ec4b436fc99e2d5c4f2461e28" category="section-title">Astra Control Center Web UIからAstraデータストアをアンインストールできない</block>
   <block id="b7865115c7c6bc24a8349abcbc4bb445" category="paragraph">Astraデータストアのアンインストールプロセスは、Astra Control Center Web UIから起動した場合に失敗することがあります。</block>
   <block id="ce9e26154d02db4cb2b8782df2d32138" category="paragraph">この問題 が発生した場合は、次の手順を実行します。</block>
-  <block id="0562e69710e3b4fd2b95653650194299" category="list-text">にログインします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra Data Storeバンドル(`Astra_Data-Store_22.05.tar')を'Astra Data Storeが存在するKubernetesクラスタにアクセスできるマシンにダウンロードします</block>
   <block id="7dc32dcac8a46d2290bd5cd5f198681a" category="list-text">Astra Data Storeバンドルをダウンロードしたマシンにログインします。</block>
   <block id="cd111719eb2a51044ba027133eadbca4" category="list-text">バンドルの内容を展開します。</block>
   <block id="59f54f26ac5b828c04c0feead1cda5dc" category="list-text">アンインストールスクリプトが格納されているマニフェストディレクトリに変更します。</block>
   <block id="9a73786dc4f684fddd37eafd0ce31132" category="list-text">Astraデータストアを手動で削除：</block>
+  <block id="c4775cb95f8ef138043d5ef5ce4eab9f" category="list-text">にログインします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra Data Storeバンドル(`Astra _Data-Store_2022.05.01.tar')をダウンロードします。</block>
+  <block id="7b452bb6f26fd06e969c64e0ae1fdbf8" category="admonition">追加したストレージバックエンドがストレージバックエンドウィザードに表示されるまでに数分かかることがあります。</block>
+  <block id="869ded6326067da65c878a02cf007fc4" category="list-text">にログインします<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra Data Storeバンドル(`Astra_Data-Store_2022.05.01.tar')を、Astraデータストアが存在するKubernetesクラスタにアクセスできるマシンにダウンロードします。</block>
+  <block id="58d68db0455b52c09ddec6316fea59f7" category="paragraph">アストラデータストアの2022.05.01 Early Access Program (EAP)リリースを発表しました。</block>
+  <block id="12a92c198bbb8e43c122c18973cd12f6" category="section-title">2022年6月28日（2022.05.01 EAPリリース）</block>
+  <block id="201beebdbd13dbefde4ec99e5d894779" category="paragraph">Astra Data Store EAPリリース(22.05.01)用のこのパッチリリース(2022.05.01)には、次の改善点が含まれています。</block>
+  <block id="ae9feba372efc57607e3e9b624b617d3" category="list-text">AstraデータストアとAstraコントロールセンターを同じクラスタ内で実行できるようになりました。</block>
+  <block id="c094c67915de70d3ed1cc9aa8856262b" category="list-text">vSphereからのVVolデータストアの削除ワークフローが可能になりました。</block>
+  <block id="d56c12b83d78eba04b61c91ad11d6682" category="admonition">このリリースでは、kubectl-mstraプラグインに同梱されているAstra Control Centerの最新バージョンが必要です。</block>
+  <block id="7be882efe20b993fddd0b3da5938ae7f" category="section-title">Astra Data Store 2022.05.01 Early Access Program (EAP)リリース</block>
 </blocks>

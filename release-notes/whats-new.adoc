@@ -11,7 +11,20 @@ summary: ネットアップは Astra データストアを定期的に更新し�
 :imagesdir: ../media/release-notes/
 
 
-この度、アストラデータストアの2022.05 Early Access Program (EAP)リリースを発表いたしました。
+アストラデータストアの2022.05.01 Early Access Program (EAP)リリースを発表しました。
+
+
+
+== 2022年6月28日（2022.05.01 EAPリリース）
+
+Astra Data Store EAPリリース(22.05.01)用のこのパッチリリース(2022.05.01)には、次の改善点が含まれています。
+
+* AstraデータストアとAstraコントロールセンターを同じクラスタ内で実行できるようになりました。
+* vSphereからのVVolデータストアの削除ワークフローが可能になりました。
+
+
+
+NOTE: このリリースでは、kubectl-mstraプラグインに同梱されているAstra Control Centerの最新バージョンが必要です。
 
 
 
